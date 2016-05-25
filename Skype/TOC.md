@@ -1,6 +1,12 @@
-# Skype Web SDK 
-## [Skype Web SDK](WebSDK/SkypeWebSDKPreview.md)
-### [Skype Web SDK general reference](WebSDK/GeneralReference.md)
+# [Skype](https://msdn.microsoft.com/en-us/library/office/dn954235.aspx)
+
+## [Skype Developer platform](https://msdn.microsoft.com/en-us/library/office/mt650889.aspx)
+
+### [Skype URI](https://msdn.microsoft.com/en-us/library/office/dn745878.aspx)
+
+
+### [Skype Web SDK](WebSDK/SkypeWebSDKPreview.md)
+#### [Skype Web SDK general reference](WebSDK/GeneralReference.md)
 #### [Core Capabilities](WebSDK/CoreCapabilities.md)
 ##### [Presence](WebSDK/Presence.md)
 ##### [Local User](WebSDK/LocalUser.md)
@@ -10,6 +16,7 @@
 ##### [Listening for and generating presence events](WebSDK/PresenceEvents.md)
 ##### [Persons](WebSDK/Persons.md)
 ##### [Devices](WebSDK/Devices.md)
+
 #### [Getting Started](WebSDK/GettingStarted.md)
 ##### [Release Notes](WebSDK/ReleaseNotes.md)
 ##### [Downloading and running samples](WebSDK/DownloadRunSamples.md)
@@ -43,18 +50,28 @@
 #### [Release Notes](WebSDK/ReleaseNotes.md)
 #### [CONTRIBUTING](https://github.com/OfficeDev/skype-docs/blob/master/CONTRIBUTING.md)
 #### [Terms Of Service](WebSDK/TermsOfService.md)
-# Skype for Business App SDK 
-## [Skype for Business App SDK Preview](AppSDK/SkypeAppSDK.md)
-### [Overview: Embed B2C communications](AppSDK/EmbedSkypeB2Ccomms.md)
-### [Getting started](AppSDK/GettingStarted.md)
-#### [Get a meeting URL](AppSDK/GetMeetingURL.md)
-#### [Use the SDK to join a meeting with an Android device](AppSDK/HowToJoinMeeting_Android.md)
-#### [Use the SDK to join a meeting with an iOS device](AppSDK/HowToJoinMeeting_iOS.md)
-### [Orientation](AppSDK/Orientation.md)
-#### [API Overview](AppSDK/APIoverview.md)
-#### [Platform considerations](AppSDK/PlatformConsiderations.md)
-#### [Versioning](AppSDK/Versioning.md)
-### [Download](AppSDK/Download.md)
-### [Samples](AppSDK/Samples.md)
-### [Submit your questions, bugs, feature requests, and contributions](AppSDK/Feedback.md)
 
+
+### [Skype for Business App SDK](AppSDK/SkypeAppSDK.md)
+#### [Overview: Embed B2C communications](AppSDK/EmbedSkypeB2Ccomms.md)
+#### [Getting started](AppSDK/GettingStarted.md)
+##### [Get a meeting URL](AppSDK/GetMeetingURL.md)
+##### [Use the SDK to join a meeting with an Android device](AppSDK/HowToJoinMeeting_Android.md)
+##### [Use the SDK to join a meeting with an iOS device](AppSDK/HowToJoinMeeting_iOS.md)
+#### [Orientation](AppSDK/Orientation.md)
+##### [API Overview](AppSDK/APIoverview.md)
+##### [Platform considerations](AppSDK/PlatformConsiderations.md)
+##### [Versioning](AppSDK/Versioning.md)
+#### [Download](AppSDK/Download.md)
+#### [Samples](AppSDK/Samples.md)
+#### [Submit your questions, bugs, feature requests, and contributions](AppSDK/Feedback.md)
+
+### [Desktop Apps](https://msdn.microsoft.com/en-us/library/office/jj933180.aspx)
+### [Unified Communications Managed API (UCMA)](https://msdn.microsoft.com/en-us/library/office/dn454984.aspx)
+### [Unified Communications Web API (UCWA)](https://msdn.microsoft.com/en-us/library/office/dn324971.aspx)
+### [Skype for Business SDN Interface](https://msdn.microsoft.com/en-us/library/office/dn785131.aspx)
+
+
+## [Lync](https://msdn.microsoft.com/en-us/library/office/dn820099.aspx)
+### [Lync 2013](https://msdn.microsoft.com/en-us/library/office/jj162980.aspx)
+###[Lync 2010](https://msdn.microsoft.com/en-us/library/office/hh467893.aspx)

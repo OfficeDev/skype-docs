@@ -23,17 +23,9 @@ The configuration steps are:
 
   > Note: The SDK comes with a binary for use on physical devices (recommended) and a binary for running the iOS simulator (limited because audio and video function won't work correctly).  The binaries have the same name but are in separate folders. To run your app on a **device**, navigate to the location where you downloaded the App SDK and select the _SkypeForBusiness.framework_ file in the _AppSDKiOS_ folder. To run your app in a **simulator**,  selec the _SkypeForBusiness.framework_ file in the _AppSDKiOSSimulator_ folder.
 
-2. **Import the SDK header file**: Add the following import statement to your header file.
+2. **Add the helper classes into your project**: The SDK comes with two helper classes _ChatHandler and SfBConversationHelper_. _ChatHandler class_  can be used to  integrate Skype text chat feature into your application. _SfBConversationHelper class_ is used to add audio/video chat feature. These helper classes simplify interaction with the core APIs in mainline scenarios.  To use these, add SfBConversationHelper.h/SfBConversationHelper.m and ChatHandler.h/ChatHandler.m files from the _Helpers_ folder in your SDK download into your app's source code. 
 
-      ```objective-c
-        #import <SkypeForBusiness/SkypeForBusiness.h>
-      ```
-3. **Add the Conversation Helper into your project (optional)**: The SDK comes with an optional "conversation helper" class that simplifies interaction with the core APIs in mainline scenarios.  To use it, add SfBConversationHelper.h and SfBConversationHelper.m files from the _Helpers_ folder in your SDK download into your app's source code. 
-
-4. **Update the Conversation Helper package name**: If using the conversation helper, use the following import statement. _SfBConversationHelper.h_ imports the _SkypeForBusiness.h_ file.
-      ```objective-c
-      #import "SfBConversationHelper.h"
-```
+3. Make sure _Enable Bitcode_ option is set to NO in your iOS project . In the Project Navigator, select your project, go to the Editor pane, select Project -> Build Settings -> select All tab -> Build Options -> Enable Bitcode = NO
 
 
 #### Android
