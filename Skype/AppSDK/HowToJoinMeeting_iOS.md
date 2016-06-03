@@ -135,3 +135,10 @@ sfb.configurationManager.requireWifiForVideo = NO;
      
 6. Now the meeting is established, you can use additional APIs to switch camera, mute/hold audio, pause video, send/receive messages, leave the meeting etc.  See the [API reference documentation](http://aka.ms/sfbAppSDKRef_iOS) for more details and the sample apps ([Objective C](https://github.com/OfficeDev/skype-ios-app-sdk-samples/tree/master/BankingAppObjectiveC), [Swift](https://github.com/OfficeDev/skype-ios-app-sdk-samples/tree/master/BankingAppSwift)) for examples of how to do this.  You may also want to adapt SfBConversationHelper for your own needs: its source code is available in the SDK download.
      
+     
+## Error Handling
+
+SkypeForBusiness SDK API has both _SfBApplication_ and _SfBConversation_ level delegate method for handling possible errors or exceptions. The _SfBApplication_ alertDelegate handles global level concerns, while the _SfBConversation_ alertDelegate handles alerts specific to the conversation instance.
+
+The delegate method _didReceiveAlert_ is called when new alert appears in the context where alertDelegate is attached.
+
