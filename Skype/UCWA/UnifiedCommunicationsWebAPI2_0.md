@@ -17,7 +17,7 @@ The UCWA 2.0 documentation contains the following sections:
 
 ## See also
 
-- [UCMA 5.0 general reference](https://msdn.microsoft.com/en-us/library/office/dn465922\(v=office.16\).aspx)
+- [UCMA 5.0 general reference](https://msdn.microsoft.com/en-us/library/office/dn465922(v=office.16).aspx)
  
 - [UCMA 5.0 Core API Class Library](https://msdn.microsoft.com/en-us/library/office/dn621179\(v=office.16\).aspx)
  
