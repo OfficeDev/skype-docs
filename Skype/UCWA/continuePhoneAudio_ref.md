@@ -46,16 +46,16 @@ Continues the phone audio modality of a past [conversationLog](conversationLog_r
 
 #### Request body
 
-None
-
-
-#### Response body
-
-
 
 |**Item**|**Description**|
 |:-----|:-----|
 | [phoneAudioInvitation](phoneAudioInvitation_ref.md)|Represents an invitation to a [conversation](conversation_ref.md) for the [phoneAudio](phoneAudio_ref.md) modality.|
+
+
+
+#### Response body
+
+None
 
 #### Synchronous errors
 
