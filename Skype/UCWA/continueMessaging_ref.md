@@ -46,16 +46,16 @@ Continues the instant messaging modality of a past [conversationLog](conversatio
 
 #### Request body
 
-None
-
-
-#### Response body
-
 
 
 |**Item**|**Description**|
 |:-----|:-----|
 | [messagingInvitation](messagingInvitation_ref.md)|Represents an invitation to a [conversation](conversation_ref.md) for the [messaging](messaging_ref.md) modality.|
+
+
+#### Response body
+
+None
 
 #### Synchronous errors
 
