@@ -1,18 +1,6 @@
-
-# Chat
-
-
-
- _**Applies to:** Skype for Business 2015_
-
-This section describes the different operations you can perform on chat conversations.
-
-
-- [Outgoing P2P](PTChatOutgoingP2P.md)
-
-- [Incoming P2P](PTChatIncomingP2P.md)
-
-- [P2P Escalation](PTChatP2PEscalation.md)
-
-- [Group](PTChatGroup.md)
+---
+redirect_url: https://msdn.microsoft.com/Skype/WebSDK/docs/PTChat
+---
+# do not edit
+This document is a redirection source for redirection to the WebSDK/docs/ folder. Please make all edits to the Skype/WebSDK/docs/PTChat.md file.
 

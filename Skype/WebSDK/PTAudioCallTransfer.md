@@ -1,25 +1,6 @@
-# Transferring audio calls in the SDK
+---
+redirect_url: https://msdn.microsoft.com/Skype/WebSDK/docs/PTAudioCallTransfer
+---
+# do not edit
+This document is a redirection source for redirection to the WebSDK/docs/ folder. Please make all edits to the Skype/WebSDK/docs/PTAudioCallTransfer.md file.
 
- _**Applies to:** Skype for Business 2015_
-
- _**Prerequisites:** To use Call Transfer, user needs a valid Office 365 Enterprise E5 license with PSTN calling set up_
-
-## Simple call transfer
-
-An ongoing audio call can be transferred to a SIP URI:
-
-```js
-conv.audioService.transfer("sip:johndoe@contoso.com").then(() => {
-    console.log("done");
-});
-```
-
-or it can be transferred to a phone:
-
-```js
-conv.audioService.transfer("tel:+12223334444");
-```
-
-If the specified URI declines the transfer, UCWA returns an error with `code=RemoteFailure subcode=TransferTargetDeclined` which is then used to reject the promise object returned from `transfer(...)`.
-
-Once the call is transferred, UCWA ends this conversation (so on the SDK side `conversation.state()` becomes `Disconnected`). For the remote participant the conversation remains the same, but the participant changes.

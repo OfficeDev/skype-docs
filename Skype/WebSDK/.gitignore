@@ -58,6 +58,7 @@ jspm_packages
 
 # Internal build scripts
 build/Deploy-Samples.ps1
+build/updateMDFiles.ps1
 build/WinSCP.exe
 build/winscp.ini
 build/WinSCPnet.dll

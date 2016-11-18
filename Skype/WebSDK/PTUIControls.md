@@ -1,13 +1,6 @@
-
-# UI Controls
-
-
-
- _**Applies to:** Skype for Business 2015_
-
-This section describes the different UI controls available.
-
-
-- [Conversation Control(s)](PTUIControlsConversationControl.md)
-
+---
+redirect_url: https://msdn.microsoft.com/Skype/WebSDK/docs/PTUIControls
+---
+# do not edit
+This document is a redirection source for redirection to the WebSDK/docs/ folder. Please make all edits to the Skype/WebSDK/docs/PTUIControls.md file.
 

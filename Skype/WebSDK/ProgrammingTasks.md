@@ -1,27 +1,6 @@
+---
+redirect_url: https://msdn.microsoft.com/Skype/WebSDK/docs/ProgrammingTasks
+---
+# do not edit
+This document is a redirection source for redirection to the WebSDK/docs/ folder. Please make all edits to the Skype/WebSDK/docs/ProgrammingTasks.md file.
 
-# Skype Web SDK programming tasks
-
-
-
- _**Applies to:** Skype for Business 2015_
-
-This section describes the key programming tasks for the Skype Web SDK:
-
-
-- [Authentication](PTAuth.md)
-    
-- [Local User](PTLocalUser.md)
-    
-- [Contacts](PTContacts.md)
-    
-- [Groups](PTGroups.md)
-    
-- [Chat](PTChat.md)
-    
-- [Audio](PTAudio.md)
-    
-- [Video](PTVideo.md)
-    
-- [History](PTHistory.md)
-
-- [UI Controls](PTUIControls.md)
