@@ -10,7 +10,7 @@ The Skype Web SDK differentiates rendering of group videos for different browser
 ## Google Chrome
 
 In Google Chrome, due to technical limitations, the video streams of the remote participants are transported over one channel. This 
-channel is accessible through the **Active Speaker API**.
+channel is accessible through the **[Active Speaker API](http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.activespeaker.html)**.
 
 The channel always containes the video of the currently speaking participant. This updates automatically 
 when the currently speaking participant changes.
