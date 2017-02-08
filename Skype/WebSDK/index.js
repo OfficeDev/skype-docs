@@ -182,7 +182,14 @@
                 }
 
                 notificationElement.innerHTML = '<span class="' + iconClass + '"></span> <text> ' + text + ' </text>';
-                content.querySelector('.notification-bar').appendChild(notificationElement);
+                var firstChild = content.querySelector('.notification-bar p');
+                var notificationBar = content.querySelector('.notification-bar');
+
+                if (firstChild) {
+                    firstChild.parentNode.insertBefore(notificationElement, firstChild);
+                } else {
+                    notificationBar.appendChild(notificationElement);
+                }
             },
             updateNotification: function (iconType, text) {
                 var content = window.framework.findContentDiv(),
