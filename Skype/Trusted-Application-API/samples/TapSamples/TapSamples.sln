@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEnd", "WebRole1\FrontEnd.csproj", "{8C639A0A-BB60-47EB-87CE-622B6B83A27C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{18D38D7F-48CA-4908-9708-079B2F89CAA9} = {18D38D7F-48CA-4908-9708-079B2F89CAA9}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureApplicationCore", "ApplicationCore\AzureApplicationCore.csproj", "{18D38D7F-48CA-4908-9708-079B2F89CAA9}"
+EndProject
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "PlatformServiceSamplesAzureService", "PlatformServiceSamplesAzureService\PlatformServiceSamplesAzureService.ccproj", "{6794915B-6807-4659-92AE-130FDCA917EC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8C639A0A-BB60-47EB-87CE-622B6B83A27C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C639A0A-BB60-47EB-87CE-622B6B83A27C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C639A0A-BB60-47EB-87CE-622B6B83A27C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C639A0A-BB60-47EB-87CE-622B6B83A27C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18D38D7F-48CA-4908-9708-079B2F89CAA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18D38D7F-48CA-4908-9708-079B2F89CAA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18D38D7F-48CA-4908-9708-079B2F89CAA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18D38D7F-48CA-4908-9708-079B2F89CAA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6794915B-6807-4659-92AE-130FDCA917EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6794915B-6807-4659-92AE-130FDCA917EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6794915B-6807-4659-92AE-130FDCA917EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6794915B-6807-4659-92AE-130FDCA917EC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
