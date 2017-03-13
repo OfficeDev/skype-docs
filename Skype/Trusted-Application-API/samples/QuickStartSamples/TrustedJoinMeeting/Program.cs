@@ -6,6 +6,7 @@ using Microsoft.SfB.PlatformService.SDK.ClientModel.Internal; // Required for se
 using Microsoft.SfB.PlatformService.SDK.Common;
 using Microsoft.Skype.Calling.ServiceAgents.SkypeToken;
 using QuickSamplesCommon;
+using TrouterCommon;
 
 namespace TrustedJoinMeeting
 {
