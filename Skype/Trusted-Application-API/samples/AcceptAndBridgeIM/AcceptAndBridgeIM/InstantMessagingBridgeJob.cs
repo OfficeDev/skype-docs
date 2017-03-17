@@ -8,27 +8,35 @@ using System.Web;
 using Microsoft.Rtc.Internal.RestAPI.Common.MediaTypeFormatters;
 using Microsoft.Rtc.Internal.Platform.ResourceContract;
 
-namespace Microsoft.SfB.PlatformService.SDK.Samples.ApplicationCore
+namespace AcceptAndBridgeIM
 {
-    public class InstantMessagingBridgeJob : PlatformServiceListeningJobBase
+    public class InstantMessagingBridgeJob 
     {
         private InstantMessagingBridgeJobInput m_handleIncomingMessageInput;
 
         private IConversation m_confConversation;
 
         private IConversation m_p2pConversation;
+        private string JobId;
+        private string InstanceId;
 
-        public InstantMessagingBridgeJob(string jobid, string instanceid, AzureBasedApplicationBase azureApplication, InstantMessagingBridgeJobInput input)
-            : base(jobid, instanceid, azureApplication, input, JobType.InstantMessagingBridge)
+        protected LoggingContext LoggingContext { get; private set; }
+
+
+        public InstantMessagingBridgeJob(string jobid, string instanceid,InstantMessagingBridgeJobInput input)
         {
-            m_handleIncomingMessageInput = base.JobInput as InstantMessagingBridgeJobInput;
+            this.JobId = jobid;
+            this.InstanceId = instanceid;
+            LoggingContext = new LoggingContext(JobId, InstanceId);
+
+            m_handleIncomingMessageInput = input;
             if (m_handleIncomingMessageInput == null)
             {
                 throw new ArgumentNullException("Failed to get job input as InstantMessagingBridgeJobInput!");
             }
         }
 
-        protected override void StartCore()
+        public void Start()
         {
             //start communication listen to incoming messages
             /*
@@ -36,13 +44,13 @@ namespace Microsoft.SfB.PlatformService.SDK.Samples.ApplicationCore
              in multiple deployment instance case, it is possible that the job request land on one instance while the actually invite land on another instance
              for multiple instance case, the event handler Instance_HandleIncomingInstantMessagingCall should always be there once service started
              * */
-            AzureApplication.ApplicationEndpoint.HandleIncomingInstantMessagingCall += Instance_HandleIncomingInstantMessagingCall;
+            WebApiApplication.ApplicationEndpoint.HandleIncomingInstantMessagingCall += Instance_HandleIncomingInstantMessagingCall;
         }
 
-        protected override void StopCore()
+        public void Stop()
         {
             //stop communication listen to incoming messages
-            AzureApplication.ApplicationEndpoint.HandleIncomingInstantMessagingCall -= Instance_HandleIncomingInstantMessagingCall;
+            WebApiApplication.ApplicationEndpoint.HandleIncomingInstantMessagingCall -= Instance_HandleIncomingInstantMessagingCall;
         }
 
         /// <summary>
@@ -96,7 +104,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Samples.ApplicationCore
 
             CallbackContext callbackcontext = new CallbackContext { InstanceId = this.InstanceId, JobId = this.JobId };
             string callbackContextJsonString = JsonConvert.SerializeObject(callbackcontext);
-            string CallbackUrl = string.Format(CultureInfo.InvariantCulture, AzureApplication.CallbackUriFormat, HttpUtility.UrlEncode(callbackContextJsonString));
+            string CallbackUrl = string.Format(CultureInfo.InvariantCulture, WebApiApplication.CallbackUri, HttpUtility.UrlEncode(callbackContextJsonString));
 
             string meetingUrl = string.Empty;
 
@@ -158,7 +166,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Samples.ApplicationCore
             };
 
             IMessagingCall p2pMessaging = m_p2pConversation.MessagingCall;
-            if (p2pMessaging == null || p2pMessaging.State != Rtc.Internal.Platform.ResourceContract.CallState.Connected)
+            if (p2pMessaging == null || p2pMessaging.State != CallState.Connected)
             {
                 Logger.Instance.Error(string.Format("[InstantMessagingBridgeFlow] p2pMessaging is null or not in connected state: LoggingContext: {0}", LoggingContext));
                 throw new PlatformserviceApplicationException("[InstantMessagingBridgeFlow] p2pMessaging is null or not in connected state");
@@ -180,7 +188,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Samples.ApplicationCore
                 Logger.Instance.Error(string.Format("[InstantMessagingBridgeFlow] conversationBridge == null after accept and bridge. LoggingContext: {0}", LoggingContext));
                 throw new PlatformserviceApplicationException("[InstantMessagingBridgeFlow]  conversationBridge == null after accept and bridge");
             }
-            await conversationBridge.AddBridgedParticipantAsync(LoggingContext, m_handleIncomingMessageInput.InvitedTargetDisplayName, m_handleIncomingMessageInput.InviteTargetUri, m_handleIncomingMessageInput.EnableMessageFilter).ConfigureAwait(false);
+            await conversationBridge.AddBridgedParticipantAsync(LoggingContext, m_handleIncomingMessageInput.InvitedTargetDisplayName, m_handleIncomingMessageInput.InviteTargetUri, false).ConfigureAwait(false);
             #endregion
 
             #region Step 6 Start addParticipant to conference
@@ -200,11 +208,22 @@ namespace Microsoft.SfB.PlatformService.SDK.Samples.ApplicationCore
             //    await confMessaging.SendMessageAsync(customContent, LoggingContext).ConfigureAwait(false);
             //}
             //#endregion
+            //MessagingInviation from SDK.
+            //public string GetCustomContent()
+            //{
+            //    string value = string.Empty;
+            //    if (PlatformResource?.CustomContent?.Value != null)
+            //    {
+            //        value = PlatformResource?.CustomContent?.Value.ToString();
+            //    }
+
+            //    return value;
+            //}
         }
 
         private void OnClientChatDisconnected()
         {
-            if (m_confConversation != null && m_confConversation.State == Rtc.Internal.Platform.ResourceContract.ConversationState.Conferenced)
+            if (m_confConversation != null && m_confConversation.State == ConversationState.Conferenced)
             {
                 m_confConversation.DeleteAsync(LoggingContext).Observe<Exception>();
             }
