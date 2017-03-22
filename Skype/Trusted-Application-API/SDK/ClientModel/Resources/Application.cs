@@ -266,6 +266,43 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             return clientPlatform.CustomizedCallbackUrl;
         }
 
+        /// <summary>
+        /// Calculates what callbackUrl and callbackContext should be passed to PlatformService.
+        /// </summary>
+        /// <param name="callbackUrl">CallbackUrl as specified by SDK consumer as method input/parameter</param>
+        /// <param name="callbackContext">CallbackContext as specified by SDK consumer as method input/parameter</param>
+        /// <remarks>
+        /// We have some obsolete methods which expose callbackUrl to the application consuming the SDK.
+        /// These methods will be removed when we release 1.0.0 version of the SDK.
+        /// Application can also provide callbackUrl as part of the ClientPlatformSettings, which is the preferred way.
+        /// Logic explained:
+        ///  1. If the application provides callbackUrl as parameter to a method, use it as it is and do not pass callbackContext.
+        ///  2. If the application doesn't provide callbackUrl as parameter, then
+        ///    a. If callbackUrl is set in ClientPlatformSettings and callbackContext is specified, append callbackContext as a
+        ///       query parameter to callbackUrl and do not pass callbackContext
+        ///    b. If callbackUrl is set in ClientPlatformSettings and callbackContext is not specified, use callbackUrl as it is
+        ///       and do not pass callbackContext
+        ///    c. If callbackUrl is not set in ClientPlatformSettings, then pass callbackContext
+        /// </remarks>
+        internal void GetCallbackUrlAndCallbackContext(ref string callbackUrl, ref string callbackContext)
+        {
+            if (callbackUrl == null)
+            {
+                callbackUrl = GetCustomizedCallbackUrl();
+                if (callbackUrl != null && callbackContext != null)
+                {
+                    callbackUrl += callbackUrl.Contains("?") ? "&" : "?";
+                    callbackUrl += "callbackContext=" + callbackContext;
+
+                    callbackContext = null;
+                }
+            }
+            else
+            {
+                callbackContext = null;
+            }
+        }
+
         #endregion
 
         #region Private methods

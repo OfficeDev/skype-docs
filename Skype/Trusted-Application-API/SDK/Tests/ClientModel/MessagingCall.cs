@@ -49,12 +49,10 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             };
 
             // Establish a messaging call
-            IMessagingInvitation invitation = await communication.StartMessagingWithIdentityAsync(
+            IMessagingInvitation invitation = await communication.StartMessagingAsync(
                 "Test subject",
-                "sip:user@example.com",
+                new SipUri("sip:user@example.com"),
                 "https://example.com/callback",
-                "Local user",
-                "sip:user1@example.com",
                 m_loggingContext).ConfigureAwait(false);
 
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_ConversationConnected.json"); // It has link to the messaging call

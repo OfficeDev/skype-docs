@@ -59,6 +59,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <param name="to"></param>
         /// <param name="callbackUrl"></param>
         /// <returns></returns>
+        [Obsolete("Please use the other StartMessagingAsync")]
         public Task<IMessagingInvitation> StartMessagingAsync(string subject, string to, string callbackUrl, LoggingContext loggingContext = null)
         {
             Logger.Instance.Information(string.Format("[Communication] calling startMessaging. LoggingContext: {0}",
@@ -71,7 +72,29 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                 throw new CapabilityNotAvailableException("Link to start messaging is not available.");
             }
 
-            return StartMessagingWithIdentityAsync(subject, to, callbackUrl, href, null, null, loggingContext);
+            return StartMessagingWithIdentityAsync(subject, to, null, callbackUrl, href, null, null, loggingContext);
+        }
+
+        /// <summary>
+        /// Start messaging
+        /// </summary>
+        /// <param name="subject"></param>
+        /// <param name="to"></param>
+        /// <param name="callbackUrl"></param>
+        /// <returns></returns>
+        public Task<IMessagingInvitation> StartMessagingAsync(string subject, SipUri to, string callbackContext, LoggingContext loggingContext = null)
+        {
+            Logger.Instance.Information(string.Format("[Communication] calling startMessaging. LoggingContext: {0}",
+                 loggingContext == null ? string.Empty : loggingContext.ToString()));
+
+            string href = PlatformResource?.StartMessagingLink?.Href;
+
+            if (string.IsNullOrWhiteSpace(href))
+            {
+                throw new CapabilityNotAvailableException("Link to start messaging is not available.");
+            }
+
+            return StartMessagingWithIdentityAsync(subject, to.ToString(), callbackContext, null, href, null, null, loggingContext);
         }
 
         /// <summary>
@@ -83,6 +106,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <param name="localUserDisplayName"></param>
         /// <param name="localUserUri"></param>
         /// <returns></returns>
+        [Obsolete("This feature is not supported by SfB server for public applications")]
         public Task<IMessagingInvitation> StartMessagingWithIdentityAsync(string subject, string to, string callbackUrl, string localUserDisplayName, string localUserUri, LoggingContext loggingContext = null)
         {
             Logger.Instance.Information(string.Format("[Communication] calling startMessagingWithIdentity. LoggingContext: {0}",
@@ -95,7 +119,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                 throw new CapabilityNotAvailableException("Link to start messaging with identity is not available.");
             }
 
-            return StartMessagingWithIdentityAsync(subject, to, callbackUrl, href, localUserDisplayName, localUserUri, loggingContext);
+            return StartMessagingWithIdentityAsync(subject, to, null, callbackUrl, href, localUserDisplayName, localUserUri, loggingContext);
         }
 
         /// <summary>
@@ -105,6 +129,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <param name="to"></param>
         /// <param name="callbackUrl"></param>
         /// <returns></returns>
+        [Obsolete("Please use the other StartAudioVideoAsync")]
         public Task<IAudioVideoInvitation> StartAudioVideoAsync(string subject, string to, string callbackUrl, LoggingContext loggingContext = null)
         {
             Logger.Instance.Information(string.Format("[Communication] calling startAudioVideo. LoggingContext: {0}",
@@ -117,7 +142,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                 throw new CapabilityNotAvailableException("Link to start AudioVideoCall is not available.");
             }
 
-            return StartAudioVideoAsync(href, subject, to, callbackUrl, loggingContext);
+            return StartAudioVideoAsync(href, subject, to, null, callbackUrl, loggingContext);
         }
 
         /// <summary>
@@ -127,6 +152,29 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <param name="to"></param>
         /// <param name="callbackUrl"></param>
         /// <returns></returns>
+        public Task<IAudioVideoInvitation> StartAudioVideoAsync(string subject, SipUri to, string callbackContext, LoggingContext loggingContext = null)
+        {
+            Logger.Instance.Information(string.Format("[Communication] calling startAudioVideo. LoggingContext: {0}",
+                 loggingContext == null ? string.Empty : loggingContext.ToString()));
+
+            string href = PlatformResource?.StartAudioVideoLink?.Href;
+
+            if (string.IsNullOrWhiteSpace(href))
+            {
+                throw new CapabilityNotAvailableException("Link to start AudioVideoCall is not available.");
+            }
+
+            return StartAudioVideoAsync(href, subject, to.ToString(), callbackContext, null, loggingContext);
+        }
+
+        /// <summary>
+        /// Start audio video call
+        /// </summary>
+        /// <param name="subject"></param>
+        /// <param name="to"></param>
+        /// <param name="callbackUrl"></param>
+        /// <returns></returns>
+        [Obsolete("Please use the other StartAudioAsync")]
         public Task<IAudioVideoInvitation> StartAudioAsync(string subject, string to, string callbackUrl, LoggingContext loggingContext = null)
         {
             Logger.Instance.Information(string.Format("[Communication] calling startAudio. LoggingContext: {0}",
@@ -139,7 +187,29 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                 throw new CapabilityNotAvailableException("Link to start audio is not available.");
             }
 
-            return StartAudioVideoAsync(href, subject, to, callbackUrl, loggingContext);
+            return StartAudioVideoAsync(href, subject, to, null, callbackUrl, loggingContext);
+        }
+
+        /// <summary>
+        /// Start audio video call
+        /// </summary>
+        /// <param name="subject"></param>
+        /// <param name="to"></param>
+        /// <param name="callbackUrl"></param>
+        /// <returns></returns>
+        public Task<IAudioVideoInvitation> StartAudioAsync(string subject, SipUri to, string callbackContext, LoggingContext loggingContext = null)
+        {
+            Logger.Instance.Information(string.Format("[Communication] calling startAudio. LoggingContext: {0}",
+                 loggingContext == null ? string.Empty : loggingContext.ToString()));
+
+            string href = PlatformResource?.StartAudioLink?.Href;
+
+            if (string.IsNullOrWhiteSpace(href))
+            {
+                throw new CapabilityNotAvailableException("Link to start audio is not available.");
+            }
+
+            return StartAudioVideoAsync(href, subject, to.ToString(), callbackContext, null, loggingContext);
         }
 
         public override bool Supports(CommunicationCapability capability)
@@ -379,8 +449,10 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <param name="localUserDisplayName"></param>
         /// <param name="localUserUri"></param>
         /// <returns></returns>
-        private async Task<IMessagingInvitation> StartMessagingWithIdentityAsync(string subject, string to, string callbackUrl, string href, string localUserDisplayName, string localUserUri, LoggingContext loggingContext = null)
+        private async Task<IMessagingInvitation> StartMessagingWithIdentityAsync(string subject, string to, string callbackContext, string callbackUrl, string href, string localUserDisplayName, string localUserUri, LoggingContext loggingContext = null)
         {
+            (Parent as Application).GetCallbackUrlAndCallbackContext(ref callbackUrl, ref callbackContext);
+
             string operationId = Guid.NewGuid().ToString();
             var tcs = new TaskCompletionSource<IInvitation>();
             HandleNewInviteOperationKickedOff(operationId, tcs);
@@ -390,6 +462,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                 OperationContext = operationId,
                 To = to,
                 Subject = subject,
+                CallbackContext = callbackContext,
                 CallbackUrl = callbackUrl,
                 LocalUserDisplayName = localUserDisplayName,
                 LocalUserUri = localUserUri
@@ -423,8 +496,10 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <param name="to"></param>
         /// <param name="callbackUrl"></param>
         /// <returns></returns>
-        private async Task<IAudioVideoInvitation> StartAudioVideoAsync(string href, string subject, string to, string callbackUrl, LoggingContext loggingContext = null)
+        private async Task<IAudioVideoInvitation> StartAudioVideoAsync(string href, string subject, string to, string callbackContext, string callbackUrl, LoggingContext loggingContext = null)
         {
+            (Parent as Application).GetCallbackUrlAndCallbackContext(ref callbackUrl, ref callbackContext);
+
             var operationId = Guid.NewGuid().ToString();
             var tcs = new TaskCompletionSource<IInvitation>();
             HandleNewInviteOperationKickedOff(operationId, tcs);
@@ -434,6 +509,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                 OperationContext = operationId,
                 To = to,
                 Subject = subject,
+                CallbackContext = callbackContext,
                 CallbackUrl = callbackUrl,
                 MediaHost = MediaHostType.Remote
             };

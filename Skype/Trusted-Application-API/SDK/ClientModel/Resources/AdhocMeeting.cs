@@ -62,16 +62,8 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                 throw new CapabilityNotAvailableException("Link to join adhoc meeting is not available.");
             }
 
-            var callbackUrl = (Parent as Application).GetCustomizedCallbackUrl();
-            if (callbackUrl != null && callbackContext != null)
-            {
-                // We need to append callbackContext as a query paramter to callbackUrl
-                callbackUrl += callbackUrl.Contains("?") ? "&" : "?";
-                callbackUrl += "callbackContext=" + callbackContext;
-
-                // We don't want to pass callbackContext if callbackUrl is being passed
-                callbackContext = null;
-            }
+            string callbackUrl = null;
+            (Parent as Application).GetCallbackUrlAndCallbackContext(ref callbackUrl, ref callbackContext);
 
             var joinMeetingInput = new JoinMeetingInvitationInput()
             {

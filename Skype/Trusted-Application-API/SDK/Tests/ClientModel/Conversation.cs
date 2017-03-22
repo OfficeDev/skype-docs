@@ -47,7 +47,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
 
             // Start a conversation with messaging modality
             IMessagingInvitation invitation = await communication
-                .StartMessagingWithIdentityAsync("Test message", "sip:user@example.com", "https://example.com/callback", "Test user 1", "sip:user1@example.com")
+                .StartMessagingAsync("Test message", new SipUri("sip:user@example.com"), "https://example.com/callback")
                 .ConfigureAwait(false);
 
             m_conversation = invitation.RelatedConversation;

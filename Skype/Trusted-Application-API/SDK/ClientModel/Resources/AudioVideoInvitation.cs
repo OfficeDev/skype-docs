@@ -92,7 +92,10 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                         href = PlatformResource?.AcceptAndBridgeAudioVideoLink?.Href;
                         break;
                     }
+                #pragma warning disable CS0618 // Type or member is obsolete
                 case AudioVideoInvitationCapability.StartAdhocMeeting:
+                #pragma warning restore CS0618 // Type or member is obsolete
+                case AudioVideoInvitationCapability.StartMeeting:
                     {
                         href = PlatformResource?.StartAdhocMeetingLink?.Href;
                         break;
@@ -109,7 +112,20 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <param name="callbackContext">the call back context</param>
         /// <param name="loggingContext">the logging context</param>
         /// <returns></returns>
-        public async Task<IOnlineMeetingInvitation> StartAdhocMeetingAsync(string subject, string callbackContext, LoggingContext loggingContext = null)
+        [Obsolete("Please use StartMeetingAsync instead")]
+        public Task<IOnlineMeetingInvitation> StartAdhocMeetingAsync(string subject, string callbackContext, LoggingContext loggingContext = null)
+        {
+            return StartMeetingAsync(subject, callbackContext, loggingContext);
+        }
+
+        /// <summary>
+        /// schedule and trusted join a adhoc meeting
+        /// </summary>
+        /// <param name="subject">the meeting subject</param>
+        /// <param name="callbackContext">the call back context</param>
+        /// <param name="loggingContext">the logging context</param>
+        /// <returns></returns>
+        public async Task<IOnlineMeetingInvitation> StartMeetingAsync(string subject, string callbackContext, LoggingContext loggingContext = null)
         {
             string href = PlatformResource?.StartAdhocMeetingLink?.Href;
             if (string.IsNullOrWhiteSpace(href))
@@ -118,26 +134,19 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             }
 
             Logger.Instance.Information(string.Format("[AudioVideoInvitation] calling StartAdhocMeetingAsync. LoggingContext:{0}", loggingContext == null ? string.Empty : loggingContext.ToString()));
-            Communication communication = this.Parent as Communication;
+            var communication = this.Parent as Communication;
 
             string operationId = Guid.NewGuid().ToString();
-            TaskCompletionSource<IInvitation> tcs = new TaskCompletionSource<IInvitation>();
+            var tcs = new TaskCompletionSource<IInvitation>();
             //Adding current invitation to collection for tracking purpose.
             communication.HandleNewInviteOperationKickedOff(operationId, tcs);
 
-            var callbackUrl = ((Parent as Communication).Parent as Application).GetCustomizedCallbackUrl();
-            if (callbackUrl != null && callbackContext != null)
-            {
-                // We need to append callbackContext as a query paramter to callbackUrl
-                callbackUrl += callbackUrl.Contains("?") ? "&" : "?";
-                callbackUrl += "callbackContext=" + callbackContext;
-
-                // We don't want to pass callbackContext if callbackUrl is being passed
-                callbackContext = null;
-            }
+            string callbackUrl = null;
+            var application = communication.Parent as Application;
+            application.GetCallbackUrlAndCallbackContext(ref callbackUrl, ref callbackContext);
 
             IInvitation invite = null;
-            StartAdhocMeetingInput input = new StartAdhocMeetingInput
+            var input = new StartAdhocMeetingInput
             {
                 Subject = subject,
                 CallbackContext = callbackContext,

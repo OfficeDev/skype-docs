@@ -19,7 +19,7 @@
         "ms:rtc:saas:inviteUserToMeeting": {
           "href": "/platformservice/v1/applications/1393347000/communication/userMeetingInvitations?endpointId=sip:monitoringaudio@0mcorp2cloudperf.onmicrosoft.com"
         },
-        "ms:rtc:saas:startMessagingWithIdentity": {
+        "ms:rtc:saas:startMessaging": {
           "href": "/platformservice/v1/applications/1393347000/communication/messagingInvitations?endpointId=sip:monitoringaudio@0mcorp2cloudperf.onmicrosoft.com"
         },
         "ms:rtc:saas:startAudioVideo": {

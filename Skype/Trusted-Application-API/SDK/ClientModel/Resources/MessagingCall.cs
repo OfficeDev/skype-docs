@@ -209,7 +209,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                     {
                         if (eventContext.EventEntity.Relationship == EventOperation.Completed)
                         {
-                            TaskCompletionSource<string> tcs = null;
+                            TaskCompletionSource<string> tcs;
                             m_outGoingmessageTcses.TryGetValue(UriHelper.CreateAbsoluteUri(this.BaseUri, eventContext.EventEntity.Link.Href).ToString().ToLower(), out tcs);
                             if (tcs != null)
                             {
@@ -219,7 +219,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                                 }
                                 else if (eventContext.EventEntity.Status == EventStatus.Failure)
                                 {
-                                    string error = eventContext.EventEntity.Error == null ? null : eventContext.EventEntity.Error.GetErrorInformationString();
+                                    string error = eventContext.EventEntity.Error?.GetErrorInformationString();
                                     tcs.TrySetException(new RemotePlatformServiceException("Send Message failed with error" + error + eventContext.LoggingContext.ToString()));
                                 }
                                 else

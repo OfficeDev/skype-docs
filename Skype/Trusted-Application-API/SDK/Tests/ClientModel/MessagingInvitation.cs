@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Microsoft.Rtc.Internal.Platform.ResourceContract;
 using Microsoft.SfB.PlatformService.SDK.ClientModel;
+using Microsoft.SfB.PlatformService.SDK.ClientModel.Internal;
 using Microsoft.SfB.PlatformService.SDK.Common;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -19,6 +21,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         private Mock<IEventChannel> m_mockEventChannel;
         private MockRestfulClient m_restfulClient;
         private ApplicationEndpoint m_applicationEndpoint;
+        private ClientPlatformSettings m_clientPlatformSettings;
 
         [TestInitialize]
         public async void TestSetup()
@@ -27,6 +30,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             var data = TestHelper.CreateApplicationEndpoint();
             m_mockEventChannel = data.EventChannel;
             m_restfulClient = data.RestfulClient;
+            m_clientPlatformSettings = data.ClientPlatformSettings;
 
             m_applicationEndpoint = data.ApplicationEndpoint;
             await m_applicationEndpoint.InitializeAsync(m_loggingContext).ConfigureAwait(false);
@@ -41,12 +45,10 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             };
 
             // Start a messaging invitation
-            m_messagingInvitation = await communication.StartMessagingWithIdentityAsync(
+            m_messagingInvitation = await communication.StartMessagingAsync(
                 "Test subject",
-                "sip:user@example.com",
+                new SipUri("sip:user@example.com"),
                 "https://example.com/callback",
-                "Local user",
-                "sip:user1@example.com",
                 m_loggingContext).ConfigureAwait(false);
         }
 
@@ -77,6 +79,77 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
 
             // Then
             Assert.IsTrue(m_restfulClient.RequestsProcessed("POST " + DataUrls.StartAdhocMeeting));
+        }
+
+        [TestMethod]
+        public async Task StartAdhocMeetingShouldPassCallbackUrlInTheHttpRequest()
+        {
+            // Given
+            var callbackUrlPassed = false;
+            const string callbackUrl = "https://example.com/callback";
+            m_messagingInvitation = await StartIncomingMessagingInvitationAsync("Event_IncomingIMCall.json").ConfigureAwait(false);
+            m_restfulClient.HandleRequestProcessed += (sender, args) =>
+            {
+                var operationId = TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.StartAdhocMeeting, HttpMethod.Post, "Event_OnlineMeetingInvitationStarted.json", m_mockEventChannel);
+                if (operationId != null)
+                {
+                    var input = args.Input as StartAdhocMeetingInput;
+                    callbackUrlPassed = callbackUrl == input.CallbackUrl;
+                }
+            };
+
+            // When
+            await m_messagingInvitation.StartAdhocMeetingAsync("Test subject", callbackUrl, m_loggingContext).ConfigureAwait(false);
+
+            // Then
+            Assert.IsTrue(callbackUrlPassed);
+        }
+
+        [TestMethod]
+        public async Task StartAdhocMeetingShouldPassEmptyCallbackUrlInTheHttpRequestIfNotProvided()
+        {
+            // Given
+            var callbackUrlPassed = false;
+            const string callbackUrl = null;
+            m_messagingInvitation = await StartIncomingMessagingInvitationAsync("Event_IncomingIMCall.json").ConfigureAwait(false);
+            m_restfulClient.HandleRequestProcessed += (sender, args) =>
+            {
+                var operationId = TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.StartAdhocMeeting, HttpMethod.Post, "Event_OnlineMeetingInvitationStarted.json", m_mockEventChannel);
+                if (operationId != null)
+                {
+                    var input = args.Input as StartAdhocMeetingInput;
+                    callbackUrlPassed = callbackUrl == input.CallbackUrl;
+                }
+            };
+
+            // When
+            await m_messagingInvitation.StartAdhocMeetingAsync("Test subject", callbackUrl, m_loggingContext).ConfigureAwait(false);
+
+            // Then
+            Assert.IsTrue(callbackUrlPassed);
+        }
+
+        [TestMethod]
+        public async Task StartAdhocMeetingShouldNotPassCallbackContextInTheHttpRequest()
+        {
+            // Given
+            var callbackContextNotPassed = false;
+            m_messagingInvitation = await StartIncomingMessagingInvitationAsync("Event_IncomingIMCall.json").ConfigureAwait(false);
+            m_restfulClient.HandleRequestProcessed += (sender, args) =>
+            {
+                var operationId = TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.StartAdhocMeeting, HttpMethod.Post, "Event_OnlineMeetingInvitationStarted.json", m_mockEventChannel);
+                if (operationId != null)
+                {
+                    var input = args.Input as StartAdhocMeetingInput;
+                    callbackContextNotPassed = input.CallbackContext == null;
+                }
+            };
+
+            // When
+            await m_messagingInvitation.StartAdhocMeetingAsync("Test subject", "https://example.com/callback", m_loggingContext).ConfigureAwait(false);
+
+            // Then
+            Assert.IsTrue(callbackContextNotPassed);
         }
 
         [TestMethod]
@@ -130,6 +203,193 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
 
             // When
             await m_messagingInvitation.StartAdhocMeetingAsync("Test subject", "https://example.com/callback", null).ConfigureAwait(false);
+
+            // Then
+            // No exception is thrown
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(CapabilityNotAvailableException))]
+        public async Task StartMeetingShouldThrowIfCapabilityNotAvailable()
+        {
+            // Given
+            m_messagingInvitation = await StartIncomingMessagingInvitationAsync("Event_IncomingIMCall_NoActionLinks.json").ConfigureAwait(false);
+
+            // When
+            await m_messagingInvitation.StartMeetingAsync("Test subject", "https://example.com/callback", m_loggingContext).ConfigureAwait(false);
+
+            // Then
+            // Exception is thrown
+        }
+
+        [TestMethod]
+        public async Task StartMeetingShouldMakeTheHttpRequest()
+        {
+            // Given
+            m_messagingInvitation = await StartIncomingMessagingInvitationAsync("Event_IncomingIMCall.json").ConfigureAwait(false);
+            m_restfulClient.HandleRequestProcessed +=
+                (sender, args) => TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.StartAdhocMeeting, HttpMethod.Post, "Event_OnlineMeetingInvitationStarted.json", m_mockEventChannel);
+
+            // When
+            await m_messagingInvitation.StartMeetingAsync("Test subject", "https://example.com/callback", m_loggingContext).ConfigureAwait(false);
+
+            // Then
+            Assert.IsTrue(m_restfulClient.RequestsProcessed("POST " + DataUrls.StartAdhocMeeting));
+        }
+
+        [TestMethod]
+        public async Task StartMeetingShouldPassCallbackUrlInTheHttpRequest()
+        {
+            // Given
+            var callbackUrlPassed = false;
+            var callbackUrl = new Uri("https://example.com/callback");
+            m_clientPlatformSettings.SetCustomizedCallbackurl(callbackUrl);
+            m_messagingInvitation = await StartIncomingMessagingInvitationAsync("Event_IncomingIMCall.json").ConfigureAwait(false);
+            m_restfulClient.HandleRequestProcessed += (sender, args) =>
+            {
+                var operationId = TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.StartAdhocMeeting, HttpMethod.Post, "Event_OnlineMeetingInvitationStarted.json", m_mockEventChannel);
+                if (operationId != null)
+                {
+                    var input = args.Input as StartAdhocMeetingInput;
+                    callbackUrlPassed = input.CallbackUrl.StartsWith(callbackUrl.ToString());
+                }
+            };
+
+            // When
+            await m_messagingInvitation.StartMeetingAsync("Test subject", null, m_loggingContext).ConfigureAwait(false);
+
+            // Then
+            Assert.IsTrue(callbackUrlPassed);
+        }
+
+        [TestMethod]
+        public async Task StartMeetingShouldPassEmptyCallbackUrlInTheHttpRequestIfNotProvided()
+        {
+            // Given
+            var callbackUrlPassed = false;
+            m_messagingInvitation = await StartIncomingMessagingInvitationAsync("Event_IncomingIMCall.json").ConfigureAwait(false);
+            m_restfulClient.HandleRequestProcessed += (sender, args) =>
+            {
+                var operationId = TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.StartAdhocMeeting, HttpMethod.Post, "Event_OnlineMeetingInvitationStarted.json", m_mockEventChannel);
+                if (operationId != null)
+                {
+                    var input = args.Input as StartAdhocMeetingInput;
+                    callbackUrlPassed = input.CallbackUrl == null;
+                }
+            };
+
+            // When
+            await m_messagingInvitation.StartMeetingAsync("Test subject", null, m_loggingContext).ConfigureAwait(false);
+
+            // Then
+            Assert.IsTrue(callbackUrlPassed);
+        }
+
+        [TestMethod]
+        public async Task StartMeetingShouldPassCallbackContextInTheHttpRequest()
+        {
+            // Given
+            var callbackUrlPassed = false;
+            const string callbackContext = "__callbackcontext__";
+            m_messagingInvitation = await StartIncomingMessagingInvitationAsync("Event_IncomingIMCall.json").ConfigureAwait(false);
+            m_restfulClient.HandleRequestProcessed += (sender, args) =>
+            {
+                var operationId = TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.StartAdhocMeeting, HttpMethod.Post, "Event_OnlineMeetingInvitationStarted.json", m_mockEventChannel);
+                if (operationId != null)
+                {
+                    var input = args.Input as StartAdhocMeetingInput;
+                    callbackUrlPassed = input.CallbackContext == callbackContext;
+                }
+            };
+
+            // When
+            await m_messagingInvitation.StartMeetingAsync("Test subject", callbackContext, m_loggingContext).ConfigureAwait(false);
+
+            // Then
+            Assert.IsTrue(callbackUrlPassed);
+        }
+
+        [TestMethod]
+        public async Task StartMeetingShouldAppendCallbackContextToCallbackUrl()
+        {
+            // Given
+            var callbackUrlPassedCorrectly = false;
+            var callbackContextPassed = false;
+
+            var callbackUrl = new Uri("https://example.com/callback");
+            const string callbackContext = "__callbackcontext__";
+            m_clientPlatformSettings.SetCustomizedCallbackurl(callbackUrl);
+            m_messagingInvitation = await StartIncomingMessagingInvitationAsync("Event_IncomingIMCall.json").ConfigureAwait(false);
+            m_restfulClient.HandleRequestProcessed += (sender, args) =>
+            {
+                var operationId = TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.StartAdhocMeeting, HttpMethod.Post, "Event_OnlineMeetingInvitationStarted.json", m_mockEventChannel);
+                if (operationId != null)
+                {
+                    var input = args.Input as StartAdhocMeetingInput;
+                    callbackUrlPassedCorrectly = input.CallbackUrl.StartsWith(callbackUrl.ToString()) && input.CallbackUrl.Contains(callbackContext);
+                    callbackContextPassed = input.CallbackContext != null;
+                }
+            };
+
+            // When
+            await m_messagingInvitation.StartMeetingAsync("Test subject", callbackContext, m_loggingContext).ConfigureAwait(false);
+
+            // Then
+            Assert.IsTrue(callbackUrlPassedCorrectly);
+            Assert.IsFalse(callbackContextPassed);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(RemotePlatformServiceException))]
+        public async Task StartMeetingShouldThrowIfAdhocMeetingStartedEventNotReceived()
+        {
+            // Given
+            m_messagingInvitation = await StartIncomingMessagingInvitationAsync("Event_IncomingIMCall.json").ConfigureAwait(false);
+            ((MessagingInvitation)m_messagingInvitation).WaitForEvents = TimeSpan.FromMilliseconds(300);
+
+            // When
+            await m_messagingInvitation.StartMeetingAsync("Test subject", "https://example.com/callback", m_loggingContext).ConfigureAwait(false);
+
+            // Then
+            // Exception is thrown
+        }
+
+        [TestMethod]
+        public async Task StartMeetingShouldReturnATaskToWaitForInvitationStartedEvent()
+        {
+            // Given
+            m_messagingInvitation = await StartIncomingMessagingInvitationAsync("Event_IncomingIMCall.json").ConfigureAwait(false);
+            var invitationOperationid = string.Empty;
+            m_restfulClient.HandleRequestProcessed += (sender, args) =>
+            {
+                string operationId = TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.StartAdhocMeeting, HttpMethod.Post, null, null);
+                if (!string.IsNullOrEmpty(operationId))
+                {
+                    invitationOperationid = operationId;
+                }
+            };
+
+            Task invitationTask = m_messagingInvitation.StartMeetingAsync("Test subject", "https://example.com/callback", m_loggingContext);
+            await Task.Delay(TimeSpan.FromMilliseconds(200)).ConfigureAwait(false);
+            Assert.IsFalse(invitationTask.IsCompleted);
+
+            // When
+            TestHelper.RaiseEventsFromFileWithOperationId(m_mockEventChannel, "Event_OnlineMeetingInvitationStarted.json", invitationOperationid);
+
+            // Then
+            Assert.IsTrue(invitationTask.IsCompleted);
+        }
+
+        [TestMethod]
+        public async Task StartMeetingShouldWorkWithNullLoggingContext()
+        {
+            // Given
+            m_messagingInvitation = await StartIncomingMessagingInvitationAsync("Event_IncomingIMCall.json").ConfigureAwait(false);
+            m_restfulClient.HandleRequestProcessed +=
+                (sender, args) => TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.StartAdhocMeeting, HttpMethod.Post, "Event_OnlineMeetingInvitationStarted.json", m_mockEventChannel);
+
+            // When
+            await m_messagingInvitation.StartMeetingAsync("Test subject", "https://example.com/callback", null).ConfigureAwait(false);
 
             // Then
             // No exception is thrown
@@ -231,6 +491,19 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         }
 
         [TestMethod]
+        public async Task ShouldSupportStartMeetingIfLinkAvailable()
+        {
+            // Given
+            m_messagingInvitation = await StartIncomingMessagingInvitationAsync("Event_IncomingIMCall.json").ConfigureAwait(false);
+
+            // When
+            bool supported = m_messagingInvitation.Supports(MessagingInvitationCapability.StartMeeting);
+
+            // Then
+            Assert.IsTrue(supported);
+        }
+
+        [TestMethod]
         public async Task ShouldNotSupportStartAdhocMeetingIfLinkNotAvailable()
         {
             // Given
@@ -238,6 +511,19 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
 
             // When
             bool supported = m_messagingInvitation.Supports(MessagingInvitationCapability.StartAdhocMeeting);
+
+            // Then
+            Assert.IsFalse(supported);
+        }
+
+        [TestMethod]
+        public async Task ShouldNotSupportStartMeetingIfLinkNotAvailable()
+        {
+            // Given
+            m_messagingInvitation = await StartIncomingMessagingInvitationAsync("Event_IncomingIMCall_NoActionLinks.json").ConfigureAwait(false);
+
+            // When
+            bool supported = m_messagingInvitation.Supports(MessagingInvitationCapability.StartMeeting);
 
             // Then
             Assert.IsFalse(supported);
