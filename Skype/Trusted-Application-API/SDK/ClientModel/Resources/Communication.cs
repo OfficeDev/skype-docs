@@ -212,6 +212,42 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             return StartAudioVideoAsync(href, subject, to.ToString(), callbackContext, null, loggingContext);
         }
 
+        public bool CanJoinAdhocMeeting(IAdhocMeeting adhocMeeting)
+        {
+            #pragma warning disable CS0618 // Type or member is obsolete
+            return adhocMeeting.Supports(AdhocMeetingCapability.JoinAdhocMeeting);
+            #pragma warning restore CS0618 // Type or member is obsolete
+        }
+
+        public bool CanStartAdhocMeeting(IMessagingInvitation invitation)
+        {
+            #pragma warning disable CS0618 // Type or member is obsolete
+            return invitation.Supports(MessagingInvitationCapability.StartAdhocMeeting);
+            #pragma warning restore CS0618 // Type or member is obsolete
+        }
+
+        public bool CanStartAdhocMeeting(IAudioVideoInvitation invitation)
+        {
+            #pragma warning disable CS0618 // Type or member is obsolete
+            return invitation.Supports(AudioVideoInvitationCapability.StartAdhocMeeting);
+            #pragma warning restore CS0618 // Type or member is obsolete
+        }
+
+        public Task<IOnlineMeetingInvitation> JoinAdhocMeetingAsync(IAdhocMeeting adhocMeeting, string callbackContext, LoggingContext loggingContext = null)
+        {
+            return (adhocMeeting as AdhocMeeting).JoinAdhocMeetingAsync(callbackContext, loggingContext);
+        }
+
+        public Task<IOnlineMeetingInvitation> StartAdhocMeetingAsync(IMessagingInvitation invitation, string subject, string callbackContext, LoggingContext loggingContext = null)
+        {
+            return (invitation as MessagingInvitation).StartAdhocMeetingAsync(subject, callbackContext, null, loggingContext);
+        }
+
+        public Task<IOnlineMeetingInvitation> StartAdhocMeetingAsync(IAudioVideoInvitation invitation, string subject, string callbackContext, LoggingContext loggingContext = null)
+        {
+            return (invitation as AudioVideoInvitation).StartMeetingAsync(subject, callbackContext, loggingContext);
+        }
+
         public override bool Supports(CommunicationCapability capability)
         {
             string href = null;

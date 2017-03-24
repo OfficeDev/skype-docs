@@ -86,6 +86,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
     /// </summary>
     public enum AdhocMeetingCapability
     {
+        [Obsolete("Use ICommunication.CanJoinAdhocMeeting instead")]
         JoinAdhocMeeting = 0
     }
 
@@ -99,10 +100,9 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
     public enum MessagingInvitationCapability
     {
-        [Obsolete("Use StartMeeting instead")]
+        [Obsolete("Use ICommunication.CanStartAdhocMeeting instead")]
         StartAdhocMeeting = 0,
         AcceptAndBridge = 1,
-        StartMeeting = 2
     }
 
     public enum AudioVideoInvitationCapability
@@ -110,10 +110,9 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         Accept = 0,
         Forward = 1,
         Decline = 2,
-        [Obsolete("Use StartMeeting instead")]
+        [Obsolete("Use ICommunication.CanStartAdhocMeeting instead")]
         StartAdhocMeeting = 3,
         AcceptAndBridge = 4,
-        StartMeeting = 5
     }
 
     public enum OnlineMeetingInvitationCapability

@@ -101,7 +101,6 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                 #pragma warning disable CS0618 // Type or member is obsolete
                 case AudioVideoInvitationCapability.StartAdhocMeeting:
                 #pragma warning restore CS0618 // Type or member is obsolete
-                case AudioVideoInvitationCapability.StartMeeting:
                     {
                         href = PlatformResource?.StartAdhocMeetingLink?.Href;
                         break;
@@ -118,11 +117,65 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <param name="callbackContext">the call back context</param>
         /// <param name="loggingContext">the logging context</param>
         /// <returns></returns>
-        [Obsolete("Please use StartMeetingAsync instead")]
+        [Obsolete("Please use ICommunication.StartAdhocMeetingAsync instead")]
         public Task<IOnlineMeetingInvitation> StartAdhocMeetingAsync(string subject, string callbackContext, LoggingContext loggingContext = null)
         {
             return StartMeetingAsync(subject, callbackContext, loggingContext);
         }
+
+        /// <summary>
+        /// Accept the incoming call and set up b2b call with conference or target user
+        /// </summary>
+        /// <param name="loggingContext"></param>
+        /// <param name="meetingUri">the onlinemeeting uri if you want to bridge to a conference</param>
+        /// <returns></returns>
+        public Task AcceptAndBridgeAsync(string meetingUri, LoggingContext loggingContext = null)
+        {
+            if (string.IsNullOrWhiteSpace(meetingUri))
+            {
+                throw new ArgumentNullException(nameof(meetingUri));
+            }
+
+            return AcceptAndBridgeAsync(meetingUri, null, loggingContext);
+        }
+
+        /// <summary>
+        /// Accept the incoming call and set up b2b call with conference or target user
+        /// </summary>
+        /// <param name="loggingContext"></param>
+        /// <param name="to">the sip uri if you want to bridge to a single person</param>
+        /// <returns></returns>
+        public Task AcceptAndBridgeAsync(SipUri to, LoggingContext loggingContext = null)
+        {
+            if (to == null)
+            {
+                throw new ArgumentNullException(nameof(to));
+            }
+
+            return AcceptAndBridgeAsync(null, to, loggingContext);
+        }
+
+        /// <summary>
+        /// Accept the incoming call and set up b2b call with conference or target user
+        /// </summary>
+        /// <param name="loggingContext"></param>
+        /// <param name="meetingUri">the onlinemeeting uri if you want to bridge to a conference</param>
+        /// <param name="to">the sip uri if you want to bridge to a single person</param>
+        /// <returns></returns>
+        [Obsolete("Please use the other variation")]
+        public Task AcceptAndBridgeAsync(LoggingContext loggingContext, string meetingUri, string to)
+        {
+            if (string.IsNullOrWhiteSpace(meetingUri) && to == null)
+            {
+                throw new ArgumentException("need to at least provide to or meeting uri for bridge");
+            }
+
+            return AcceptAndBridgeAsync(meetingUri, new SipUri(to), loggingContext);
+        }
+
+        #endregion
+
+        #region Internal methods
 
         /// <summary>
         /// schedule and trusted join a adhoc meeting
@@ -131,7 +184,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <param name="callbackContext">the call back context</param>
         /// <param name="loggingContext">the logging context</param>
         /// <returns></returns>
-        public async Task<IOnlineMeetingInvitation> StartMeetingAsync(string subject, string callbackContext, LoggingContext loggingContext = null)
+        internal async Task<IOnlineMeetingInvitation> StartMeetingAsync(string subject, string callbackContext, LoggingContext loggingContext = null)
         {
             string href = PlatformResource?.StartAdhocMeetingLink?.Href;
             if (string.IsNullOrWhiteSpace(href))
@@ -162,7 +215,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             var adhocMeetingUri = UriHelper.CreateAbsoluteUri(this.BaseUri, href);
             await this.PostRelatedPlatformResourceAsync(adhocMeetingUri, input, new ResourceJsonMediaTypeFormatter(), loggingContext).ConfigureAwait(false);
 
-            Task completed  = await Task.WhenAny(Task.Delay(WaitForEvents), tcs.Task).ConfigureAwait(false);
+            Task completed = await Task.WhenAny(Task.Delay(WaitForEvents), tcs.Task).ConfigureAwait(false);
             if (completed != tcs.Task)
             {
                 throw new RemotePlatformServiceException("Timeout to get Onlinemeeting Invitation started event from platformservice!");
@@ -182,6 +235,10 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             return result;
         }
 
+        #endregion
+
+        #region Private methods
+
         /// <summary>
         /// Accept the incoming call and set up b2b call with conference or target user
         /// </summary>
@@ -189,13 +246,8 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <param name="meetingUri">the onlinemeeting uri if you want to bridge to a conference</param>
         /// <param name="to">the sip uri if you want to bridge to a single person</param>
         /// <returns></returns>
-        public Task AcceptAndBridgeAsync(string meetingUri, SipUri to, LoggingContext loggingContext = null)
+        private Task AcceptAndBridgeAsync(string meetingUri, SipUri to, LoggingContext loggingContext = null)
         {
-            if (string.IsNullOrWhiteSpace(meetingUri) && to == null)
-            {
-                throw new ArgumentException("need to at least provide to or meeting uri for bridge");
-            }
-
             Logger.Instance.Information(string.Format("[AudioVideoInviation] calling AcceptAndBridgeAsync. LoggingContext:{0}", loggingContext == null ? string.Empty : loggingContext.ToString()));
 
             string href = PlatformResource?.AcceptAndBridgeAudioVideoLink?.Href;
@@ -213,19 +265,6 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
             Uri bridge = UriHelper.CreateAbsoluteUri(this.BaseUri, href);
             return this.PostRelatedPlatformResourceAsync(bridge, input, new ResourceJsonMediaTypeFormatter(), loggingContext);
-        }
-
-        /// <summary>
-        /// Accept the incoming call and set up b2b call with conference or target user
-        /// </summary>
-        /// <param name="loggingContext"></param>
-        /// <param name="meetingUri">the onlinemeeting uri if you want to bridge to a conference</param>
-        /// <param name="to">the sip uri if you want to bridge to a single person</param>
-        /// <returns></returns>
-        [Obsolete("Please use the other variation")]
-        public Task AcceptAndBridgeAsync(LoggingContext loggingContext, string meetingUri, string to)
-        {
-            return AcceptAndBridgeAsync(meetingUri, new SipUri(to), loggingContext);
         }
 
         #endregion
