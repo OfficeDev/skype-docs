@@ -16,27 +16,27 @@ You can contribute to [Skype Web SDK developer documentation](https://msdn.micro
 
 The content in the Skype-docs repository is grouped  by topic. The README.md file at the root of the topic directory specifies the structure of the articles within the topic.
 
-##Articles in this repository
-###Skype Web SDK
+## Articles in this repository
+### Skype Web SDK
 
 - [Skype Web SDK Conceptual Content](https://github.com/OfficeDev/skype-docs/blob/master/Skype/WebSDK/GeneralReference.md)
 
-###Skype App SDK
+### Skype App SDK
 
 - [Skype for Business App SDK preview](https://github.com/OfficeDev/skype-docs/tree/master/Skype/AppSDK/SkypeAppSDK.md)
 
-###Skype for Business Uris
+### Skype for Business Uris
 
 - [Skype for Business Uris](https://github.com/OfficeDev/skype-docs/tree/master/Skype/Skype-For-Business-Uris)
 
-##Before we can accept your pull request
+## Before we can accept your pull request
 
-###Minor corrections
+### Minor corrections
 
 Minor corrections or clarifications you submit for documentation and code examples in this repository do not require a Contribution License Agreement (CLA). Submissions are taken in the form of pull requests. We will do our best to review pull requests within ten business days.
 
 
-###Larger submissions
+### Larger submissions
 
 If you submit new or significant changes to documentation and code examples, you need to send a signed Contribution License Agreement (CLA) before we can accept your pull request if you are in one of these groups:
 
@@ -56,6 +56,6 @@ For more guidance on contributing to Office developer documentation, see [CONTRI
 
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
-##Copyright
+## Copyright
 Copyright (c) 2016 Microsoft Corporation. All rights reserved.
 
