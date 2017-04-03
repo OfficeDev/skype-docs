@@ -4,6 +4,17 @@ Thank you for your interest in Skype for Business developer documentation!
 
 ## Release Notes
 
+### 1.0.0-prerelease7
+
+Deprecated interfaces:
+ 1. IApplications is now deprecated. IDiscover has been updated to expose IApplication directly
+
+Deprecated properties:
+ 1. IDiscover.Application deprecates IDiscover.Applications
+
+Dependency changes:
+ 1. System.Net.Http.Formatting.Extension is no longer a dependency
+
 ### 1.0.0-prerelease6
 
 Key changes:
