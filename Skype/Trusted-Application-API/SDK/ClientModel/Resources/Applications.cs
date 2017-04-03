@@ -5,7 +5,9 @@ using System.Threading.Tasks;
 
 namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 {
+    #pragma warning disable CS0618 // Type or member is obsolete
     internal class Applications : BasePlatformResource<ApplicationsResource, ApplicationsCapability>, IApplications
+    #pragma warning restore CS0618 // Type or member is obsolete
     {
         #region Private fields
 

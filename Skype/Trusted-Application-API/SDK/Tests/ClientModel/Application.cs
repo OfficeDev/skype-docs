@@ -31,10 +31,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             var discover = new Discover(m_restfulClient, baseUri, discoverUri, this);
             await discover.RefreshAndInitializeAsync(ApplicationEndpointId.ToString(), m_loggingContext).ConfigureAwait(false);
 
-            IApplications ApplicationsResource = discover.Applications;
-            await ApplicationsResource.RefreshAndInitializeAsync(m_loggingContext).ConfigureAwait(false);
-
-            m_application = ApplicationsResource.Application;
+            m_application = discover.Application;
         }
 
         [TestMethod]

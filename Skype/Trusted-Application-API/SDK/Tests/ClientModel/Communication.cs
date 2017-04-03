@@ -36,7 +36,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             await data.ApplicationEndpoint.InitializeAsync(m_loggingContext).ConfigureAwait(false);
             await data.ApplicationEndpoint.InitializeApplicationAsync(m_loggingContext).ConfigureAwait(false);
             m_clientPlatformSettings = data.ClientPlatformSettings;
-            
+
             m_application = m_applicationEndpoint.Application;
             m_communication = m_application.Communication;
 

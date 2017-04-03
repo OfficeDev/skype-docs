@@ -243,7 +243,6 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         [TestMethod]
         public async Task StopPromptsShouldReturnOnlyOnAllPromptsCompletedEvent()
         {
-
             // Given
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_AudioVideoFlowConnected.json");
             TaskCompletionSource<bool> requestReceived = new TaskCompletionSource<bool>();
@@ -255,14 +254,14 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
                 }
             };
 
-            string prompt2Url = "https://example.com/prompt2";
+            const string prompt2Url = "https://example.com/prompt2";
             m_restfulClient.HandleRequestReceived += (sender, args) =>
             {
                 PlayPromptInput input = args.Input as PlayPromptInput;
-                if (input != null && input.PromptUrl == prompt2Url)
+                if (input?.PromptUrl == prompt2Url)
                 {
                     args.Response = new HttpResponseMessage(HttpStatusCode.Created);
-                    args.Response.Headers.Add("Location", 
+                    args.Response.Headers.Add("Location",
                         "https://webpoolbl20r04.infra.lync.com/platformservice/tgt-8c81281c925a5c2ea02ec14ac1b492c6/v1/applications/1393347000/communication/conversations/869ce4f6-0076-483a-a7c1-968f6b935afe/audioVideo/audioVideoFlow/prompts/08b7bd6e-0e79-4961-8981-116ac9ddd152?endpointId=sip:monitoringaudio@0mcorp2cloudperf.onmicrosoft.com");
                 }
             };
@@ -317,7 +316,6 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             await requestReceived.Task.TimeoutAfterAsync(TimeSpan.FromMilliseconds(200)).ConfigureAwait(false);
         }
 
-
         [TestMethod]
         public async Task StopPromptsShouldWorkWithNullLoggingContext()
         {
@@ -352,7 +350,6 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             // Then
             Assert.IsTrue(supported);
         }
-
 
         [TestMethod]
         public void ShouldSupportStopPromptsWhenLinkIsAvailable()

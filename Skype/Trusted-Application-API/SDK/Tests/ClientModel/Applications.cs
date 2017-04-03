@@ -16,23 +16,16 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         private IApplications m_applications;
 
         [TestInitialize]
-        public async void TestSetup()
+        public void TestSetup()
         {
+            Logger.RegisterLogger(new ConsoleLogger());
+
+            m_loggingContext = new LoggingContext();
+
             m_restfulClient = new MockRestfulClient();
-            Logger.RegisterLogger(new ConsoleLogger());
-            Logger.RegisterLogger(new ConsoleLogger());
+            Uri baseUri = UriHelper.GetBaseUriFromAbsoluteUri(TestHelper.DiscoverUri.ToString());
 
-            m_loggingContext = new LoggingContext(Guid.NewGuid());
-            TestHelper.InitializeTokenMapper();
-
-            Uri discoverUri = TestHelper.DiscoverUri;
-            Uri baseUri = UriHelper.GetBaseUriFromAbsoluteUri(discoverUri.ToString());
-            SipUri ApplicationEndpointId = TestHelper.ApplicationEndpointUri;
-
-            var discover = new Discover(m_restfulClient, baseUri, discoverUri, this);
-            await discover.RefreshAndInitializeAsync(ApplicationEndpointId.ToString(), m_loggingContext).ConfigureAwait(false);
-
-            m_applications = discover.Applications;
+            m_applications = new Applications(m_restfulClient, null, baseUri, new Uri(DataUrls.Applications), this);
         }
 
         [TestMethod]

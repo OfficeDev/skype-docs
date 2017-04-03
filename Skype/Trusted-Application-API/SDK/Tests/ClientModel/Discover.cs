@@ -30,16 +30,16 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         }
 
         [TestMethod]
-        public async Task RefreshAndInitializeShouldPopulateApplications()
+        public async Task RefreshAndInitializeShouldPopulateApplication()
         {
             // Given
-            Assert.IsNull(m_discover.Applications);
+            Assert.IsNull(m_discover.Application);
 
             // When
             await m_discover.RefreshAndInitializeAsync(TestHelper.ApplicationEndpointUri.ToString(), m_loggingContext).ConfigureAwait(false);
 
             // Given
-            Assert.IsNotNull(m_discover.Applications);
+            Assert.IsNotNull(m_discover.Application);
         }
 
         [TestMethod]

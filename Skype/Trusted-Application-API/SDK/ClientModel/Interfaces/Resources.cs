@@ -313,6 +313,8 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
     /// Interface for applications
     /// </summary>
     /// <seealso cref="IPlatformResource{TCapabilities}"/>
+    [Obsolete("Please use IApplication instead")]
+    // TODO : Make this interface internal when releasing publicly
     public interface IApplications : IPlatformResource<ApplicationsCapability>
     {
         /// <summary>
@@ -893,9 +895,16 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
     public interface IDiscover : IPlatformResource<DiscoverCapability>
     {
         /// <summary>
-        /// Get Appplication
+        /// Get Applications
         /// </summary>
+        [Obsolete("Please use Application property instead")]
         IApplications Applications { get; }
+
+        /// <summary>
+        /// Get Application
+        /// </summary>
+        IApplication Application { get; }
+
         /// <summary>
         /// Refreshes and initializes the discover.
         /// </summary>
@@ -904,6 +913,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <returns>Task.</returns>
         [Obsolete("Please use the other variation")]
         Task RefreshAndInitializeAsync(LoggingContext loggingContext, string endpointId);
+
         /// <summary>
         /// Refreshes and initializes the discover.
         /// </summary>

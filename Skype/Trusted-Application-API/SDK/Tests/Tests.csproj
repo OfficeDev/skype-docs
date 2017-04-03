@@ -23,7 +23,7 @@
     <!-- DO NOT change value to false in your pushed/submitted change. -->
     <RunUnitTestsAsPartOfBuild>true</RunUnitTestsAsPartOfBuild>
     <!-- Do not show warnings for using obsolete methods -->
-    <NoWarn>0618</NoWarn>
+    <NoWarn>0618;RCS1046</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>

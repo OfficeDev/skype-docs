@@ -174,7 +174,6 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         {
             if (Application == null)
             {
-                IApplications ApplicationsResource = null;
                 if (!(ClientPlatform as ClientPlatform).IsSandBoxEnv)
                 {
                     Uri discoverUri = ClientPlatform.DiscoverUri;
@@ -182,7 +181,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
                     var discover = new Discover(m_restfulClient, baseUri, discoverUri, this);
                     await discover.RefreshAndInitializeAsync(ApplicationEndpointId.ToString(), loggingContext).ConfigureAwait(false);
-                    ApplicationsResource = discover.Applications;
+                    Application = discover.Application;
                 }
                 else
                 {
@@ -192,12 +191,12 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                     {
                         applicationsUri = UriHelper.AppendQueryParameterOnUrl(applicationsUri.ToString(), Constants.EndpointId, ApplicationEndpointId.ToString(), false);
                     }
-                    ApplicationsResource = new Applications(m_restfulClient, null, baseUri, applicationsUri, this);
+
+                    var applications = new Applications(m_restfulClient, null, baseUri, applicationsUri, this);
+                    await applications.RefreshAndInitializeAsync(loggingContext).ConfigureAwait(false);
+                    Application = applications.Application;
                 }
 
-                await ApplicationsResource.RefreshAndInitializeAsync(loggingContext).ConfigureAwait(false);
-
-                Application = ApplicationsResource.Application;
                 await Application.RefreshAndInitializeAsync(loggingContext).ConfigureAwait(false);
             }
         }

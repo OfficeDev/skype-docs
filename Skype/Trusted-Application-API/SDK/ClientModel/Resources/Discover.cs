@@ -10,9 +10,20 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         #region Public properties
 
         /// <summary>
-        /// Get Appplication
+        /// Get Applications
         /// </summary>
+        [Obsolete("Please use Application property instead")]
         public IApplications Applications { get; private set; }
+
+        /// <summary>
+        /// Get Application
+        /// </summary>
+        public IApplication Application
+        {
+            #pragma warning disable CS0618 // Type or member is obsolete
+            get { return Applications?.Application; }
+            #pragma warning restore CS0618 // Type or member is obsolete
+        }
 
         #endregion
 
@@ -43,7 +54,11 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                 {
                     applicationsUri = UriHelper.AppendQueryParameterOnUrl(applicationsUri.ToString(), Constants.EndpointId, endpointId, false);
                 }
-                Applications = new Applications(this.RestfulClient, null, baseUri, applicationsUri, this);
+
+                #pragma warning disable CS0618 // Type or member is obsolete
+                Applications = new Applications(RestfulClient, null, baseUri, applicationsUri, this);
+                await Applications.RefreshAndInitializeAsync(loggingContext).ConfigureAwait(false);
+                #pragma warning restore CS0618 // Type or member is obsolete
             }
             else
             {
