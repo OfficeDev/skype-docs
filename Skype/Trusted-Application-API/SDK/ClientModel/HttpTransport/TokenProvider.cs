@@ -67,7 +67,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         public async Task<string> GetTokenAsync(OAuthTokenIdentifier oauthIdentity)
         {
             var authenticationContext = new AuthenticationContext((new Uri(new Uri(aadAuthority), oauthIdentity.TenantDomain)).ToString(), false);
-            
+
             // The ADAL will cache the token and auto refresh when it is expired, we don't need to call AcquireTokenByRefreshToken method and in ADAL 3, the AcquireTokenByRefreshToken method will be deleted.
             // The token cache use ConcurrentDictionary, it is thread safe.
             AuthenticationResult authenticateResult;
@@ -126,7 +126,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <value>
         /// The audience.
         /// </value>
-        public string Audience { get; private set; }
+        public string Audience { get; }
 
         /// <summary>
         /// Gets the tenant identifier.
@@ -134,7 +134,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <value>
         /// The tenant identifier.
         /// </value>
-        public string TenantDomain { get; private set; }
+        public string TenantDomain { get; }
 
         #endregion
 
@@ -153,8 +153,8 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             OAuthTokenIdentifier identifier = obj as OAuthTokenIdentifier;
             if (identifier != null)
             {
-                if (identifier.Audience.Equals(Audience, StringComparison.OrdinalIgnoreCase) &&
-                    identifier.TenantDomain.Equals(TenantDomain, StringComparison.OrdinalIgnoreCase))
+                if (identifier.Audience.Equals(Audience, StringComparison.OrdinalIgnoreCase)
+                    && identifier.TenantDomain.Equals(TenantDomain, StringComparison.OrdinalIgnoreCase))
                 {
                     result = true;
                 }

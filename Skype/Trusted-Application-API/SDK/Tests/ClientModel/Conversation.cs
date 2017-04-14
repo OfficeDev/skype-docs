@@ -34,7 +34,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
 
             var communication = data.ApplicationEndpoint.Application.Communication;
 
-            m_restfulClient.HandleRequestProcessed += (sender, args) => 
+            m_restfulClient.HandleRequestProcessed += (sender, args) =>
             {
                 // Deliver invitation started events
                 TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.MessagingInvitations, HttpMethod.Post, "Event_MessagingInvitationStarted.json", m_eventChannel);
@@ -52,7 +52,6 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
 
             m_conversation = invitation.RelatedConversation;
         }
-
 
         [TestMethod]
         public void ConversationStateShouldBeDisconnectedByDefault()
@@ -191,9 +190,9 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             Assert.AreEqual(ConversationState.Connected, m_conversation.State);
 
             var resourceRemoved = false;
-            m_conversation.HandleResourceRemoved += (sender, args) => { resourceRemoved = true; };
+            m_conversation.HandleResourceRemoved += (sender, args) => resourceRemoved = true;
             var eventRaised = false;
-            m_conversation.ConversationStateChanged += (sender, args) => { eventRaised = true; };
+            m_conversation.ConversationStateChanged += (sender, args) => eventRaised = true;
 
             // When
             await m_conversation.DeleteAsync(m_loggingContext).ConfigureAwait(false);
@@ -468,7 +467,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         {
             // Given
             var eventReceived = false;
-            m_conversation.HandleParticipantChange += (sender, args) => { eventReceived = true; };
+            m_conversation.HandleParticipantChange += (sender, args) => eventReceived = true;
 
             // When
             TestHelper.RaiseEventsFromFile(m_eventChannel, "Event_ConversationConnected.json");
@@ -499,7 +498,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         {
             // Given
             var numberOfEventsReceived = 0;
-            EventHandler<ParticipantChangeEventArgs> handler = (sender,args) => { Interlocked.Increment(ref numberOfEventsReceived); };
+            EventHandler<ParticipantChangeEventArgs> handler = (sender, args) => Interlocked.Increment(ref numberOfEventsReceived);
             m_conversation.HandleParticipantChange += handler;
             m_conversation.HandleParticipantChange += handler;
 
@@ -532,7 +531,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         {
             // Given
             var numberOfEventsReceived = 0;
-            EventHandler<ConversationStateChangedEventArgs> handler = (sender, args) => { Interlocked.Increment(ref numberOfEventsReceived); };
+            EventHandler<ConversationStateChangedEventArgs> handler = (sender, args) => Interlocked.Increment(ref numberOfEventsReceived);
             m_conversation.ConversationStateChanged += handler;
             m_conversation.ConversationStateChanged += handler;
 
@@ -687,10 +686,8 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             // Given
             TestHelper.RaiseEventsFromFile(m_eventChannel, "Event_ConversationConferenced.json");
 
-            m_restfulClient.HandleRequestProcessed += (sender, args) =>
-            {
-                TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.ParticipantInvitation, HttpMethod.Post, "Event_ParticipantInvitationStarted.json", m_eventChannel);
-            };
+            m_restfulClient.HandleRequestProcessed +=
+                (sender, args) => TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.ParticipantInvitation, HttpMethod.Post, "Event_ParticipantInvitationStarted.json", m_eventChannel);
 
             // When
             await m_conversation.AddParticipantAsync("sip:user@example.com", m_loggingContext).ConfigureAwait(false);
@@ -717,7 +714,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             };
 
             Task invitationTask = m_conversation.AddParticipantAsync("sip:user@example.com", m_loggingContext);
-            await Task.Delay(TimeSpan.FromMilliseconds(200));
+            await Task.Delay(TimeSpan.FromMilliseconds(200)).ConfigureAwait(false);
             Assert.IsFalse(invitationTask.IsCompleted);
 
             // When

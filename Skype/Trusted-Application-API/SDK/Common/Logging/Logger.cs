@@ -8,14 +8,13 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
     public class Logger
     {
         private IPlatformServiceLogger m_innerLogger;
-        private static Lazy<Logger> instance = new Lazy<Logger>(() => new Logger());
+        private static readonly Lazy<Logger> instance = new Lazy<Logger>(() => new Logger());
 
         /// <summary>
         /// Avoid construct
         /// </summary>
         private Logger()
         {
-
         }
 
         private void RegisterInnerLogger(IPlatformServiceLogger logger)
@@ -120,6 +119,5 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
                 return false;
             }
         }
-
     }
 }

@@ -20,11 +20,11 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
     {
         #region Private fields
 
-        private IRestfulClient m_restfulClient;
-        private OAuthTokenIdentifier m_oauthTokenIdentifier;
-        private IEventChannel m_eventChannel;
-        private ITokenProvider m_tokenProvider;
-        private ApplicationEndpointSettings m_endpointSettings;
+        private readonly IRestfulClient m_restfulClient;
+        private readonly OAuthTokenIdentifier m_oauthTokenIdentifier;
+        private readonly IEventChannel m_eventChannel;
+        private readonly ITokenProvider m_tokenProvider;
+        private readonly ApplicationEndpointSettings m_endpointSettings;
 
         #endregion
 
@@ -47,7 +47,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             get { return m_endpointSettings.ApplicationEndpointId; }
         }
 
-        public IClientPlatform ClientPlatform { get; private set; }
+        public IClientPlatform ClientPlatform { get; }
 
         #endregion
 
@@ -65,7 +65,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             {
                 m_eventChannel = eventChannel;
                 m_eventChannel.HandleIncomingEvents += this.OnReceivedCallback;
-            }          
+            }
 
             Logger.Instance.Information("Initializing ApplicationEndpoint");
 
@@ -73,7 +73,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                Constants.PlatformAudienceUri,
                 applicationEndpointSettings.ApplicationEndpointId.Domain);
 
-            var tokenProvider = new AADServiceTokenProvider(platform.AADClientId.ToString(), Constants.AAD_AuthorityUri, platform.AADAppCertificate,platform.AADClientSecret);            
+            var tokenProvider = new AADServiceTokenProvider(platform.AADClientId.ToString(), Constants.AAD_AuthorityUri, platform.AADAppCertificate,platform.AADClientSecret);
 
             if(!(platform as ClientPlatform).IsInternalPartner)
             {
@@ -147,7 +147,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             {
                 return m_eventChannel.TryStartAsync();
             }
-            return TaskHelpers.CompletedTask;            
+            return TaskHelpers.CompletedTask;
         }
 
         /// <summary>
@@ -252,16 +252,13 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                             }
                             else
                             {
-                                if (conversationEvents == null)
-                                {
-                                    conversationEvents = new List<EventContext>();
-                                }
+                                conversationEvents = conversationEvents ?? new List<EventContext>();
                                 conversationEvents.Add(eventContext);
                             }
                         }
                     }
 
-                    if (conversationEvents != null && conversationEvents.Count > 0)
+                    if (conversationEvents?.Count > 0)
                     {
                         communication.DispatchConversationEvents(conversationEvents);
                     }
@@ -284,7 +281,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             if (Logger.Instance.HttpRequestResponseNeedsToBeLogged)
             {
                 //Technically we should not wait a task here. However, this is in event channel call back thread, and we should not use async in event channel handler
-                LogHelper.LogProtocolHttpRequestAsync(httpMessage, httpMessage.LoggingContext != null ? httpMessage.LoggingContext.TrackingId.ToString() : string.Empty, true).Wait(1000);
+                LogHelper.LogProtocolHttpRequestAsync(httpMessage).Wait(1000);
             }
 
             EventsEntity eventsEntity = null;
@@ -292,7 +289,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(httpMessage.Content)))
             {
                 MediaTypeHeaderValue typeHeader = null;
-                MediaTypeHeaderValue.TryParse(httpMessage.ContentType, out typeHeader); 
+                MediaTypeHeaderValue.TryParse(httpMessage.ContentType, out typeHeader);
                 if (typeHeader != null)
                 {
                     try
@@ -312,7 +309,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                 }
             }
 
-            if (eventsEntity != null && eventsEntity.Senders != null && eventsEntity.Senders.Count > 0) //Ignore heartbeat events or call back reachability check events
+            if (eventsEntity?.Senders?.Count > 0) //Ignore heartbeat events or call back reachability check events
             {
                 this.ProcessEvents(new EventsChannelContext(eventsEntity, httpMessage.LoggingContext));
             }
@@ -346,21 +343,13 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
     public class IncomingInviteEventArgs<T> : EventArgs where T : IInvitation
     {
         /// <summary>
-        /// The new invite fields
-        /// </summary>
-        private T m_invite;
-
-        /// <summary>
         /// Get the new invite
         /// </summary>
-        public T NewInvite
-        {
-            get { return m_invite; }
-        }
+        public T NewInvite { get; }
 
         internal IncomingInviteEventArgs(T newInvite) : base()
         {
-            m_invite = newInvite;
+            NewInvite = newInvite;
         }
     }
 }

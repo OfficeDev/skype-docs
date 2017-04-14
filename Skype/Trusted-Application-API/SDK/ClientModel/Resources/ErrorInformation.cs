@@ -15,10 +15,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// </summary>
         public ErrorCode Code
         {
-            get
-            {
-                return m_errorInformation.Code;
-            }
+            get { return m_errorInformation.Code; }
         }
 
         /// <summary>
@@ -26,10 +23,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// </summary>
         public ErrorSubcode? Subcode
         {
-            get
-            {
-                return m_errorInformation.Subcode;
-            }
+            get { return m_errorInformation.Subcode; }
         }
 
         /// <summary>
@@ -37,10 +31,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// </summary>
         public string Message
         {
-            get
-            {
-                return m_errorInformation.Message;
-            }
+            get { return m_errorInformation.Message; }
         }
 
         /// <summary>

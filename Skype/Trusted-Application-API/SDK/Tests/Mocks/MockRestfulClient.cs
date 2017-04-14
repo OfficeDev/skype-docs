@@ -13,9 +13,9 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests
 {
     internal class MockRestfulClient : IRestfulClient
     {
-        private MockResponseData MockResponseData { get; set; }
+        private MockResponseData MockResponseData { get; }
 
-        private List<string> m_requestsProcessed = new List<string>();
+        private readonly List<string> m_requestsProcessed = new List<string>();
 
         public MockRestfulClient()
         {
@@ -23,34 +23,34 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests
             MockResponseData = JsonConvert.DeserializeObject<MockResponseData>(json);
         }
 
-        public async Task<HttpResponseMessage> DeleteAsync(Uri requestUri, IDictionary<string, string> customerHeaders = null)
+        public Task<HttpResponseMessage> DeleteAsync(Uri requestUri, IDictionary<string, string> customerHeaders = null)
         {
-            return await GenerateResponseAsync(requestUri, HttpMethod.Delete, null).ConfigureAwait(false);
+            return GenerateResponseAsync(requestUri, HttpMethod.Delete, null);
         }
 
-        public async Task<HttpResponseMessage> GetAsync(Uri requestUri, IDictionary<string, string> customerHeaders = null, string mediaType = "application/json", string charSet = "utf-8")
+        public Task<HttpResponseMessage> GetAsync(Uri requestUri, IDictionary<string, string> customerHeaders = null, string mediaType = "application/json", string charSet = "utf-8")
         {
-            return await GenerateResponseAsync(requestUri, HttpMethod.Get, null).ConfigureAwait(false);
+            return GenerateResponseAsync(requestUri, HttpMethod.Get, null);
         }
 
-        public async Task<HttpResponseMessage> PostAsync(Uri requestUri, HttpContent value, IDictionary<string, string> customerHeaders = null)
+        public Task<HttpResponseMessage> PostAsync(Uri requestUri, HttpContent httpContent, IDictionary<string, string> customerHeaders = null)
         {
-            return await GenerateResponseAsync(requestUri, HttpMethod.Post, value).ConfigureAwait(false);
+            return GenerateResponseAsync(requestUri, HttpMethod.Post, httpContent);
         }
 
-        public async Task<HttpResponseMessage> PostAsync<T>(Uri requestUri, T value, System.Net.Http.Formatting.MediaTypeFormatter mediaTypeFormatter, IDictionary<string, string> customerHeaders = null) where T : class
+        public Task<HttpResponseMessage> PostAsync<T>(Uri requestUri, T value, System.Net.Http.Formatting.MediaTypeFormatter mediaTypeFormatter, IDictionary<string, string> customerHeaders = null) where T : class
         {
-            return await GenerateResponseAsync(requestUri, HttpMethod.Post, value).ConfigureAwait(false);
+            return GenerateResponseAsync(requestUri, HttpMethod.Post, value);
         }
 
-        public async Task<HttpResponseMessage> PutAsync(Uri requestUri, HttpContent content, IDictionary<string, string> customerHeaders = null)
+        public Task<HttpResponseMessage> PutAsync(Uri requestUri, HttpContent httpContent, IDictionary<string, string> customerHeaders = null)
         {
-            return await GenerateResponseAsync(requestUri, HttpMethod.Put, content).ConfigureAwait(false);
+            return GenerateResponseAsync(requestUri, HttpMethod.Put, httpContent);
         }
 
-        public async Task<HttpResponseMessage> PutAsync<T>(Uri requestUri, T value, System.Net.Http.Formatting.MediaTypeFormatter mediaTypeFormatter, IDictionary<string, string> customerHeaders = null) where T : class
+        public Task<HttpResponseMessage> PutAsync<T>(Uri requestUri, T value, System.Net.Http.Formatting.MediaTypeFormatter mediaTypeFormatter, IDictionary<string, string> customerHeaders = null) where T : class
         {
-            return await GenerateResponseAsync(requestUri, HttpMethod.Put, value).ConfigureAwait(false);
+            return GenerateResponseAsync(requestUri, HttpMethod.Put, value);
         }
 
         private async Task<HttpResponseMessage> GenerateResponseAsync(Uri uri, HttpMethod method, object input)
@@ -132,18 +132,17 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests
             response.ResponseCode = responseCode;
             response.Content = content;
         }
-
     }
 
     public class RequestProcessedEventArgs
     {
-        public Uri Uri { get; private set; }
+        public Uri Uri { get; }
 
-        public HttpMethod Method { get; private set; }
+        public HttpMethod Method { get; }
 
-        public HttpResponseMessage Response { get; private set; }
+        public HttpResponseMessage Response { get; }
 
-        public object Input { get; private set; }
+        public object Input { get; }
 
         public RequestProcessedEventArgs(Uri uri, HttpMethod method, object input, HttpResponseMessage response)
         {

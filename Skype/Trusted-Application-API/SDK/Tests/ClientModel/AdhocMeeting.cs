@@ -115,10 +115,8 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         public async Task JoinAdhocMeetingShouldMakeHttpRequest()
         {
             // Given
-            m_restfulClient.HandleRequestProcessed += (sender, args) =>
-            {
-                TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.JoinAdhocMeeting, HttpMethod.Post, "Event_OnlineMeetingInvitationStarted.json", m_mockEventChannel);
-            };
+            m_restfulClient.HandleRequestProcessed +=
+                (sender, args) => TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.JoinAdhocMeeting, HttpMethod.Post, "Event_OnlineMeetingInvitationStarted.json", m_mockEventChannel);
 
             // When
             await m_adhocMeeting.JoinAdhocMeeting(m_loggingContext, "callbackcontext").ConfigureAwait(false);
@@ -131,8 +129,8 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         public async Task JoinAdhocMeetingShouldPassCustomizedCallbackUrlAndAppendCallbackContextToItInHttpRequest()
         {
             // Given
-            var callbackUrl = "https://example.com/customizedcallbackurl";
-            var callbackContext = "__callbackcontext__";
+            const string callbackUrl = "https://example.com/customizedcallbackurl";
+            const string callbackContext = "__callbackcontext__";
             m_clientPlatformSettings.CustomizedCallbackUrl = callbackUrl;
 
             var customizedCallbackUrlPassed = false;
@@ -158,7 +156,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         public async Task JoinAdhocMeetingShouldPassCallbackContextInHttpRequest()
         {
             // Given
-            var callbackContext = "__callbackcontext__";
+            const string callbackContext = "__callbackcontext__";
             var callbackContextPassed = false;
             m_restfulClient.HandleRequestProcessed += (sender, args) =>
             {

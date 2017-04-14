@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.Serialization;
 using System.Text.RegularExpressions;
 
 namespace Microsoft.SfB.PlatformService.SDK.Common
@@ -6,21 +7,28 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
     [Serializable]
     public class SipUri : Uri
     {
-        public string Domain { get; private set; }
+        public string Domain
+        {
+            get { return ToString().Split('@')[1]; }
+        }
 
-        private static Regex EmailRegex = new Regex(Constants.EmailRegex, RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture | RegexOptions.Compiled);
+        private static readonly Regex EmailRegex = new Regex(Constants.EmailRegex, RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture | RegexOptions.Compiled);
 
         public SipUri(string uriString) : base(uriString)
         {
             Initialize();
         }
 
-        public SipUri(string uriString, bool dontEscape) : base(uriString)
+        #pragma warning disable CS0618 // Type or member is obsolete
+        public SipUri(string uriString, bool dontEscape) : base(uriString, dontEscape)
+        #pragma warning restore CS0618 // Type or member is obsolete
         {
             Initialize();
         }
 
-        public SipUri(Uri baseUri, string relativeUri, bool dontEscape) : base(baseUri, relativeUri)
+        #pragma warning disable CS0618 // Type or member is obsolete
+        public SipUri(Uri baseUri, string relativeUri, bool dontEscape) : base(baseUri, relativeUri, dontEscape)
+        #pragma warning restore CS0618 // Type or member is obsolete
         {
             Initialize();
         }
@@ -40,7 +48,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
             Initialize();
         }
 
-        protected SipUri(System.Runtime.Serialization.SerializationInfo serializationInfo, System.Runtime.Serialization.StreamingContext streamingContext) : base(serializationInfo, streamingContext)
+        protected SipUri(SerializationInfo serializationInfo, StreamingContext streamingContext) : base(serializationInfo, streamingContext)
         {
             Initialize();
         }
@@ -56,8 +64,6 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
             {
                 throw new ArgumentException(PathAndQuery + " is not a valid email address.");
             }
-
-            Domain = ToString().Split('@')[1];
         }
     }
 }

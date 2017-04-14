@@ -3,19 +3,17 @@
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <ProjectGuid>{845BD88C-5FA8-43D7-B21F-9A57550DF727}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C1EC31B7-6EA3-4468-8CE9-B43939EAC4D1}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TrustedJoinMeeting</RootNamespace>
-    <AssemblyName>TrustedJoinMeeting</AssemblyName>
+    <RootNamespace>TrouterBasedEventChannel</RootNamespace>
+    <AssemblyName>TrouterBasedEventChannel</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <!-- Trouter dlls are x64; so we also need to be a x64 application -->
-    <Platform>AMD64</Platform>
-    <PlatformTarget>x64</PlatformTarget>
+    <TargetFrameworkProfile />
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,8 +21,9 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -33,9 +32,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="TrouterBasedEventChannel">
-      <HintPath>..\TrouterBasedEventChannel\bin\Debug\TrouterBasedEventChannel.dll</HintPath>
+    <Reference Include="CLITrouterClient">
+      <HintPath>TrouterClient\CLITrouterClient.dll</HintPath>
+    </Reference>
+    <Reference Include="ManagedTrouterClient">
+      <HintPath>TrouterClient\ManagedTrouterClient.dll</HintPath>
+    </Reference>
+    <Reference Include="ManagedTrouterClientCommon">
+      <HintPath>TrouterClient\ManagedTrouterClientCommon.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.IdentityModel.Clients.ActiveDirectory, Version=3.13.7.964, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.IdentityModel.Clients.ActiveDirectory.3.13.7\lib\net45\Microsoft.IdentityModel.Clients.ActiveDirectory.dll</HintPath>
@@ -70,17 +74,17 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Skype.Calling.Framework">
-      <HintPath>..\TrouterBasedEventChannel\TrouterClient\Microsoft.Skype.Calling.Framework.dll</HintPath>
+      <HintPath>TrouterClient\Microsoft.Skype.Calling.Framework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Skype.Calling.ServiceAgents">
-      <HintPath>..\TrouterBasedEventChannel\TrouterClient\Microsoft.Skype.Calling.ServiceAgents.dll</HintPath>
+      <HintPath>TrouterClient\Microsoft.Skype.Calling.ServiceAgents.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Skype.Common.Azure">
-      <HintPath>..\TrouterBasedEventChannel\TrouterClient\Skype.Common.Azure.dll</HintPath>
+      <HintPath>TrouterClient\Skype.Common.Azure.dll</HintPath>
     </Reference>
     <Reference Include="System.Configuration" />
     <Reference Include="System.Net.Http" />
@@ -97,10 +101,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.Http">
-      <HintPath>..\TrouterBasedEventChannel\TrouterClient\System.Web.Http.dll</HintPath>
+      <HintPath>TrouterClient\System.Web.Http.dll</HintPath>
     </Reference>
     <Reference Include="TrouterClient">
-      <HintPath>..\TrouterBasedEventChannel\TrouterClient\TrouterClient.dll</HintPath>
+      <HintPath>TrouterClient\TrouterClient.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
@@ -114,26 +118,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Content Include="DLLTrouterClient.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="TrouterBasedEventChannel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\QuickSamplesCommon\QuickSamplesCommon.csproj">
-      <Project>{F62716B7-64F4-46C5-A217-540B8576458B}</Project>
-      <Name>QuickSamplesCommon</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Microsoft.Practices.Unity.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-	<Content Include="DLLTrouterClient.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

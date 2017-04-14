@@ -32,7 +32,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
 
             IAudioVideoInvitation invitation = null;
 
-            applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => { invitation = args.NewInvite; };
+            applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => invitation = args.NewInvite;
 
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall.json");
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_AudioVideoConnected.json");
@@ -46,7 +46,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         {
             // Given
             var toneReceived = false;
-            m_audioVideoFlow.ToneReceivedEvent += (sender, args) => { toneReceived = true; };
+            m_audioVideoFlow.ToneReceivedEvent += (sender, args) => toneReceived = true;
 
             // When
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_ToneReceived.json");
@@ -60,7 +60,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         {
             // Given
             var tonesReceived = 0;
-            EventHandler<ToneReceivedEventArgs> handler = (sender, args) => { Interlocked.Increment(ref tonesReceived); };
+            EventHandler<ToneReceivedEventArgs> handler = (sender, args) => Interlocked.Increment(ref tonesReceived);
             m_audioVideoFlow.ToneReceivedEvent += handler;
             m_audioVideoFlow.ToneReceivedEvent += handler;
 
@@ -93,7 +93,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         {
             // Given
             var toneReceived = false;
-            EventHandler<ToneReceivedEventArgs> handler = (sender, args) => { toneReceived = true; };
+            EventHandler<ToneReceivedEventArgs> handler = (sender, args) => toneReceived = true;
             m_audioVideoFlow.ToneReceivedEvent += handler;
             m_audioVideoFlow.ToneReceivedEvent -= handler;
 
@@ -183,7 +183,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             // When
             Task promptTask = m_audioVideoFlow.PlayPromptAsync(new Uri("https://example.com/prompt"), m_loggingContext);
             Assert.IsFalse(promptTask.IsCompleted);
-            
+
             await requestReceived.Task.TimeoutAfterAsync(TimeSpan.FromMilliseconds(200)).ConfigureAwait(false);
             Assert.IsFalse(promptTask.IsCompleted);
 

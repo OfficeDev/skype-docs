@@ -27,17 +27,26 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <summary>
         /// A HTTP url which can be given to users to join this meeting via Lync Web App
         /// </summary>
-        public string JoinUrl { get { return PlatformResource.JoinUrl; } }
+        public string JoinUrl
+        {
+            get { return PlatformResource.JoinUrl; }
+        }
 
         /// <summary>
         /// SIP uri of the meeting
         /// </summary>
-        public string OnlineMeetingUri { get { return PlatformResource.OnlineMeetingUri; } }
+        public string OnlineMeetingUri
+        {
+            get { return PlatformResource.OnlineMeetingUri; }
+        }
 
         /// <summary>
         /// Subject specified when the meeting was created
         /// </summary>
-        public string Subject { get { return PlatformResource.Subject; } }
+        public string Subject
+        {
+            get { return PlatformResource.Subject; }
+        }
 
         /// <summary>
         /// Joins the adhoc meeting

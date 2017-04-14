@@ -128,9 +128,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Common\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\ClientModel\ClientModel.csproj">
       <Project>{9b0fb3b0-7e0a-42fd-a828-9dee1aca10b5}</Project>
       <Name>ClientModel</Name>

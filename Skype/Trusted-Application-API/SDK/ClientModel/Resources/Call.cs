@@ -40,11 +40,13 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         #region Public events
 
         /// <summary>
-        /// Event raised when <see cref="CallState"/> changes for this <see cref="Call"/>.
+        /// Event raised when <see cref="CallState"/> changes for this Call.
         /// </summary>
         /// <remarks>
-        /// This event is raised <i>after</i> the corresponding <see cref="BasePlatformResource.HandleResourceUpdated"/>,
-        /// <see cref="BasePlatformResource.HandleResourceCompleted"/> or <see cref="BasePlatformResource.HandleResourceRemoved"/>
+        /// This event is raised <i>after</i> the corresponding
+        /// <see cref="BasePlatformResource{TPlatformResource, TCapabilities}.HandleResourceUpdated"/>,
+        /// <see cref="BasePlatformResource{TPlatformResource, TCapabilities}.HandleResourceCompleted"/> or
+        /// <see cref="BasePlatformResource{TPlatformResource, TCapabilities}.HandleResourceRemoved"/>
         /// events have been raised.
         /// </remarks>
         public event EventHandler<CallStateChangedEventArgs> CallStateChanged
@@ -103,9 +105,9 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
         #region Public properties
 
-        public CallState OldState { get; private set; }
+        public CallState OldState { get; }
 
-        public CallState NewState { get; private set; }
+        public CallState NewState { get; }
 
         #endregion
     }

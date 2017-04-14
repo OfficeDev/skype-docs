@@ -61,7 +61,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
             {
                 this.PlatformServiceCorrelationId = loggingContext.PlatformResponseCorrelationId;
                 this.PlatformServiceFqdn = loggingContext.PlatformResponseServerFqdn;
-                if (loggingContext.PropertyBag != null && loggingContext.PropertyBag.ContainsKey(Constants.RemotePlatformServiceUri))
+                if (loggingContext.PropertyBag?.ContainsKey(Constants.RemotePlatformServiceUri) == true)
                 {
                     PlatformServiceServiceUri = loggingContext.PropertyBag[Constants.RemotePlatformServiceUri] as Uri;
                 }
@@ -73,27 +73,27 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
         /// <summary>
         /// Gets the HttpStatusCode.
         /// </summary>
-        public HttpStatusCode HttpStatusCode { get; private set; }
+        public HttpStatusCode HttpStatusCode { get; }
 
         /// <summary>
         /// Gets the Ucap Correlation Id.
         /// </summary>
-        public string PlatformServiceCorrelationId { get; private set; }
+        public string PlatformServiceCorrelationId { get; }
 
         /// <summary>
         /// <see cref="ErrorInformation"/> that caused this <see cref="RemotePlatformServiceException"/>.
         /// </summary>
-        public ErrorInformation ErrorInformation { get; private set; }
+        public ErrorInformation ErrorInformation { get; }
 
         /// <summary>
         /// Gets the Ucap Fqdn.
         /// </summary>
-        public string PlatformServiceFqdn { get; private set; }
+        public string PlatformServiceFqdn { get; }
 
         /// <summary>
         /// Gets the Partner Service Uri.
         /// </summary>
-        public Uri PlatformServiceServiceUri { get; private set; }
+        public Uri PlatformServiceServiceUri { get; }
 
         /// <summary>
         /// Convert Http Response Message to Partner Service Exception.

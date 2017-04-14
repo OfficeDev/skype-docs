@@ -2,6 +2,47 @@
 
 Thank you for your interest in Skype for Business developer documentation!
 
+## Release Notes
+
+### 1.0.0-prerelease4
+
+Key changes:
+ 1. ClientPlatformSettings, IClientPlatform and ClientPlatform don't expose IsInternalPartner and IsSandBoxEnv properties anymore; they are available as extensions
+ 2. New sample (QuickStartSamples/TrustedJoinMeeting.sln) is available showing how to do a trusted join into a meeting. It also introduces a sample TrouterBasedEventChannel which can be used to debug issues without having to deploy
+ 3. Some officially unsupported extension methods are available under Microsoft.SfB.PlatformService.SDK.ClientModel.Internal namespace to help developers
+
+New methods:
+ 1. IApplication.GetAnonApplicationTokenForMeetingAsync() replaces IApplication.GetAnonApplicationTokenAsync().
+ 2. IApplication.CreateAdhocMeetingAsync() replaces IApplication.GetAdhocMeetingResourceAsync()
+ 3. IApplication.GetAnonApplicationTokenForP2PCallAsync()
+ 4. IParticipant.EjectAsync()
+ 5. IAudioVideoInvitation.AcceptAndBridgeAsync()
+ 6. IAudioVideoInvitation.StartAdhocMeetingAsync()
+ 7. IAdhocMeeting is now available and supports JoinAdhocMeeting()
+
+Corresponding changes to Capability enums have been made
+
+Dependency changes:
+ 1. System.Net.Http [4.0,4.1)
+ 2. Microsoft.SkypeforBusiness.TrustedApplicationAPI.ResourceContract [7.0.1567.0,)
+
+### 1.0.0-prerelease3
+
+Key changes:
+ 1. ClientPlatformSettings' constructor no longer accepts IsSandBoxEnv
+
+Dependency changes:
+ 1. System.Net.Http (,4.1)
+ 2. CommonServiceLocator is no longer a dependency
+
+### 1.0.0-prerelease2
+
+Minor bug fixes
+
+### 1.0.0-prerelease1
+
+Initial release
+
 ## **Trusted Application SDK** documentation
 
 The markdown documents in this repository project are the source of the **Trusted Application SDK** documentation available to the public preview release, the Microsoft developer site at msdn.microsoft.com/skype.

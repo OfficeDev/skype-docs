@@ -5,13 +5,13 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 {
     public class ClientPlatformSettings
     {
-        public Uri DiscoverUri { get; private set; }
+        public Uri DiscoverUri { get; }
 
-        public Guid AADClientId     { get; private set; }
+        public Guid AADClientId { get; }
 
-        public string AppTokenCertThumbprint { get; private set; }
+        public string AppTokenCertThumbprint { get; }
 
-        public string AADClientSecret { get; private set; }
+        public string AADClientSecret { get; }
 
         internal bool IsInternalPartner { get; set; }
 
@@ -31,13 +31,13 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         public ClientPlatformSettings(Guid aadClientId, string appTokenCertThumbprint)
             :this(null, aadClientId, appTokenCertThumbprint,  null, false)
         {
-            ArgumentVerifier.ThrowOnNullOrEmptyString(appTokenCertThumbprint, "appTokenCertThumbprint");       
+            ArgumentVerifier.ThrowOnNullOrEmptyString(appTokenCertThumbprint, nameof(appTokenCertThumbprint));
         }
 
         public ClientPlatformSettings(string clientSecret, Guid aadClientId )
             : this(null, aadClientId, null,  clientSecret, false)
         {
-            ArgumentVerifier.ThrowOnNullOrEmptyString(clientSecret, "clientSecret");
+            ArgumentVerifier.ThrowOnNullOrEmptyString(clientSecret, nameof(clientSecret));
         }
 
         public ClientPlatformSettings(Uri discoverUri,  Guid aadClientId, string appTokenCertThumbprint, string clientSecret=null, bool isInternalPartner = false)
@@ -51,9 +51,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
     }
 }
 
-/// <summary>
-/// We put all not official supported features (workarounds to help developers) in this namespace
-/// </summary>
+// We put all not official supported features (workarounds to help developers) in this namespace
 namespace Microsoft.SfB.PlatformService.SDK.ClientModel.Internal
 {
     /// <summary>

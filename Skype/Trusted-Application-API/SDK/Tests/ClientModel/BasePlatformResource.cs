@@ -96,7 +96,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         {
             // Given
             var eventReceived = false;
-            m_platformResource.HandleResourceUpdated += (sender, args) => { eventReceived = true; };
+            m_platformResource.HandleResourceUpdated += (sender, args) => eventReceived = true;
 
             // When
             await m_platformResource.RefreshAsync(m_loggingContext).ConfigureAwait(false);
@@ -147,7 +147,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         {
             // Given
             var eventReceived = false;
-            m_platformResource.HandleResourceRemoved += (sender, args) => { eventReceived = true; };
+            m_platformResource.HandleResourceRemoved += (sender, args) => eventReceived = true;
 
             // When
             await m_platformResource.DeleteAsync(m_loggingContext).ConfigureAwait(false);
@@ -161,7 +161,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         {
             // Given
             var eventReceived = false;
-            m_platformResource.HandleResourceUpdated += (sender, args) => { eventReceived = true; };
+            m_platformResource.HandleResourceUpdated += (sender, args) => eventReceived = true;
             m_eventContext.EventEntity.Relationship = EventOperation.Updated;
 
             // When
@@ -194,7 +194,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         {
             // Given
             var eventReceived = false;
-            m_platformResource.HandleResourceCompleted += (sender, args) => { eventReceived = true; };
+            m_platformResource.HandleResourceCompleted += (sender, args) => eventReceived = true;
             m_eventContext.EventEntity.Relationship = EventOperation.Completed;
 
             // When
@@ -227,7 +227,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         {
             // Given
             var eventReceived = false;
-            m_platformResource.HandleResourceRemoved += (sender, args) => { eventReceived = true; };
+            m_platformResource.HandleResourceRemoved += (sender, args) => eventReceived = true;
             m_eventContext.EventEntity.Relationship = EventOperation.Deleted;
 
             // When

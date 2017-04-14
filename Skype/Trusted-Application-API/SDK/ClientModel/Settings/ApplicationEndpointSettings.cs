@@ -4,9 +4,9 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 {
     public class ApplicationEndpointSettings
     {
-        public SipUri ApplicationEndpointId { get; private set; }
+        public SipUri ApplicationEndpointId { get; }
 
-        internal TargetServiceType TargetServiceType { get; private set; }
+        internal TargetServiceType TargetServiceType { get; }
 
         public ApplicationEndpointSettings(SipUri applicationEndpointId)
         {

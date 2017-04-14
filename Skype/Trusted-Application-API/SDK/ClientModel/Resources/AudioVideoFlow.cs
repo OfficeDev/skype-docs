@@ -18,7 +18,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <summary>
         /// Outgoing prompts
         /// </summary>
-        private ConcurrentDictionary<string, TaskCompletionSource<Prompt>> m_onGoingPromptTcses;
+        private readonly ConcurrentDictionary<string, TaskCompletionSource<Prompt>> m_onGoingPromptTcses;
 
         #endregion
 
@@ -82,7 +82,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             TaskCompletionSource<Prompt> tcs = new TaskCompletionSource<Prompt>();
             var response =  await PostRelatedPlatformResourceAsync(playPromptLink, input, new ResourceJsonMediaTypeFormatter(), loggingContext).ConfigureAwait(false);
 
-            if (response != null && response.Headers != null && response.Headers.Location != null)
+            if (response?.Headers?.Location != null)
             {
                 m_onGoingPromptTcses.TryAdd(UriHelper.CreateAbsoluteUri(this.BaseUri, response.Headers.Location.ToString()).ToString().ToLower(), tcs);
             }
@@ -182,6 +182,6 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             Tone = tone;
         }
 
-        public ToneValue Tone { get; private set; }
+        public ToneValue Tone { get; }
     }
 }

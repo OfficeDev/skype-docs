@@ -33,16 +33,14 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             await applicationEndpoint.InitializeApplicationAsync(m_loggingContext).ConfigureAwait(false);
 
             IConversation conversation = null;
-            applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => { conversation = args.NewInvite.RelatedConversation; };
+            applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => conversation = args.NewInvite.RelatedConversation;
 
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall.json");
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_ConversationConnected_WithAudio.json");
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_AudioVideoConnected.json");
 
-            m_restfulClient.HandleRequestProcessed += (sender, args) =>
-            {
-                m_transferOperationId = TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.Transfer, HttpMethod.Post, "Event_TransferStarted.json", m_mockEventChannel);
-            };
+            m_restfulClient.HandleRequestProcessed +=
+                (sender, args) => m_transferOperationId = TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.Transfer, HttpMethod.Post, "Event_TransferStarted.json", m_mockEventChannel);
 
             m_transfer = await conversation.AudioVideoCall.TransferAsync("sip:user@example.com", null, m_loggingContext).ConfigureAwait(false);
         }

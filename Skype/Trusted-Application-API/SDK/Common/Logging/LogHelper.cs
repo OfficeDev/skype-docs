@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Microsoft.SfB.PlatformService.SDK.Common
 {
-    public class LogHelper
+    public static class LogHelper
     {
         public static async Task LogProtocolHttpResponseAsync(HttpResponseMessage response, string requestId, bool isIncomingRequest)
         {
@@ -42,7 +42,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
             }
         }
 
-        public static async Task LogProtocolHttpRequestAsync(SerializableHttpRequestMessage request, string requestId, bool isIncomingRequest)
+        public static async Task LogProtocolHttpRequestAsync(SerializableHttpRequestMessage request)
         {
             var sb = new StringBuilder();
             try

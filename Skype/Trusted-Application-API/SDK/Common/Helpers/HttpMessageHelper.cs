@@ -30,7 +30,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
             {
                 IEnumerable<string> headerValues;
                 httpHeaders.TryGetValues(headerName, out headerValues);
-                if (headerValues != null && headerValues.Any())
+                if (headerValues?.Any() == true)
                 {
                     result = headerValues.First();
                 }

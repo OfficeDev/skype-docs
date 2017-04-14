@@ -97,9 +97,6 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             get { return m_conversationConference; }
         }
 
-        /// <summary>
-        ///
-        /// </summary>
         public IConversationBridge ConversationBridge
         {
             get { return m_conversationBridge; }
@@ -112,7 +109,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         {
             get
             {
-                if (m_participants != null && m_participants.ParticipantsCache != null)
+                if (m_participants?.ParticipantsCache != null)
                 {
                     return m_participants.ParticipantsCache.Values.Cast<IParticipant>().ToList();
                 }
@@ -143,8 +140,10 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// Event raised when <see cref="ConversationState"/> is changed for this <see cref="Conversation"/>.
         /// </summary>
         /// <remarks>
-        /// This event is raised <i>after</i> the corresponding <see cref="BasePlatformResource.HandleResourceUpdated"/>,
-        /// <see cref="BasePlatformResource.HandleResourceCompleted"/> or <see cref="BasePlatformResource.HandleResourceRemoved"/>
+        /// This event is raised <i>after</i> the corresponding
+        /// <see cref="BasePlatformResource{TPlatformResource, TCapabilities}.HandleResourceUpdated"/>,
+        /// <see cref="BasePlatformResource{TPlatformResource, TCapabilities}.HandleResourceCompleted"/> or
+        /// <see cref="BasePlatformResource{TPlatformResource, TCapabilities}.HandleResourceRemoved"/>
         /// events have been raised but before raising events for children calls and resources.
         /// </remarks>
         public event EventHandler<ConversationStateChangedEventArgs> ConversationStateChanged
@@ -173,7 +172,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             string uri =  UriHelper.NormalizeUri(href, this.BaseUri);
             Participant result = null;
 
-            if (m_participants != null && m_participants.ParticipantsCache != null)
+            if (m_participants?.ParticipantsCache != null)
             {
                  m_participants.ParticipantsCache.TryGetValue(uri, out result);
             }
@@ -421,9 +420,9 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
         #region Public properties
 
-        public ConversationState OldState { get; private set; }
+        public ConversationState OldState { get; }
 
-        public ConversationState NewState { get; private set; }
+        public ConversationState NewState { get; }
 
         #endregion
     }

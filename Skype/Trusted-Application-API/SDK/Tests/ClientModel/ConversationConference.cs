@@ -29,10 +29,8 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
 
             var communication = data.ApplicationEndpoint.Application.Communication;
 
-            m_restfulClient.HandleRequestProcessed += (sender, args) =>
-            {
-                TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.MessagingInvitations, HttpMethod.Post, "Event_MessagingInvitationStarted.json", m_eventChannel);
-            };
+            m_restfulClient.HandleRequestProcessed +=
+                (sender, args) => TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.MessagingInvitations, HttpMethod.Post, "Event_MessagingInvitationStarted.json", m_eventChannel);
 
             // Start a conversation with messaging modality
             IMessagingInvitation invitation = await communication

@@ -29,10 +29,8 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
 
             var communication = data.ApplicationEndpoint.Application.Communication;
 
-            m_restfulClient.HandleRequestProcessed += (sender, args) =>
-            {
-                TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.MessagingInvitations, HttpMethod.Post, "Event_MessagingInvitationStarted.json", m_eventChannel);
-            };
+            m_restfulClient.HandleRequestProcessed +=
+                (sender, args) => TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.MessagingInvitations, HttpMethod.Post, "Event_MessagingInvitationStarted.json", m_eventChannel);
 
             // Start a conversation with messaging modality
             IMessagingInvitation invitation = await communication
@@ -150,10 +148,8 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         public async Task AddBridgedParticipantAsyncShouldMakeHttpRequest()
         {
             // Given
-            m_restfulClient.HandleRequestProcessed += (sender, args) =>
-            {
-                TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.BridgedParticipants, HttpMethod.Post, "Event_BridgedParticipantAdded.json", m_eventChannel);
-            };
+            m_restfulClient.HandleRequestProcessed +=
+                (sender, args) => TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.BridgedParticipants, HttpMethod.Post, "Event_BridgedParticipantAdded.json", m_eventChannel);
 
             // When
             await m_conversationBridge.AddBridgedParticipantAsync(m_loggingContext, "Example User", "sip:bridgedparticipant@example.com", true).ConfigureAwait(false);
@@ -167,7 +163,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         {
             // Given
             Task participantTask = m_conversationBridge.AddBridgedParticipantAsync(m_loggingContext, "Example User", "sip:bridgedparticipant@example.com", true);
-            await Task.Delay(TimeSpan.FromMilliseconds(200));
+            await Task.Delay(TimeSpan.FromMilliseconds(200)).ConfigureAwait(false);
             Assert.IsFalse(participantTask.IsCompleted);
 
             // When
@@ -196,10 +192,8 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         public async Task AddBridgedParticipantAsyncShouldWorkWithNullLoggingContext()
         {
             // Given
-            m_restfulClient.HandleRequestProcessed += (sender, args) =>
-            {
-                TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.BridgedParticipants, HttpMethod.Post, "Event_BridgedParticipantAdded.json", m_eventChannel);
-            };
+            m_restfulClient.HandleRequestProcessed +=
+                (sender, args) => TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.BridgedParticipants, HttpMethod.Post, "Event_BridgedParticipantAdded.json", m_eventChannel);
 
             // When
             await m_conversationBridge.AddBridgedParticipantAsync(null, "Example User", "sip:bridgedparticipant@example.com", true).ConfigureAwait(false);

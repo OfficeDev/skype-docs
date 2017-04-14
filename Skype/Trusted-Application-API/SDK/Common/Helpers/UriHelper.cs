@@ -8,7 +8,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
     /// </summary>
     public static class UriHelper
     {
-        private static Regex emailRegex = new Regex(Constants.EmailRegex, RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture | RegexOptions.Compiled);
+        private static readonly Regex emailRegex = new Regex(Constants.EmailRegex, RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture | RegexOptions.Compiled);
 
         /// <summary>
         /// Generate an absolute uri.
@@ -117,7 +117,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
             UriBuilder baseUri = new UriBuilder(url);
             string queryToAppend = string.Format("{0}={1}", key, httpUrlEncodeValue? System.Web.HttpUtility.UrlEncode(value) : value);
 
-            if (baseUri.Query != null && baseUri.Query.Length > 1)
+            if (baseUri.Query?.Length > 1)
                 baseUri.Query = baseUri.Query.Substring(1) + "&" + queryToAppend;
             else
                 baseUri.Query = queryToAppend;

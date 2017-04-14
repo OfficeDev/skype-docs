@@ -32,7 +32,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
 
             ICommunication communication = applicationEndpoint.Application.Communication;
 
-            m_restfulClient.HandleRequestProcessed += (sender, args) => 
+            m_restfulClient.HandleRequestProcessed += (sender, args) =>
             {
                 TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.MessagingInvitations, HttpMethod.Post, "Event_MessagingInvitationStarted.json", m_mockEventChannel);
                 TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.EstablishMessagingCall, HttpMethod.Post, "Event_MessagingInvitationStarted.json", m_mockEventChannel);
@@ -42,7 +42,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
                 {
                     Task.Run(async () =>
                     {
-                        await Task.Delay(TimeSpan.FromMilliseconds(10));
+                        await Task.Delay(TimeSpan.FromMilliseconds(10)).ConfigureAwait(false);
                         TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.SendMessage, HttpMethod.Post, "Event_MessageCompleted.json", m_mockEventChannel);
                     });
                 }
@@ -55,7 +55,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
                 "https://example.com/callback",
                 "Local user",
                 "sip:user1@example.com",
-                m_loggingContext);
+                m_loggingContext).ConfigureAwait(false);
 
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_ConversationConnected.json"); // It has link to the messaging call
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_MessagingConnected.json"); // It has the messaging call
@@ -124,7 +124,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             m_deliverMessageCompletedEvent = false;
             Task messageTask = m_messagingCall.SendMessageAsync("Hello World!", m_loggingContext);
 
-            await Task.Delay(TimeSpan.FromMilliseconds(300));
+            await Task.Delay(TimeSpan.FromMilliseconds(300)).ConfigureAwait(false);
             Assert.IsFalse(messageTask.IsCompleted);
 
             // When
@@ -133,7 +133,6 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             // Then
             Assert.IsTrue(messageTask.IsCompleted);
         }
-
 
         [TestMethod]
         [ExpectedException(typeof(CapabilityNotAvailableException))]
@@ -169,9 +168,9 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
 
             // Save OperationId of the MessagingInvitation when HTTP request is made to start the invitation.
             string operationId = null;
-            m_restfulClient.HandleRequestProcessed += (sender, args) => 
+            m_restfulClient.HandleRequestProcessed += (sender, args) =>
             {
-                if (args.Uri == new Uri(DataUrls.EstablishMessagingCall) && args.Method == HttpMethod.Post && (args.Input as InvitationInput) != null)
+                if (args.Uri == new Uri(DataUrls.EstablishMessagingCall) && args.Method == HttpMethod.Post && args.Input is InvitationInput)
                 {
                     // We need to replace operationContext in invitation completed event with what was provided in the input
                     operationId = ((InvitationInput)args.Input).OperationContext;
@@ -181,9 +180,9 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             // Start MessagingInvitation
             var inviteCompleted = false;
             IMessagingInvitation invite = await m_messagingCall.EstablishAsync(m_loggingContext).ConfigureAwait(false);
-            invite.HandleResourceCompleted += (sender, args) => { inviteCompleted = true; };
+            invite.HandleResourceCompleted += (sender, args) => inviteCompleted = true;
 
-            await Task.Delay(TimeSpan.FromMilliseconds(300));
+            await Task.Delay(TimeSpan.FromMilliseconds(300)).ConfigureAwait(false);
 
             // Make sure invitation is not completed
             Assert.IsFalse(inviteCompleted);

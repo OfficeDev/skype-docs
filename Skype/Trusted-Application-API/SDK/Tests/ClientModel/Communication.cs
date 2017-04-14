@@ -81,8 +81,9 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             m_restfulClient.OverrideResponse(new Uri(DataUrls.Communication), HttpMethod.Get, HttpStatusCode.OK, "Communication_WithStartMessaging.json");
             await m_communication.RefreshAsync(m_loggingContext).ConfigureAwait(false);
 
-            // If ClientModel starts a MessagingInvitation, delive the corresponding invitation started event.
-            m_restfulClient.HandleRequestProcessed += (sender, args) => { TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.MessagingInvitations, HttpMethod.Post, "Event_MessagingInvitationStarted.json", m_eventChannel); };
+            // If ClientModel starts a MessagingInvitation, deliver the corresponding invitation started event.
+            m_restfulClient.HandleRequestProcessed +=
+                (sender, args) => TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.MessagingInvitations, HttpMethod.Post, "Event_MessagingInvitationStarted.json", m_eventChannel);
 
             // When
             IMessagingInvitation invitation = await m_communication.StartMessagingAsync("Test message", "sip:user@example.com", "https://example.com/callback").ConfigureAwait(false);
@@ -139,8 +140,9 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         public async Task StartMessagingWithIdentityShouldWork()
         {
             // Given
-            // If ClientModel starts a MessagingInvitation, delive the corresponding invitation started event.
-            m_restfulClient.HandleRequestProcessed += (sender, args) => { TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.MessagingInvitations, HttpMethod.Post, "Event_MessagingInvitationStarted.json", m_eventChannel); };
+            // If ClientModel starts a MessagingInvitation, deliver the corresponding invitation started event.
+            m_restfulClient.HandleRequestProcessed +=
+                (sender, args) => TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.MessagingInvitations, HttpMethod.Post, "Event_MessagingInvitationStarted.json", m_eventChannel);
 
             // When
             IMessagingInvitation invitation = await m_communication
@@ -189,7 +191,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             await m_communication.RefreshAsync(m_loggingContext).ConfigureAwait(false);
 
             // When
-            await m_communication.StartAudioAsync("Test subject", "sip:user@example.com", "https://example.com/callback");
+            await m_communication.StartAudioAsync("Test subject", "sip:user@example.com", "https://example.com/callback").ConfigureAwait(false);
 
             // Then
             // Exception is thrown
@@ -199,10 +201,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         public async Task StartAudioShouldWork()
         {
             // Given
-            m_restfulClient.HandleRequestProcessed += (sender, args) => 
-            {
-                TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.AudioInvitations, HttpMethod.Post, "Event_AudioVideoInvitationStarted.json", m_eventChannel);
-            };
+            m_restfulClient.HandleRequestProcessed += (sender, args) => TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.AudioInvitations, HttpMethod.Post, "Event_AudioVideoInvitationStarted.json", m_eventChannel);
 
             // When
             IAudioVideoInvitation invitation = await m_communication
@@ -219,7 +218,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         public async Task StartAudioShouldReturnTaskToWaitForInvitationStartedEvent()
         {
             string invitationOperationId = string.Empty;
-            m_restfulClient.HandleRequestProcessed += (sender, args) => 
+            m_restfulClient.HandleRequestProcessed += (sender, args) =>
             {
                 string operationId = TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.AudioInvitations, HttpMethod.Post, null, null);
                 if(!string.IsNullOrEmpty(operationId))
@@ -290,7 +289,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             await m_communication.RefreshAsync(m_loggingContext).ConfigureAwait(false);
 
             // When
-            await m_communication.StartAudioVideoAsync("Test subject", "sip:user@example.com", "https://example.com/callback");
+            await m_communication.StartAudioVideoAsync("Test subject", "sip:user@example.com", "https://example.com/callback").ConfigureAwait(false);
 
             // Then
             // Exception is thrown
@@ -300,7 +299,8 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         public async Task StartAudioVideoShouldWork()
         {
             // Given
-            m_restfulClient.HandleRequestProcessed += (sender, args) => { TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.AudioVideoInvitations, HttpMethod.Post, "Event_AudioVideoInvitationStarted.json", m_eventChannel); };
+            m_restfulClient.HandleRequestProcessed +=
+                (sender, args) => TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.AudioVideoInvitations, HttpMethod.Post, "Event_AudioVideoInvitationStarted.json", m_eventChannel);
 
             // When
             IAudioVideoInvitation invitation = await m_communication

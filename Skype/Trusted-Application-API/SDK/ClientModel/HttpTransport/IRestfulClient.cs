@@ -45,12 +45,12 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// Post operation (HttpContent).
         /// </summary>
         /// <param name="requestUri">The request uri.</param>
-        /// <param name="value">The instance of http content.</param>
+        /// <param name="httpContent">The instance of http content.</param>
         /// <param name="customerHeaders">The customer headers.</param>
         /// <returns>The HttpResponseMessage.</returns>
         Task<HttpResponseMessage> PostAsync(
             Uri requestUri,
-            HttpContent value,
+            HttpContent httpContent,
             IDictionary<string, string> customerHeaders = null
             );
 
@@ -73,14 +73,14 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// Put operation (HttpContent).
         /// </summary>
         /// <param name="requestUri">The request uri.</param>
-        /// <param name="content">The instance of http content.</param>
+        /// <param name="httpContent">The instance of http content.</param>
         /// <param name="customerHeaders">The customer headers.</param>
         /// <param name="audienceUri">The audience uri.</param>
         /// <param name="timeout">The timeout.</param>
         /// <returns>The HttpResponseMessage.</returns>
         Task<HttpResponseMessage> PutAsync(
             Uri requestUri,
-            HttpContent content,
+            HttpContent httpContent,
             IDictionary<string, string> customerHeaders = null);
 
         /// <summary>

@@ -19,12 +19,12 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <summary>
         /// <see cref="Transfer"/> operations which are currently in progress.
         /// </summary>
-        private ConcurrentDictionary<string, Transfer> m_transfers;
+        private readonly ConcurrentDictionary<string, Transfer> m_transfers;
 
         /// <summary>
         /// <see cref="TaskCompletionSource{TResult}"/> used to signal completion of a <see cref="Transfer"/> operation.
         /// </summary>
-        private ConcurrentDictionary<string, TaskCompletionSource<Transfer>> m_transferAddedTcses;
+        private readonly ConcurrentDictionary<string, TaskCompletionSource<Transfer>> m_transferAddedTcses;
 
         private EventHandler<AudioVideoFlowUpdatedEventArgs> m_audioVideoFlowConnected;
 
@@ -203,7 +203,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             TaskCompletionSource<IAudioVideoFlow> s = new TaskCompletionSource<IAudioVideoFlow>();
             AudioVideoFlowConnected += (o, p) => s.TrySetResult(AudioVideoFlow);
 
-            if (flow != null && flow.State == FlowState.Connected)
+            if (flow?.State == FlowState.Connected)
             {
                 s.TrySetResult(AudioVideoFlow);
             }

@@ -14,7 +14,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
     /// Represents a Resource returned by PlatformService.
     /// </summary>
     /// <typeparam name="TCapabilities">
-    /// An <see cref="enum"/> listing all the capabilties that this <see cref="IPlatformResource{TCapabilities}"/> supports. Capabilities
+    /// An enum listing all the capabilties that this <see cref="IPlatformResource{TCapabilities}"/> supports. Capabilities
     /// might not be available at runtime, such cases can be handled by invoking <see cref="Supports(TCapabilities)"/> when a capabilty
     /// needs to be used.
     /// </typeparam>
@@ -410,7 +410,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
     {
         List<IBridgedParticipant> BridgedParticipants { get; }
 
-        Task<IBridgedParticipant> AddBridgedParticipantAsync(LoggingContext logginContext, string displayName, string sipUri, bool isEnableFilter);
+        Task<IBridgedParticipant> AddBridgedParticipantAsync(LoggingContext logginContext, string displayName, string sipUri, bool enableMessageFilter);
     }
 
     #endregion

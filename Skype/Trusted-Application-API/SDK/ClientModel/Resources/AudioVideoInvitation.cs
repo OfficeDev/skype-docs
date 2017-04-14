@@ -167,7 +167,6 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             return result;
         }
 
-
         /// <summary>
         /// Accept the incoming call and set up b2b call with conference or target user
         /// </summary>
@@ -200,7 +199,6 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             Uri bridge = UriHelper.CreateAbsoluteUri(this.BaseUri, href);
             return this.PostRelatedPlatformResourceAsync(bridge, input, new ResourceJsonMediaTypeFormatter(), loggingContext);
         }
-
 
         #endregion
     }

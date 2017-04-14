@@ -13,7 +13,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <summary>
         /// complete tcs
         /// </summary>
-        private TaskCompletionSource<string> m_transferCompleteTcs;
+        private readonly TaskCompletionSource<string> m_transferCompleteTcs;
 
         #endregion
 

@@ -20,12 +20,12 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <summary>
         /// the bridged participants collection
         /// </summary>
-        private ConcurrentDictionary<string, BridgedParticipant> m_bridgedParticipants;
+        private readonly ConcurrentDictionary<string, BridgedParticipant> m_bridgedParticipants;
 
         /// <summary>
         /// tcses to track bridged participant added events
         /// </summary>
-        private ConcurrentDictionary<string, TaskCompletionSource<BridgedParticipant>> m_bridgedParticipantTcses;
+        private readonly ConcurrentDictionary<string, TaskCompletionSource<BridgedParticipant>> m_bridgedParticipantTcses;
 
         #endregion
 
@@ -38,7 +38,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         {
             get
             {
-                if (m_bridgedParticipants != null && m_bridgedParticipants.Count > 0)
+                if (m_bridgedParticipants?.Count > 0)
                 {
                     return m_bridgedParticipants.Values.Cast<IBridgedParticipant>().ToList();
                 }
@@ -144,22 +144,22 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <summary>
         /// process conversation bridge participant events
         /// </summary>
-        /// <param name="eventcontext"></param>
+        /// <param name="eventContext"></param>
         /// <returns></returns>
-        internal override bool ProcessAndDispatchEventsToChild(EventContext eventcontext)
+        internal override bool ProcessAndDispatchEventsToChild(EventContext eventContext)
         {
             //No child to dispatch any more, need to dispatch to child , process locally for message type
-            if (string.Equals(eventcontext.EventEntity.Link.Token, TokenMapper.GetTokenName(typeof(BridgedParticipantResource))))
+            if (string.Equals(eventContext.EventEntity.Link.Token, TokenMapper.GetTokenName(typeof(BridgedParticipantResource))))
             {
-                if (eventcontext.EventEntity.Relationship == EventOperation.Added)
+                if (eventContext.EventEntity.Relationship == EventOperation.Added)
                 {
-                    BridgedParticipantResource resource = this.ConvertToPlatformServiceResource<BridgedParticipantResource>(eventcontext);
+                    BridgedParticipantResource resource = this.ConvertToPlatformServiceResource<BridgedParticipantResource>(eventContext);
                     if (resource != null)
                     {
                         BridgedParticipant newBridgedParticipant = new BridgedParticipant(this.RestfulClient, resource, this.BaseUri,
-                             UriHelper.CreateAbsoluteUri(eventcontext.BaseUri, resource.SelfUri), this);
+                             UriHelper.CreateAbsoluteUri(eventContext.BaseUri, resource.SelfUri), this);
                         TaskCompletionSource<BridgedParticipant> tcs = null;
-                        newBridgedParticipant.HandleResourceEvent(eventcontext);
+                        newBridgedParticipant.HandleResourceEvent(eventContext);
                         m_bridgedParticipants.TryAdd(UriHelper.NormalizeUri(resource.SelfUri, this.BaseUri), newBridgedParticipant);
                         if (m_bridgedParticipantTcses.TryRemove(resource.Uri.ToLower(), out tcs))
                         {
@@ -168,26 +168,26 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                     }
                 }
 
-                if (eventcontext.EventEntity.Relationship == EventOperation.Updated)
+                if (eventContext.EventEntity.Relationship == EventOperation.Updated)
                 {
-                    BridgedParticipantResource resource = this.ConvertToPlatformServiceResource<BridgedParticipantResource>(eventcontext);
+                    BridgedParticipantResource resource = this.ConvertToPlatformServiceResource<BridgedParticipantResource>(eventContext);
                     if (resource != null)
                     {
                         BridgedParticipant newBridgedParticipant = null;
 
                         if (m_bridgedParticipants.TryGetValue(UriHelper.NormalizeUri(resource.SelfUri, this.BaseUri), out newBridgedParticipant))
                         {
-                            newBridgedParticipant.HandleResourceEvent(eventcontext);
+                            newBridgedParticipant.HandleResourceEvent(eventContext);
                         }
                     }
                 }
 
-                if (eventcontext.EventEntity.Relationship == EventOperation.Deleted)
+                if (eventContext.EventEntity.Relationship == EventOperation.Deleted)
                 {
                     BridgedParticipant newBridgedParticipant = null;
-                    if (m_bridgedParticipants.TryRemove(UriHelper.NormalizeUri(eventcontext.EventEntity.Link.Href, this.BaseUri), out newBridgedParticipant))
+                    if (m_bridgedParticipants.TryRemove(UriHelper.NormalizeUri(eventContext.EventEntity.Link.Href, this.BaseUri), out newBridgedParticipant))
                     {
-                        newBridgedParticipant.HandleResourceEvent(eventcontext);
+                        newBridgedParticipant.HandleResourceEvent(eventContext);
                     }
                 }
                 return true;

@@ -12,28 +12,19 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
     /// <typeparam name="TCacheItem">The type of the cache item.</typeparam>
     internal class CacheItem<TCacheItem>
     {
-        #region private variables
-
-        /// <summary>
-        /// The cache item.
-        /// </summary>
-        private TCacheItem m_item;
-
-        #endregion
-
         #region contructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CacheItem"/> class.
+        /// Initializes a new instance of the <see cref="CacheItem{T}"/> class.
         /// </summary>
         /// <param name="item">The item.</param>
         public CacheItem(TCacheItem item)
         {
-            if (item == null)
+            if (EqualityComparer<TCacheItem>.Default.Equals(item, default(TCacheItem)))
             {
                 throw new ArgumentNullException(nameof(item));
             }
-            m_item = item;
+            Item = item;
             LastAccessTime = DateTime.UtcNow;
         }
 
@@ -47,10 +38,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
         /// <value>
         /// The item.
         /// </value>
-        internal TCacheItem Item
-        {
-            get { return m_item; }
-        }
+        internal TCacheItem Item { get; }
 
         /// <summary>
         /// Gets or sets the last access time.
@@ -157,7 +145,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
         /// <summary>
         /// The inner cache
         /// </summary>
-        private Dictionary<TKey, CacheItem<TItem>> m_innerCache = new Dictionary<TKey, CacheItem<TItem>>(INITIAL_SIZE + 10);
+        private readonly Dictionary<TKey, CacheItem<TItem>> m_innerCache = new Dictionary<TKey, CacheItem<TItem>>(INITIAL_SIZE + 10);
 
         /// <summary>
         /// Represents whether the access time needs to be updated for GETs.
@@ -185,7 +173,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
                 m_highWaterMark = settings.HighWaterMark;
                 m_lowWaterMark = settings.LowWaterMark;
 
-                if (settings.Staleness != null)
+                if (settings.Staleness != default(TimeSpan))
                 {
                     MinStaleness = settings.Staleness;
                 }
@@ -252,7 +240,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
                 throw new ArgumentNullException(nameof(itemCreator));
             }
 
-            if (key == null)
+            if (EqualityComparer<TKey>.Default.Equals(key, default(TKey)))
             {
                 throw new ArgumentNullException(nameof(key));
             }
@@ -287,7 +275,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
                     this.CleanupIfNecessary();
 
                     var item = itemCreator();
-                    Debug.Assert(null != item, "Item is null");
+                    Debug.Assert(!EqualityComparer<TItem>.Default.Equals(item, default(TItem)), "Item is null");
 
                     cachedItem = new CacheItem<TItem>(item);
                     cachedItem.LastAccessTime = DateTime.UtcNow;
@@ -306,7 +294,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
         /// <returns></returns>
         public bool TryGet(TKey key, out TItem item)
         {
-            if (key == null)
+            if (EqualityComparer<TKey>.Default.Equals(key, default(TKey)))
             {
                 throw new ArgumentNullException(nameof(key));
             }

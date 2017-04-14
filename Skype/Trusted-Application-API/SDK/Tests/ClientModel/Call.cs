@@ -69,7 +69,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         {
             // Given
             var eventReceived = false;
-            m_call.CallStateChanged += (sender, args) => { eventReceived = true; };
+            m_call.CallStateChanged += (sender, args) => eventReceived = true;
 
             // When
             m_call.HandleResourceEvent(m_eventContext);
@@ -83,7 +83,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         {
             // Given
             var eventsReceived = 0;
-            EventHandler<CallStateChangedEventArgs> handler = (sender, args) => { Interlocked.Increment(ref eventsReceived); };
+            EventHandler<CallStateChangedEventArgs> handler = (sender, args) => Interlocked.Increment(ref eventsReceived);
             m_call.CallStateChanged += handler;
             m_call.CallStateChanged += handler;
 

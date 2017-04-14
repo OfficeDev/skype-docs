@@ -13,22 +13,14 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
 
     public static class TaskHelpers
     {
-        /// <summary>
-        /// Cached completed task.
-        /// </summary>
-        private static Task s_completedTask = TaskHelpers.FromResult<Empty>(default(Empty));
-
         static TaskHelpers()
         {
             TaskCompletionSource<Empty> tcs = new TaskCompletionSource<Empty>();
             tcs.TrySetResult(new Empty());
-            s_completedTask = tcs.Task;
+            CompletedTask = tcs.Task;
         }
 
-        public static Task CompletedTask
-        {
-            get { return s_completedTask; }
-        }
+        public static Task CompletedTask { get; } = FromResult(default(Empty));
 
         public static Task<TResult> FromResult<TResult>(TResult result)
         {

@@ -180,7 +180,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             var url = UriHelper.CreateAbsoluteUri(this.BaseUri, href);
 
             var httpResponse = await this.PostRelatedPlatformResourceAsync(url, input, new ResourceJsonMediaTypeFormatter(), loggingContext).ConfigureAwait(false);
-                
+
             try
             {
                 var skypeResourceStream = await httpResponse.Content.ReadAsStreamAsync().ConfigureAwait(false);
@@ -214,7 +214,6 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
             return new AdhocMeeting(RestfulClient, adhocMeetingResource, BaseUri, UriHelper.CreateAbsoluteUri(BaseUri, adhocMeetingResource.SelfUri), this);
         }
-
 
         public override bool Supports(ApplicationCapability capability)
         {

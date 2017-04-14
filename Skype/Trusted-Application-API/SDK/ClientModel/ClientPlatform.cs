@@ -8,7 +8,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
     {
         #region Private fields
 
-        private ClientPlatformSettings m_platformSettings;
+        private readonly ClientPlatformSettings m_platformSettings;
 
         #endregion
 
@@ -31,7 +31,6 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                 }
             }
         }
-
 
         public Guid AADClientId
         {
@@ -61,8 +60,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             get { return m_platformSettings.IsInternalPartner; }
         }
 
-
-        public X509Certificate2 AADAppCertificate { get; private set; }
+        public X509Certificate2 AADAppCertificate { get; }
 
         #endregion
 
@@ -90,11 +88,10 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             Logger.RegisterLogger(logger);
             if (!string.IsNullOrEmpty(platformSettings.AppTokenCertThumbprint))
             {
-                AADAppCertificate = CertificateHelper.LookupCertificate(X509FindType.FindByThumbprint, platformSettings.AppTokenCertThumbprint, StoreName.My, StoreLocation.LocalMachine);
-                if (AADAppCertificate == null)
-                {
-                    AADAppCertificate = CertificateHelper.LookupCertificate(X509FindType.FindByThumbprint, platformSettings.AppTokenCertThumbprint, StoreName.My, StoreLocation.CurrentUser);
-                }
+                AADAppCertificate =
+                    CertificateHelper.LookupCertificate(X509FindType.FindByThumbprint, platformSettings.AppTokenCertThumbprint, StoreName.My, StoreLocation.LocalMachine)
+                    ?? CertificateHelper.LookupCertificate(X509FindType.FindByThumbprint, platformSettings.AppTokenCertThumbprint, StoreName.My, StoreLocation.CurrentUser);
+
                 if (AADAppCertificate == null)
                 {
                     throw new ArgumentException($"Certificate with thumbprint {platformSettings.AppTokenCertThumbprint} not found in store");
@@ -107,9 +104,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
     }
 }
 
-/// <summary>
-/// We put all not official supported features (workarounds to help developers) in this namespace
-/// </summary>
+// We put all not official supported features (workarounds to help developers) in this namespace
 namespace Microsoft.SfB.PlatformService.SDK.ClientModel.Internal
 {
     /// <summary>

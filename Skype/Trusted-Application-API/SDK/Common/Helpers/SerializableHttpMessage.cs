@@ -98,7 +98,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
             this.IsIncoming = isIncoming;
             if (requestMessage.Content != null)
             {
-                if (requestMessage.Content.Headers != null && requestMessage.Content.Headers.ContentType != null)
+                if (requestMessage.Content.Headers?.ContentType != null)
                 {
                     this.ContentType = requestMessage.Content.Headers.ContentType.ToString();
                 }
@@ -186,12 +186,12 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
             }
             sb.AppendLine(string.Format("{0} {1}", this.Method.ToString(), this.Uri));
             sb.AppendLine("TimeStamp: " + this.Timestamp.ToShortTimeString());
-            if (this.LoggingContext != null && this.LoggingContext.JobId != null)
+            if (LoggingContext?.JobId != null)
             {
                 sb.AppendLine("JobId: " + this.LoggingContext.JobId);
             }
 
-            if (this.LoggingContext != null && this.LoggingContext.InstanceId != null)
+            if (LoggingContext?.InstanceId != null)
             {
                 sb.AppendLine("InstanceId: " + this.LoggingContext.InstanceId);
             }

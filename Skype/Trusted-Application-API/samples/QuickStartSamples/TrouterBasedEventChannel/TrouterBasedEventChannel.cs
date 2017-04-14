@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Threading.Tasks;
 using Microsoft.SfB.PlatformService.SDK.ClientModel;
 using Microsoft.SfB.PlatformService.SDK.Common;
 using Microsoft.Skype.Calling.ServiceAgents.Trouter;
 
-namespace TrustedJoinMeeting
+namespace TrouterCommon
 {
     /// <summary>
     /// Trusted Application API uses callbacks to deliver notifications (events) to the application. If the scenario supported by the application

@@ -47,7 +47,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
                 "https://example.com/callback",
                 "Local user",
                 "sip:user1@example.com",
-                m_loggingContext);
+                m_loggingContext).ConfigureAwait(false);
         }
 
         [TestMethod]
@@ -69,10 +69,8 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         {
             // Given
             m_messagingInvitation = await StartIncomingMessagingInvitationAsync("Event_IncomingIMCall.json").ConfigureAwait(false);
-            m_restfulClient.HandleRequestProcessed += (sender, args) =>
-            {
-                TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.StartAdhocMeeting, HttpMethod.Post, "Event_OnlineMeetingInvitationStarted.json", m_mockEventChannel);
-            };
+            m_restfulClient.HandleRequestProcessed +=
+                (sender, args) => TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.StartAdhocMeeting, HttpMethod.Post, "Event_OnlineMeetingInvitationStarted.json", m_mockEventChannel);
 
             // When
             await m_messagingInvitation.StartAdhocMeetingAsync("Test subject", "https://example.com/callback", m_loggingContext).ConfigureAwait(false);
@@ -127,10 +125,8 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         {
             // Given
             m_messagingInvitation = await StartIncomingMessagingInvitationAsync("Event_IncomingIMCall.json").ConfigureAwait(false);
-            m_restfulClient.HandleRequestProcessed += (sender, args) =>
-            {
-                TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.StartAdhocMeeting, HttpMethod.Post, "Event_OnlineMeetingInvitationStarted.json", m_mockEventChannel);
-            };
+            m_restfulClient.HandleRequestProcessed +=
+                (sender, args) => TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.StartAdhocMeeting, HttpMethod.Post, "Event_OnlineMeetingInvitationStarted.json", m_mockEventChannel);
 
             // When
             await m_messagingInvitation.StartAdhocMeetingAsync("Test subject", "https://example.com/callback", null).ConfigureAwait(false);
@@ -148,7 +144,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
 
             // When
             await m_messagingInvitation.AcceptAndBridgeAsync(m_loggingContext, null, "Example User").ConfigureAwait(false);
-            
+
             // Then
             // Exception is thrown
         }
@@ -275,15 +271,15 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
 
         #region Private methods
 
-        private async Task<IMessagingInvitation> StartIncomingMessagingInvitationAsync(string filename)
+        private Task<IMessagingInvitation> StartIncomingMessagingInvitationAsync(string filename)
         {
             var tcs = new TaskCompletionSource<IMessagingInvitation>();
 
-            m_applicationEndpoint.HandleIncomingInstantMessagingCall += (sender, args) => { tcs.SetResult(args.NewInvite); };
+            m_applicationEndpoint.HandleIncomingInstantMessagingCall += (sender, args) => tcs.SetResult(args.NewInvite);
 
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, filename);
 
-            return await tcs.Task.ConfigureAwait(false);
+            return tcs.Task;
         }
 
         #endregion

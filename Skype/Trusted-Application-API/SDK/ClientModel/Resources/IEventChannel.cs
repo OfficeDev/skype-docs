@@ -9,7 +9,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
     /// </summary>
     public class EventsChannelArgs : EventArgs
     {
-        public virtual SerializableHttpRequestMessage CallbackHttpRequest { get; private set; }
+        public virtual SerializableHttpRequestMessage CallbackHttpRequest { get; }
 
         public EventsChannelArgs(SerializableHttpRequestMessage request)
         {
@@ -22,9 +22,9 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
     /// </summary>
     internal class EventsChannelContext
     {
-        public EventsEntity EventsEntity { get; private set; }
+        public EventsEntity EventsEntity { get; }
 
-        public LoggingContext LoggingContext { get; private set; }
+        public LoggingContext LoggingContext { get; }
 
         public EventsChannelContext(EventsEntity eventsEntity, LoggingContext loggingContext = null)
         {

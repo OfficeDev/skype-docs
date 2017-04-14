@@ -18,7 +18,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <summary>
         /// complete tcs
         /// </summary>
-        private TaskCompletionSource<string> m_invitationCompleteTcs;
+        private readonly TaskCompletionSource<string> m_invitationCompleteTcs;
 
         #endregion
 

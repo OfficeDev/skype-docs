@@ -36,7 +36,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             // Given
             IAudioVideoInvitation invitation = null;
 
-            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => { invitation = args.NewInvite; };
+            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => invitation = args.NewInvite;
 
             // When
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall.json");
@@ -52,7 +52,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             // Given
             IAudioVideoInvitation invitation = null;
 
-            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => { invitation = args.NewInvite; };
+            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => invitation = args.NewInvite;
 
             // When
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall_NoActionLinks.json");
@@ -69,7 +69,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             // Given
             IAudioVideoInvitation invitation = null;
 
-            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => { invitation = args.NewInvite; };
+            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => invitation = args.NewInvite;
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall_NoActionLinks.json");
 
             // When
@@ -86,7 +86,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             IAudioVideoInvitation invitation = null;
             m_restfulClient.OverrideResponse(new Uri(DataUrls.AudioVideoInvitationAccept), HttpMethod.Post, HttpStatusCode.NoContent, null);
 
-            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => { invitation = args.NewInvite; };
+            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => invitation = args.NewInvite;
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall.json");
 
             // When
@@ -102,7 +102,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         {
             // Given
             IAudioVideoInvitation invitation = null;
-            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => { invitation = args.NewInvite; };
+            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => invitation = args.NewInvite;
 
             // When
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall.json");
@@ -117,7 +117,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         {
             // Given
             IAudioVideoInvitation invitation = null;
-            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => { invitation = args.NewInvite; };
+            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => invitation = args.NewInvite;
 
             // When
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall_NoActionLinks.json");
@@ -133,7 +133,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         {
             // Given
             IAudioVideoInvitation invitation = null;
-            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => { invitation = args.NewInvite; };
+            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => invitation = args.NewInvite;
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall_NoActionLinks.json");
 
             // When
@@ -150,7 +150,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             IAudioVideoInvitation invitation = null;
             m_restfulClient.OverrideResponse(new Uri(DataUrls.AudioVideoInvitationDecline), HttpMethod.Post, HttpStatusCode.NoContent, null);
 
-            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => { invitation = args.NewInvite; };
+            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => invitation = args.NewInvite;
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall.json");
 
             // When
@@ -166,7 +166,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         {
             // Given
             IAudioVideoInvitation invitation = null;
-            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => { invitation = args.NewInvite; };
+            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => invitation = args.NewInvite;
 
             // When
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall.json");
@@ -181,7 +181,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         {
             // Given
             IAudioVideoInvitation invitation = null;
-            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => { invitation = args.NewInvite; };
+            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => invitation = args.NewInvite;
 
             // When
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall_NoActionLinks.json");
@@ -197,7 +197,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         {
             // Given
             IAudioVideoInvitation invitation = null;
-            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => { invitation = args.NewInvite; };
+            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => invitation = args.NewInvite;
 
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall_NoActionLinks.json");
 
@@ -215,7 +215,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             IAudioVideoInvitation invitation = null;
             m_restfulClient.OverrideResponse(new Uri(DataUrls.AudioVideoInvitationForward), HttpMethod.Post, HttpStatusCode.NoContent, null);
 
-            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => { invitation = args.NewInvite; };
+            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => invitation = args.NewInvite;
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall.json");
 
             // When
@@ -232,7 +232,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         {
             // Given
             IAudioVideoInvitation invitation = null;
-            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => { invitation = args.NewInvite; };
+            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => invitation = args.NewInvite;
 
             m_restfulClient.OverrideResponse(new Uri(DataUrls.AudioVideoInvitationForward), HttpMethod.Post, HttpStatusCode.NoContent, null);
 
@@ -251,7 +251,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         {
             // Given
             IAudioVideoInvitation invitation = null;
-            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => { invitation = args.NewInvite; };
+            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => invitation = args.NewInvite;
 
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall.json");
 
@@ -268,7 +268,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         {
             // Given
             IAudioVideoInvitation invitation = null;
-            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => { invitation = args.NewInvite; };
+            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => invitation = args.NewInvite;
 
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall_NoActionLinks.json");
 
@@ -284,7 +284,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         {
             // Given
             IAudioVideoInvitation invitation = null;
-            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => { invitation = args.NewInvite; };
+            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => invitation = args.NewInvite;
 
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall.json");
 
@@ -300,7 +300,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         {
             // Given
             IAudioVideoInvitation invitation = null;
-            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => { invitation = args.NewInvite; };
+            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => invitation = args.NewInvite;
 
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall.json");
 
@@ -318,14 +318,12 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         {
             // Given
             IAudioVideoInvitation invitation = null;
-            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => { invitation = args.NewInvite; };
+            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => invitation = args.NewInvite;
 
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall.json");
 
-            m_restfulClient.HandleRequestProcessed += (sender, args) =>
-            {
-                TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.StartAdhocMeeting, HttpMethod.Post, "Event_OnlineMeetingInvitationStarted.json", m_mockEventChannel);
-            };
+            m_restfulClient.HandleRequestProcessed +=
+                (sender, args) => TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.StartAdhocMeeting, HttpMethod.Post, "Event_OnlineMeetingInvitationStarted.json", m_mockEventChannel);
 
             // When
             await invitation.StartAdhocMeetingAsync("Test subject", "myCallbackContext", m_loggingContext).ConfigureAwait(false);
@@ -340,7 +338,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         {
             // Given
             IAudioVideoInvitation invitation = null;
-            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => { invitation = args.NewInvite; };
+            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => invitation = args.NewInvite;
 
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall.json");
 
@@ -358,7 +356,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         {
             // Given
             IAudioVideoInvitation invitation = null;
-            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => { invitation = args.NewInvite; };
+            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => invitation = args.NewInvite;
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall.json");
 
             var invitationOperationid = string.Empty;
@@ -387,12 +385,10 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         {
             // Given
             IAudioVideoInvitation invitation = null;
-            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => { invitation = args.NewInvite; };
+            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => invitation = args.NewInvite;
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall.json");
-            m_restfulClient.HandleRequestProcessed += (sender, args) =>
-            {
-                TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.StartAdhocMeeting, HttpMethod.Post, "Event_OnlineMeetingInvitationStarted.json", m_mockEventChannel);
-            };
+            m_restfulClient.HandleRequestProcessed +=
+                (sender, args) => TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.StartAdhocMeeting, HttpMethod.Post, "Event_OnlineMeetingInvitationStarted.json", m_mockEventChannel);
 
             // When
             await invitation.StartAdhocMeetingAsync("Test subject", "mycallbackContext", null).ConfigureAwait(false);

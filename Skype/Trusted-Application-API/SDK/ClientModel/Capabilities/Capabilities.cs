@@ -4,7 +4,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 {
     public enum AudioVideoFlowCapability
     {
-        PlayPrompt
+        PlayPrompt = 0
     }
 
     public enum PromptCapability
@@ -13,16 +13,16 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
     public enum AudioVideoCallCapability
     {
-        Establish,
-        Transfer,
-        Terminate
+        Establish = 0,
+        Transfer = 1,
+        Terminate = 2
     }
 
     public enum MessagingCallCapability
     {
-        Establish,
-        SendMessage,
-        Terminate
+        Establish = 0,
+        SendMessage = 1,
+        Terminate = 2
     }
 
     public enum TransferCapability
@@ -31,17 +31,17 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
     public enum ConversationCapability
     {
-        AddParticipant
+        AddParticipant = 0
     }
 
     public enum ConversationConferenceCapability
     {
-        Terminate
+        Terminate = 0
     }
 
     public enum ConversationBridgeCapability
     {
-        AddBridgedParticipant
+        AddBridgedParticipant = 0
     }
 
     internal enum ParticipantsCapability
@@ -58,7 +58,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
     public enum ParticipantCapability
     {
-        Eject
+        Eject = 0
     }
 
     public enum ParticipantMessagingCapability
@@ -68,12 +68,12 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
     public enum ApplicationCapability
     {
         [Obsolete("Use GetAnonApplicationTokenForMeeting instead")]
-        GetAnonApplicationToken,
+        GetAnonApplicationToken = 0,
         [Obsolete("Use CreateAdhocMeeting instead")]
-        GetAdhocMeetingResource,
-        GetAnonApplicationTokenForMeeting,
-        GetAnonApplicationTokenForP2PCall,
-        CreateAdhocMeeting
+        GetAdhocMeetingResource = 1,
+        GetAnonApplicationTokenForMeeting = 2,
+        GetAnonApplicationTokenForP2PCall = 3,
+        CreateAdhocMeeting = 4
     }
 
     public enum AnonymousApplicationTokenCapability
@@ -85,30 +85,30 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
     /// </summary>
     public enum AdhocMeetingCapability
     {
-        JoinAdhocMeeting
+        JoinAdhocMeeting = 0
     }
 
     public enum CommunicationCapability
     {
-        StartMessaging,
-        StartMessagingWithIdentity,
-        StartAudioVideo,
-        StartAudio
+        StartMessaging = 0,
+        StartMessagingWithIdentity = 1,
+        StartAudioVideo = 2,
+        StartAudio = 3
     }
 
     public enum MessagingInvitationCapability
     {
-        StartAdhocMeeting,
-        AcceptAndBridge
+        StartAdhocMeeting = 0,
+        AcceptAndBridge = 1
     }
 
     public enum AudioVideoInvitationCapability
     {
-        Accept,
-        Forward,
-        Decline,
-        StartAdhocMeeting,
-        AcceptAndBridge
+        Accept = 0,
+        Forward = 1,
+        Decline = 2,
+        StartAdhocMeeting = 3,
+        AcceptAndBridge = 4
     }
 
     public enum OnlineMeetingInvitationCapability
