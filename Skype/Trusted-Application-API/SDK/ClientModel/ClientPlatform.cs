@@ -4,6 +4,10 @@ using Microsoft.SfB.PlatformService.SDK.Common;
 
 namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 {
+    /// <summary>
+    /// The platform for a client application
+    /// </summary>
+    /// <seealso cref="Microsoft.SfB.PlatformService.SDK.ClientModel.IClientPlatform" />
     public class ClientPlatform : IClientPlatform
     {
         #region Private fields
@@ -14,6 +18,10 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
         #region Public properties
 
+        /// <summary>
+        /// Gets the discover URI.
+        /// </summary>
+        /// <value>The discover URI.</value>
         public Uri DiscoverUri
         {
             get {
@@ -32,11 +40,19 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             }
         }
 
+        /// <summary>
+        /// Gets the aad client Id.
+        /// </summary>
+        /// <value>The aad client Id.</value>
         public Guid AADClientId
         {
             get { return m_platformSettings.AADClientId; }
         }
 
+        /// <summary>
+        /// Gets the aad client secret.
+        /// </summary>
+        /// <value>The aad client secret.</value>
         public string AADClientSecret
         {
             get { return m_platformSettings.AADClientSecret; }
@@ -60,6 +76,10 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             get { return m_platformSettings.IsInternalPartner; }
         }
 
+        /// <summary>
+        /// Gets the aad application certificate.
+        /// </summary>
+        /// <value>The aad application certificate.</value>
         public X509Certificate2 AADAppCertificate { get; }
 
         #endregion
@@ -72,6 +92,17 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
         #region Constructors
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ClientPlatform"/> class.
+        /// </summary>
+        /// <param name="platformSettings">The platform settings.</param>
+        /// <param name="logger">The logger.</param>
+        /// <exception cref="System.ArgumentNullException">
+        /// platformSettings
+        /// or
+        /// logger
+        /// </exception>
+        /// <exception cref="System.ArgumentException"></exception>
         public ClientPlatform(ClientPlatformSettings platformSettings, IPlatformServiceLogger logger)
         {
             if(platformSettings == null)
@@ -112,16 +143,31 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel.Internal
     /// </summary>
     public static class ClientPlatformExtensions
     {
+        /// <summary>
+        /// Gets the customized callback URL.
+        /// </summary>
+        /// <param name="This"> this.</param>
+        /// <returns>System.String.</returns>
         public static string GetCustomizedCallbackUrl(this ClientPlatform This)
         {
             return This.CustomizedCallbackUrl;
         }
 
+        /// <summary>
+        /// Gets if this Client platform is a sandbox environment.
+        /// </summary>
+        /// <param name="This">This.</param>
+        /// <returns><c>true</c> if this Client platform is a sandbox environment, <c>false</c> otherwise.</returns>
         public static bool GetIsSandboxEnv(this ClientPlatform This)
         {
             return This.IsSandBoxEnv;
         }
 
+        /// <summary>
+        /// Gets if this client platform is an internal partner
+        /// </summary>
+        /// <param name="This">The this.</param>
+        /// <returns><c>true</c> if this client platform is an internal partner, <c>false</c> otherwise.</returns>
         public static bool GetIsInternalPartner(this ClientPlatform This)
         {
             return This.IsInternalPartner;

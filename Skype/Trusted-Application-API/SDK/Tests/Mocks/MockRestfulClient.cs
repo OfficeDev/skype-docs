@@ -55,6 +55,16 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests
 
         private async Task<HttpResponseMessage> GenerateResponseAsync(Uri uri, HttpMethod method, object input)
         {
+            if (HandleRequestReceived != null)
+            {
+                RequestReceivedEventArgs args = new RequestReceivedEventArgs(uri, method, input);
+                HandleRequestReceived?.Invoke(this, args);
+                if (args.Response != null)
+                {
+                    return args.Response;
+                }
+            }
+        
             m_requestsProcessed.Add(method.ToString() + " " + uri.ToString());
             await TaskHelpers.CompletedTask.ConfigureAwait(false);
 
@@ -91,6 +101,8 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests
         }
 
         public event EventHandler<RequestProcessedEventArgs> HandleRequestProcessed;
+
+        public event EventHandler<RequestReceivedEventArgs> HandleRequestReceived;
 
         public bool RequestsProcessed(params string[] methodAndUri)
         {
@@ -150,6 +162,24 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests
             Method = method;
             Input = input;
             Response = response;
+        }
+    }
+
+    public class RequestReceivedEventArgs
+    {
+        public Uri Uri { get; }
+
+        public HttpMethod Method { get; }
+
+        public object Input { get; }
+
+        public HttpResponseMessage Response { get; set; }
+
+        public RequestReceivedEventArgs(Uri uri, HttpMethod method, object input)
+        {
+            Uri = uri;
+            Method = method;
+            Input = input;
         }
     }
 }

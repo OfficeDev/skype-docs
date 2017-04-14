@@ -42,7 +42,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests
             Logger.RegisterLogger(new ConsoleLogger());
 
             var platformSettings = new ClientPlatformSettings(
-                DiscoverUri,              
+                DiscoverUri,
                 AADClientId,
                 AppTokenCertThumbprint,
                 null,
@@ -184,15 +184,15 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests
 
             if (args.Uri == new Uri(uri) && args.Method == method)
             {
-                if ((args.Input as InvitationInput) != null)
+                if (args.Input is InvitationInput)
                 {
                     operationId = ((InvitationInput)args.Input).OperationContext;
                 }
-                else if ((args.Input as TransferOperationInput) != null)
+                else if (args.Input is TransferOperationInput)
                 {
                     operationId = ((TransferOperationInput)args.Input).OperationId;
                 }
-                else if ((args.Input as AddParticipantInvitationInput) != null)
+                else if (args.Input is AddParticipantInvitationInput)
                 {
                     operationId = ((AddParticipantInvitationInput)args.Input).OperationContext;
                 }
@@ -230,7 +230,6 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests
             MediaTypeHeaderValue typeHeader = null;
             MediaTypeHeaderValue.TryParse("application/json", out typeHeader);
             eventsEntity = MediaTypeFormattersHelper.ReadContentWithType(typeof(EventsEntity), typeHeader, stream) as EventsEntity;
-            
 
             return eventsEntity;
         }

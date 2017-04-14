@@ -53,14 +53,26 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             m_errorInformation = errorInformation;
         }
 
+        /// <summary>
+        /// Returns a <see cref="System.String" /> that represents this instance.
+        /// </summary>
+        /// <returns>A <see cref="System.String" /> that represents this instance.</returns>
         public override string ToString()
         {
             return m_errorInformation.GetErrorInformationString();
         }
     }
 
+    /// <summary>
+    /// Provides more detailed error information
+    /// </summary>
     public static class ErrorInformationExtensions
     {
+        /// <summary>
+        /// Returns a <see cref="System.String"/> that represents more detailed error information
+        /// </summary>
+        /// <param name="This">The error information.</param>
+        /// <returns>more detailed error information.</returns>
         public static string GetErrorInformationString(this Rtc.Internal.RestAPI.ResourceModel.ErrorInformation This)
         {
             return string.Format("ErrorCode {0}, Error Subcode {1}, Messaging {2}, Debug Info {3}",

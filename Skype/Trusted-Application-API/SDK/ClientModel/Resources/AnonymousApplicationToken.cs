@@ -48,6 +48,11 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             }
         }
 
+        /// <summary>
+        /// <see cref="AnonymousApplicationToken"/> doesn't support any capability so always returns <code>false</code>.
+        /// </summary>
+        /// <param name="capability">Capability that needs to be checked</param>
+        /// <returns><code>false</code> </returns>
         public override bool Supports(AnonymousApplicationTokenCapability capability)
         {
             return false;

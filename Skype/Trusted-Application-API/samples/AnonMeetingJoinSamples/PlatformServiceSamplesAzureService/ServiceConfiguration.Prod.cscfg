@@ -9,11 +9,12 @@
       <Setting name="SkypeForBusinessApplicationId" value="00000004-0000-0ff1-ce00-000000000000" />
       <Setting name="PlatformDiscoverUri" value="https://NOAMmeetings.resources.lync.com/platformservice/discover?deploymentpreference=Nightly" />
       <Setting name="PlatformAudienceUri" value="https://NOAMmeetings.resources.lync.com" />
+      <!-- Replace base.url with your app's url; as registered on Azure -->
       <Setting name="AudienceUri" value="https://base.url" />
       <Setting name="CallbackUriFormat" value="https://base.url/callback?callbackContext={0}" />
       <Setting name="ResourcesUriFormat" value="https://base.url/resources/{0}" />
       <!-- Replace these with values relevant to your deployment -->                   
-     <Setting name="AAD_ClientId" value="GUID" />
+      <Setting name="AAD_ClientId" value="GUID" />
       <Setting name="AAD_ClientSecret" value="Secret key" />      
       <Setting name="ApplicationEndpointId" value="Sip address" />
       <Setting name="LogFullHttpRequestResponse" value="true" />      

@@ -58,6 +58,7 @@
         public  const string TerminateAudioVideoCall         = TgtConversation + "/audioVideo/terminate?" + EndpointId;
         public  const string Transfer                        = TgtConversation + "/audioVideo/transfer?" + EndpointId;
         public  const string StartPrompt                     = TgtConversation + "/audioVideo/audioVideoFlow/prompts?" + EndpointId;
+        public  const string StopPrompts                     = TgtConversation + "/audioVideo/audioVideoFlow/stopPrompts?" + EndpointId;
         public  const string BridgedParticipants             = TgtConversation + "/conversationBridge/bridgedParticipants?" + EndpointId;
         public  const string BridgedParticipant              = TgtConversation + "/conversationBridge/bridgedParticipants/bridgedparticipant@example.com?" + EndpointId;
         public  const string TerminateConversationConference = TgtConversation + "/onlineMeeting/terminateOnlineMeeting?" + EndpointId;

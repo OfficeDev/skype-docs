@@ -30,10 +30,10 @@ The Skype for Business scope permissions are shown in the following table:
 
 |**Scope**|**Permission**|**Description**|**Requires admin consent**|
 |:-----|:-----|:-----|:-----|
-|Contacts.ReadWrite|Read and manage user contacts and groups|Allows the application to read and update user contacts and groups|Yes|
-|Conversations.Initiate|Initiate conversations and join meetings|Allows the application to initiate instant messages, audio, video, and desktop sharing conversations; and join meetings on-behalf of the signed-in user|Yes|
-|Conversations.Receive|Receive conversation invites|Allows the app to receive instant messages, audio, video, and desktop sharing invitations on-behalf of the signed-in user|Yes|
-|Meetings.ReadWrite|Create online meetings|Allows the application to create Online meetings on-behalf of the signed-in user|Yes|
-|User.ReadWrite|Read/write Skype user information|Allows the app to read and update presence, photo, location, note, call forwarding settings of the signed-in user|Yes|
+|Contacts.ReadWrite|Read and manage user contacts and groups|Allows the application to read and update user contacts and groups|No|
+|Conversations.Initiate|Initiate conversations and join meetings|Allows the application to initiate instant messages, audio, video, and desktop sharing conversations; and join meetings on-behalf of the signed-in user|No|
+|Conversations.Receive|Receive conversation invites|Allows the app to receive instant messages, audio, video, and desktop sharing invitations on-behalf of the signed-in user|No|
+|Meetings.ReadWrite|Create online meetings|Allows the application to create Online meetings on-behalf of the signed-in user|No|
+|User.ReadWrite|Read/write Skype user information|Allows the app to read and update presence, photo, location, note, call forwarding settings of the signed-in user|No|
 
->Note: The adminstrator of a tenant where your service application is registered must accept permission requests on behalf of users before the service application can be used. To learn about the tenant admin consent flow, read [Tenant Administrator Consent Flow](https://msdn.microsoft.com/en-us/skype/websdk/docs/developwebsdkappsforsfbonline#tenant-administrator-consent-flow)
+>Note: The adminstrator of a tenant where your application is registered can accept permission requests on behalf of all users, so users do not see the permissions screen. To learn about the tenant admin consent flow, read [Tenant Administrator Consent Flow](https://msdn.microsoft.com/en-us/skype/websdk/docs/developwebsdkappsforsfbonline#tenant-administrator-consent-flow)

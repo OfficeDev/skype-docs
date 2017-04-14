@@ -14,6 +14,6 @@
             }
         }
     ],
-    "notification_subscribers": ["johnau@microsoft.com","srividhc@microsoft.com"],
+    "notification_subscribers": ["johnau@microsoft.com","matthias.knoll@skype.net"],
     "branches_to_filter": [""]
 }

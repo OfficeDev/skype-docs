@@ -6,8 +6,16 @@ using System.Text;
 
 namespace Microsoft.SfB.PlatformService.SDK.Common
 {
+    /// <summary>
+    /// Provides utilities for the exception formats
+    /// </summary>
     public static class ExceptionUtils
     {
+        /// <summary>
+        /// Formats the exception.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        /// <returns>System.String.</returns>
         public static string FormatExceptionSimple(Exception ex)
         {
             if (ex == null)
@@ -43,6 +51,12 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
 
         #endregion
 
+        /// <summary>
+        /// Formats the exception.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        /// <param name="includeContext">if set to <c>true</c> [include context].</param>
+        /// <returns>System.String.</returns>
         public static string FormatException(Exception ex, bool includeContext = false)
         {
             if (ex == null)

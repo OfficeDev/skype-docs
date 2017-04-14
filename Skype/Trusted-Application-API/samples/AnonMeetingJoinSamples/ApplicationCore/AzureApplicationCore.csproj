@@ -72,19 +72,19 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Rtc.Internal.Platform.ResourceContract.Publish, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SkypeforBusiness.TrustedApplicationAPI.ResourceContract.7.0.1567.0\lib\Microsoft.Rtc.Internal.Platform.ResourceContract.Publish.dll</HintPath>
+      <HintPath>..\packages\Microsoft.SkypeforBusiness.TrustedApplicationAPI.ResourceContract.7.0.1586.0\lib\Microsoft.Rtc.Internal.Platform.ResourceContract.Publish.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Rtc.Internal.Publish, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SkypeforBusiness.TrustedApplicationAPI.ResourceContract.7.0.1567.0\lib\Microsoft.Rtc.Internal.Publish.dll</HintPath>
+    <Reference Include="Microsoft.Rtc.Internal.publish, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SkypeforBusiness.TrustedApplicationAPI.ResourceContract.7.0.1586.0\lib\Microsoft.Rtc.Internal.publish.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Rtc.Internal.RestAPI.Common.Publish, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SkypeforBusiness.TrustedApplicationAPI.ResourceContract.7.0.1567.0\lib\Microsoft.Rtc.Internal.RestAPI.Common.Publish.dll</HintPath>
+      <HintPath>..\packages\Microsoft.SkypeforBusiness.TrustedApplicationAPI.ResourceContract.7.0.1586.0\lib\Microsoft.Rtc.Internal.RestAPI.Common.Publish.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Rtc.Internal.RestAPI.ResourceModel.Publish, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SkypeforBusiness.TrustedApplicationAPI.ResourceContract.7.0.1567.0\lib\Microsoft.Rtc.Internal.RestAPI.ResourceModel.Publish.dll</HintPath>
+      <HintPath>..\packages\Microsoft.SkypeforBusiness.TrustedApplicationAPI.ResourceContract.7.0.1586.0\lib\Microsoft.Rtc.Internal.RestAPI.ResourceModel.Publish.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.ServiceBus, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -92,11 +92,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.SfB.PlatformService.SDK.ClientModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SkypeforBusiness.TrustedApplicationAPI.SDK.1.0.0-prerelease4\lib\net462\Microsoft.SfB.PlatformService.SDK.ClientModel.dll</HintPath>
+      <HintPath>..\packages\Microsoft.SkypeforBusiness.TrustedApplicationAPI.SDK.1.0.0-prerelease7\lib\net462\Microsoft.SfB.PlatformService.SDK.ClientModel.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.SfB.PlatformService.SDK.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SkypeforBusiness.TrustedApplicationAPI.SDK.1.0.0-prerelease4\lib\net462\Microsoft.SfB.PlatformService.SDK.Common.dll</HintPath>
+      <HintPath>..\packages\Microsoft.SkypeforBusiness.TrustedApplicationAPI.SDK.1.0.0-prerelease7\lib\net462\Microsoft.SfB.PlatformService.SDK.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.WindowsAzure.Configuration, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -116,18 +116,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Net" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Extensions.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Formatting.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Primitives.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Spatial, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -137,6 +125,10 @@
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">

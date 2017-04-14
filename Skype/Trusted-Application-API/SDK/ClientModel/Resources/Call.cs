@@ -6,6 +6,14 @@ using Microsoft.Rtc.Internal.Platform.ResourceContract;
 
 namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 {
+    /// <summary>
+    /// The base class of <see cref="MessagingCall"/> and <see cref="AudioVideoCall"/>>.
+    /// </summary>
+    /// <typeparam name="TPlatformResource">The type of the t platform resource.</typeparam>
+    /// <typeparam name="TInvitation">The type of the t invitation.</typeparam>
+    /// <typeparam name="TCapabilities">The type of the t capabilities.</typeparam>
+    /// <seealso cref="Microsoft.SfB.PlatformService.SDK.ClientModel.BasePlatformResource{TPlatformResource, TCapabilities}" />
+    /// <seealso cref="Microsoft.SfB.PlatformService.SDK.ClientModel.ICall{TInvitation}" />
     internal abstract class Call<TPlatformResource, TInvitation, TCapabilities>
         : BasePlatformResource<TPlatformResource, TCapabilities>, ICall<TInvitation>
         where TPlatformResource : CallResource
@@ -65,8 +73,18 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
         #region Public methods
 
+        /// <summary>
+        /// Establishes the Call
+        /// </summary>
+        /// <param name="loggingContext">The logging context.</param>
+        /// <returns>Task&lt;TInvitation&gt;.</returns>
         public abstract Task<TInvitation> EstablishAsync(LoggingContext loggingContext);
 
+        /// <summary>
+        /// Terminates the Call
+        /// </summary>
+        /// <param name="loggingContext">The logging context.</param>
+        /// <returns>Task.</returns>
         public abstract Task TerminateAsync(LoggingContext loggingContext);
 
         #endregion
@@ -91,6 +109,10 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         #endregion
     }
 
+    /// <summary>
+    /// The Arguments for the event when the CallState is changed
+    /// </summary>
+    /// <seealso cref="System.EventArgs" />
     public class CallStateChangedEventArgs : EventArgs
     {
         #region Consructor
@@ -105,8 +127,16 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
         #region Public properties
 
+        /// <summary>
+        /// Gets the old state.
+        /// </summary>
+        /// <value>The old state.</value>
         public CallState OldState { get; }
 
+        /// <summary>
+        /// Gets the new state.
+        /// </summary>
+        /// <value>The new state.</value>
         public CallState NewState { get; }
 
         #endregion

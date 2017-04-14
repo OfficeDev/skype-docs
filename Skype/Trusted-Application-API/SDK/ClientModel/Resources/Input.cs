@@ -32,14 +32,21 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         public AccessLevel AccessLevel { get; }
 
         /// <summary>
+        /// List of users who should be the leaders for the meeting
+        /// </summary>
+        public string[] Leaders { get; }
+
+        /// <summary>
         /// Creates an instance of <see cref="AdhocMeetingCreationInput"/>
         /// </summary>
         /// <param name="subject">Subject of the meeting</param>
         /// <param name="accessLevel"><see cref="AccessLevel"/> deciding who all can join the meeting</param>
-        public AdhocMeetingCreationInput(string subject, AccessLevel accessLevel = AccessLevel.Everyone)
+        /// <param name="leaders">List of users who should be the leaders for the meeting</param>
+        public AdhocMeetingCreationInput(string subject, AccessLevel accessLevel = AccessLevel.Everyone, string[] leaders = null)
         {
             Subject = subject;
             AccessLevel = accessLevel;
+            Leaders = leaders;
         }
 
         /// <summary>
@@ -50,7 +57,9 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         {
             return new AdhocMeetingInput()
             {
-                Subject = Subject
+                Subject = Subject,
+                AccessLevel = AccessLevel,
+                Leaders = Leaders
             };
         }
     }

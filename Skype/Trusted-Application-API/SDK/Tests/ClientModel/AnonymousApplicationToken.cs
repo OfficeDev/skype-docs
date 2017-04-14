@@ -30,7 +30,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             await data.ApplicationEndpoint.InitializeApplicationAsync(m_loggingContext).ConfigureAwait(false);
             m_application = data.ApplicationEndpoint.Application;
 
-            m_anonToken = await m_application.GetAnonApplicationTokenForMeetingAsync(m_loggingContext, "https://example.com/meetingjoinurl", "https://example.com;https://example1.com", Guid.NewGuid().ToString()).ConfigureAwait(false);
+            m_anonToken = await m_application.GetAnonApplicationTokenForMeetingAsync("https://example.com/meetingjoinurl", "https://example.com;https://example1.com", Guid.NewGuid().ToString(), m_loggingContext).ConfigureAwait(false);
         }
 
         [TestMethod]
@@ -47,7 +47,6 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         }
 
         [TestMethod]
-        [Ignore] // TODO : We need to fix Javascript date deserialization in RestApi.ResourceModel.Resource class before we can enable this test (code review in progress)
         public void ShouldExposeAuthTokenExpiryTime()
         {
             // Given
@@ -80,7 +79,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         {
             // Given
             m_restfulClient.OverrideResponse(new Uri(DataUrls.AnonToken), HttpMethod.Post, HttpStatusCode.OK, "AnonApplicationToken_MalformedDiscoverUri.json");
-            m_anonToken = await m_application.GetAnonApplicationTokenForMeetingAsync(m_loggingContext, "https://example.com/meetingjoinurl", "https://example.com;https://example1.com", Guid.NewGuid().ToString()).ConfigureAwait(false);
+            m_anonToken = await m_application.GetAnonApplicationTokenForMeetingAsync("https://example.com/meetingjoinurl", "https://example.com;https://example1.com", Guid.NewGuid().ToString(), m_loggingContext).ConfigureAwait(false);
 
             // When
             Uri discoverUri = m_anonToken.AnonymousApplicationsDiscoverUri;

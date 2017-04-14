@@ -70,8 +70,11 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         [TestMethod]
         public async Task WaitForInviteCompleteAsyncShouldReturnATaskWhichCompletesOnInvitationCompletedEvent()
         {
+            // When
+            ((IInvitationWithConversation)m_invitation).SetRelatedConversation(m_conversation);
+
             // Given
-            Task invitationTask = m_invitation.WaitForInviteCompleteAsync();
+            Task<IConversation> invitationTask = m_invitation.WaitForInviteCompleteAsync();
             await Task.Delay(TimeSpan.FromMilliseconds(200)).ConfigureAwait(false);
 
             Assert.IsFalse(invitationTask.IsCompleted);
@@ -81,6 +84,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
 
             // Then
             Assert.IsTrue(invitationTask.IsCompleted);
+            Assert.IsTrue(invitationTask.Result != null);
         }
     }
 }

@@ -35,12 +35,14 @@ In [Registering your application in Azure AD](./RegistrationInAzureActiveDirecto
     Request to join "https://meet.lync.com/contoso/testuser/1SD8D0WZ"
     ```
 
-4. The Service Application talks to the **Trusted Application API** using the discovery and authentication mechanism described [here](./AuthenticationAndAuthorization.md).
+4. The Service Application talks to the **Trusted Application API** endpoints using the [discovery](./DiscoveryForServiceApplications.md) and [authentication](./AuthenticationAndAuthorization.md) mechanism.
+
+   >Note: All the **Trusted Application API** endpoints require authentication using **OAuth token**. Please refer [Azure Active Directory - Service to Service calls using Client Credentials](./AADS2S.md) for more information on how to get a OAuth Token.
     
     - The Service Application gets an anonymous application token, and a discover url, when it passes in the meeting url to the AnonApplicationsToken endpoint of the **Trusted Application API**. The flow is as follow:
     
         1. **Discovery**
-            - Discover request - The Service Application also known as SaaS application(SA) discovers the location of the **Trusted Application API**.
+            - Discover request - The Service Application also known as SaaS application(SA) discovers the location of the **Trusted Application API**. This GET request must be authenticated with a valid **OAuth token**.
 
                  ```
                 GET https://api.skypeforbusiness.com/platformservice/discover
@@ -51,7 +53,7 @@ In [Registering your application in Azure AD](./RegistrationInAzureActiveDirecto
                 ```
         2. **Get the capabilities**
        
-            - We send a GET request with Trusted Applications API link received from the previous discovery Request. **This GET request must be authenticated with a valid OAuth token.** Please refer [Azure Active Directory - Service to Service calls using Client Credentials](./AADS2S.md) for more information on how to get OAuth Token.
+            - We send a GET request with Trusted Applications API link received from the previous discovery Request. This GET request must be authenticated with a valid **OAuth token**.
                 
                 ```
                     //Capabilities request without valid Oauth token gets '401 Unauthorized' response

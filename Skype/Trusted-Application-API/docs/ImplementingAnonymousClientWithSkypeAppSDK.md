@@ -17,18 +17,16 @@ After completing the steps in this article, your app can join a **Skype for Busi
 
 1. Please read [Getting started with Skype App SDK development](https://msdn.microsoft.com/en-us/skype/appsdk/gettingstarted) to learn how to configure your Android project for the **Skype for Business** App SDK.  In particular, the following steps assume that you have added the _ConversationHelper_ class to your source to let you complete the scenario with a minimum of code. 
 
-2. Create and deploy a **Trusted Application API Service Application** for Skype for Business Online. Please refer [Developing Trusted Application API applications for Skype for Business Online](./AADS2S.md) for more details.
+2. Create and deploy a **Trusted Application API Service Application** for Skype for Business Online. Please refer [Developing Trusted Application API applications for Skype for Business Online](./DevelopingApplicationsforSFBOnline.md) for more details.
 This service application will provide RESTful Trusted Application API endpoint to creates ad-hoc meetings, provides meeting join Urls, discovery Uris, and anonymous meeting tokens to your android app.
 
-The rest of this article describes how to enable your android app to call into such a service application. You can read more about the [Trusted Appplication API](../Trusted-Application-API/docs/Trusted_Application_API_GeneralReference.md) to learn
+The rest of this article describes how to enable your android app to call into such a service application. You can read more about the [Trusted Application API](./Trusted_Application_API_GeneralReference.md) to learn
 about all of the features of this Skype for Business service application api.
 
-We've published two service application [examples](https://github.com/OfficeDev/skype-docs/tree/johnau/ucapdocs/Skype/Trusted-Application-API/samples) in GitHub to get you started.
+We've published two service application [examples](https://github.com/OfficeDev/skype-docs/tree/master/Skype/Trusted-Application-API/samples) in GitHub to get you started.
 
 
-The anonymous user can join into Skype meetings by using a meeting's URI. For Skype for Business Online,**Anonymous Meeting Join** is supported through the **Trusted Application API**. The meeting's URL is passed to the Service Application, which talks to the Trusted 
-
-Application API and enables anonymous users to join the online meeting.
+The anonymous user can join into Skype meetings by using a meeting's URI. For Skype for Business Online,**Anonymous Meeting Join** is supported through the **Trusted Application API**. The meeting's URL is passed to the Service Application, which talks to the Trusted Application API and enables anonymous users to join the online meeting.
 
 ## Sample code walkthrough
 

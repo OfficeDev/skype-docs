@@ -1,0 +1,69 @@
+﻿{
+  "_links": {
+    "self": {
+      "href": "/platformservice/tgt-8c81281c925a5c2ea02ec14ac1b492c6/v1/applications/1393347000/events?ack=4&key=1393347000%7Esip%3Amonitoringaudio%400mcorp2cloudperf.onmicrosoft.com%7E869ce4f6-0076-483a-a7c1-968f6b935afe"
+    },
+    "next": {
+      "href": "/platformservice/tgt-8c81281c925a5c2ea02ec14ac1b492c6/v1/applications/1393347000/events?ack=5&key=1393347000%7Esip%3Amonitoringaudio%400mcorp2cloudperf.onmicrosoft.com%7E869ce4f6-0076-483a-a7c1-968f6b935afe"
+    }
+  },
+  "sender": [
+    {
+      "rel": "ms:rtc:saas:conversation",
+      "href": "/platformservice/tgt-8c81281c925a5c2ea02ec14ac1b492c6/v1/applications/1393347000/communication/conversations/869ce4f6-0076-483a-a7c1-968f6b935afe?endpointId=sip:monitoringaudio@0mcorp2cloudperf.onmicrosoft.com",
+      "events": [
+        {
+          "link": {
+            "rel": "ms:rtc:saas:message",
+            "href": "/platformservice/tgt-8c81281c925a5c2ea02ec14ac1b492c6/v1/applications/1393347000/communication/conversations/869ce4f6-0076-483a-a7c1-968f6b935afe/messaging/messages/3?endpointId=sip:monitoringaudio@0mcorp2cloudperf.onmicrosoft.com"
+          },
+          "status": "Success",
+          "_embedded": {
+            "ms:rtc:saas:message": {
+              "direction": "Incoming",
+              "timeStamp": "/Date(1489524122496)/",
+              "_links": {
+                "self": {
+                  "href": "/platformservice/tgt-8c81281c925a5c2ea02ec14ac1b492c6/v1/applications/1393347000/communication/conversations/869ce4f6-0076-483a-a7c1-968f6b935afe/messaging/messages/3?endpointId=sip:monitoringaudio@0mcorp2cloudperf.onmicrosoft.com"
+                },
+                "ms:rtc:saas:participant": {
+                  "href": "/platformservice/tgt-8c81281c925a5c2ea02ec14ac1b492c6/v1/applications/1393347000/communication/conversations/869ce4f6-0076-483a-a7c1-968f6b935afe/participants/participant@example.com?endpointId=sip:monitoringaudio@0mcorp2cloudperf.onmicrosoft.com",
+                  "title": "Original Name"
+                },
+                "ms:rtc:saas:messaging": {
+                  "href": "/platformservice/tgt-8c81281c925a5c2ea02ec14ac1b492c6/v1/applications/1393347000/communication/conversations/869ce4f6-0076-483a-a7c1-968f6b935afe/messaging?endpointId=sip:monitoringaudio@0mcorp2cloudperf.onmicrosoft.com"
+                },
+                "htmlMessage": {
+                  "href": "data:text/html;charset=utf-8,%3cspan+style%3d%22margin-bottom%3a0pt%3bline-height%3anormal%3b%22%3e%3cb%3e%3cspan+style%3d%22font-size%3a10pt%3b%22%3e__htmlmessage__%3c%2fspan%3e%3c%2fb%3e%3c%2fspan%3e"
+                }
+              },
+              "_embedded": {
+                "ms:rtc:saas:senderParticipant": [
+                  {
+                    "uri": "sip:participant@example.com",
+                    "name": "Original Name",
+                    "_links": {
+                      "self": {
+                        "href": "/platformservice/tgt-8c81281c925a5c2ea02ec14ac1b492c6/v1/applications/1393347000/communication/conversations/869ce4f6-0076-483a-a7c1-968f6b935afe/participants/participant@example.com?endpointId=sip:monitoringaudio@0mcorp2cloudperf.onmicrosoft.com"
+                      },
+                      "ms:rtc:saas:conversation": {
+                        "href": "/platformservice/tgt-8c81281c925a5c2ea02ec14ac1b492c6/v1/applications/1393347000/communication/conversations/869ce4f6-0076-483a-a7c1-968f6b935afe?endpointId=sip:monitoringaudio@0mcorp2cloudperf.onmicrosoft.com"
+                      },
+                      "ms:rtc:saas:participantMessaging": {
+                        "href": "/platformservice/tgt-8c81281c925a5c2ea02ec14ac1b492c6/v1/applications/1393347000/communication/conversations/869ce4f6-0076-483a-a7c1-968f6b935afe/participants/participant@example.com/messaging?endpointId=sip:monitoringaudio@0mcorp2cloudperf.onmicrosoft.com"
+                      }
+                    },
+                    "rel": "ms:rtc:saas:participant"
+                  }
+                ]
+              },
+              "rel": "ms:rtc:saas:message"
+            }
+          },
+          "type": "completed"
+        }
+      ]
+    }
+  ],
+  "baseuri": "https://webpoolbl20r04.infra.lync.com"
+}

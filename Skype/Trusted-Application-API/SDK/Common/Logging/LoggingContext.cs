@@ -7,19 +7,34 @@ using System.Text;
 
 namespace Microsoft.SfB.PlatformService.SDK.Common
 {
+    /// <summary>
+    /// Catches the context of logging
+    /// </summary>
     public class LoggingContext : ICloneable
     {
+        /// <summary>
+        /// Creates a new instance of <see cref="LoggingContext"/>
+        /// </summary>
         public LoggingContext()
         {
             PropertyBag = new Dictionary<string, object>();
         }
 
+        /// <summary>
+        /// Creates a new instance of <see cref="LoggingContext"/> with given parameters
+        /// </summary>
+        /// <param name="jobId">ID of the job to which this <see cref="LoggingContext"/> belongs</param>
+        /// <param name="instanceId">ID of the application instance to which this <see cref="LoggingContext"/> belongs</param>
         public LoggingContext(string jobId, string instanceId) : this()
         {
             this.JobId = jobId;
             this.InstanceId = instanceId;
         }
 
+        /// <summary>
+        /// Creates a new instance of <see cref="LoggingContext"/>
+        /// </summary>
+        /// <param name="trackingId">unique ID to identify this <see cref="LoggingContext"/></param>
         public LoggingContext(Guid trackingId) : this()
         {
             this.TrackingId = trackingId;
@@ -125,6 +140,10 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
             this.InstanceId = callbackContext.InstanceId;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>A string that represents the current object.</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder("LoggingContext: \r\n");
@@ -145,6 +164,10 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Creates a new shallow copy of <see cref="LoggingContext"/>
+        /// </summary>
+        /// <returns>A new <see cref="LoggingContext"/> with all properties same as this object</returns>
         public object Clone()
         {
             var loggingContext = this.MemberwiseClone() as LoggingContext;

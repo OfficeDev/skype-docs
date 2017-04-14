@@ -42,7 +42,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             m_restfulClient.HandleRequestProcessed +=
                 (sender, args) => m_transferOperationId = TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.Transfer, HttpMethod.Post, "Event_TransferStarted.json", m_mockEventChannel);
 
-            m_transfer = await conversation.AudioVideoCall.TransferAsync("sip:user@example.com", null, m_loggingContext).ConfigureAwait(false);
+            m_transfer = await conversation.AudioVideoCall.TransferAsync(new SipUri("sip:user@example.com"), null, m_loggingContext).ConfigureAwait(false);
         }
 
         [TestMethod]

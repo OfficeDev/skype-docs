@@ -4,21 +4,21 @@ using QuickSamplesCommon;
 using System;
 using System.Threading.Tasks;
 
-
 /// <summary>
 /// Simple sampel on remote advisor scenario:
 /// 1. Schedule an adhoc meeting with SkypeforBusiness
 /// 2. And get anon token of that adhoc meeting for webSDK or AppSDK anon user to join the meeting
 /// </summary>
 namespace RemoteAdvisorSample
-{    class Program
+{
+    public static class Program
     {
-        static void Main(string[] args)
+        public static void Main()
         {
             RemoteAdvisorSample sample = new RemoteAdvisorSample();
             try
             {
-                sample.Run().Wait();               
+                sample.RunAsync().Wait();
             }
             catch (AggregateException ex)
             {
@@ -29,9 +29,9 @@ namespace RemoteAdvisorSample
 
     internal class RemoteAdvisorSample
     {
-        public async Task Run()
+        public async Task RunAsync()
         {
-            ConsoleLogger logger = new ConsoleLogger();
+            var logger = new SampleAppLogger();
             logger.HttpRequestResponseNeedsToBeLogged = true;//Set to true if you want to log all http request and responses
 
             //Prepare platform
@@ -48,21 +48,19 @@ namespace RemoteAdvisorSample
             await applicationEndpoint.InitializeAsync(loggingContext).ConfigureAwait(false);
             await applicationEndpoint.InitializeApplicationAsync(loggingContext).ConfigureAwait(false);
 
-
             //Schedule meeting
             var input = new AdhocMeetingCreationInput(Guid.NewGuid().ToString("N") + "testMeeting");
-            var adhocMeeting =  await applicationEndpoint.Application.CreateAdhocMeetingAsync(loggingContext, input).ConfigureAwait(false);
+            var adhocMeeting =  await applicationEndpoint.Application.CreateAdhocMeetingAsync(input, loggingContext).ConfigureAwait(false);
 
             logger.Information("ad hoc meeting uri : " + adhocMeeting.OnlineMeetingUri);
             logger.Information("ad hoc meeting join url : " + adhocMeeting.JoinUrl);
 
             //Get anon join token
             IAnonymousApplicationToken anonToken = await applicationEndpoint.Application.GetAnonApplicationTokenForMeetingAsync(
-                    loggingContext,
                     adhocMeeting.JoinUrl,
                     "https://contoso.com;https://litware.com;http://www.microsoftstore.com/store/msusa/en_US/home", //Fill your own web site, For allow cross domain using
-                    Guid.NewGuid().ToString() //Should be unique everytime
-                ).ConfigureAwait(false);
+                    Guid.NewGuid().ToString(), //Should be unique everytime
+                    loggingContext).ConfigureAwait(false);
 
             logger.Information("Get anon token : " + anonToken.AuthToken);
             logger.Information("Get discover url for web SDK : " + anonToken.AnonymousApplicationsDiscoverUri.ToString());
@@ -72,5 +70,4 @@ namespace RemoteAdvisorSample
             Console.ResetColor();
         }
     }
-
 }

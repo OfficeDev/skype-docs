@@ -1,15 +1,14 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TrouterBasedEventChannel")]
+[assembly: AssemblyTitle("MessagingAfterJoinMeeting")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("TrouterBasedEventChannel")]
+[assembly: AssemblyProduct("MessagingAfterJoinMeeting")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("c1ec31b7-6ea3-4468-8ce9-b43939eac4d1")]
+[assembly: Guid("845bd88c-5fa8-43d7-b21f-9a57550df727")]
 
 // Version information for an assembly consists of the following four values:
 //

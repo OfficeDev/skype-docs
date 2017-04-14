@@ -62,7 +62,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <summary>
         /// Get app token from AAD.
         /// </summary>
-        /// <param name="audienceUri">The audience uri.</param>
+        /// <param name="oauthIdentity">The oauth identity.</param>
         /// <returns>The Azure AAD App token.</returns>
         public async Task<string> GetTokenAsync(OAuthTokenIdentifier oauthIdentity)
         {

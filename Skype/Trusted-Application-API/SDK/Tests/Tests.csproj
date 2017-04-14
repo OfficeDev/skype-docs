@@ -23,7 +23,7 @@
     <!-- DO NOT change value to false in your pushed/submitted change. -->
     <RunUnitTestsAsPartOfBuild>true</RunUnitTestsAsPartOfBuild>
     <!-- Do not show warnings for using obsolete methods -->
-    <NoWarn>0618</NoWarn>
+    <NoWarn>0618;RCS1046</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,19 +44,19 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Rtc.Internal.Platform.ResourceContract.Publish, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SkypeforBusiness.TrustedApplicationAPI.ResourceContract.7.0.1567.0\lib\Microsoft.Rtc.Internal.Platform.ResourceContract.Publish.dll</HintPath>
+      <HintPath>..\packages\Microsoft.SkypeforBusiness.TrustedApplicationAPI.ResourceContract.7.0.1586.0\lib\Microsoft.Rtc.Internal.Platform.ResourceContract.Publish.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Rtc.Internal.Publish, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SkypeforBusiness.TrustedApplicationAPI.ResourceContract.7.0.1567.0\lib\Microsoft.Rtc.Internal.Publish.dll</HintPath>
+    <Reference Include="Microsoft.Rtc.Internal.publish, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SkypeforBusiness.TrustedApplicationAPI.ResourceContract.7.0.1586.0\lib\Microsoft.Rtc.Internal.publish.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Rtc.Internal.RestAPI.Common.Publish, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SkypeforBusiness.TrustedApplicationAPI.ResourceContract.7.0.1567.0\lib\Microsoft.Rtc.Internal.RestAPI.Common.Publish.dll</HintPath>
+      <HintPath>..\packages\Microsoft.SkypeforBusiness.TrustedApplicationAPI.ResourceContract.7.0.1586.0\lib\Microsoft.Rtc.Internal.RestAPI.Common.Publish.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Rtc.Internal.RestAPI.ResourceModel.Publish, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SkypeforBusiness.TrustedApplicationAPI.ResourceContract.7.0.1567.0\lib\Microsoft.Rtc.Internal.RestAPI.ResourceModel.Publish.dll</HintPath>
+      <HintPath>..\packages\Microsoft.SkypeforBusiness.TrustedApplicationAPI.ResourceContract.7.0.1586.0\lib\Microsoft.Rtc.Internal.RestAPI.ResourceModel.Publish.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Moq, Version=4.5.28.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
@@ -70,16 +70,12 @@
     <Reference Include="System" />
     <Reference Include="System.Net" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Extensions.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Formatting.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Primitives.dll</HintPath>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -138,11 +134,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
     <None Include="Data\*.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="app.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

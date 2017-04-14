@@ -29,6 +29,9 @@
                 },
                 "ms:rtc:saas:playPrompt": {
                   "href": "/platformservice/tgt-8c81281c925a5c2ea02ec14ac1b492c6/v1/applications/1393347000/communication/conversations/869ce4f6-0076-483a-a7c1-968f6b935afe/audioVideo/audioVideoFlow/prompts?endpointId=sip:monitoringaudio@0mcorp2cloudperf.onmicrosoft.com"
+                },
+                "ms:rtc:saas:stopPrompts": {
+                  "href": "/platformservice/tgt-8c81281c925a5c2ea02ec14ac1b492c6/v1/applications/1393347000/communication/conversations/869ce4f6-0076-483a-a7c1-968f6b935afe/audioVideo/audioVideoFlow/stopPrompts?endpointId=sip:monitoringaudio@0mcorp2cloudperf.onmicrosoft.com"
                 }
               },
               "rel": "ms:rtc:saas:audioVideoFlow"

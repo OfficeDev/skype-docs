@@ -73,14 +73,3 @@ The following PowerShell cmdlet creates a new application endpoint.
 ```PowerShell
 New-CsOnlineApplicationEndpoint -Uri "sip:sample@domain.com" -ApplicationId "44ff763b-5d1f-40ab-95bf-f31kc8757998" -Name "SampleApp" -PhoneNumber "19841110909"
 ```
-
-### Assigning a Phone Number to a Trusted Endpoint
-
- 1. For PSTN, You are required to have an **E5 license** 
-to enable PSTN calling with the **Trusted Application API**. To enable PSTN calling, the Skype for Business Domestic and International Calling feature must be active. Please refer to [products.microsoft.com](https://products.office.com/en-us/business/office-365-enterprise-e5-business-software)  for more details.
-
- 2. For PSTN, Acquire the **service numbers** to assign to the trusted application endpoint. Please refer to [support.office.com](https://support.office.com/en-us/article/Getting-Skype-for-Business-service-phone-numbers-e434aeb2-af99-40e7-981e-a474f0383734) for more details. 
- 
-   ![Assign service telephone number](images/PSTNEndpoint2.jpeg)
-
-

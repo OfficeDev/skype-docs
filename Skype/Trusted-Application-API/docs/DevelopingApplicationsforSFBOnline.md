@@ -35,8 +35,8 @@ connect to the API and use the exposed capabilities.
 >Note: For **Service applications**, please refer [Discovery for Service Applications](./DiscoveryForServiceApplications.md)
 
 ### Authentication using client credentials
-All endpoints other than the Discovery endpoint require authentication.
-**Trusted Application API** endpoints require an oauth token with an Application Identity from Azure Active Directory using the client credential grant flow.
+
+All **Trusted Application API** endpoints require an oauth token with an Application Identity from Azure Active Directory using the client credential grant flow.
 This grants the permissions to the application  to access the **Trusted Application API** resource. Please refer [Azure Active Directory - Service to Service calls using Client Credentials](./AADS2S.md)
 for more details.
 

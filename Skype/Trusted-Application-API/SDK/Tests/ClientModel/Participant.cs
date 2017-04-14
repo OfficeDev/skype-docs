@@ -39,7 +39,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             };
 
             IMessagingInvitation invitation = await applicationEndpoint.Application.Communication
-                .StartMessagingWithIdentityAsync("Test subject", "sip:user@example.com", "https://example.com/callback", "Local user", "sip:user1@example.com", m_loggingContext)
+                .StartMessagingAsync("Test subject", new SipUri("sip:user@example.com"), "https://example.com/callback", m_loggingContext)
                 .ConfigureAwait(false);
 
             m_conversation = invitation.RelatedConversation;

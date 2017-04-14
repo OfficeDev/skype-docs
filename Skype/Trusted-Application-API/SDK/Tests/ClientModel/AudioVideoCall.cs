@@ -135,7 +135,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_AudioVideoConnected_NoActionLink.json");
 
             // When
-            await m_audioVideoCall.TransferAsync("sip:user@example.com", null, m_loggingContext).ConfigureAwait(false);
+            await m_audioVideoCall.TransferAsync(new SipUri("sip:user@example.com"), null, m_loggingContext).ConfigureAwait(false);
 
             // Then
             // Exception is thrown
@@ -155,7 +155,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
                 }
             };
 
-            Task transferTask = m_audioVideoCall.TransferAsync("sip:user@example.com", null, m_loggingContext);
+            Task transferTask = m_audioVideoCall.TransferAsync(new SipUri("sip:user@example.com"), null, m_loggingContext);
             await Task.Delay(TimeSpan.FromMilliseconds(100)).ConfigureAwait(false);
             Assert.IsFalse(transferTask.IsCompleted);
 
@@ -175,7 +175,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             ((AudioVideoCall)m_audioVideoCall).WaitForEvents = TimeSpan.FromMilliseconds(300);
 
             // When
-            await m_audioVideoCall.TransferAsync("sip:user@example.com", null, m_loggingContext).ConfigureAwait(false);
+            await m_audioVideoCall.TransferAsync(new SipUri("sip:user@example.com"), null, m_loggingContext).ConfigureAwait(false);
 
             // Then
             // Exception is thrown
@@ -189,7 +189,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
                 (sender, args) => TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.Transfer, HttpMethod.Post, "Event_TransferStarted.json", m_mockEventChannel);
 
             // When
-            await m_audioVideoCall.TransferAsync("sip:user@example.com", null, m_loggingContext).ConfigureAwait(false);
+            await m_audioVideoCall.TransferAsync(new SipUri("sip:user@example.com"), null, m_loggingContext).ConfigureAwait(false);
 
             // Then
             // No exception is thrown
@@ -203,10 +203,202 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
                 (sender, args) => TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.Transfer, HttpMethod.Post, "Event_TransferStarted.json", m_mockEventChannel);
 
             // When
-            await m_audioVideoCall.TransferAsync("sip:user@example.com", null, m_loggingContext).ConfigureAwait(false);
+            await m_audioVideoCall.TransferAsync(new SipUri("sip:user@example.com"), null, m_loggingContext).ConfigureAwait(false);
 
             // Then
             Assert.IsTrue(m_restfulClient.RequestsProcessed("POST " + DataUrls.Transfer));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(CapabilityNotAvailableException))]
+        public async Task TransferAsyncToUserShouldThrowWhenCapabilityNotAvailable()
+        {
+            // Given
+            TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_AudioVideoConnected_NoActionLink.json");
+
+            // When
+            await m_audioVideoCall.TransferAsync(new SipUri("sip:user@example.com"), m_loggingContext).ConfigureAwait(false);
+
+            // Then
+            // Exception is thrown
+        }
+
+        [TestMethod]
+        public async Task TransferAsyncToUserShouldReturnOnlyOnTransferStartedEvent()
+        {
+            // Given
+            var transferOperationId = string.Empty;
+            m_restfulClient.HandleRequestProcessed += (sender, args) =>
+            {
+                string operationId = TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.Transfer, HttpMethod.Post, null, null);
+                if (operationId != null)
+                {
+                    transferOperationId = operationId;
+                }
+            };
+
+            Task transferTask = m_audioVideoCall.TransferAsync(new SipUri("sip:user@example.com"), m_loggingContext);
+            await Task.Delay(TimeSpan.FromMilliseconds(100)).ConfigureAwait(false);
+            Assert.IsFalse(transferTask.IsCompleted);
+
+            // When
+            TestHelper.RaiseEventsFromFileWithOperationId(m_mockEventChannel, "Event_TransferStarted.json", transferOperationId);
+
+            // Then
+            Assert.IsTrue(transferTask.IsCompleted);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(RemotePlatformServiceException))]
+        public async Task TransferAsyncToUserShouldThrowIfTransferStartedEventNotReceivedInTime()
+        {
+            // Given
+            // Set wait time to 300 milliseconds so that the test doesn't run for too long
+            ((AudioVideoCall)m_audioVideoCall).WaitForEvents = TimeSpan.FromMilliseconds(300);
+
+            // When
+            await m_audioVideoCall.TransferAsync(new SipUri("sip:user@example.com"), m_loggingContext).ConfigureAwait(false);
+
+            // Then
+            // Exception is thrown
+        }
+
+        [TestMethod]
+        public async Task TransferAsyncToUserShouldWorkWithNullLoggingContext()
+        {
+            // Given
+            m_restfulClient.HandleRequestProcessed +=
+                (sender, args) => TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.Transfer, HttpMethod.Post, "Event_TransferStarted.json", m_mockEventChannel);
+
+            // When
+            await m_audioVideoCall.TransferAsync(new SipUri("sip:user@example.com"), m_loggingContext).ConfigureAwait(false);
+
+            // Then
+            // No exception is thrown
+        }
+
+        [TestMethod]
+        public async Task TransferAsyncToUserShouldMakeHttpRequest()
+        {
+            // Given
+            m_restfulClient.HandleRequestProcessed +=
+                (sender, args) => TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.Transfer, HttpMethod.Post, "Event_TransferStarted.json", m_mockEventChannel);
+
+            // When
+            await m_audioVideoCall.TransferAsync(new SipUri("sip:user@example.com"), m_loggingContext).ConfigureAwait(false);
+
+            // Then
+            Assert.IsTrue(m_restfulClient.RequestsProcessed("POST " + DataUrls.Transfer));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public async Task TransferAsyncToUserShouldThrowIfNullTransferTarget()
+        {
+            // Given
+            // Setup
+
+            // When
+            await m_audioVideoCall.TransferAsync((SipUri)null, m_loggingContext).ConfigureAwait(false);
+
+            // Then
+            // Exception is thrown
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(CapabilityNotAvailableException))]
+        public async Task TransferAsyncByReplacingShouldThrowWhenCapabilityNotAvailable()
+        {
+            // Given
+            TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_AudioVideoConnected_NoActionLink.json");
+
+            // When
+            await m_audioVideoCall.TransferAsync("__fakecallcontext__", m_loggingContext).ConfigureAwait(false);
+
+            // Then
+            // Exception is thrown
+        }
+
+        [TestMethod]
+        public async Task TransferAsyncByReplacingShouldReturnOnlyOnTransferStartedEvent()
+        {
+            // Given
+            var transferOperationId = string.Empty;
+            m_restfulClient.HandleRequestProcessed += (sender, args) =>
+            {
+                string operationId = TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.Transfer, HttpMethod.Post, null, null);
+                if (operationId != null)
+                {
+                    transferOperationId = operationId;
+                }
+            };
+
+            Task transferTask = m_audioVideoCall.TransferAsync("__fakecallcontext__", m_loggingContext);
+            await Task.Delay(TimeSpan.FromMilliseconds(100)).ConfigureAwait(false);
+            Assert.IsFalse(transferTask.IsCompleted);
+
+            // When
+            TestHelper.RaiseEventsFromFileWithOperationId(m_mockEventChannel, "Event_TransferStarted.json", transferOperationId);
+
+            // Then
+            Assert.IsTrue(transferTask.IsCompleted);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(RemotePlatformServiceException))]
+        public async Task TransferAsyncByReplacingShouldThrowIfTransferStartedEventNotReceivedInTime()
+        {
+            // Given
+            // Set wait time to 300 milliseconds so that the test doesn't run for too long
+            ((AudioVideoCall)m_audioVideoCall).WaitForEvents = TimeSpan.FromMilliseconds(300);
+
+            // When
+            await m_audioVideoCall.TransferAsync("__fakecallcontext__", m_loggingContext).ConfigureAwait(false);
+
+            // Then
+            // Exception is thrown
+        }
+
+        [TestMethod]
+        public async Task TransferAsyncByReplacingShouldWorkWithNullLoggingContext()
+        {
+            // Given
+            m_restfulClient.HandleRequestProcessed +=
+                (sender, args) => TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.Transfer, HttpMethod.Post, "Event_TransferStarted.json", m_mockEventChannel);
+
+            // When
+            await m_audioVideoCall.TransferAsync("__fakecallcontext__", m_loggingContext).ConfigureAwait(false);
+
+            // Then
+            // No exception is thrown
+        }
+
+        [TestMethod]
+        public async Task TransferAsyncByReplacingShouldMakeHttpRequest()
+        {
+            // Given
+            m_restfulClient.HandleRequestProcessed +=
+                (sender, args) => TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.Transfer, HttpMethod.Post, "Event_TransferStarted.json", m_mockEventChannel);
+
+            // When
+            await m_audioVideoCall.TransferAsync("__fakecallcontext__", m_loggingContext).ConfigureAwait(false);
+
+            // Then
+            Assert.IsTrue(m_restfulClient.RequestsProcessed("POST " + DataUrls.Transfer));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public async Task TransferAsyncByReplacingShouldThrowIfNullReplacesCallContext()
+        {
+            // Given
+            // Setup
+
+            // When
+            await m_audioVideoCall.TransferAsync((string)null, m_loggingContext).ConfigureAwait(false);
+
+            // Then
+            // Exception is thrown
         }
 
         [TestMethod]

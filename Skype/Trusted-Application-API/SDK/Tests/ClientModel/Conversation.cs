@@ -47,7 +47,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
 
             // Start a conversation with messaging modality
             IMessagingInvitation invitation = await communication
-                .StartMessagingWithIdentityAsync("Test message", "sip:user@example.com", "https://example.com/callback", "Test user 1", "sip:user1@example.com")
+                .StartMessagingAsync("Test message", new SipUri("sip:user@example.com"), "https://example.com/callback")
                 .ConfigureAwait(false);
 
             m_conversation = invitation.RelatedConversation;
@@ -674,7 +674,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             TestHelper.RaiseEventsFromFile(m_eventChannel, "Event_ConversationConferenced_NoActionLink.json");
 
             // When
-            await m_conversation.AddParticipantAsync("sip:user@example.com", m_loggingContext).ConfigureAwait(false);
+            await m_conversation.AddParticipantAsync(new SipUri("sip:user@example.com"), m_loggingContext).ConfigureAwait(false);
 
             // Then
             // Exception is thrown
@@ -690,7 +690,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
                 (sender, args) => TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.ParticipantInvitation, HttpMethod.Post, "Event_ParticipantInvitationStarted.json", m_eventChannel);
 
             // When
-            await m_conversation.AddParticipantAsync("sip:user@example.com", m_loggingContext).ConfigureAwait(false);
+            await m_conversation.AddParticipantAsync(new SipUri("sip:user@example.com"), m_loggingContext).ConfigureAwait(false);
 
             // Then
             Assert.IsTrue(m_restfulClient.RequestsProcessed("POST " + DataUrls.ParticipantInvitation));
@@ -713,7 +713,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
                 }
             };
 
-            Task invitationTask = m_conversation.AddParticipantAsync("sip:user@example.com", m_loggingContext);
+            Task invitationTask = m_conversation.AddParticipantAsync(new SipUri("sip:user@example.com"), m_loggingContext);
             await Task.Delay(TimeSpan.FromMilliseconds(200)).ConfigureAwait(false);
             Assert.IsFalse(invitationTask.IsCompleted);
 

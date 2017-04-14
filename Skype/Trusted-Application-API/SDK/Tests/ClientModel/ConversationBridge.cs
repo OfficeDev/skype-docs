@@ -34,7 +34,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
 
             // Start a conversation with messaging modality
             IMessagingInvitation invitation = await communication
-                .StartMessagingWithIdentityAsync("Test message", "sip:user@example.com", "https://example.com/callback", "Test user 1", "sip:user1@example.com")
+                .StartMessagingAsync("Test message", new SipUri("sip:user@example.com"), "https://example.com/callback")
                 .ConfigureAwait(false);
 
             TestHelper.RaiseEventsFromFile(m_eventChannel, "Event_ConversationBridgeAdded.json");
@@ -96,49 +96,21 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             TestHelper.RaiseEventsFromFile(m_eventChannel, "Event_ConversationBridgeUpdated_NoActionLink.json");
 
             // When
-            await m_conversationBridge.AddBridgedParticipantAsync(m_loggingContext, "Example User", "sip:user@example.com", true).ConfigureAwait(false);
+            await m_conversationBridge.AddBridgedParticipantAsync("Example User", new SipUri("sip:user@example.com"), true, m_loggingContext).ConfigureAwait(false);
 
             // Then
             // Exception is thrown
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public async Task AddBridgedParticipantAsyncShouldThrowOnNullSipUri()
         {
             // Given
             // Setup
 
             // When
-            await m_conversationBridge.AddBridgedParticipantAsync(m_loggingContext, "Example User", null, true).ConfigureAwait(false);
-
-            // Then
-            // Exception is thrown
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
-        public async Task AddBridgedParticipantShouldThrowIfSipUriIsEmptyString()
-        {
-            // Given
-            // Setup
-
-            // When
-            await m_conversationBridge.AddBridgedParticipantAsync(m_loggingContext, "Example User", string.Empty, true).ConfigureAwait(false);
-
-            // Then
-            // Exception is thrown
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
-        public async Task AddBridgedParticipantShouldThrowIfSipUriNotValid()
-        {
-            // Given
-            // Setup
-
-            // When
-            await m_conversationBridge.AddBridgedParticipantAsync(m_loggingContext, "Example User", "invalidsipuri", true).ConfigureAwait(false);
+            await m_conversationBridge.AddBridgedParticipantAsync("Example User", null, true, m_loggingContext).ConfigureAwait(false);
 
             // Then
             // Exception is thrown
@@ -152,7 +124,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
                 (sender, args) => TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.BridgedParticipants, HttpMethod.Post, "Event_BridgedParticipantAdded.json", m_eventChannel);
 
             // When
-            await m_conversationBridge.AddBridgedParticipantAsync(m_loggingContext, "Example User", "sip:bridgedparticipant@example.com", true).ConfigureAwait(false);
+            await m_conversationBridge.AddBridgedParticipantAsync("Example User", new SipUri("sip:bridgedparticipant@example.com"), true, m_loggingContext).ConfigureAwait(false);
 
             // Then
             Assert.IsTrue(m_restfulClient.RequestsProcessed("POST " + DataUrls.BridgedParticipants));
@@ -162,7 +134,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         public async Task AddBridgedParticipantAsyncShouldReturnATaskToWaitForParticipantAddedEvent()
         {
             // Given
-            Task participantTask = m_conversationBridge.AddBridgedParticipantAsync(m_loggingContext, "Example User", "sip:bridgedparticipant@example.com", true);
+            Task participantTask = m_conversationBridge.AddBridgedParticipantAsync("Example User", new SipUri("sip:bridgedparticipant@example.com"), true, m_loggingContext);
             await Task.Delay(TimeSpan.FromMilliseconds(200)).ConfigureAwait(false);
             Assert.IsFalse(participantTask.IsCompleted);
 
@@ -182,7 +154,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             ((ConversationBridge)m_conversationBridge).WaitForEvents = TimeSpan.FromMilliseconds(200);
 
             // When
-            await m_conversationBridge.AddBridgedParticipantAsync(m_loggingContext, "Example User", "sip:bridgedparticipant@example.com", true).ConfigureAwait(false);
+            await m_conversationBridge.AddBridgedParticipantAsync("Example User", new SipUri("sip:bridgedparticipant@example.com"), true, m_loggingContext).ConfigureAwait(false);
 
             // Then
             // Exception is thrown
@@ -196,7 +168,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
                 (sender, args) => TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.BridgedParticipants, HttpMethod.Post, "Event_BridgedParticipantAdded.json", m_eventChannel);
 
             // When
-            await m_conversationBridge.AddBridgedParticipantAsync(null, "Example User", "sip:bridgedparticipant@example.com", true).ConfigureAwait(false);
+            await m_conversationBridge.AddBridgedParticipantAsync("Example User", new SipUri("sip:bridgedparticipant@example.com"), true, null).ConfigureAwait(false);
 
             // Then
             // No exception is thrown

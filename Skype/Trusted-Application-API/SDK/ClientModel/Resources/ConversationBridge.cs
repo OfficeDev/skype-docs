@@ -11,8 +11,10 @@ using Microsoft.Rtc.Internal.RestAPI.ResourceModel;
 namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 {
     /// <summary>
-    /// Define the conversation bridge class
+    /// Represents a ConversationBridge
     /// </summary>
+    /// <seealso cref="BasePlatformResource{TPlatformResource, TCapabilities}"/>
+    /// <seealso cref="IConversationBridge" />
     internal class ConversationBridge : BasePlatformResource<ConversationBridgeResource, ConversationBridgeCapability>, IConversationBridge
     {
         #region Private fields
@@ -71,16 +73,16 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <summary>
         /// Add bridged participant
         /// </summary>
-        /// <param name="logginContext"></param>
+        /// <param name="loggingContext"></param>
         /// <param name="displayName"></param>
         /// <param name="sipUri"></param>
         /// <param name="enableMessageFilter"></param>
         /// <returns>the bridgeParticipant added</returns>
-        public async Task<IBridgedParticipant> AddBridgedParticipantAsync(LoggingContext logginContext, string displayName, string sipUri, bool enableMessageFilter)
+        public async Task<IBridgedParticipant> AddBridgedParticipantAsync(string displayName, SipUri sipUri, bool enableMessageFilter, LoggingContext loggingContext = null)
         {
-            if (string.IsNullOrWhiteSpace(sipUri) || sipUri.IndexOf('@') < 0)
+            if (sipUri == null)
             {
-                throw new ArgumentException(nameof(sipUri));
+                throw new ArgumentNullException(nameof(sipUri));
             }
 
             string href = PlatformResource?.BridgedParticipantsResourceLink?.Href;
@@ -95,13 +97,13 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             {
                 DisplayName = displayName,
                 MessageFilterState = enableMessageFilter ? FilterState.Enabled : FilterState.Disabled,
-                Uri = sipUri
+                Uri = sipUri.ToString()
             };
 
-            TaskCompletionSource<BridgedParticipant> tcs = new TaskCompletionSource<BridgedParticipant>();
-            m_bridgedParticipantTcses.TryAdd(sipUri.ToLower(), tcs);
+            var tcs = new TaskCompletionSource<BridgedParticipant>();
+            m_bridgedParticipantTcses.TryAdd(sipUri.ToString().ToLower(), tcs);
             //Waiting for bridgedParticipant operation added
-            await PostRelatedPlatformResourceAsync(bridgeUri, input, new ResourceJsonMediaTypeFormatter(), logginContext).ConfigureAwait(false);
+            await PostRelatedPlatformResourceAsync(bridgeUri, input, new ResourceJsonMediaTypeFormatter(), loggingContext).ConfigureAwait(false);
 
             BridgedParticipant result = null;
 
@@ -120,6 +122,20 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// Add bridged participant
+        /// </summary>
+        /// <param name="loggingContext"></param>
+        /// <param name="displayName"></param>
+        /// <param name="sipUri"></param>
+        /// <param name="enableMessageFilter"></param>
+        /// <returns>the bridgeParticipant added</returns>
+        [Obsolete("Please use the other variation")]
+        public Task<IBridgedParticipant> AddBridgedParticipantAsync(LoggingContext loggingContext, string displayName, string sipUri, bool enableMessageFilter)
+        {
+            return AddBridgedParticipantAsync(displayName, new SipUri(sipUri), enableMessageFilter, loggingContext);
         }
 
         public override bool Supports(ConversationBridgeCapability capability)

@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 {
+    /// <summary>
+    /// Class EventableEntity.
+    /// </summary>
     public abstract class EventableEntity
     {
         /// <summary>
@@ -28,17 +31,35 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         }
     }
 
+    /// <summary>
+    /// Base class for Platform service resources
+    /// </summary>
+    /// <typeparam name="TPlatformResource">
+    /// Type of the underlying resource from ResourceContract
+    /// </typeparam>
+    /// <typeparam name="TCapabilities">
+    /// An enum listing all the capabilties that this <see cref="IPlatformResource{TCapabilities}"/> supports. Capabilities
+    /// might not be available at runtime, such cases can be handled by invoking
+    /// <see cref="IPlatformResource{TCapabilities}.Supports(TCapabilities)"/> when a capabilty needs to be used.
+    /// </typeparam>
     public abstract class BasePlatformResource<TPlatformResource, TCapabilities> : EventableEntity, IPlatformResource<TCapabilities>
         where TPlatformResource : Resource
     {
         #region Constructor
 
         /// <summary>
-        /// Initializes a new instance of the BaseInstance class.
+        /// Initializes a new instance of the <see cref="BasePlatformResource{TPlatformResource, TCapabilities}"/> class.
         /// </summary>
         /// <param name="restfulClient">The restful client.</param>
-        /// <param name="resource">The platform resource.</param>
-        /// <param name="baseUri">The base uri.</param>
+        /// <param name="resource">The resource.</param>
+        /// <param name="baseUri">The base URI.</param>
+        /// <param name="resourceUri">The resource URI.</param>
+        /// <param name="parent">The parent.</param>
+        /// <exception cref="System.ArgumentNullException">
+        /// restfulClient
+        /// or
+        /// baseUri
+        /// </exception>
         internal BasePlatformResource(IRestfulClient restfulClient, TPlatformResource resource, Uri baseUri, Uri resourceUri, object parent)
         {
             if (restfulClient == null)
@@ -125,13 +146,10 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         #region Public methods
 
         /// <summary>
-        /// Get Platform Resource from PlatformService directly.
+        /// Refreshes the resource
         /// </summary>
-        /// <typeparam name="TResource">The type of related platform resource.</typeparam>
-        /// <param name="requestUri">The request uri for the related platform resource.</param>
-        /// <param name="loggingContext">The logging context.</param>
-        /// <returns>The related platform resource.</returns>
-        public async Task RefreshAsync(LoggingContext loggingContext)
+        /// <param name="loggingContext"><see cref="LoggingContext"/> to be used for logging all related events.</param>
+        public async Task RefreshAsync(LoggingContext loggingContext = null)
         {
             string typeName = this.GetType().Name;
             Logger.Instance.Information("Calling " + typeName + " RefreshAsync" + (loggingContext == null ? string.Empty : loggingContext.ToString()));
@@ -142,11 +160,10 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         }
 
         /// <summary>
-        /// Get Platform Resource from PlatformService directly.
+        /// Deletes the resource
         /// </summary>
-        /// <param name="loggingContext">The logging context.</param>
-        /// <returns>The related platform resource.</returns>
-        public async Task DeleteAsync(LoggingContext loggingContext)
+        /// <param name="loggingContext"><see cref="LoggingContext"/> to be used for logging all related events.</param>
+        public async Task DeleteAsync(LoggingContext loggingContext = null)
         {
             string typeName = this.GetType().Name;
             Logger.Instance.Information("Calling " + typeName + " DeleteAsync");
@@ -464,10 +481,11 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         }
 
         /// <summary>
-        /// Convert to PlatformService resource
+        /// Converts embedded resource received in a callback to PlatformService resource
         /// </summary>
-        /// <param name="eventContext"></param>
-        /// <returns></returns>
+        /// <typeparam name="T">Type to which the embedded resource will be converted to</typeparam>
+        /// <param name="eventContext">Events received in callback</param>
+        /// <returns>Embedded resource converted to <typeparamref name="T"/></returns>
         protected virtual T ConvertToPlatformServiceResource<T>(EventContext eventContext) where T : Resource
         {
             T result = null;

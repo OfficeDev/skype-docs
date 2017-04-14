@@ -49,15 +49,14 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             };
 
             // Establish a messaging call
-            IMessagingInvitation invitation = await communication.StartMessagingWithIdentityAsync(
+            IMessagingInvitation invitation = await communication.StartMessagingAsync(
                 "Test subject",
-                "sip:user@example.com",
+                new SipUri("sip:user@example.com"),
                 "https://example.com/callback",
-                "Local user",
-                "sip:user1@example.com",
                 m_loggingContext).ConfigureAwait(false);
 
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_ConversationConnected.json"); // It has link to the messaging call
+            TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_ParticipantAdded.json");
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_MessagingConnected.json"); // It has the messaging call
 
             m_messagingCall = invitation.RelatedConversation.MessagingCall;
@@ -277,6 +276,67 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
 
             // Then
             Assert.IsFalse(supported);
+        }
+
+        [TestMethod]
+        public void IncomingMessageReceivedShouldDeliverTextMessage()
+        {
+            // Given
+            bool messageReceived = false;
+            m_messagingCall.IncomingMessageReceived += (sender, args) =>
+            {
+                if(System.Text.Encoding.Default.GetString(args.PlainMessage.Message) == "__message__")
+                {
+                    messageReceived = true;
+                }
+            };
+
+            // When
+            TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_MessageIncoming.json");
+
+            // Then
+            Assert.IsTrue(messageReceived);
+        }
+
+        [TestMethod]
+        public void IncomingMessageReceivedShouldDeliverHtmlMessage()
+        {
+            // Given
+            bool messageReceived = false;
+            m_messagingCall.IncomingMessageReceived += (sender, args) =>
+            {
+                // We have some html markups in the message, so we can't use exact string match
+                if (System.Text.Encoding.Default.GetString(args.HtmlMessage.Message).Contains("__htmlmessage__"))
+                {
+                    messageReceived = true;
+                }
+            };
+
+            // When
+            TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_MessageIncomingHtml.json");
+
+            // Then
+            Assert.IsTrue(messageReceived);
+        }
+
+        [TestMethod]
+        public void IncomingMessageReceivedShouldHaveParticipant()
+        {
+            // Given
+            bool participantReceived = false;
+            m_messagingCall.IncomingMessageReceived += (sender, args) =>
+            {
+                if (args.FromParticipantName == "Original Name")
+                {
+                    participantReceived = true;
+                }
+            };
+
+            // When
+            TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_MessageIncoming.json");
+
+            // Then
+            Assert.IsTrue(participantReceived);
         }
     }
 }

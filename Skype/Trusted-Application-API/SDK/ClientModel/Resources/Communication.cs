@@ -33,13 +33,6 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
         #region Constructor
 
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="restfulClient"></param>
-        /// <param name="resource"></param>
-        /// <param name="baseUri"></param>
-        /// <param name="resourceUri"></param>
         internal Communication(IRestfulClient restfulClient, CommunicationResource resource, Uri baseUri, Uri resourceUri, Application parent)
                 : base(restfulClient, resource, baseUri, resourceUri, parent)
         {
@@ -53,12 +46,14 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         #region Public methods
 
         /// <summary>
-        /// Start messaging
+        /// Starts messaging with a user
         /// </summary>
-        /// <param name="subject"></param>
-        /// <param name="to"></param>
-        /// <param name="callbackUrl"></param>
-        /// <returns></returns>
+        /// <param name="subject">Subject of the conversation</param>
+        /// <param name="to">SIP uri of the user to connect to</param>
+        /// <param name="callbackUrl">Uri where all related events need to be posted</param>
+        /// <param name="loggingContext"><see cref="LoggingContext" /> to be used for logging all related events.</param>
+        /// <returns><see cref="IMessagingInvitation" /> which can be used to wait for user to accept/decline the invitation</returns>
+        [Obsolete("Please use the other StartMessagingAsync")]
         public Task<IMessagingInvitation> StartMessagingAsync(string subject, string to, string callbackUrl, LoggingContext loggingContext = null)
         {
             Logger.Instance.Information(string.Format("[Communication] calling startMessaging. LoggingContext: {0}",
@@ -71,18 +66,43 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                 throw new CapabilityNotAvailableException("Link to start messaging is not available.");
             }
 
-            return StartMessagingWithIdentityAsync(subject, to, callbackUrl, href, null, null, loggingContext);
+            return StartMessagingWithIdentityAsync(subject, to, null, callbackUrl, href, null, null, loggingContext);
         }
 
         /// <summary>
-        /// Start messaging
+        /// Starts messaging with a user
         /// </summary>
-        /// <param name="subject"></param>
-        /// <param name="to"></param>
-        /// <param name="callbackUrl"></param>
-        /// <param name="localUserDisplayName"></param>
-        /// <param name="localUserUri"></param>
-        /// <returns></returns>
+        /// <param name="subject">Subject of the conversation</param>
+        /// <param name="to">SIP uri of the user to connect to</param>
+        /// <param name="callbackContext">An opaque blob which will be provided in all related events so that your application can relate them to this operation</param>
+        /// <param name="loggingContext"><see cref="LoggingContext" /> to be used for logging all related events.</param>
+        /// <returns><see cref="IMessagingInvitation" /> which can be used to wait for user to accept/decline the invitation</returns>
+        public Task<IMessagingInvitation> StartMessagingAsync(string subject, SipUri to, string callbackContext, LoggingContext loggingContext = null)
+        {
+            Logger.Instance.Information(string.Format("[Communication] calling startMessaging. LoggingContext: {0}",
+                 loggingContext == null ? string.Empty : loggingContext.ToString()));
+
+            string href = PlatformResource?.StartMessagingLink?.Href;
+
+            if (string.IsNullOrWhiteSpace(href))
+            {
+                throw new CapabilityNotAvailableException("Link to start messaging is not available.");
+            }
+
+            return StartMessagingWithIdentityAsync(subject, to.ToString(), callbackContext, null, href, null, null, loggingContext);
+        }
+
+        /// <summary>
+        /// Starts messaging with a user; user will see the message as originating from the specified identity
+        /// </summary>
+        /// <param name="subject">Subject of the conversation</param>
+        /// <param name="to">SIP uri of the user to connect to</param>
+        /// <param name="callbackUrl">Uri where all related events need to be posted</param>
+        /// <param name="localUserDisplayName">Name to be used as the originator's identity</param>
+        /// <param name="localUserUri">SIP uri to be used as the originator's identity</param>
+        /// <param name="loggingContext"><see cref="LoggingContext" /> to be used for logging all related events.</param>
+        /// <returns><see cref="IMessagingInvitation" /> which can be used to wait for user to accept/decline the invitation</returns>
+        [Obsolete("This feature is not supported by SfB server for public applications")]
         public Task<IMessagingInvitation> StartMessagingWithIdentityAsync(string subject, string to, string callbackUrl, string localUserDisplayName, string localUserUri, LoggingContext loggingContext = null)
         {
             Logger.Instance.Information(string.Format("[Communication] calling startMessagingWithIdentity. LoggingContext: {0}",
@@ -95,16 +115,18 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                 throw new CapabilityNotAvailableException("Link to start messaging with identity is not available.");
             }
 
-            return StartMessagingWithIdentityAsync(subject, to, callbackUrl, href, localUserDisplayName, localUserUri, loggingContext);
+            return StartMessagingWithIdentityAsync(subject, to, null, callbackUrl, href, localUserDisplayName, localUserUri, loggingContext);
         }
 
         /// <summary>
-        /// Start audio video call
+        /// Starts an audio video call with a user
         /// </summary>
-        /// <param name="subject"></param>
-        /// <param name="to"></param>
-        /// <param name="callbackUrl"></param>
-        /// <returns></returns>
+        /// <param name="subject">Subject of the conversation</param>
+        /// <param name="to">SIP uri of the user to connect to</param>
+        /// <param name="callbackUrl">Uri where all related events need to be posted</param>
+        /// <param name="loggingContext"><see cref="LoggingContext" /> to be used to log all related events</param>
+        /// <returns><see cref="IAudioVideoInvitation" /> which can be used to wait for user to accept/decline the invitation</returns>
+        [Obsolete("Please use the other StartAudioVideoAsync")]
         public Task<IAudioVideoInvitation> StartAudioVideoAsync(string subject, string to, string callbackUrl, LoggingContext loggingContext = null)
         {
             Logger.Instance.Information(string.Format("[Communication] calling startAudioVideo. LoggingContext: {0}",
@@ -117,16 +139,41 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                 throw new CapabilityNotAvailableException("Link to start AudioVideoCall is not available.");
             }
 
-            return StartAudioVideoAsync(href, subject, to, callbackUrl, loggingContext);
+            return StartAudioVideoAsync(href, subject, to, null, callbackUrl, loggingContext);
         }
 
         /// <summary>
-        /// Start audio video call
+        /// Starts an audio video call with a user
         /// </summary>
-        /// <param name="subject"></param>
-        /// <param name="to"></param>
-        /// <param name="callbackUrl"></param>
-        /// <returns></returns>
+        /// <param name="subject">Subject of the conversation</param>
+        /// <param name="to">SIP uri of the user to connect to</param>
+        /// <param name="callbackContext">An opaque blob which will be provided in all related events so that your application can relate them to this operation</param>
+        /// <param name="loggingContext"><see cref="LoggingContext" /> to be used to log all related events</param>
+        /// <returns><see cref="IAudioVideoInvitation" /> which can be used to wait for user to accept/decline the invitation</returns>
+        public Task<IAudioVideoInvitation> StartAudioVideoAsync(string subject, SipUri to, string callbackContext, LoggingContext loggingContext = null)
+        {
+            Logger.Instance.Information(string.Format("[Communication] calling startAudioVideo. LoggingContext: {0}",
+                 loggingContext == null ? string.Empty : loggingContext.ToString()));
+
+            string href = PlatformResource?.StartAudioVideoLink?.Href;
+
+            if (string.IsNullOrWhiteSpace(href))
+            {
+                throw new CapabilityNotAvailableException("Link to start AudioVideoCall is not available.");
+            }
+
+            return StartAudioVideoAsync(href, subject, to.ToString(), callbackContext, null, loggingContext);
+        }
+
+        /// <summary>
+        /// Starts an audio call with a user
+        /// </summary>
+        /// <param name="subject">Subject of the conversation</param>
+        /// <param name="to">SIP uri of the user to connect to</param>
+        /// <param name="callbackUrl">Uri where all related events need to be posted</param>
+        /// <param name="loggingContext"><see cref="LoggingContext" /> to be used to log all related events</param>
+        /// <returns><see cref="IAudioVideoInvitation" /> which can be used to wait for user to accept/decline the invitation</returns>
+        [Obsolete("Please use the other StartAudioAsync")]
         public Task<IAudioVideoInvitation> StartAudioAsync(string subject, string to, string callbackUrl, LoggingContext loggingContext = null)
         {
             Logger.Instance.Information(string.Format("[Communication] calling startAudio. LoggingContext: {0}",
@@ -139,9 +186,115 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                 throw new CapabilityNotAvailableException("Link to start audio is not available.");
             }
 
-            return StartAudioVideoAsync(href, subject, to, callbackUrl, loggingContext);
+            return StartAudioVideoAsync(href, subject, to, null, callbackUrl, loggingContext);
         }
 
+        /// <summary>
+        /// Starts an audio call with a user
+        /// </summary>
+        /// <param name="subject">Subject of the conversation</param>
+        /// <param name="to">SIP uri of the user to connect to</param>
+        /// <param name="callbackContext">An opaque blob which will be provided in all related events so that your application can relate them to this operation</param>
+        /// <param name="loggingContext"><see cref="LoggingContext" /> to be used to log all related events</param>
+        /// <returns><see cref="IAudioVideoInvitation" /> which can be used to wait for user to accept/decline the invitation</returns>
+        public Task<IAudioVideoInvitation> StartAudioAsync(string subject, SipUri to, string callbackContext, LoggingContext loggingContext = null)
+        {
+            Logger.Instance.Information(string.Format("[Communication] calling startAudio. LoggingContext: {0}",
+                 loggingContext == null ? string.Empty : loggingContext.ToString()));
+
+            string href = PlatformResource?.StartAudioLink?.Href;
+
+            if (string.IsNullOrWhiteSpace(href))
+            {
+                throw new CapabilityNotAvailableException("Link to start audio is not available.");
+            }
+
+            return StartAudioVideoAsync(href, subject, to.ToString(), callbackContext, null, loggingContext);
+        }
+
+        /// <summary>
+        /// Checks whether the application can join a specific meeting or not
+        /// </summary>
+        /// <param name="adhocMeeting">Meeting to be checked</param>
+        /// <returns><code>true</code> if and only if the application is capable of joining the meeting</returns>
+        public bool CanJoinAdhocMeeting(IAdhocMeeting adhocMeeting)
+        {
+            #pragma warning disable CS0618 // Type or member is obsolete
+            return adhocMeeting.Supports(AdhocMeetingCapability.JoinAdhocMeeting);
+            #pragma warning restore CS0618 // Type or member is obsolete
+        }
+
+        /// <summary>
+        /// Checks whether the application can create and join a meeting for the invitation or not
+        /// </summary>
+        /// <param name="invitation">Invitation for which the meeting needs to be started</param>
+        /// <returns><code>true</code> if and only if the application is capable of joining the meeting</returns>
+        public bool CanStartAdhocMeeting(IMessagingInvitation invitation)
+        {
+            #pragma warning disable CS0618 // Type or member is obsolete
+            return invitation.Supports(MessagingInvitationCapability.StartAdhocMeeting);
+            #pragma warning restore CS0618 // Type or member is obsolete
+        }
+
+        /// <summary>
+        /// Checks whether the application can create and join a meeting for the invitation or not
+        /// </summary>
+        /// <param name="invitation">Invitation for which the meeting needs to be started</param>
+        /// <returns><code>true</code> if and only if the application is capable of joining the meeting</returns>
+        public bool CanStartAdhocMeeting(IAudioVideoInvitation invitation)
+        {
+            #pragma warning disable CS0618 // Type or member is obsolete
+            return invitation.Supports(AudioVideoInvitationCapability.StartAdhocMeeting);
+            #pragma warning restore CS0618 // Type or member is obsolete
+        }
+
+        /// <summary>
+        /// Adds the application to the meeting.
+        /// </summary>
+        /// <param name="adhocMeeting">Meeting to be joined</param>
+        /// <param name="callbackContext">A state/context object which will be provided by SfB in all related events</param>
+        /// <param name="loggingContext"><see cref="LoggingContext" /> to be used for logging all related events</param>
+        /// <returns><see cref="IOnlineMeetingInvitation" /> which can be used to wait for the meeting join to complete</returns>
+        public Task<IOnlineMeetingInvitation> JoinAdhocMeetingAsync(IAdhocMeeting adhocMeeting, string callbackContext, LoggingContext loggingContext = null)
+        {
+            return (adhocMeeting as AdhocMeeting).JoinAdhocMeetingAsync(callbackContext, loggingContext);
+        }
+
+        /// <summary>
+        /// Schedules and joins an adhoc meeting for the invitation
+        /// </summary>
+        /// <param name="invitation">Invitation for which the meeting needs to be created</param>
+        /// <param name="subject">Subject of the meeting</param>
+        /// <param name="callbackContext">A state/context object which will be provided by SfB in all related events</param>
+        /// <param name="loggingContext"><see cref="LoggingContext" /> to be used for logging all related events</param>
+        /// <returns><see cref="IOnlineMeetingInvitation" /> which can be used to wait for the meeting join to complete</returns>
+        public Task<IOnlineMeetingInvitation> StartAdhocMeetingAsync(IMessagingInvitation invitation, string subject, string callbackContext, LoggingContext loggingContext = null)
+        {
+            return (invitation as MessagingInvitation).StartAdhocMeetingAsync(subject, callbackContext, null, loggingContext);
+        }
+
+        /// <summary>
+        /// Schedules and joins an adhoc meeting for the invitation
+        /// </summary>
+        /// <param name="invitation">Invitation for which the meeting needs to be created</param>
+        /// <param name="subject">Subject of the meeting</param>
+        /// <param name="callbackContext">A state/context object which will be provided by SfB in all related events</param>
+        /// <param name="loggingContext"><see cref="LoggingContext" /> to be used for logging all related events</param>
+        /// <returns><see cref="IOnlineMeetingInvitation" /> which can be used to wait for the meeting join to complete</returns>
+        public Task<IOnlineMeetingInvitation> StartAdhocMeetingAsync(IAudioVideoInvitation invitation, string subject, string callbackContext, LoggingContext loggingContext = null)
+        {
+            return (invitation as AudioVideoInvitation).StartMeetingAsync(subject, callbackContext, loggingContext);
+        }
+
+        /// <summary>
+        /// Gets whether a particular capability is available or not.
+        /// </summary>
+        /// <param name="capability">Capability that needs to be checked.</param>
+        /// <returns><code>true</code> iff the capability is available as of now.</returns>
+        /// <remarks>
+        /// Capabilities can change when a resource is updated. So, this method returning <code>true</code> doesn't guarantee that
+        /// the capability will be available when it is actually used. Make sure to catch <see cref="CapabilityNotAvailableException" />
+        /// </remarks>
         public override bool Supports(CommunicationCapability capability)
         {
             string href = null;
@@ -199,11 +352,6 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             }
         }
 
-        /// <summary>
-        /// ProcessAndDispatchEventsToChild implementation
-        /// </summary>
-        /// <param name="eventContext"></param>
-        /// <returns></returns>
         internal override bool ProcessAndDispatchEventsToChild(EventContext eventContext)
         {
             //There is no child for events with sender = communication
@@ -335,10 +483,10 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         }
 
         /// <summary>
-        /// Handle a invitation complete event
+        /// Handle a invitation started event
         /// </summary>
-        /// <param name="operationId"></param>
-        /// <param name="exception"></param>
+        /// <param name="operationId">ID of the operation</param>
+        /// <param name="invite">Invitation which was started</param>
         internal void HandleInviteStarted(string operationId, IInvitation invite)
         {
             TaskCompletionSource<IInvitation> tcs = null;
@@ -354,33 +502,26 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <summary>
         /// Tracking the invitation resources
         /// </summary>
-        /// <param name="operationid"></param>
-        /// <param name="tcs"></param>
-        internal void HandleNewInviteOperationKickedOff(string operationid, TaskCompletionSource<IInvitation> tcs)
+        /// <param name="operationId">ID of the operation</param>
+        /// <param name="tcs"><see cref="TaskCompletionSource{TResult}"/> which will be completed when invite completes</param>
+        internal void HandleNewInviteOperationKickedOff(string operationId, TaskCompletionSource<IInvitation> tcs)
         {
-            if (string.IsNullOrEmpty(operationid) || tcs == null)
+            if (string.IsNullOrEmpty(operationId) || tcs == null)
             {
                 throw new RemotePlatformServiceException("Faied to add null object into m_inviteAddedTcses which is to track the incoming invite.");
             }
 
-            m_inviteAddedTcses.TryAdd(operationid, tcs);
+            m_inviteAddedTcses.TryAdd(operationId, tcs);
         }
 
         #endregion
 
         #region Private methods
 
-        /// <summary>
-        /// Start messaging
-        /// </summary>
-        /// <param name="subject"></param>
-        /// <param name="to"></param>
-        /// <param name="callbackUrl"></param>
-        /// <param name="localUserDisplayName"></param>
-        /// <param name="localUserUri"></param>
-        /// <returns></returns>
-        private async Task<IMessagingInvitation> StartMessagingWithIdentityAsync(string subject, string to, string callbackUrl, string href, string localUserDisplayName, string localUserUri, LoggingContext loggingContext = null)
+        private async Task<IMessagingInvitation> StartMessagingWithIdentityAsync(string subject, string to, string callbackContext, string callbackUrl, string href, string localUserDisplayName, string localUserUri, LoggingContext loggingContext = null)
         {
+            (Parent as Application).GetCallbackUrlAndCallbackContext(ref callbackUrl, ref callbackContext);
+
             string operationId = Guid.NewGuid().ToString();
             var tcs = new TaskCompletionSource<IInvitation>();
             HandleNewInviteOperationKickedOff(operationId, tcs);
@@ -390,6 +531,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                 OperationContext = operationId,
                 To = to,
                 Subject = subject,
+                CallbackContext = callbackContext,
                 CallbackUrl = callbackUrl,
                 LocalUserDisplayName = localUserDisplayName,
                 LocalUserUri = localUserUri
@@ -416,15 +558,10 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             return result;
         }
 
-        /// <summary>
-        /// Start audio video call
-        /// </summary>
-        /// <param name="subject"></param>
-        /// <param name="to"></param>
-        /// <param name="callbackUrl"></param>
-        /// <returns></returns>
-        private async Task<IAudioVideoInvitation> StartAudioVideoAsync(string href, string subject, string to, string callbackUrl, LoggingContext loggingContext = null)
+        private async Task<IAudioVideoInvitation> StartAudioVideoAsync(string href, string subject, string to, string callbackContext, string callbackUrl, LoggingContext loggingContext = null)
         {
+            (Parent as Application).GetCallbackUrlAndCallbackContext(ref callbackUrl, ref callbackContext);
+
             var operationId = Guid.NewGuid().ToString();
             var tcs = new TaskCompletionSource<IInvitation>();
             HandleNewInviteOperationKickedOff(operationId, tcs);
@@ -434,6 +571,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                 OperationContext = operationId,
                 To = to,
                 Subject = subject,
+                CallbackContext = callbackContext,
                 CallbackUrl = callbackUrl,
                 MediaHost = MediaHostType.Remote
             };

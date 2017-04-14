@@ -29,12 +29,9 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             SipUri ApplicationEndpointId = TestHelper.ApplicationEndpointUri;
 
             var discover = new Discover(m_restfulClient, baseUri, discoverUri, this);
-            await discover.RefreshAndInitializeAsync(m_loggingContext, ApplicationEndpointId.ToString()).ConfigureAwait(false);
+            await discover.RefreshAndInitializeAsync(ApplicationEndpointId.ToString(), m_loggingContext).ConfigureAwait(false);
 
-            IApplications ApplicationsResource = discover.Applications;
-            await ApplicationsResource.RefreshAndInitializeAsync(m_loggingContext).ConfigureAwait(false);
-
-            m_application = ApplicationsResource.Application;
+            m_application = discover.Application;
         }
 
         [TestMethod]
@@ -273,7 +270,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             await m_application.RefreshAndInitializeAsync(m_loggingContext).ConfigureAwait(false);
 
             // When
-            await m_application.GetAnonApplicationTokenForMeetingAsync(m_loggingContext, "https://example.com/meetingurl", null, null).ConfigureAwait(false);
+            await m_application.GetAnonApplicationTokenForMeetingAsync("https://example.com/meetingurl", null, null, m_loggingContext).ConfigureAwait(false);
 
             // Then
             // Exception is thrown
@@ -287,7 +284,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             // Setup
 
             // When
-            await m_application.GetAnonApplicationTokenForMeetingAsync(m_loggingContext, null, "https://example.com;https://examples.com", Guid.NewGuid().ToString()).ConfigureAwait(false);
+            await m_application.GetAnonApplicationTokenForMeetingAsync(null, "https://example.com;https://examples.com", Guid.NewGuid().ToString(), m_loggingContext).ConfigureAwait(false);
 
             // Then
             // Exception is thrown
@@ -300,7 +297,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             // Setup
 
             // When
-            IAnonymousApplicationToken token = await m_application.GetAnonApplicationTokenForMeetingAsync(m_loggingContext, "https://example.com/meetingurl", null, null).ConfigureAwait(false);
+            IAnonymousApplicationToken token = await m_application.GetAnonApplicationTokenForMeetingAsync("https://example.com/meetingurl", null, null, m_loggingContext).ConfigureAwait(false);
 
             // Then
             Assert.IsNotNull(token);
@@ -314,7 +311,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             // Setup
 
             // When
-            await m_application.GetAnonApplicationTokenForMeetingAsync(m_loggingContext, "https://example.com/meetingurl", null, null).ConfigureAwait(false);
+            await m_application.GetAnonApplicationTokenForMeetingAsync("https://example.com/meetingurl", null, null, m_loggingContext).ConfigureAwait(false);
 
             // Then
             Assert.IsTrue(m_restfulClient.RequestsProcessed("POST " + DataUrls.AnonToken));
@@ -327,7 +324,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             // Setup
 
             // When
-            IAnonymousApplicationToken token = await m_application.GetAnonApplicationTokenForMeetingAsync(null, "https://example.com/meetingurl", null, null).ConfigureAwait(false);
+            IAnonymousApplicationToken token = await m_application.GetAnonApplicationTokenForMeetingAsync("https://example.com/meetingurl", null, null, null).ConfigureAwait(false);
 
             // Then
             Assert.IsNotNull(token);
@@ -341,7 +338,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             m_restfulClient.OverrideResponse(new Uri(DataUrls.AnonToken), HttpMethod.Post, HttpStatusCode.OK, "AnonApplicationToken_Malformed.json");
 
             // When
-            await m_application.GetAnonApplicationTokenForMeetingAsync(m_loggingContext, "https://example.com/meetingurl", null, null).ConfigureAwait(false);
+            await m_application.GetAnonApplicationTokenForMeetingAsync("https://example.com/meetingurl", null, null, m_loggingContext).ConfigureAwait(false);
 
             // Then
             // Exception is thrown
@@ -356,7 +353,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             await m_application.RefreshAndInitializeAsync(m_loggingContext).ConfigureAwait(false);
 
             // When
-            await m_application.GetAnonApplicationTokenForP2PCallAsync(m_loggingContext, null, null).ConfigureAwait(false);
+            await m_application.GetAnonApplicationTokenForP2PCallAsync(null, null, m_loggingContext).ConfigureAwait(false);
 
             // Then
             // Exception is thrown
@@ -368,7 +365,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             // Given
 
             // When
-            IAnonymousApplicationToken token = await m_application.GetAnonApplicationTokenForP2PCallAsync(m_loggingContext, null, null).ConfigureAwait(false);
+            IAnonymousApplicationToken token = await m_application.GetAnonApplicationTokenForP2PCallAsync(null, null, m_loggingContext).ConfigureAwait(false);
 
             // Then
             Assert.IsNotNull(token);
@@ -381,7 +378,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             Assert.IsFalse(m_restfulClient.RequestsProcessed("POST " + DataUrls.AnonToken));
 
             // When
-            await m_application.GetAnonApplicationTokenForP2PCallAsync(m_loggingContext, null, null).ConfigureAwait(false);
+            await m_application.GetAnonApplicationTokenForP2PCallAsync(null, null, m_loggingContext).ConfigureAwait(false);
 
             // Then
             Assert.IsTrue(m_restfulClient.RequestsProcessed("POST " + DataUrls.AnonToken));
@@ -394,7 +391,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             // Setup
 
             // When
-            IAnonymousApplicationToken token = await m_application.GetAnonApplicationTokenForP2PCallAsync(null, "https://example.com;https://examples.com", Guid.NewGuid().ToString()).ConfigureAwait(false);
+            IAnonymousApplicationToken token = await m_application.GetAnonApplicationTokenForP2PCallAsync("https://example.com;https://examples.com", Guid.NewGuid().ToString(), null).ConfigureAwait(false);
 
             // Then
             Assert.IsNotNull(token);
@@ -408,7 +405,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             m_restfulClient.OverrideResponse(new Uri(DataUrls.AnonToken), HttpMethod.Post, HttpStatusCode.OK, "AnonApplicationToken_Malformed.json");
 
             // When
-            await m_application.GetAnonApplicationTokenForP2PCallAsync(m_loggingContext, null, null).ConfigureAwait(false);
+            await m_application.GetAnonApplicationTokenForP2PCallAsync(null, null, m_loggingContext).ConfigureAwait(false);
 
             // Then
             // Exception is thrown
@@ -434,7 +431,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             var input = new AdhocMeetingCreationInput("subject");
 
             // When
-            IAdhocMeeting meeting = await m_application.CreateAdhocMeetingAsync(m_loggingContext, input).ConfigureAwait(false);
+            IAdhocMeeting meeting = await m_application.CreateAdhocMeetingAsync(input, m_loggingContext).ConfigureAwait(false);
 
             // Then
             Assert.IsNotNull(meeting);
@@ -462,7 +459,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             Assert.IsFalse(m_restfulClient.RequestsProcessed("POST " + DataUrls.AdhocMeeting));
 
             // When
-            await m_application.CreateAdhocMeetingAsync(m_loggingContext, input).ConfigureAwait(false);
+            await m_application.CreateAdhocMeetingAsync(input, m_loggingContext).ConfigureAwait(false);
 
             // Then
             Assert.IsTrue(m_restfulClient.RequestsProcessed("POST " + DataUrls.AdhocMeeting), "HTTP request to create adhoc meeting wasn't sent out.");
@@ -488,7 +485,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             var input = new AdhocMeetingCreationInput("subject");
 
             // When
-            await m_application.CreateAdhocMeetingAsync(null, input).ConfigureAwait(false);
+            await m_application.CreateAdhocMeetingAsync(input, null).ConfigureAwait(false);
 
             // Then
             // No exception is thrown
@@ -516,7 +513,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             AdhocMeetingCreationInput input = null;
 
             // When
-            await m_application.CreateAdhocMeetingAsync(m_loggingContext, input).ConfigureAwait(false);
+            await m_application.CreateAdhocMeetingAsync(input, m_loggingContext).ConfigureAwait(false);
 
             // Then
             // Exception is thrown
@@ -548,7 +545,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             var input = new AdhocMeetingCreationInput("subject");
 
             // When
-            await m_application.CreateAdhocMeetingAsync(m_loggingContext, input).ConfigureAwait(false);
+            await m_application.CreateAdhocMeetingAsync(input, m_loggingContext).ConfigureAwait(false);
 
             // Then
             // Exception is thrown
@@ -578,7 +575,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             var input = new AdhocMeetingCreationInput("subject");
 
             // When
-            await m_application.CreateAdhocMeetingAsync(m_loggingContext, input).ConfigureAwait(false);
+            await m_application.CreateAdhocMeetingAsync(input, m_loggingContext).ConfigureAwait(false);
 
             // Then
             // Exception is thrown

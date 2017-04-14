@@ -129,6 +129,11 @@
       }
     },
     {
+      "Uri": "https://webpoolbl20r04.infra.lync.com/platformservice/tgt-8c81281c925a5c2ea02ec14ac1b492c6/v1/applications/1393347000/communication/conversations/869ce4f6-0076-483a-a7c1-968f6b935afe/audioVideo/audioVideoFlow/stopPrompts?endpointId=sip:monitoringaudio@0mcorp2cloudperf.onmicrosoft.com",
+      "Method": "POST",
+      "ResponseCode": "204"
+    },
+    {
       "Uri": "https://webpoolbl20r04.infra.lync.com/platformservice/tgt-8c81281c925a5c2ea02ec14ac1b492c6/v1/applications/1393347000/communication/conversations/869ce4f6-0076-483a-a7c1-968f6b935afe/conversationBridge/bridgedParticipants?endpointId=sip:monitoringaudio@0mcorp2cloudperf.onmicrosoft.com",
       "Method": "POST",
       "ResponseCode": "201"

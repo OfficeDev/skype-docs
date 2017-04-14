@@ -22,6 +22,9 @@ The **Trusted Application API** allows developers to build Service Applications 
  - Callback URI
  - [Audience URL](https://azure.microsoft.com/en-us/documentation/articles/active-directory-token-and-claims/)
  
+ >Note: All the **Trusted Application API** endpoints require authentication using **OAuth token**. Please refer [Azure Active Directory - Service to Service calls using Client Credentials](./AADS2S.md) for more information on how to get a OAuth Token.
+   
+
 ## Unified Communications Web API
 [The UCWA API](https://ucwa.skype.com/) help documentation has interactive documentation and samples for the UCWA API.
  

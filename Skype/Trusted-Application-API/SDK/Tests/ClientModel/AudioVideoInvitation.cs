@@ -202,7 +202,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall_NoActionLinks.json");
 
             // When
-            await invitation.ForwardAsync(m_loggingContext, "sip:user@example.com").ConfigureAwait(false);
+            await invitation.ForwardAsync(new SipUri("sip:user@example.com"), m_loggingContext).ConfigureAwait(false);
 
             // Then
             // Exception is thrown
@@ -219,7 +219,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall.json");
 
             // When
-            HttpResponseMessage response = await invitation.ForwardAsync(m_loggingContext, "sip:user@example.com").ConfigureAwait(false);
+            HttpResponseMessage response = await invitation.ForwardAsync(new SipUri("sip:user@example.com"), m_loggingContext).ConfigureAwait(false);
 
             // Then
             Assert.AreEqual(HttpStatusCode.NoContent, response.StatusCode);
@@ -239,10 +239,45 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall.json");
 
             // When
-            HttpResponseMessage response = await invitation.ForwardAsync(m_loggingContext, null).ConfigureAwait(false);
+            HttpResponseMessage response = await invitation.ForwardAsync(null, m_loggingContext).ConfigureAwait(false);
 
             // Then
             // Exception is thrown
+        }
+
+        [TestMethod]
+        public void ShouldSupportAcceptAndBridgeIfLinkAvailable()
+        {
+            // Given
+            IAudioVideoInvitation invitation = null;
+            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => invitation = args.NewInvite;
+
+            m_restfulClient.OverrideResponse(new Uri(DataUrls.AudioVideoInvitationForward), HttpMethod.Post, HttpStatusCode.NoContent, null);
+
+            TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall.json");
+
+            // When
+            var supports = invitation.Supports(AudioVideoInvitationCapability.AcceptAndBridge);
+
+            // Then
+            Assert.IsTrue(supports);
+        }
+
+        public void ShouldNotSupportAcceptAndBridgeIfLinkIsNotAvailable()
+        {
+            // Given
+            IAudioVideoInvitation invitation = null;
+            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => invitation = args.NewInvite;
+
+            m_restfulClient.OverrideResponse(new Uri(DataUrls.AudioVideoInvitationForward), HttpMethod.Post, HttpStatusCode.NoContent, null);
+
+            TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall_NoActionLink.json");
+
+            // When
+            var supports = invitation.Supports(AudioVideoInvitationCapability.AcceptAndBridge);
+
+            // Then
+            Assert.IsFalse(supports);
         }
 
         [TestMethod]
@@ -273,7 +308,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall_NoActionLinks.json");
 
             // When
-            await invitation.AcceptAndBridgeAsync(m_loggingContext, string.Empty, "sip:user@domain.com").ConfigureAwait(false);
+            await invitation.AcceptAndBridgeAsync(new SipUri("sip:user@domain.com"), m_loggingContext).ConfigureAwait(false);
 
             // Then
             // Exception is thrown
@@ -289,7 +324,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall.json");
 
             // When
-            await invitation.AcceptAndBridgeAsync(m_loggingContext, "sip:USER74@noammeetings.lync.com;gruu;opaque=app:conf:focus:id:LB6557GF", "sip:User@domain.com").ConfigureAwait(false);
+            await invitation.AcceptAndBridgeAsync(new SipUri("sip:User@domain.com"), m_loggingContext).ConfigureAwait(false);
 
             // Then
             Assert.IsTrue(m_restfulClient.RequestsProcessed("POST " + DataUrls.AudioVideoInvitationAcceptAndBridge));
@@ -305,7 +340,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall.json");
 
             // When
-            await invitation.AcceptAndBridgeAsync(null, "sip:USER74@noammeetings.lync.com;gruu;opaque=app:conf:focus:id:LB6557GF", "sip:User@domain.com").ConfigureAwait(false);
+            await invitation.AcceptAndBridgeAsync(new SipUri("sip:User@domain.com"), null).ConfigureAwait(false);
 
             // Then
             Assert.IsTrue(m_restfulClient.RequestsProcessed("POST " + DataUrls.AudioVideoInvitationAcceptAndBridge));
@@ -314,7 +349,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         }
 
         [TestMethod]
-        public async Task StartAdhocMeetingShouldMakeTheHttpRequest()
+        public void ShouldSuportStartAdhocMeetingIfLinkAvailable()
         {
             // Given
             IAudioVideoInvitation invitation = null;
@@ -322,79 +357,27 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
 
             TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall.json");
 
-            m_restfulClient.HandleRequestProcessed +=
-                (sender, args) => TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.StartAdhocMeeting, HttpMethod.Post, "Event_OnlineMeetingInvitationStarted.json", m_mockEventChannel);
-
             // When
-            await invitation.StartAdhocMeetingAsync("Test subject", "myCallbackContext", m_loggingContext).ConfigureAwait(false);
+            var supports = invitation.Supports(AudioVideoInvitationCapability.StartAdhocMeeting);
 
             // Then
-            Assert.IsTrue(m_restfulClient.RequestsProcessed("POST " + DataUrls.StartAdhocMeeting));
+            Assert.IsTrue(supports);
         }
 
         [TestMethod]
-        [ExpectedException(typeof(RemotePlatformServiceException))]
-        public async Task StartAdhocMeetingShouldThrowIfAdhocMeetingStartedEventNotReceived()
+        public void ShouldNotSupportStartAdhocMeetingIfLinkNotAvailable()
         {
             // Given
             IAudioVideoInvitation invitation = null;
             m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => invitation = args.NewInvite;
 
-            TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall.json");
-
-            ((AudioVideoInvitation)invitation).WaitForEvents = TimeSpan.FromMilliseconds(300);
+            TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall_NoActionLinks.json");
 
             // When
-            await invitation.StartAdhocMeetingAsync("Test subject", "myCallbackContext", m_loggingContext).ConfigureAwait(false);
+            var supports = invitation.Supports(AudioVideoInvitationCapability.StartAdhocMeeting);
 
             // Then
-            // Exception is thrown
-        }
-
-        [TestMethod]
-        public async Task StartAdhocMeetingShouldReturnATaskToWaitForInvitationStartedEvent()
-        {
-            // Given
-            IAudioVideoInvitation invitation = null;
-            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => invitation = args.NewInvite;
-            TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall.json");
-
-            var invitationOperationid = string.Empty;
-            m_restfulClient.HandleRequestProcessed += (sender, args) =>
-            {
-                string operationId = TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.StartAdhocMeeting, HttpMethod.Post, null, null);
-                if (!string.IsNullOrEmpty(operationId))
-                {
-                    invitationOperationid = operationId;
-                }
-            };
-
-            Task invitationTask = invitation.StartAdhocMeetingAsync("Test subject", "https://example.com/callback", m_loggingContext);
-            await Task.Delay(TimeSpan.FromMilliseconds(200)).ConfigureAwait(false);
-            Assert.IsFalse(invitationTask.IsCompleted);
-
-            // When
-            TestHelper.RaiseEventsFromFileWithOperationId(m_mockEventChannel, "Event_OnlineMeetingInvitationStarted.json", invitationOperationid);
-
-            // Then
-            Assert.IsTrue(invitationTask.IsCompleted);
-        }
-
-        [TestMethod]
-        public async Task StartAdhocMeetingShouldWorkWithNullLoggingContext()
-        {
-            // Given
-            IAudioVideoInvitation invitation = null;
-            m_applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => invitation = args.NewInvite;
-            TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_IncomingAudioCall.json");
-            m_restfulClient.HandleRequestProcessed +=
-                (sender, args) => TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.StartAdhocMeeting, HttpMethod.Post, "Event_OnlineMeetingInvitationStarted.json", m_mockEventChannel);
-
-            // When
-            await invitation.StartAdhocMeetingAsync("Test subject", "mycallbackContext", null).ConfigureAwait(false);
-
-            // Then
-            // No exception is thrown
+            Assert.IsFalse(supports);
         }
     }
 }

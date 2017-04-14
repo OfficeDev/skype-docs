@@ -30,21 +30,24 @@ If you plan on pointing a custom domain or subdomain to your `*.cloudapp.net` se
 1. Clone code from the samples repo.
 2. Build the solution (NuGet packages will be restored)
 3. Edit the `ServiceConfiguration.Prod.cscfg` file, substituting `[parameters]` as follows:
-    ```
- <ConfigurationSettings>
-   <!-- Replace these with values relevant to your deployment -->
-   <Setting name="AAD_ClientId" value="[Application Client ID from Step 2]"/>
-   <Setting name="AAD_ClientSecret" value="[Application Client secret from Step 3]" /> 
-   <Setting name="ApplicationEndpointId" value="sip:trustedEndpoint@tenantname.onmicrosoft.com" />  //Get from Prerequisite step 4 above      
-   <Setting name="LogFullHttpRequestResponse" value="true" />  
- </ConfigurationSettings>
-
+    ```xml
+    <ConfigurationSettings>
+      <!-- Replace base.url with your app's url; as registered on Azure -->
+      <Setting name="AudienceUri" value="https://base.url" />
+      <Setting name="CallbackUriFormat" value="https://base.url/callback?callbackContext={0}" />
+      <Setting name="ResourcesUriFormat" value="https://base.url/resources/{0}" />
+      <!-- Replace these with values relevant to your deployment -->
+      <Setting name="AAD_ClientId" value="[Application Client ID from Prerequisite Step 2]"/>
+      <Setting name="AAD_ClientSecret" value="[Application Client secret from Prerequisite Step 3]" />
+      <Setting name="ApplicationEndpointId" value="[Get the sip: uri from Prerequisite Step 4]" />
+      <Setting name="LogFullHttpRequestResponse" value="true" />
+    </ConfigurationSettings>
     ```
 4.	Update the `EnableCorsAttribute.cs` file from `FrontEnd` project to allow CORS requests on your Base URL:
-    ```
-        // Add allowed origins.
-        _policy.Origins.Add("http://localhost");
-        _policy.Origins.Add("https://your.baseurl"); // add this line
+    ```c#
+    // Add allowed origins.
+    _policy.Origins.Add("http://localhost");
+    _policy.Origins.Add("https://base.url"); // Replace base.url with your app's url; as registered on Azure
     ```
 5. Publish the application (right-click `PlatformServicSamplesAzureService` and select *Publish...*) using the *Production* slot
 
