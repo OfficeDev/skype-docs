@@ -218,7 +218,7 @@
     <Content Include="Properties\PublishProfiles\CallTransferSample1 - Web Deploy.pubxml.user" />
     <Content Include="Properties\PublishProfiles\CallTransferSample20170224014704.pubxml.user" />
     <Content Include="Properties\PublishProfiles\localhost.pubxml.user" />
-    <None Include="Views\Home\Index1.cshtml" />
+    <None Include="Properties\PublishProfiles\acceptandbridgeimquickstart - Web Deploy.pubxml" />
     <None Include="Views\Home\Index.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

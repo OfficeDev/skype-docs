@@ -24,7 +24,7 @@ $(function() {
         var xHistory = $('#message-history');
         var incomingMessageCount = 0;
         var startMessageInput = {
-            InviteTargetUri: "sip:toshm@metio.onmicrosoft.com",
+            InviteTargetUri: "sip:liben@metio.onmicrosoft.com",
             WelcomeMessage: "Welcome!",
             IsStart: false,
             Subject: "HelpDesk",
@@ -90,7 +90,6 @@ $(function() {
                         }
                     }
                 });
-
             });
 
             //customContent to ucap application endpoint
@@ -99,7 +98,7 @@ $(function() {
                 contextType: 'foo/foo',//must be foo/foo
             };
 
-            chatService.start(costumContext).then(function () {
+            chatService.start().then(function () {
                 console.log('conversation started');
                 $('.chat-service').show();
             }, function (error) {

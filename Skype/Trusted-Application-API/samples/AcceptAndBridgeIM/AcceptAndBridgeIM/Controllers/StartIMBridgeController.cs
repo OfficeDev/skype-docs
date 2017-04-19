@@ -1,6 +1,7 @@
 ﻿using Microsoft.Rtc.Internal.Platform.ResourceContract;
 using Microsoft.SfB.PlatformService.SDK.Common;
 using System;
+using System.Configuration;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -11,22 +12,20 @@ namespace AcceptAndBridgeIM
 {    
     public class StartIMBridgeController : ApiController
     {
-        public async Task<HttpResponseMessage> PostAsync(InstantMessagingBridgeJobInput input)
+        public HttpResponseMessage PostAsync(InstantMessagingBridgeJobInput input)
         {
             string jobId = Guid.NewGuid().ToString("N");
 
+            InstantMessagingBridgeJobInput imbi = new InstantMessagingBridgeJobInput();
+            imbi.IsStart = true;
+            imbi.Subject = string.IsNullOrEmpty(input.Subject)? "IMBridgeSample":input.Subject;
+            imbi.WelcomeMessage = string.IsNullOrEmpty(input.WelcomeMessage) ? "Welcome!!" : input.WelcomeMessage;
+            imbi.InviteTargetUri = string.IsNullOrEmpty(input.InviteTargetUri) ? ConfigurationManager.AppSettings["MyAgent"]: input.InviteTargetUri;
+            imbi.InvitedTargetDisplayName = string.IsNullOrEmpty(input.InvitedTargetDisplayName) ? "Agent" : imbi.InvitedTargetDisplayName;
+            imbi.EnableMessageFilter = input.EnableMessageFilter;
 
             try
             {
-
-                InstantMessagingBridgeJobInput imbi = new InstantMessagingBridgeJobInput();
-                imbi.IsStart = true;
-                imbi.Subject = "Adhoc";
-                imbi.WelcomeMessage = "Welcome!!!";
-                imbi.InviteTargetUri = "sip:liben@metio.onmicrosoft.com";
-                imbi.InvitedTargetDisplayName = "agent";
-                imbi.EnableMessageFilter = false;
-
                 InstantMessagingBridgeJob job = new InstantMessagingBridgeJob(jobId, WebApiApplication.InstanceId, imbi);
                 job.Start();
 

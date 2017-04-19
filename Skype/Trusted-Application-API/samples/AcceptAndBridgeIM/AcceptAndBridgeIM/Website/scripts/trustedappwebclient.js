@@ -7,7 +7,7 @@
     var getanontokenurl = serviceurl + '/GetAnonToken';
     var getadhocmeetingurl = serviceurl + '/GetAdhocMeetingJob';
     var notifyurl = serviceurl + '/SimpleNotifyJob';
-    var imbridgeurl = serviceurl + '/IncomingMessagingBridge';
+    var imbridgeurl = serviceurl + '/StartIMBridge';
     var avbridgeurl = serviceurl + '/IncomingAudioVedioBridgeJob';
     var ivrurl = serviceurl + "/AudioVideoIVRJob";
     var agentSip = "sip:liben@Metio.onmicrosoft.com";
