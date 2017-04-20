@@ -11,7 +11,6 @@ namespace AcceptAndBridgeIM
 {
     public class WebApiApplication : System.Web.HttpApplication
     {
-
         public static ApplicationEndpoint ApplicationEndpoint { get; private set; }
         public static string CallbackUri { get; private set; }
         public static string InstanceId { get; private set; }
@@ -19,8 +18,8 @@ namespace AcceptAndBridgeIM
         static WebApiApplication()
         {
             InstanceId = Guid.NewGuid().ToString("N");
-
         }
+
         protected void Application_Start()
         {
             //RouteConfig.RegisterRoutes(RouteTable.Routes);
@@ -54,19 +53,10 @@ namespace AcceptAndBridgeIM
             //Get singleton event channel
             var eventChannel = UnityHelper.Resolve<SimpleEventChannel>();
 
-            //Initialize platform
-            var platformSettings = new ClientPlatformSettings
-               (
-                null,
-                 Guid.Parse(aadClientId),
-                 null,
-                 aadClientSecret,
-                 true
-               );
-
+            //ClientPlatformSettings platformSettings =new ClientPlatformSettings(null, new Guid(aadClientId), null, aadClientSecret, true);
 
             //public developers use below code path
-            //platformSettings = new ClientPlatformSettings(aadClientSecret, Guid.Parse(aadClientId));
+            var platformSettings = new ClientPlatformSettings(aadClientSecret, Guid.Parse(aadClientId));
 
             var platform = new ClientPlatform(platformSettings, logger);
             //Initialize application and application endpoint
@@ -77,6 +67,5 @@ namespace AcceptAndBridgeIM
             await ApplicationEndpoint.InitializeAsync(loggingContext).ConfigureAwait(false);
             await ApplicationEndpoint.InitializeApplicationAsync(loggingContext).ConfigureAwait(false);
         }
-
     }
 }

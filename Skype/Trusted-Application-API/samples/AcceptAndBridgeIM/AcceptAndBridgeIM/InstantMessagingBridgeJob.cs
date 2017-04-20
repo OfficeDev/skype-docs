@@ -20,14 +20,14 @@ namespace AcceptAndBridgeIM
         private string JobId;
         private string InstanceId;
 
-        protected LoggingContext LoggingContext { get; private set; }
+        protected LoggingContext m_loggingContext { get; private set; }
 
 
         public InstantMessagingBridgeJob(string jobid, string instanceid,InstantMessagingBridgeJobInput input)
         {
             this.JobId = jobid;
             this.InstanceId = instanceid;
-            LoggingContext = new LoggingContext(JobId, InstanceId);
+            m_loggingContext = new LoggingContext(JobId, InstanceId);
 
             m_handleIncomingMessageInput = input;
             if (m_handleIncomingMessageInput == null)
@@ -45,6 +45,7 @@ namespace AcceptAndBridgeIM
              for multiple instance case, the event handler Instance_HandleIncomingInstantMessagingCall should always be there once service started
              * */
             WebApiApplication.ApplicationEndpoint.HandleIncomingInstantMessagingCall += Instance_HandleIncomingInstantMessagingCall;
+            Logger.Instance.Information("HandleIncomingInstantMessagingCall started, Job id {0} Instance id {1}", this.JobId, this.InstanceId);
         }
 
         public void Stop()
@@ -100,7 +101,7 @@ namespace AcceptAndBridgeIM
 
         private async Task StartInstantMessagingBridgeFlowAsync(IncomingInviteEventArgs<IMessagingInvitation> e)
         {
-            Logger.Instance.Information(string.Format("[InstantMessagingBridgeFlow] StartInstantMessagingBridgeFlow: LoggingContext: {0}", LoggingContext));
+            Logger.Instance.Information(string.Format("[InstantMessagingBridgeFlow] StartInstantMessagingBridgeFlow: LoggingContext: {0}", m_loggingContext));
 
             CallbackContext callbackcontext = new CallbackContext { InstanceId = this.InstanceId, JobId = this.JobId };
             string callbackContextJsonString = JsonConvert.SerializeObject(callbackcontext);
@@ -114,17 +115,17 @@ namespace AcceptAndBridgeIM
 
             #region Step 1 Start adhoc meeting
             //Step1:
-            Logger.Instance.Information(string.Format("[InstantMessagingBridgeFlow] Step 1: Start adhoc meeting: LoggingContext: {0}", LoggingContext));
-
-            IOnlineMeetingInvitation onlineMeetingInvite = await e.NewInvite.StartAdhocMeetingAsync(m_handleIncomingMessageInput.Subject, CallbackUrl, LoggingContext).ConfigureAwait(false);
-
+            Logger.Instance.Information(string.Format("[InstantMessagingBridgeFlow] Step 1: Start adhoc meeting: LoggingContext: {0}", m_loggingContext));            
+            IOnlineMeetingInvitation onlineMeetingInvite =
+                await WebApiApplication.ApplicationEndpoint.Application.Communication.StartAdhocMeetingAsync(e.NewInvite,m_handleIncomingMessageInput.Subject, CallbackUrl, m_loggingContext).ConfigureAwait(false);
+            
             if (string.IsNullOrEmpty(onlineMeetingInvite.MeetingUrl))
             {
                 throw new PlatformserviceApplicationException("Do not get valid MeetingUrl on onlineMeetingInvitation resource after startAdhocMeeting!");
             }
             meetingUrl = onlineMeetingInvite.MeetingUrl;
 
-            Logger.Instance.Information(string.Format("[InstantMessagingBridgeFlow] Get meeting uri: {0} LoggingContext: {1}", onlineMeetingInvite.MeetingUrl, LoggingContext));
+            Logger.Instance.Information(string.Format("[InstantMessagingBridgeFlow] Get meeting uri: {0} LoggingContext: {1}", onlineMeetingInvite.MeetingUrl, m_loggingContext));
 
             //wait on embedded onlinemeetingInvitation to complete, so that we can have valid related conversation
             await onlineMeetingInvite.WaitForInviteCompleteAsync().ConfigureAwait(false);
@@ -138,7 +139,7 @@ namespace AcceptAndBridgeIM
 
             #region Step 2 add Messaging modality on conference conversation
             //Step2:
-            Logger.Instance.Information(string.Format("[InstantMessagingBridgeFlow] Step2: add Messaging modality on conference conversation: LoggingContext: {0}", LoggingContext));
+            Logger.Instance.Information(string.Format("[InstantMessagingBridgeFlow] Step2: add Messaging modality on conference conversation: LoggingContext: {0}", m_loggingContext));
             IMessagingCall confMessaging = m_confConversation.MessagingCall;
             if (confMessaging == null)
             {
@@ -147,14 +148,15 @@ namespace AcceptAndBridgeIM
             //Hook up the event handler on "MessagingModality" of the conference leg and make sure what ever message anon user , or agent input , the app can all know and note down
             confMessaging.IncomingMessageReceived += OnIncomingMessageReceived;
             m_confConversation.HandleParticipantChange += this.OnParticipantChange;
-            IMessagingInvitation messageInvitation = await confMessaging.EstablishAsync(LoggingContext).ConfigureAwait(false);
+            IMessagingInvitation messageInvitation = await confMessaging.EstablishAsync(m_loggingContext).ConfigureAwait(false);
             await messageInvitation.WaitForInviteCompleteAsync().ConfigureAwait(false);//messageInvitation cannot be null here
             #endregion
 
             #region Step 3 Start AcceptAndBridge
             //Step3:
-            Logger.Instance.Information(string.Format("[InstantMessagingBridgeFlow] Step3:  Start AcceptAndBridge: LoggingContext: {0}", LoggingContext));
-            await e.NewInvite.AcceptAndBridgeAsync(LoggingContext, meetingUrl, m_handleIncomingMessageInput.Subject).ConfigureAwait(false);
+            Logger.Instance.Information(string.Format("[InstantMessagingBridgeFlow] Step3:  Start AcceptAndBridge: LoggingContext: {0}", m_loggingContext));                        
+            await e.NewInvite.AcceptAndBridgeAsync(meetingUrl, m_handleIncomingMessageInput.Subject,m_loggingContext).ConfigureAwait(false);
+
             await e.NewInvite.WaitForInviteCompleteAsync().ConfigureAwait(false);
             m_p2pConversation = e.NewInvite.RelatedConversation;
 
@@ -168,33 +170,34 @@ namespace AcceptAndBridgeIM
             IMessagingCall p2pMessaging = m_p2pConversation.MessagingCall;
             if (p2pMessaging == null || p2pMessaging.State != CallState.Connected)
             {
-                Logger.Instance.Error(string.Format("[InstantMessagingBridgeFlow] p2pMessaging is null or not in connected state: LoggingContext: {0}", LoggingContext));
+                Logger.Instance.Error(string.Format("[InstantMessagingBridgeFlow] p2pMessaging is null or not in connected state: LoggingContext: {0}", m_loggingContext));
                 throw new PlatformserviceApplicationException("[InstantMessagingBridgeFlow] p2pMessaging is null or not in connected state");
             }
             #endregion
 
             #region Step 4 Send welcome message
             //Step4:
-            Logger.Instance.Information(string.Format("[InstantMessagingBridgeFlow] Step4:  Send welcome message: LoggingContext: {0}", LoggingContext));
-            await p2pMessaging.SendMessageAsync(m_handleIncomingMessageInput.WelcomeMessage, LoggingContext).ConfigureAwait(false);
+            Logger.Instance.Information(string.Format("[InstantMessagingBridgeFlow] Step4:  Send welcome message: LoggingContext: {0}", m_loggingContext));
+            await p2pMessaging.SendMessageAsync(m_handleIncomingMessageInput.WelcomeMessage, m_loggingContext).ConfigureAwait(false);
             #endregion
 
             #region Step 5 Add bridged participant to enable agent send message to client chat
+
             //Step5:
-            Logger.Instance.Information(string.Format("[InstantMessagingBridgeFlow] Step5: Add bridged participant to enable agent send message to client chat. LoggingContext: {0}", LoggingContext));
+            Logger.Instance.Information(string.Format("[InstantMessagingBridgeFlow] Step5: Add bridged participant to enable agent send message to client chat. LoggingContext: {0}", m_loggingContext));
             IConversationBridge conversationBridge = m_p2pConversation.ConversationBridge;
             if (conversationBridge == null)
             {
-                Logger.Instance.Error(string.Format("[InstantMessagingBridgeFlow] conversationBridge == null after accept and bridge. LoggingContext: {0}", LoggingContext));
+                Logger.Instance.Error(string.Format("[InstantMessagingBridgeFlow] conversationBridge == null after accept and bridge. LoggingContext: {0}", m_loggingContext));
                 throw new PlatformserviceApplicationException("[InstantMessagingBridgeFlow]  conversationBridge == null after accept and bridge");
-            }
-            await conversationBridge.AddBridgedParticipantAsync(LoggingContext, m_handleIncomingMessageInput.InvitedTargetDisplayName, m_handleIncomingMessageInput.InviteTargetUri, false).ConfigureAwait(false);
+            }            
+            await conversationBridge.AddBridgedParticipantAsync(m_handleIncomingMessageInput.InvitedTargetDisplayName, new SipUri(m_handleIncomingMessageInput.InviteTargetUri), m_handleIncomingMessageInput.EnableMessageFilter, m_loggingContext);
             #endregion
 
             #region Step 6 Start addParticipant to conference
             //Step 6:
-            Logger.Instance.Information(string.Format("[HandleIncomingMessageJob] Step6: Start addParticipant to conference: LoggingContext: {0}", LoggingContext));
-            IParticipantInvitation participantInvitation = await m_confConversation.AddParticipantAsync(m_handleIncomingMessageInput.InviteTargetUri, LoggingContext).ConfigureAwait(false);
+            Logger.Instance.Information(string.Format("[HandleIncomingMessageJob] Step6: Start addParticipant to conference: LoggingContext: {0}", m_loggingContext));
+            IParticipantInvitation participantInvitation = await m_confConversation.AddParticipantAsync(new SipUri(m_handleIncomingMessageInput.InviteTargetUri), m_loggingContext).ConfigureAwait(false);
             await participantInvitation.WaitForInviteCompleteAsync().ConfigureAwait(false);
             #endregion
 
@@ -225,7 +228,7 @@ namespace AcceptAndBridgeIM
         {
             if (m_confConversation != null && m_confConversation.State == ConversationState.Conferenced)
             {
-                m_confConversation.DeleteAsync(LoggingContext).Observe<Exception>();
+                m_confConversation.DeleteAsync(m_loggingContext).Observe<Exception>();
             }
         }
 
@@ -274,12 +277,12 @@ namespace AcceptAndBridgeIM
         {
             if (m_confConversation != null && m_confConversation.State == ConversationState.Conferenced)
             {
-                m_confConversation.DeleteAsync(LoggingContext).Observe<Exception>();
+                m_confConversation.DeleteAsync(m_loggingContext).Observe<Exception>();
             }
 
             if (m_p2pConversation != null && m_p2pConversation.State == ConversationState.Connected)
             {
-                m_p2pConversation.DeleteAsync(LoggingContext).Observe<Exception>();
+                m_p2pConversation.DeleteAsync(m_loggingContext).Observe<Exception>();
             }
         }
     }
