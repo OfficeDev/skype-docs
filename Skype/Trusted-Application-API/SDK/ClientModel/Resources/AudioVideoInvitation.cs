@@ -289,7 +289,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             var input = new AcceptAndBridgeAudioVideoInput
             {
                 MeetingUri = meetingUri,
-                ToUri = to.ToString()
+                ToUri = to?.ToString()
             };
 
             Uri bridge = UriHelper.CreateAbsoluteUri(this.BaseUri, href);
