@@ -5,7 +5,9 @@ using System.Threading.Tasks;
 
 namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 {
+    #pragma warning disable CS0618 // Type or member is obsolete
     internal class Applications : BasePlatformResource<ApplicationsResource, ApplicationsCapability>, IApplications
+    #pragma warning restore CS0618 // Type or member is obsolete
     {
         #region Private fields
 
@@ -30,13 +32,6 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
         #region Constructor
 
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="restfulClient"></param>
-        /// <param name="resource"></param>
-        /// <param name="baseUri"></param>
-        /// <param name="resourceUri"></param>
         internal Applications(IRestfulClient restfulClient, ApplicationsResource resource, Uri baseUri, Uri resourceUri, object parent)
                 : base(restfulClient, resource, baseUri, resourceUri, parent)
         {
@@ -51,7 +46,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// </summary>
         /// <param name="loggingContext"></param>
         /// <returns></returns>
-        public async Task RefreshAndInitializeAsync(LoggingContext loggingContext)
+        public async Task RefreshAndInitializeAsync(LoggingContext loggingContext = null)
         {
             await this.RefreshAsync(loggingContext).ConfigureAwait(false);
             if (this.PlatformResource.Application != null)
@@ -64,6 +59,13 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             }
         }
 
+        /// <summary>
+        /// Gets whether a particular capability is available or not.
+        /// </summary>
+        /// <param name="capability">Capability that needs to be checked.</param>
+        /// <returns><code>true</code> iff the capability is available as of now.</returns>
+        /// <remarks>Capabilities can change when a resource is updated. So, this method returning <code>true</code> doesn't guarantee that
+        /// the capability will be available when it is actually used. Make sure to catch <see cref="T:Microsoft.SfB.PlatformService.SDK.Common.CapabilityNotAvailableException" /></remarks>
         public override bool Supports(ApplicationsCapability capability)
         {
             return false;

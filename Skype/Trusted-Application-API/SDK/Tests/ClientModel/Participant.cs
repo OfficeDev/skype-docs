@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.Http;
+using System.Threading.Tasks;
 using Microsoft.SfB.PlatformService.SDK.ClientModel;
 using Microsoft.SfB.PlatformService.SDK.Common;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -38,7 +39,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             };
 
             IMessagingInvitation invitation = await applicationEndpoint.Application.Communication
-                .StartMessagingWithIdentityAsync("Test subject", "sip:user@example.com", "https://example.com/callback", "Local user", "sip:user1@example.com", m_loggingContext)
+                .StartMessagingAsync("Test subject", new SipUri("sip:user@example.com"), "https://example.com/callback", m_loggingContext)
                 .ConfigureAwait(false);
 
             m_conversation = invitation.RelatedConversation;
@@ -122,6 +123,72 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
 
             // Then
             Assert.IsTrue(eventReceived);
+        }
+
+        [TestMethod]
+        public void ShouldSupportEjectIfLinkAvailable()
+        {
+            // Given
+            TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_ParticipantUpdated_WithEjectLink.json");
+
+            // When
+            var supports = m_conversation.Participants[0].Supports(ParticipantCapability.Eject);
+
+            // Then
+            Assert.IsTrue(supports);
+        }
+
+        [TestMethod]
+        public void ShouldNotSupportEjectIfLinkNotAvailable()
+        {
+            // Given
+            // Setup
+
+            // When
+            var supports = m_conversation.Participants[0].Supports(ParticipantCapability.Eject);
+
+            // Then
+            Assert.IsFalse(supports);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(CapabilityNotAvailableException))]
+        public async Task EjectAsyncShouldThrowIfLinkNotAvailable()
+        {
+            // Given
+            // Setup
+
+            // When
+            await m_conversation.Participants[0].EjectAsync(m_loggingContext).ConfigureAwait(false);
+
+            // Then
+            // Exception is thrown
+        }
+
+        [TestMethod]
+        public async Task EjectAsyncShouldMakeHttpRequest()
+        {
+            // Given
+            TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_ParticipantUpdated_WithEjectLink.json");
+
+            // When
+            await m_conversation.Participants[0].EjectAsync(m_loggingContext).ConfigureAwait(false);
+
+            // Then
+            Assert.IsTrue(m_restfulClient.RequestsProcessed("POST " + DataUrls.EjectParticipant));
+        }
+
+        [TestMethod]
+        public async Task EjectAsyncShouldWorkWithNullLoggingContext()
+        {
+            // Given
+            TestHelper.RaiseEventsFromFile(m_mockEventChannel, "Event_ParticipantUpdated_WithEjectLink.json");
+
+            // When
+            await m_conversation.Participants[0].EjectAsync(null).ConfigureAwait(false);
+
+            // Then
+            Assert.IsTrue(m_restfulClient.RequestsProcessed("POST " + DataUrls.EjectParticipant));
         }
     }
 }

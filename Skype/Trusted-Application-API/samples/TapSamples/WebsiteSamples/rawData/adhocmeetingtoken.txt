@@ -1,0 +1,101 @@
+﻿Website will send following request to Cloud App:
+POST https://cloudapp.cloudapp.net/GetAnonTokenJob HTTP/1.1
+Host: avstart1.cloudapp.net
+Connection: keep-alive
+Content-Length: 192
+Accept: text/plain, */*; q=0.01
+Origin: http://localhost
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36
+Content-Type: application/json; charset=UTF-8
+Referer: http://localhost/udpate/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.8,zh-CN;q=0.6,zh;q=0.4
+
+{"ApplicationSessionId":"6f2c23cb-2966-e6e9-cd4e-12dd88e6e1e5","AllowedOrigins":"http://localhost/udpate/","MeetingUrl":"https://meet.resources.lync.com/NOAMmeetings/dm20r02meet2192/P3FYMI69"}
+
+
+AdhocmeetingToken job will send following request to Trusted Application API:
+POST https://ring0noammeetings.resources.lync.com/platformservice/v1/applications/1177804319/anonApplicationTokens?endpointId=sip:appendpoint@metio.onmicrosoft.com
+
+client-request-id : 4816601e692442f2b74353c4c357d6f1
+Authorization : Bearer eyJ...
+Content-Type : application/vnd.microsoft.com.ucwa+json; charset=utf-8
+Content-Length : 192
+{
+    "allowedOrigins": "http://localhost/udpate/",
+    "applicationSessionId": "97302e60-2362-7c4e-de6b-19bec270eae2",
+    "meetingUrl": "https://meet.resources.lync.com/NOAMmeetings/dm20r02meet1013/YAZEP7G2"
+}
+
+Response:
+X-MS-ClientDiagnostics : T3B...
+X-MS-Server-Fqdn : DM20R02FES03.infra.lync.com
+X-MS-Correlation-Id : 8d264b6d-aaa2-4ec0-9ceb-a151fb69dd28
+client-request-id : 4816601e692442f2b74353c4c357d6f1
+x-ms-client-request-id : 28e24ed7-2454-498d-ac8b-4b382f9434d6
+Strict-Transport-Security : max-age=31536000; includeSubDomains
+Cache-Control : no-cache
+Date : Thu, 16 Feb 2017 01:51:50 GMT
+Content-Type : application/vnd.microsoft.com.ucwa+json; charset=utf-8
+Content-Length : 2240
+{
+    "token": "psat=eyJ...",
+    "expiryTime": "2017-02-16T09:51:51.391Z",
+    "_links": {
+        "self": {
+            "href": "https://ring0noammeetings.resources.lync.com:4443/platformservice/v1/applications/1177804319/anonApplicationTokens?endpointId=sip:appendpoint@metio.onmicrosoft.com"
+        },
+        "ms:rtc:saas:discover": {
+            "href": "https://noammeetings.resources.lync.com/platformService/discover?anonymousMeetingJoinContext=psat%253deyJ0..."
+        }
+    },
+    "rel": "ms:rtc:saas:anonApplicationToken"
+}
+
+Server Code:
+public override async Task<T> ExecuteCoreWithResultAsync<T>()
+        {
+            AnonymousToken result = null;
+            Logger.Instance.Information(string.Format("[GetAnonTokenJob] stared: LoggingContext: {0}", LoggingContext.JobId));
+
+            try
+            {
+                GetAnonTokenInput getAnonTokenInput = this.JobInput as GetAnonTokenInput;
+                if (getAnonTokenInput == null)
+                {
+                    throw new InvalidOperationException("Failed to get valid GetAnonTokenInput intance");
+                }
+
+                AnonymousApplicationTokenInput anoninput = new AnonymousApplicationTokenInput()
+                {
+                    AllowedOrigins = getAnonTokenInput.AllowedOrigins,
+                    ApplicationSessionId = getAnonTokenInput.ApplicationSessionId,
+                    MeetingUrl = getAnonTokenInput.MeetingUrl
+                };
+
+                var tokenResources = await AzureApplication.ApplicationEndpoint.Application.GetAnonApplicationTokenAsync(LoggingContext, anoninput).ConfigureAwait(false);
+
+                if (tokenResources != null)
+                {
+                    result = new AnonymousToken
+                    {
+                        DiscoverUri = tokenResources.AnonymousApplicationsDiscover.Href,
+                        ExpireTime = tokenResources.AuthTokenExpiryTime,
+                        Token = tokenResources.AuthToken,
+                        TenantEndpointId = AzureApplication.ApplicationEndpoint.ApplicationEndpointId.ToString()
+                    };
+                }
+            }
+            catch (CapabilityNotAvailableException ex)
+            {
+                Logger.Instance.Error("Failed to get anon token.", ex);
+                throw;
+            }
+            catch (RemotePlatformServiceException ex)
+            {
+                Logger.Instance.Error("Failed to get anon token.", ex);
+                throw;
+            }
+
+            return result as T;
+        }

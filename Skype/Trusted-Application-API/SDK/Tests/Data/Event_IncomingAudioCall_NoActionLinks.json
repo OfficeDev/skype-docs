@@ -33,9 +33,6 @@
                 "ms:rtc:saas:conversation": {
                   "href": "/platformservice/tgt-8c81281c925a5c2ea02ec14ac1b492c6/v1/applications/1393347000/communication/conversations/0d5d91ec-5eaf-402e-95a9-6f09a2787ad5?endpointId=sip:monitoringaudio@0mcorp2cloudperf.onmicrosoft.com"
                 },
-                "ms:rtc:saas:startAdhocMeeting": {
-                  "href": "/platformservice/tgt-8c81281c925a5c2ea02ec14ac1b492c6/v1/applications/1393347000/communication/onlineMeetingInvitations/startAdhocMeeting?endpointId=sip:monitoringaudio@0mcorp2cloudperf.onmicrosoft.com"
-                },
                 "ms:rtc:saas:audioVideo": {
                   "href": "/platformservice/tgt-8c81281c925a5c2ea02ec14ac1b492c6/v1/applications/1393347000/communication/conversations/0d5d91ec-5eaf-402e-95a9-6f09a2787ad5/audioVideo?endpointId=sip:monitoringaudio@0mcorp2cloudperf.onmicrosoft.com"
                 }

@@ -17,14 +17,14 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         #region Private fields
 
         /// <summary>
-        /// <see cref="Transfer"/> operations which are currently in progress.
+        /// <see cref="Transfer"/> transfers which are currently in progress.
         /// </summary>
-        private ConcurrentDictionary<string, Transfer> m_transfers;
+        private readonly ConcurrentDictionary<string, Transfer> m_transfers;
 
         /// <summary>
         /// <see cref="TaskCompletionSource{TResult}"/> used to signal completion of a <see cref="Transfer"/> operation.
         /// </summary>
-        private ConcurrentDictionary<string, TaskCompletionSource<Transfer>> m_transferAddedTcses;
+        private readonly ConcurrentDictionary<string, TaskCompletionSource<Transfer>> m_transferAddedTcses;
 
         private EventHandler<AudioVideoFlowUpdatedEventArgs> m_audioVideoFlowConnected;
 
@@ -84,14 +84,69 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             get { return PlatformResource?.CallContext; }
         }
 
+        /// <summary>
+        /// Gets the audio video flow.
+        /// </summary>
+        /// <value>The audio video flow.</value>
         public IAudioVideoFlow AudioVideoFlow { get; private set; }
 
         #endregion
 
         #region Public methods
 
-        public async Task<ITransfer> TransferAsync(string transferTarget, string replacesCallContext, LoggingContext loggingContext)
+        /// <summary>
+        /// Transfers the audio video call to a user
+        /// </summary>
+        /// <param name="transferTarget">SIP uri of the user where the call needs to be transferred to</param>
+        /// <param name="loggingContext"><see cref="LoggingContext"/> to be used to log all related events</param>
+        /// <returns><see cref="ITransfer"/> which can be used to track the transfer operation</returns>
+        public Task<ITransfer> TransferAsync(SipUri transferTarget, LoggingContext loggingContext = null)
         {
+            if(transferTarget == null)
+            {
+                throw new ArgumentNullException(nameof(transferTarget));
+            }
+
+            #pragma warning disable CS0618 // Type or member is obsolete
+            return TransferAsync(transferTarget, null, loggingContext);
+            #pragma warning restore CS0618 // Type or member is obsolete
+        }
+
+        /// <summary>
+        /// Transfers the audio video call by replacing an existing audio video call
+        /// </summary>
+        /// <param name="replacesCallContext"><see cref="CallContext"/> of the <see cref="IAudioVideoCall"/> which you are trying to transfer to</param>
+        /// <param name="loggingContext"><see cref="LoggingContext"/> to be used to log all related events</param>
+        /// <returns><see cref="ITransfer"/> which can be used to track the transfer operation</returns>
+        public Task<ITransfer> TransferAsync(string replacesCallContext, LoggingContext loggingContext = null)
+        {
+            if (replacesCallContext == null)
+            {
+                throw new ArgumentNullException(nameof(replacesCallContext));
+            }
+
+            #pragma warning disable CS0618 // Type or member is obsolete
+            return TransferAsync((SipUri)null, replacesCallContext, loggingContext);
+            #pragma warning restore CS0618 // Type or member is obsolete
+        }
+
+        /// <summary>
+        /// Transfers the audio video call.
+        /// </summary>
+        /// <param name="transferTarget">SIP uri of the user where the call needs to be transferred to</param>
+        /// <param name="replacesCallContext">
+        /// <see cref="P:Microsoft.SfB.PlatformService.SDK.ClientModel.IAudioVideoCall.CallContext" /> of the
+        /// <see cref="IAudioVideoCall" /> which you are trying to replace
+        /// </param>
+        /// <param name="loggingContext"><see cref="LoggingContext" /> to be used to log all related events</param>
+        /// <returns><see cref="ITransfer" /> which can be used to track the transfer operation</returns>
+        /// <remarks>only one of <paramref name="transferTarget" /> or <paramref name="replacesCallContext" /> is supported at a time</remarks>
+        /// <exception cref="CapabilityNotAvailableException">Link to start transfer of AudioVideo is not available.</exception>
+        /// <exception cref="RemotePlatformServiceException">Timeout to get incoming transfer started event from platformservice!</exception>
+        [Obsolete("Please use any of the other variations")]
+        public async Task<ITransfer> TransferAsync(SipUri transferTarget, string replacesCallContext, LoggingContext loggingContext = null)
+        {
+            // TODO : Make this method private and non obsolete when releasing 1.0.0
             string href = PlatformResource?.StartTransferLink?.Href;
             if (string.IsNullOrWhiteSpace(href))
             {
@@ -104,7 +159,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             var tcs = new TaskCompletionSource<Transfer>();
 
             this.HandleNewTransferOperationKickedOff(operationId, tcs);
-            var input = new TransferOperationInput() { To = transferTarget, ReplacesCallContext = replacesCallContext, OperationId = operationId };
+            var input = new TransferOperationInput() { To = transferTarget?.ToString(), ReplacesCallContext = replacesCallContext, OperationId = operationId };
             await PostRelatedPlatformResourceAsync(transferLink, input, new ResourceJsonMediaTypeFormatter(), loggingContext).ConfigureAwait(false);
 
             Transfer result = null;
@@ -120,7 +175,20 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             return result;
         }
 
-        public override Task TerminateAsync(LoggingContext loggingContext)
+        [Obsolete("Please use any of the other variations")]
+        public Task<ITransfer> TransferAsync(string transferTarget, string replacesCallContext, LoggingContext loggingContext = null)
+        {
+            return TransferAsync(new SipUri(transferTarget), replacesCallContext, loggingContext);
+        }
+
+        /// <summary>
+        /// Terminates as an asynchronous operation.
+        /// </summary>
+        /// <param name="loggingContext">The logging context.</param>
+        /// <returns>Task.</returns>
+        /// <exception cref="CapabilityNotAvailableException">Link to terminate AudioVideo.</exception>
+        public override Task TerminateAsync(LoggingContext loggingContext = null)
+
         {
             string href = PlatformResource?.StopAudioVideoLink?.Href;
             if (string.IsNullOrWhiteSpace(href))
@@ -139,7 +207,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// </summary>
         /// <param name="loggingContext"><see cref="LoggingContext"/> to use for logging</param>
         /// <returns><see cref="AudioVideoInvitation"/> which tracks the outgoing invite.</returns>
-        public override async Task<IAudioVideoInvitation> EstablishAsync(LoggingContext loggingContext)
+        public override async Task<IAudioVideoInvitation> EstablishAsync(LoggingContext loggingContext = null)
         {
             string href = PlatformResource?.AddAudioVideoLink?.Href;
             if (string.IsNullOrWhiteSpace(href))
@@ -197,19 +265,31 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             return result;
         }
 
+        /// <summary>
+        /// Waits for <see cref="AudioVideoFlow"/> to be connected.
+        /// </summary>
+        /// <param name="timeoutInSeconds">The timeout in seconds.</param>
+        /// <returns>Task&lt;IAudioVideoFlow&gt;.</returns>
         public Task<IAudioVideoFlow> WaitForAVFlowConnected(int timeoutInSeconds = 30)
         {
             IAudioVideoFlow flow = AudioVideoFlow;
             TaskCompletionSource<IAudioVideoFlow> s = new TaskCompletionSource<IAudioVideoFlow>();
             AudioVideoFlowConnected += (o, p) => s.TrySetResult(AudioVideoFlow);
 
-            if (flow != null && flow.State == FlowState.Connected)
+            if (flow?.State == FlowState.Connected)
             {
                 s.TrySetResult(AudioVideoFlow);
             }
             return s.Task.TimeoutAfterAsync(TimeSpan.FromSeconds(timeoutInSeconds));
         }
 
+        /// <summary>
+        /// Gets whether a particular capability is available or not.
+        /// </summary>
+        /// <param name="capability">Capability that needs to be checked.</param>
+        /// <returns><code>true</code> iff the capability is available as of now.</returns>
+        /// <remarks>Capabilities can change when a resource is updated. So, this method returning <code>true</code> doesn't guarantee that
+        /// the capability will be available when it is actually used. Make sure to catch <see cref="T:Microsoft.SfB.PlatformService.SDK.Common.CapabilityNotAvailableException" /></remarks>
         public override bool Supports(AudioVideoCallCapability capability)
         {
             string href = null;
@@ -285,8 +365,8 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <summary>
         /// Handle a transfer started event
         /// </summary>
-        /// <param name="operationId"></param>
-        /// <param name="exception"></param>
+        /// <param name="operationId">ID of the transfer operation</param>
+        /// <param name="transfer">The <see cref="Transfer"/> object representing the transfer operation</param>
         internal void HandleTransferStarted(string operationId, Transfer transfer)
         {
             TaskCompletionSource<Transfer> tcs = null;

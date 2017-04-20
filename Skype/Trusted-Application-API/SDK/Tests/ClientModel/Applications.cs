@@ -16,23 +16,16 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         private IApplications m_applications;
 
         [TestInitialize]
-        public async void TestSetup()
+        public void TestSetup()
         {
+            Logger.RegisterLogger(new ConsoleLogger());
+
+            m_loggingContext = new LoggingContext();
+
             m_restfulClient = new MockRestfulClient();
-            Logger.RegisterLogger(new ConsoleLogger());
-            Logger.RegisterLogger(new ConsoleLogger());
-            
-            m_loggingContext = new LoggingContext(Guid.NewGuid());
-            TestHelper.InitializeTokenMapper();
+            Uri baseUri = UriHelper.GetBaseUriFromAbsoluteUri(TestHelper.DiscoverUri.ToString());
 
-            Uri discoverUri = TestHelper.DiscoverUri;
-            Uri baseUri = UriHelper.GetBaseUriFromAbsoluteUri(discoverUri.ToString());
-            SipUri ApplicationEndpointId = TestHelper.ApplicationEndpointUri;
-
-            var discover = new Discover(m_restfulClient, baseUri, discoverUri, this);
-            await discover.RefreshAndInitializeAsync(m_loggingContext, ApplicationEndpointId.ToString()).ConfigureAwait(false);
-
-            m_applications = discover.Applications;
+            m_applications = new Applications(m_restfulClient, null, baseUri, new Uri(DataUrls.Applications), this);
         }
 
         [TestMethod]
@@ -43,7 +36,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             Assert.IsFalse(m_restfulClient.RequestsProcessed("GET " + DataUrls.Applications));
 
             // When
-            await m_applications.RefreshAndInitializeAsync(m_loggingContext);
+            await m_applications.RefreshAndInitializeAsync(m_loggingContext).ConfigureAwait(false);
 
             // Then
             Assert.IsNotNull(m_applications.Application);
@@ -58,7 +51,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             m_restfulClient.OverrideResponse(new Uri(DataUrls.Applications), HttpMethod.Get, HttpStatusCode.OK, "Applications_NoApplication.json");
 
             // When
-            await m_applications.RefreshAndInitializeAsync(m_loggingContext);
+            await m_applications.RefreshAndInitializeAsync(m_loggingContext).ConfigureAwait(false);
 
             // Then
             // Exception is thrown

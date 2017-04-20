@@ -5,12 +5,17 @@ using System.Threading.Tasks;
 
 namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 {
+    /// <summary>
+    /// Represents an OnlineMeeting
+    /// </summary>
+    /// <seealso cref="BasePlatformResource{TPlatformResource, TCapabilities}"/>
+    /// <seealso cref="IConversationConference" />
     internal class ConversationConference : BasePlatformResource<ConversationConferenceResource, ConversationConferenceCapability>, IConversationConference
     {
         #region Constructor
 
         /// <summary>
-        /// Constructor
+        /// Initializes an instance of <see cref="ConversationConference"/>>
         /// </summary>
         /// <param name="restfulClient"></param>
         /// <param name="resource"></param>
@@ -55,6 +60,13 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             return this.PostRelatedPlatformResourceAsync(stopLink, null, loggingContext);
         }
 
+        /// <summary>
+        /// Gets whether a particular capability is available or not.
+        /// </summary>
+        /// <param name="capability">Capability that needs to be checked.</param>
+        /// <returns><code>true</code> iff the capability is available as of now.</returns>
+        /// <remarks>Capabilities can change when a resource is updated. So, this method returning <code>true</code> doesn't guarantee that
+        /// the capability will be available when it is actually used. Make sure to catch <see cref="T:Microsoft.SfB.PlatformService.SDK.Common.CapabilityNotAvailableException" /></remarks>
         public override bool Supports(ConversationConferenceCapability capability)
         {
             string href = null;

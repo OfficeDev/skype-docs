@@ -1,0 +1,30 @@
+﻿{
+  "accessLevel": "Everyone",
+  "entryExitAnnouncement": "Disabled",
+  "attendees": [ "sip:user@example.com" ],
+  "automaticLeaderAssignment": "Disabled",
+  "description": "",
+  "expirationTime": "\\/Date(1483967116000)\\/",
+  "leaders": [ "sip:user@example.com" ],
+  "onlineMeetingId": "YOKMXY1C",
+  "onlineMeetingUri": "sip:BL20R04meet1692@noammeetings.lync.com;gruu;opaque=app:conf:focus:id:YOKMXY1C",
+  "organizerUri": "sip:BL20R04meet1692@noammeetings.lync.com",
+  "conferenceId": "YOKMXY1C",
+  "phoneUserAdmission": "Disabled",
+  "lobbyBypassForPhoneUsers": "Enabled",
+  "subject": "e2eTesting",
+  "joinUrl": "https://meet.resources.lync.com/NOAMmeetings/bl20r04meet1692/YOKMXY1C",
+  "_links": {
+    "self": {
+      "href": "/platformservice/v1/applications/1393347000/adhocMeetings/YOKMXY1C?endpointId=sip:monitoringaudio@0mcorp2cloudperf.onmicrosoft.com&onlineMeetingContext=sip:BL20R04meet1692@noammeetings.lync.com"
+    },
+    "ms:rtc:saas:discover": {
+      "href": "https://noammeetings.resources.lync.com/platformService/discover?discoverContext=RStc6NnKW%2fwjRFoFJ20kOwD14typyvUXYxjmvNU9kR4pgaoGPGMW3qxqjdJVKWc8aLHUluNutJpq8oDbNLdcfKgNJ7weI%2fKD5w0prnopuiyof7l1BWn90a4CyjmwT2rWni1n9rr%2bMy2BWfrjXkQJQHhKKPp%2fDXNJAO543lmXym94UoJk17rXgh9qRcoW%2bY6foG4zysltfWmxDY%2fSJefw%2bZVqNKOSgYTtk49%2f5AWiMx2NK0ho6wBoFS2C8NxTe2a8r1S9bFDY0mGli54ykDMVixbRpN0Xp2%2fAiXFIAuEfimp5QTR6pNIdoa1wbf6BRZsw4N88WNunT9VdDGPO4tGsyQ%3d%3d.otjyfSh0XKDukGV%2fLuHCyQ%3d%3d.Lbewdbmvje25z%2bhms6TZKbfcaGERJ846%2bBMIcMYCjDb4lsXDWGzQeRVjEuZobqRT."
+    },
+    "applications": {
+      "href": "https://webpoolbl20r04.infra.lync.com/ucwa/v1/applications"
+    }
+  },
+  "rel": "ms:rtc:saas:adhocMeeting",
+  "etag": "1484482223"
+}

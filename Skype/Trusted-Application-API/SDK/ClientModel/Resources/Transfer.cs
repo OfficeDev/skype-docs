@@ -6,6 +6,11 @@ using Microsoft.Rtc.Internal.RestAPI.ResourceModel;
 
 namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 {
+    /// <summary>
+    /// Represents the transfer of a <see cref="AudioVideoCall"/>>
+    /// </summary>
+    /// <seealso cref="BasePlatformResource{TPlatformResource, TCapabilities}"/>
+    /// <seealso cref="ITransfer" />
     internal class Transfer : BasePlatformResource<TransferResource, TransferCapability>, ITransfer
     {
         #region Private fields
@@ -13,7 +18,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <summary>
         /// complete tcs
         /// </summary>
-        private TaskCompletionSource<string> m_transferCompleteTcs;
+        private readonly TaskCompletionSource<string> m_transferCompleteTcs;
 
         #endregion
 
@@ -42,6 +47,11 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             return m_transferCompleteTcs.Task;
         }
 
+        /// <summary>
+        /// <see cref="AnonymousApplicationToken"/> doesn't support any capability so always returns <code>false</code>.
+        /// </summary>
+        /// <param name="capability">Capability that needs to be checked</param>
+        /// <returns><code>false</code> </returns>
         public override bool Supports(TransferCapability capability)
         {
             return false;

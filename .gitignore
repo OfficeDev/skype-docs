@@ -9,7 +9,12 @@ Tools/NuGet/
 
 .openpublishing.build.mdproj
 .openpublishing.buildcore.ps1
-packages.config
+
+# packages.config is used by Nuget and we want to track it.
+# If some other tool uses it and you would like it to be ignored,
+# please modify the line below to accomodate both the cases.
+#packages.config
+
 Skype/WebSDK/node_modules/
 
 # Build results
@@ -26,3 +31,9 @@ bld/
 
 # Visual Studio 2015 cache/options directory
 .vs/
+
+# Visual Studio test results
+TestResults/
+
+# Visual Studio user specific setting files
+*.csproj.user

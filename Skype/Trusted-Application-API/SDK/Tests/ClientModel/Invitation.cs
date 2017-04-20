@@ -26,6 +26,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
             var parent = new object();
             Logger.RegisterLogger(new ConsoleLogger());
 
+            var applicationsResource = new ApplicationsResource(resourceUri.ToString());
             m_applicationResource = new ApplicationResource(resourceUri.ToString());
             var communicationResource = new CommunicationResource(resourceUri.ToString());
             var conversationResource = new ConversationResource(resourceUri.ToString());
@@ -34,7 +35,9 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
                 Application = m_applicationResource
             };
 
-            var communication = new Communication(restfulClient, communicationResource, baseUri, resourceUri, parent);
+            var applications = new Applications(restfulClient, applicationsResource, baseUri, resourceUri, parent);
+            var application = new Application(restfulClient, m_applicationResource, baseUri, resourceUri, applications);
+            var communication = new Communication(restfulClient, communicationResource, baseUri, resourceUri, application);
             m_conversation = new Conversation(restfulClient, conversationResource, baseUri, resourceUri, communication);
 
             var mockInvitation = new Mock<Invitation<InvitationResource, TestCapabilities>>(restfulClient, invitationResource, baseUri, resourceUri, communication);
@@ -67,8 +70,11 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
         [TestMethod]
         public async Task WaitForInviteCompleteAsyncShouldReturnATaskWhichCompletesOnInvitationCompletedEvent()
         {
+            // When
+            ((IInvitationWithConversation)m_invitation).SetRelatedConversation(m_conversation);
+
             // Given
-            Task invitationTask = m_invitation.WaitForInviteCompleteAsync();
+            Task<IConversation> invitationTask = m_invitation.WaitForInviteCompleteAsync();
             await Task.Delay(TimeSpan.FromMilliseconds(200)).ConfigureAwait(false);
 
             Assert.IsFalse(invitationTask.IsCompleted);
@@ -78,6 +84,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
 
             // Then
             Assert.IsTrue(invitationTask.IsCompleted);
+            Assert.IsTrue(invitationTask.Result != null);
         }
     }
 }

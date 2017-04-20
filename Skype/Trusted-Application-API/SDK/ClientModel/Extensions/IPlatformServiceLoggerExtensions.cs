@@ -6,8 +6,19 @@ using Microsoft.SfB.PlatformService.SDK.Common;
 
 namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 {
+    /// <summary>
+    /// Extends functionalities of a logger
+    /// </summary>
     public static class LoggerExtensions
     {
+        /// <summary>
+        /// logs HTTP response.
+        /// </summary>
+        /// <param name="logger">The logger.</param>
+        /// <param name="response">The response.</param>
+        /// <param name="requestId">The request identifier.</param>
+        /// <param name="isIncomingRequest">if set to <c>true</c> [is incoming request].</param>
+        /// <returns>Task.</returns>
         public static async Task LogHttpResponseAsync(this Logger logger, HttpResponseMessage response, string requestId, bool isIncomingRequest)
         {
             var sb = new StringBuilder();
@@ -26,6 +37,14 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             }
         }
 
+        /// <summary>
+        /// logs HTTP request.
+        /// </summary>
+        /// <param name="logger">The logger.</param>
+        /// <param name="request">The request.</param>
+        /// <param name="requestId">The request identifier.</param>
+        /// <param name="isIncomingRequest">if set to <c>true</c> [is incoming request].</param>
+        /// <returns>Task.</returns>
         public static async Task LogHttpRequestAsync(this Logger logger, HttpRequestMessage request, string requestId, bool isIncomingRequest)
         {
             var sb = new StringBuilder();

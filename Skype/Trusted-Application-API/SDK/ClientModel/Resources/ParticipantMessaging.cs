@@ -5,7 +5,7 @@ using Microsoft.SfB.PlatformService.SDK.Common;
 namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 {
     /// <summary>
-    /// Define the participant messaging class
+    /// Represents the use of the instant messaging modality from a user in a conversation
     /// </summary>
     internal class ParticipantMessaging : BasePlatformResource<ParticipantMessagingResource, ParticipantMessagingCapability>, IParticipantMessaging
     {
@@ -24,6 +24,11 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
         #region Public methods
 
+        /// <summary>
+        /// <see cref="ParticipantMessaging"/> doesn't support any capability so always returns <code>false</code>.
+        /// </summary>
+        /// <param name="capability">Capability that needs to be checked</param>
+        /// <returns><code>false</code> </returns>
         public override bool Supports(ParticipantMessagingCapability capability)
         {
             return false;

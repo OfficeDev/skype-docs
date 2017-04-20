@@ -4,8 +4,9 @@ using System.Threading.Tasks;
 using Microsoft.SfB.PlatformService.SDK.Common;
 using Microsoft.Rtc.Internal.Platform.ResourceContract;
 using Microsoft.Rtc.Internal.RestAPI.Common.MediaTypeFormatters;
-using Microsoft.Rtc.Internal.RestAPI.ResourceModel;
+using ResourceModel = Microsoft.Rtc.Internal.RestAPI.ResourceModel;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 
 namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 {
@@ -18,7 +19,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <summary>
         /// Outgoing prompts
         /// </summary>
-        private ConcurrentDictionary<string, TaskCompletionSource<Prompt>> m_onGoingPromptTcses;
+        private readonly ConcurrentDictionary<string, TaskCompletionSource<Prompt>> m_onGoingPromptTcses;
 
         #endregion
 
@@ -34,6 +35,9 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
         #region Public events
 
+        /// <summary>
+        /// The event raised when a tone event is received
+        /// </summary>
         public event EventHandler<ToneReceivedEventArgs> ToneReceivedEvent
         {
             add
@@ -62,7 +66,15 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
         #region Public methods
 
-        public async Task<IPrompt> PlayPromptAsync(Uri promptUri, LoggingContext loggingContext)
+        /// <summary>
+        /// Plays prompt with the given <paramref name="promptUri"/> as an asynchronous operation.
+        /// </summary>
+        /// <param name="promptUri">The prompt URI.</param>
+        /// <param name="loggingContext">The logging context.</param>
+        /// <returns>Task&lt;IPrompt&gt;.</returns>
+        /// <exception cref="System.ArgumentNullException">promptUri</exception>
+        /// <exception cref="CapabilityNotAvailableException">Link to play prompt is not available.</exception>
+        public async Task<IPrompt> PlayPromptAsync(Uri promptUri, LoggingContext loggingContext = null)
         {
             if (promptUri == null)
             {
@@ -82,7 +94,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             TaskCompletionSource<Prompt> tcs = new TaskCompletionSource<Prompt>();
             var response =  await PostRelatedPlatformResourceAsync(playPromptLink, input, new ResourceJsonMediaTypeFormatter(), loggingContext).ConfigureAwait(false);
 
-            if (response != null && response.Headers != null && response.Headers.Location != null)
+            if (response?.Headers?.Location != null)
             {
                 m_onGoingPromptTcses.TryAdd(UriHelper.CreateAbsoluteUri(this.BaseUri, response.Headers.Location.ToString()).ToString().ToLower(), tcs);
             }
@@ -91,6 +103,44 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             return await tcs.Task.ConfigureAwait(false);
         }
 
+        /// <summary>
+        /// Send stop prompts event and wait for all prompts to complete.
+        /// </summary>
+        /// <param name="loggingContext"><see cref="LoggingContext"/> to be used to log all related events</param>
+        public async Task StopPromptsAsync(LoggingContext loggingContext = null)
+        {
+            string href = PlatformResource?.StopPromptsLink?.Href;
+            if (string.IsNullOrWhiteSpace(href))
+            {
+                throw new CapabilityNotAvailableException("Link to stop prompts is not available.");
+            }
+
+            var stopPromptLink = UriHelper.CreateAbsoluteUri(BaseUri, href);
+            await PostRelatedPlatformResourceAsync(stopPromptLink, null, loggingContext).ConfigureAwait(false);
+
+            foreach (KeyValuePair<string, TaskCompletionSource<Prompt>> entry in m_onGoingPromptTcses)
+            {
+                try
+                {
+                    await entry.Value.Task.ConfigureAwait(false);
+                } catch (RemotePlatformServiceException psException)
+                {
+                    if (psException.ErrorInformation.Code != ResourceModel.ErrorCode.Informational
+                        || psException.ErrorInformation.Subcode != ResourceModel.ErrorSubcode.PromptsStopped)
+                    {
+                        throw;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets whether a particular capability is available or not.
+        /// </summary>
+        /// <param name="capability">Capability that needs to be checked.</param>
+        /// <returns><code>true</code> iff the capability is available as of now.</returns>
+        /// <remarks>Capabilities can change when a resource is updated. So, this method returning <code>true</code> doesn't guarantee that
+        /// the capability will be available when it is actually used. Make sure to catch <see cref="T:Microsoft.SfB.PlatformService.SDK.Common.CapabilityNotAvailableException" /></remarks>
         public override bool Supports(AudioVideoFlowCapability capability)
         {
             string href = null;
@@ -101,6 +151,11 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                         href = PlatformResource?.PlayPromptLink?.Href;
                         break;
                     }
+                case AudioVideoFlowCapability.StopPrompts:
+                {
+                    href = PlatformResource?.StopPromptsLink?.Href;
+                    break;
+                }
             }
 
             return !string.IsNullOrWhiteSpace(href);
@@ -112,7 +167,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
         internal override bool ProcessAndDispatchEventsToChild(EventContext eventContext)
         {
-            if (eventContext.EventEntity.Link.Token == TokenMapper.GetTokenName(typeof(ToneResource)))
+            if (eventContext.EventEntity.Link.Token == ResourceModel.TokenMapper.GetTokenName(typeof(ToneResource)))
             {
                 var toneResource = ConvertToPlatformServiceResource<ToneResource>(eventContext);
                 Uri audioVideoFlowLink = UriHelper.CreateAbsoluteUri(this.BaseUri, toneResource.AudioVideoFlowLink.Href);
@@ -129,12 +184,12 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                 }
             }
             //No child to dispatch any more, need to dispatch to child , process locally for message type
-            else if (string.Equals(eventContext.EventEntity.Link.Token, TokenMapper.GetTokenName(typeof(PromptResource))))
+            else if (string.Equals(eventContext.EventEntity.Link.Token, ResourceModel.TokenMapper.GetTokenName(typeof(PromptResource))))
             {
                 PromptResource prompt = this.ConvertToPlatformServiceResource<PromptResource>(eventContext);
                 if (prompt != null)
                 {
-                    if (eventContext.EventEntity.Relationship == EventOperation.Completed)
+                    if (eventContext.EventEntity.Relationship == ResourceModel.EventOperation.Completed)
                     {
                         TaskCompletionSource<Prompt> tcs = null;
                         Uri resourceAbsoluteUri = UriHelper.CreateAbsoluteUri(this.BaseUri, eventContext.EventEntity.Link.Href);
@@ -143,19 +198,16 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                         {
                             Prompt p = new Prompt(this.RestfulClient, prompt, this.BaseUri, resourceAbsoluteUri, this);
 
-                            if (eventContext.EventEntity.Status == EventStatus.Success)
+                            if (eventContext.EventEntity.Status == ResourceModel.EventStatus.Success)
                             {
                                 tcs.TrySetResult(p);
                             }
-                            else if (eventContext.EventEntity.Status == EventStatus.Failure)
+                            else if (eventContext.EventEntity.Status == ResourceModel.EventStatus.Failure)
                             {
-                                var errorInformation = eventContext.EventEntity.Error;
-                                string errorString = errorInformation?.GetErrorInformationString();
-                                tcs.TrySetException(
-                                    new RemotePlatformServiceException(
-                                        "PlayPrompt failed with error " + errorString + eventContext.LoggingContext.ToString(),
-                                        errorInformation
-                                    ));
+                                ResourceModel.ErrorInformation error = eventContext.EventEntity.Error;
+                                ErrorInformation errorInfo = error == null ? null : new ErrorInformation(error);
+                                string errorMessage = errorInfo?.ToString();
+                                tcs.TrySetException(new RemotePlatformServiceException("PlayPrompt failed with error " + errorMessage + eventContext.LoggingContext?.ToString(), errorInfo));
                             }
                             else
                             {
@@ -178,6 +230,10 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         #endregion
     }
 
+    /// <summary>
+    /// Class ToneReceivedEventArgs.
+    /// </summary>
+    /// <seealso cref="System.EventArgs" />
     public class ToneReceivedEventArgs : EventArgs
     {
         internal ToneReceivedEventArgs(ToneValue tone)
@@ -185,6 +241,10 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             Tone = tone;
         }
 
-        public ToneValue Tone { get; private set; }
+        /// <summary>
+        /// Gets the tone.
+        /// </summary>
+        /// <value>The tone.</value>
+        public ToneValue Tone { get; }
     }
 }

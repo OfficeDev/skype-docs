@@ -8,7 +8,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
     /// </summary>
     public static class UriHelper
     {
-        private static Regex emailRegex = new Regex(Constants.EmailRegex, RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture | RegexOptions.Compiled);
+        private static readonly Regex emailRegex = new Regex(Constants.EmailRegex, RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture | RegexOptions.Compiled);
 
         /// <summary>
         /// Generate an absolute uri.
@@ -70,6 +70,11 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
             return emailRegex.IsMatch(sipUri.PathAndQuery);
         }
 
+        /// <summary>
+        /// Strips the query parameters from href.
+        /// </summary>
+        /// <param name="href">The href.</param>
+        /// <returns>System.String.</returns>
         public static string StripQueryParametersFromHref(string href)
         {
             string tempHref = href;
@@ -84,17 +89,39 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
             return tempHref;
         }
 
+        /// <summary>
+        /// Normalizes the URI with no query parameters.
+        /// </summary>
+        /// <param name="href">The href.</param>
+        /// <param name="baseUri">The base URI.</param>
+        /// <returns>System.String.</returns>
         public static string NormalizeUriWithNoQueryParameters(string href, Uri baseUri)
         {
             string hrefWithNoquery = StripQueryParametersFromHref(href);
             return CreateAbsoluteUri(baseUri, href).ToString().ToLower();
         }
 
+        /// <summary>
+        /// Normalizes the URI.
+        /// </summary>
+        /// <param name="href">The href.</param>
+        /// <param name="baseUri">The base URI.</param>
+        /// <returns>System.String.</returns>
         public static string NormalizeUri(string href, Uri baseUri)
         {
             return CreateAbsoluteUri(baseUri, href).ToString().ToLower();
         }
 
+        /// <summary>
+        /// Gets the base URI from absolute URI.
+        /// </summary>
+        /// <param name="absoluteuri">The absolute uri.</param>
+        /// <returns>Uri.</returns>
+        /// <exception cref="System.ArgumentException">
+        /// Input " + absoluteuri + " is not wel formed absolute Uri!
+        /// or
+        /// Cannot get base uri from Input " + absoluteuri
+        /// </exception>
         public static Uri GetBaseUriFromAbsoluteUri(string absoluteuri)
         {
             if (!Uri.IsWellFormedUriString(absoluteuri, UriKind.Absolute))
@@ -112,12 +139,20 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
             return baseUri;
         }
 
+        /// <summary>
+        /// Appends the query parameter on URL.
+        /// </summary>
+        /// <param name="url">The URL.</param>
+        /// <param name="key">The key.</param>
+        /// <param name="value">The value.</param>
+        /// <param name="httpUrlEncodeValue">if set to <c>true</c> [HTTP URL encode value].</param>
+        /// <returns>Uri.</returns>
         public static Uri AppendQueryParameterOnUrl(string url, string key, string value, bool httpUrlEncodeValue = true)
         {
             UriBuilder baseUri = new UriBuilder(url);
             string queryToAppend = string.Format("{0}={1}", key, httpUrlEncodeValue? System.Web.HttpUtility.UrlEncode(value) : value);
 
-            if (baseUri.Query != null && baseUri.Query.Length > 1)
+            if (baseUri.Query?.Length > 1)
                 baseUri.Query = baseUri.Query.Substring(1) + "&" + queryToAppend;
             else
                 baseUri.Query = queryToAppend;

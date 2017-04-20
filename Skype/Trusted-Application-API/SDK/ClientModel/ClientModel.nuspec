@@ -19,7 +19,7 @@
     <tags>Microsoft SfB SkypeforBusiness TrustedApplicationAPI</tags>
     <dependencies>
       <!-- 4.1.0 and 4.1.1 has a bug -->
-      <dependency id="System.Net.Http" version="(,4.1)" />
+      <dependency id="System.Net.Http" version="[4.0,4.1)" />
     </dependencies>
   </metadata>
 </package>

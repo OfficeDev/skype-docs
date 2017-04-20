@@ -17,13 +17,13 @@ After completing the steps in this article, your app can join a **Skype for Busi
 
 1. Please read [Getting started with Skype App SDK development](https://msdn.microsoft.com/en-us/skype/appsdk/gettingstarted) to learn how to configure your iOS project for the **Skype for Business** App SDK.  In particular, the following steps assume that you have added the _SfBConversationHelper.h/.m_ class to your source to let you complete the scenario with a minimum of code. 
 
-2. Create and deploy a **Trusted Application API Service Application** for Skype for Business Online. Please refer [Developing Trusted Application API applications for Skype for Business Online](./AADS2S.md) for more details.
+2. Create and deploy a **Trusted Application API Service Application** for Skype for Business Online. Please refer [Developing Trusted Application API applications for Skype for Business Online](./DevelopingApplicationsforSFBOnline.md) for more details.
 This service application will provide RESTful Trusted Application API endpoint to creates ad-hoc meetings, provides meeting join Urls, discovery Uris, and anonymous meeting tokens to your iOS app.
 
-The rest of this article describes how to enable your iOS app to call into such a service application. You can read more about the [Trusted Appplication API](../Trusted-Application-API/docs/Trusted_Application_API_GeneralReference.md) to learn
+The rest of this article describes how to enable your iOS app to call into such a service application. You can read more about the [Trusted Application API](./Trusted_Application_API_GeneralReference.md) to learn
 about all of the features of this Skype for Business service application api.
 
-We've published two service application [examples](https://github.com/OfficeDev/skype-docs/tree/johnau/ucapdocs/Skype/Trusted-Application-API/samples) in GitHub to get you started.
+We've published two service application [examples](https://github.com/OfficeDev/skype-docs/tree/master/Skype/Trusted-Application-API/samples) in GitHub to get you started.
 
 ## Sample code walkthrough
 
@@ -103,6 +103,7 @@ let request = NSMutableURLRequest(URL: NSURL(string: "https://YourServiceApplica
                         throw error!
                     }
 
+
                     let json = try NSJSONSerialization.JSONObjectWithData(data, options: []) as! [String: String]
                     self.discoveryURI = json["DiscoverUri"]!
                     self.token = json["Token"]
@@ -127,7 +128,8 @@ let request = NSMutableURLRequest(URL: NSURL(string: "https://YourServiceApplica
 Joins a meeting anonymously via Skype App SDK using the anonymous token and discovery Uri from previous request as your sign-in parameters. It calls **joinMeetingAnonymously**, gets an **AnonymousSession**, and then the **Conversation** that
 represents the adhoc meeting.
 
-> [!NOTE] The sample code shows the use of the new **setEndUserAcceptedVideoLicense** api. This API must be called before a user can join video in a meeting. Once the api has been called, the user 
+> [!NOTE]
+The sample code shows the use of the new **setEndUserAcceptedVideoLicense** api. This API must be called before a user can join video in a meeting. Once the api has been called, the user 
 is considered in acceptance of the third party video codec license that we use to support video. It is necessary that your app presents the terms of this license to the user before a meeting 
 is started. Subsequent meetings do not require the license acceptance.
 

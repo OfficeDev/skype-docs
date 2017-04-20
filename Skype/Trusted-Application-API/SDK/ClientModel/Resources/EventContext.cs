@@ -4,6 +4,9 @@ using System;
 
 namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 {
+    /// <summary>
+    /// Every event which goes through Eventchannel has an <see cref="EventContext"/> which acts like a key to the event.
+    /// </summary>
     public class EventContext
     {
         internal EventContext()

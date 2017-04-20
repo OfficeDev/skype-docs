@@ -3,10 +3,13 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Rtc.Internal.RestAPI.ResourceModel;
+using Microsoft.SfB.PlatformService.SDK.ClientModel;
 
 namespace Microsoft.SfB.PlatformService.SDK.Common
 {
+    /// <summary>
+    /// Base class for platformservice related exceptions
+    /// </summary>
     [Serializable]
     public class PlatformServiceClientException : Exception
     {
@@ -15,6 +18,10 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
         }
     }
 
+    /// <summary>
+    /// Represents a remote platform service exception.
+    /// </summary>
+    /// <seealso cref="Microsoft.SfB.PlatformService.SDK.Common.PlatformServiceClientException" />
     [Serializable]
     public class RemotePlatformServiceException : PlatformServiceClientException
     {
@@ -32,7 +39,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
         }
 
         /// <summary>
-        /// Initializes a new instance of the RemotePlatformServiceException class
+        /// Initializes a new instance of the RemotePlatformServiceException class with given <paramref name="errorMessage"/> and <paramref name="errorInformation"/>
         /// </summary>
         /// <param name="errorMessage">Message explaining the exception</param>
         /// <param name="errorInformation"><see cref="ErrorInformation"/> returned by PlatformService</param>
@@ -43,7 +50,8 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
         }
 
         /// <summary>
-        /// Initializes a new instance of the RemotePlatformServiceException class.
+        /// Initializes a new instance of the RemotePlatformServiceException class with given <paramref name="errorMessage"/>, 
+        /// <paramref name="httpStatusCode"/>, <paramref name="loggingContext"/> and <paramref name="innerException"/>.
         /// </summary>
         /// <param name="errorMessage">The error message.</param>
         /// <param name="httpStatusCode">The http status code.</param>
@@ -61,7 +69,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
             {
                 this.PlatformServiceCorrelationId = loggingContext.PlatformResponseCorrelationId;
                 this.PlatformServiceFqdn = loggingContext.PlatformResponseServerFqdn;
-                if (loggingContext.PropertyBag != null && loggingContext.PropertyBag.ContainsKey(Constants.RemotePlatformServiceUri))
+                if (loggingContext.PropertyBag?.ContainsKey(Constants.RemotePlatformServiceUri) == true)
                 {
                     PlatformServiceServiceUri = loggingContext.PropertyBag[Constants.RemotePlatformServiceUri] as Uri;
                 }
@@ -70,37 +78,39 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
 
         #endregion
 
+        #region Public properties
         /// <summary>
         /// Gets the HttpStatusCode.
         /// </summary>
-        public HttpStatusCode HttpStatusCode { get; private set; }
+        public HttpStatusCode HttpStatusCode { get; }
 
         /// <summary>
         /// Gets the Ucap Correlation Id.
         /// </summary>
-        public string PlatformServiceCorrelationId { get; private set; }
+        public string PlatformServiceCorrelationId { get; }
 
         /// <summary>
         /// <see cref="ErrorInformation"/> that caused this <see cref="RemotePlatformServiceException"/>.
         /// </summary>
-        public ErrorInformation ErrorInformation { get; private set; }
+        public ErrorInformation ErrorInformation { get; }
 
         /// <summary>
         /// Gets the Ucap Fqdn.
         /// </summary>
-        public string PlatformServiceFqdn { get; private set; }
+        public string PlatformServiceFqdn { get; }
 
         /// <summary>
         /// Gets the Partner Service Uri.
         /// </summary>
-        public Uri PlatformServiceServiceUri { get; private set; }
+        public Uri PlatformServiceServiceUri { get; }
+
+        #endregion
 
         /// <summary>
-        /// Convert Http Response Message to Partner Service Exception.
+        /// Convert Http Response Message to Platform Service Exception.
         /// </summary>
         /// <param name="httpResponseMessage">The http response message.</param>
-        /// <param name="externalServiceType">The external service type.</param>
-        /// <param name="loggingContext">The logging context.</param>
+        /// <param name="loggingContext"><see cref="LoggingContext"/> to be used for logging all related events.</param>
         /// <returns><see cref="RemotePlatformServiceException"/>.</returns>
         internal static async Task<RemotePlatformServiceException> ConvertToRemotePlatformServiceExceptionAsync(HttpResponseMessage httpResponseMessage, LoggingContext loggingContext)
         {
@@ -113,6 +123,11 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
             return new RemotePlatformServiceException(errorMessage, httpResponseMessage.StatusCode, loggingContext);
         }
 
+        /// <summary>
+        /// Creates the string representation of the <see cref="RemotePlatformServiceException"/> using <see cref="HttpStatusCode"/>, <see cref="PlatformServiceServiceUri"/> if applicable,
+        /// <see cref="PlatformServiceCorrelationId"/> if applicable and <see cref="PlatformServiceFqdn"/> if applicable.
+        /// </summary>
+        /// <returns>the string representation of the <see cref="RemotePlatformServiceException"/></returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
@@ -133,6 +148,9 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
         }
     }
 
+    /// <summary>
+    /// A <see cref="PlatformServiceClientInvalidOperationException"/> is thrown when an invalid operation within platform service is executed.
+    /// </summary>
     [Serializable]
     public class PlatformServiceClientInvalidOperationException : PlatformServiceClientException
     {
@@ -141,6 +159,9 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
         }
     }
 
+    /// <summary>
+    /// A <see cref="CapabilityNotAvailableException"/> is thrown when a capability is used while unavailable.
+    /// </summary>
     [Serializable]
     public class CapabilityNotAvailableException : PlatformServiceClientInvalidOperationException
     {

@@ -1,4 +1,4 @@
-#Starting a call from an Android mobile device
+# Starting a call from an Android mobile device
 
 To start a Skype for Business call using an URI from a previous example, your app creates a new _Intent_ using the context of the current activity 
 and then provides the Skype URI in the Intent constructor or by calling into the _setURI_ method on the intent.  Call _startActivity(<yourIntent>)_ 

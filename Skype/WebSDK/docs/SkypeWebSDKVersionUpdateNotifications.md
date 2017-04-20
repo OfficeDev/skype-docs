@@ -1,5 +1,79 @@
 # Skype Web SDK Version Updates
 
+## Skype Web SDK Version Update 4/13/17
+
+| Product        | New Version           | Last Updated  |Previous Version
+| ------------- |:-------------:| :-----:|:----------:|
+| Conversation Control Preview     | 1.87.47 | 4/13/17 | 1.86.57
+| Skype Web SDK Preview    | 0.4.464 | 4/13/17 | 0.4.449
+| Conversation Control Production | unchanged | 4/3/17 | 1.86.57
+| Skype Web SDK Production| unchanged | 4/3/17 | 0.4.449 |
+
+There is no new production release of either the WebSDK or Conversation Control.
+
+**Bugs fixed in the new public preview build:**
+* Serialization of outgoing renegotiations
+* Sync person.status once connection is restored
+* Ensure negotiation rejection if media agent fails to process the final answer
+
+---
+
+## Skype Web SDK Version Update 3/29/17
+
+| Product        | New Version           | Last Updated  |Previous Version
+| ------------- |:-------------:| :-----:|:----------:|
+| Conversation Control Preview     | 1.86.57 | 3/29/17 | 1.85.29
+| Skype Web SDK Preview    | 0.4.449 | 3/29/17 | 0.4.440
+| Conversation Control Production |  1.85.29 | 3/29/17 | 1.85.27
+| Skype Web SDK Production| 0.4.440 | 3/29/17 | 0.4.438 |
+
+The latest release fixes several bugs in relation to AV scnearios.
+
+**Bugs fixed in the new public preview build:**
+* Solved spinner issues for participants that don't have a camera
+* Fixed camera issues when escalating to a meeting
+* Fixed negotiation issue with WebRTC enabled clients
+
+---
+
+## Skype Web SDK Version Update 3/21/17
+
+| Product        | New Version           | Last Updated  |Previous Version
+| ------------- |:-------------:| :-----:|:----------:|
+| Conversation Control Preview     | 1.85.29 | 3/21/17 | 1.85.27
+| Skype Web SDK Preview    | 0.4.440 | 3/21/17 | 0.4.438
+| Conversation Control Production |  1.85.27 | 3/21/17 | 1.84.20
+| Skype Web SDK Production| 0.4.438 | 3/21/17 | 0.4.436 |
+
+The latest release fixes several bugs in relation to AV scnearios.
+
+**Bugs fixed in the new public preview build:**
+* audioService.stop will now be disabled when accepting a call fails because of plugin issues
+* Re-joining a conversation after refreshing the page the application is hosted on is now possible
+* Added various AV related fixes
+
+---
+
+## Skype Web SDK Version Update 3/14/17
+
+| Product        | New Version           | Last Updated  |Previous Version
+| ------------- |:-------------:| :-----:|:----------:|
+| Conversation Control Preview     | 1.85.27 | 3/14/17 | 1.84.20
+| Skype Web SDK Preview    | 0.4.438 | 3/14/17 | 0.4.436
+| Conversation Control Production |  1.84.20 | 3/14/17 | 1.81.43
+| Skype Web SDK Production| 0.4.436 | 3/14/17 | 0.4.417 |
+
+The latest release fixes several bugs in relation to AV scnearios.
+
+**Bugs fixed in the new public preview build:**
+* Improved reliability of connecting audio calls
+* Fixed issues that prevented the active speaker indicator to show
+* Fixed redundant notifications
+* Resolved issue of where the local video would not display when resuming a held call
+* Fixed issues where DTMF tones weren't sent
+
+---
+
 ## Skype Web SDK Version Update 2/21/17
 
 | Product        | New Version           | Last Updated  |Previous Version

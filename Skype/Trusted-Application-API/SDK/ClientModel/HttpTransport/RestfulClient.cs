@@ -14,8 +14,8 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
     internal class OauthEvoRestfulClient : IRestfulClient, IDisposable
     {
         private readonly ITokenProvider m_tokenProvider;
-        private HttpClient m_httpClient;
-        private OAuthTokenIdentifier m_oauthIdentity;
+        private readonly HttpClient m_httpClient;
+        private readonly OAuthTokenIdentifier m_oauthIdentity;
 
         static OauthEvoRestfulClient()
         {
@@ -35,6 +35,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// Initializes a new instance of the <see cref="OauthEvoRestfulClient"/> class.
         /// </summary>
         /// <param name="tokenProvider">The token provider.</param>
+        /// <param name="oauthIdentity">The oauth identity.</param>
         public OauthEvoRestfulClient(ITokenProvider tokenProvider, OAuthTokenIdentifier oauthIdentity)
         {
             if (tokenProvider == null)
@@ -57,7 +58,6 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <param name="customerHeaders">The customer headers.</param>
         /// <param name="mediaType">The media type.</param>
         /// <param name="charSet">The char set.</param>
-        /// <param name="timeout">The timeout.</param>
         /// <returns>The HttpResponseMessage.</returns>
         public Task<HttpResponseMessage> GetAsync(
             Uri requestUri,
@@ -81,28 +81,21 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// Post operation (HttpContent).
         /// </summary>
         /// <param name="requestUri">The request uri.</param>
-        /// <param name="content">The instance of http content.</param>
+        /// <param name="httpContent">The instance of http content.</param>
         /// <param name="customerHeaders">The customer headers.</param>
-        /// <param name="audienceUri">The audience uri.</param>
-        /// <param name="timeout">The timeout.</param>
         /// <returns>The HttpResponseMessage.</returns>
         public Task<HttpResponseMessage> PostAsync(
             Uri requestUri,
-            HttpContent content,
+            HttpContent httpContent,
            IDictionary<string, string> customerHeaders = null
          )
         {
-            if (content == null)
-            {
-                throw new ArgumentNullException("stringContent", "The parameter named value can't be null reference.");
-            }
-
             return this.HttpClientBaseMethodAsync(
                 requestUri,
                  (httpRequestMessage) =>
                  {
                      httpRequestMessage.Method = HttpMethod.Post;
-                     httpRequestMessage.Content = content;
+                     httpRequestMessage.Content = httpContent;
                      return httpRequestMessage;
                  },
                 customerHeaders
@@ -146,6 +139,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                 );
         }
 
+        /// <summary>
         /// Put operation (T).
         /// </summary>
         /// <typeparam name="T">Any class</typeparam>
@@ -187,15 +181,15 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// Put operation (HttpContent).
         /// </summary>
         /// <param name="requestUri">The request uri.</param>
-        /// <param name="content">The instance of http content.</param>
+        /// <param name="httpContent">The instance of http content.</param>
         /// <param name="customerHeaders">The customer headers.</param>
         /// <returns>The HttpResponseMessage.</returns>
         public Task<HttpResponseMessage> PutAsync(
             Uri requestUri,
-            HttpContent content,
+            HttpContent httpContent,
             IDictionary<string, string> customerHeaders = null)
         {
-            if (content == null)
+            if (httpContent == null)
             {
                 throw new ArgumentNullException("stringContent", "The parameter named value can't be null reference.");
             }
@@ -205,7 +199,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                 (httpRequestMessage) =>
                 {
                     httpRequestMessage.Method = HttpMethod.Put;
-                    httpRequestMessage.Content = content;
+                    httpRequestMessage.Content = httpContent;
                     return httpRequestMessage;
                 },
                 customerHeaders
@@ -238,14 +232,11 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <param name="requestUri">The request uri.</param>
         /// <param name="customizeHttpRequestFunc">The async function delegate.</param>
         /// <param name="customerHeaders">The customer headers.</param>
-        /// <param name="audienceUri">The audience uri.</param>
-        /// <param name="timeout">The timeout.</param>
         /// <returns>The HttpResponseMessage.</returns>
         private async Task<HttpResponseMessage> HttpClientBaseMethodAsync(
             Uri requestUri,
             Func<HttpRequestMessage, HttpRequestMessage> customizeHttpRequestFunc,
-            IDictionary<string, string> customerHeaders = null,
-            TimeSpan? timeout = null)
+            IDictionary<string, string> customerHeaders = null)
         {
             if (requestUri == null)
             {
@@ -264,7 +255,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             }
 
             var httpRequestMessage = new HttpRequestMessage { RequestUri = requestUri };
-            if (customerHeaders != null && customerHeaders.Any())
+            if (customerHeaders?.Any() == true)
             {
                 if (customerHeaders.ContainsKey(Constants.OriginalToken))
                 {
@@ -336,6 +327,9 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             return httpResponse;
         }
 
+        /// <summary>
+        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+        /// </summary>
         public void Dispose()
         {
             m_httpClient.Dispose();
@@ -359,6 +353,12 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             m_oAuthEvoHttpClientCache = new LeastRecentlyUsedCache<OAuthTokenIdentifier, IRestfulClient>(settings);
         }
 
+        /// <summary>
+        /// Gets the restful client.
+        /// </summary>
+        /// <param name="oauthIdentity">The oauth identity.</param>
+        /// <param name="tokenProvider">The token provider.</param>
+        /// <returns>IRestfulClient.</returns>
         public IRestfulClient GetRestfulClient(OAuthTokenIdentifier oauthIdentity, ITokenProvider tokenProvider)
         {
             return m_oAuthEvoHttpClientCache.GetOrCreate(oauthIdentity,

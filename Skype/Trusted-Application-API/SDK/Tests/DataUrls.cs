@@ -8,6 +8,7 @@
         // Applications urls
         public  const string Discover        = "https://noammeetings.resources.lync.com/platformservice/discover?deploymentpreference=Weekly";
         private const string RingDomain      = "https://ring2noammeetings.resources.lync.com";
+        private const string PoolDomain      = "https://webpoolbl20r04.infra.lync.com";
         private const string EndpointId      = "endpointId=sip:monitoringaudio@0mcorp2cloudperf.onmicrosoft.com";
         private const string ApplicationPath = RingDomain + "/platformservice/v1/applications/1393347000";
         public  const string Applications    = RingDomain + "/platformservice/v1/applications?" + EndpointId;
@@ -17,8 +18,12 @@
         public  const string Communication    = ApplicationPath + "/communication?" + EndpointId;
         public  const string AdhocMeeting     = ApplicationPath + "/adhocMeetings?" + EndpointId;
         public  const string AnonToken        = ApplicationPath + "/anonApplicationTokens?" + EndpointId;
-        private const string TgtApplication   = "https://webpoolbl20r04.infra.lync.com/platformservice/tgt-8c81281c925a5c2ea02ec14ac1b492c6/v1/applications/1393347000";
+        private const string TgtApplication   = PoolDomain + "/platformservice/tgt-8c81281c925a5c2ea02ec14ac1b492c6/v1/applications/1393347000";
         private const string TgtCommunication = TgtApplication + "/communication";
+
+        // AdhocMeeting urls
+        private const string OnlineMeetingInvitations = PoolDomain + "/platformservice/v1/applications/1393347000/communication/onlineMeetingInvitations";
+        public  const string JoinAdhocMeeting         = OnlineMeetingInvitations + "?confUrl=sip:BL20R04meet1692@noammeetings.lync.com;gruu;opaque=app:conf:focus:id:YOKMXY1C&" + EndpointId;
 
         // Outgoing MessagingInvitation urls
         public const string MessagingInvitations  = ApplicationPath + "/communication/messagingInvitations?" + EndpointId;
@@ -30,7 +35,7 @@
         // Outgoing ParticipantInvitation urls
         public const string ParticipantInvitation = TgtCommunication + "/participantInvitations?"+EndpointId+"&conversationId=869ce4f6-0076-483a-a7c1-968f6b935afe";
 
-        // Incoming MessaginInvitation urls
+        // Incoming MessagingInvitation urls
         public const string AcceptAndBridge   = TgtCommunication + "/messagingInvitations/54537d00-1b4f-44fd-b12c-cbc8ce32317f/acceptAndBridge?" + EndpointId;
         public const string StartAdhocMeeting = TgtCommunication + "/onlineMeetingInvitations/startAdhocMeeting?" + EndpointId;
 
@@ -39,6 +44,7 @@
         public  const string AudioVideoInvitationAccept  = AudioVideoInvitationBase + "/accept?" + EndpointId;
         public  const string AudioVideoInvitationDecline = AudioVideoInvitationBase + "/decline?" + EndpointId;
         public  const string AudioVideoInvitationForward = AudioVideoInvitationBase + "/forward?" + EndpointId;
+        public const string  AudioVideoInvitationAcceptAndBridge = AudioVideoInvitationBase + "/acceptAndBridgeAudioVideo?" + EndpointId;
 
         // Conversation urls
         private const string TgtConversation                 = TgtCommunication + "/conversations/869ce4f6-0076-483a-a7c1-968f6b935afe";
@@ -52,8 +58,12 @@
         public  const string TerminateAudioVideoCall         = TgtConversation + "/audioVideo/terminate?" + EndpointId;
         public  const string Transfer                        = TgtConversation + "/audioVideo/transfer?" + EndpointId;
         public  const string StartPrompt                     = TgtConversation + "/audioVideo/audioVideoFlow/prompts?" + EndpointId;
+        public  const string StopPrompts                     = TgtConversation + "/audioVideo/audioVideoFlow/stopPrompts?" + EndpointId;
         public  const string BridgedParticipants             = TgtConversation + "/conversationBridge/bridgedParticipants?" + EndpointId;
         public  const string BridgedParticipant              = TgtConversation + "/conversationBridge/bridgedParticipants/bridgedparticipant@example.com?" + EndpointId;
         public  const string TerminateConversationConference = TgtConversation + "/onlineMeeting/terminateOnlineMeeting?" + EndpointId;
+
+        // Participant urls
+        public const string EjectParticipant = TgtConversation + "/participants/participant@example.com/eject?" + EndpointId;
     }
 }

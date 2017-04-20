@@ -1,11 +1,10 @@
 ﻿using Microsoft.SfB.PlatformService.SDK.ClientModel;
-using Microsoft.SfB.PlatformService.SDK.Common;
 
 namespace Microsoft.SfB.PlatformService.SDK.Tests
 {
-    class MockRestfulClientFactory : IRestfulClientFactory
+    internal class MockRestfulClientFactory : IRestfulClientFactory
     {
-        private IRestfulClient m_restfulClient;
+        private readonly IRestfulClient m_restfulClient;
 
         public MockRestfulClientFactory()
         {

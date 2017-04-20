@@ -9,7 +9,7 @@ When challenged for authentication by Skype for Business Online service, your ap
  
 For example, create a DNS CName `abc.contoso.com`, and that DNS CName points to trustedapp.cloudapp.net (This allows you to avoid creating a certificate with SN: trustedapp.cloudapp.net, but use a certificate with SN: abc.contoso.com)
  
-Please refer to the following information and examples for how to implement service to service calls.
+Please refer to the following information and examples for how to get an **Oauth token** and implement service to service calls.
  
 ## Additional information
 
@@ -20,3 +20,7 @@ Please refer to the following information and examples for how to implement serv
 [Active Directory Certificate Credentials](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
 
 [Configuring a custom domain name for an Azure cloud service](https://azure.microsoft.com/en-us/documentation/articles/cloud-services-custom-domain-name-portal)
+
+[Authorize access to web applications using OAuth 2.0 and Azure Active Directory](https://msdn.microsoft.com/en-us/library/azure/dn645543.aspx)
+
+[Authentication Scenarios for Azure AD](https://azure.microsoft.com/en-us/documentation/articles/active-directory-authentication-scenarios)

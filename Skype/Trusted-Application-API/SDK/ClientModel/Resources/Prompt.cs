@@ -21,6 +21,11 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
         #region Public methods
 
+         /// <summary>
+        /// <see cref="Prompt"/> doesn't support any capability so always returns <code>false</code>.
+        /// </summary>
+        /// <param name="capability">Capability that needs to be checked</param>
+        /// <returns><code>false</code> </returns>
         public override bool Supports(PromptCapability capability)
         {
             return false;

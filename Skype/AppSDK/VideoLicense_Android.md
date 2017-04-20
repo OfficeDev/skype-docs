@@ -1,3 +1,4 @@
+# Video license acceptance dialog
 ```java
     /**
      * Shows a video license acceptance dialog if user has not been prompted before. If user

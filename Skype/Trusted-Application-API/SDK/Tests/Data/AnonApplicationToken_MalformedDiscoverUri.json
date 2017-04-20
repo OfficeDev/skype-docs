@@ -1,0 +1,13 @@
+﻿{
+  "token": "psat=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1QTDdVZVZRUV9nb1lBbm1WdFFLQmVoOWp5YyJ9.eyJuYmYiOjE0ODg4NDM4MjUsImV4cCI6MTQ4ODg3MjYyNSwicnV1Ijoic2lwOkJMMjBSMDJtZWV0MjM1N0Bub2FtbWVldGluZ3MubHluYy5jb20iLCJhc2kiOiJkYTkzM2ZiOC02ZmJkLTQ3YTEtYmU2ZC0xYTZhZGViMjY2ZmQiLCJhZXUiOiJzaXA6amllY29uc29sZXRlc3QxQG1ldGlvLm9ubWljcm9zb2Z0LmNvbSIsImFvIjoiaHR0cHM6Ly9jb250b3NvLmNvbTtodHRwczovL2xpdHdhcmUuY29tO2h0dHA6Ly93d3cubWljcm9zb2Z0c3RvcmUuY29tIiwiY29uZmlkIjoic2lwOmJsMjByMDJtZWV0MTMyM0BOT0FNbWVldGluZ3MubHluYy5jb207Z3J1dTtvcGFxdWU9YXBwOmNvbmY6Zm9jdXM6aWQ6Wjg4UDFIWVMiLCJ1Y3dhZXh0IjoiaHR0cHM6Ly93ZWJwb29sYmwyMHIwMi5pbmZyYS5seW5jLmNvbS91Y3dhL3YxL2FwcGxpY2F0aW9ucyJ9.hcg8WDz4HpteIwggTyjW9SJqWXLGu9idO1It9DRWK5q5ipXy_AqC4spjuST3nuPoypGbtI81eJSjWsg4_KF5rGvzJIZl-CQYwEVE5anG5vpQGk9IRW9MuxcEeF8ki_7u7FUm7RjsQ_7fA3FfJ1lQ1NPVC6uXFt1T9Q_-Drh4hTRhtz1vgIWg3msWqQEyJKCx1cZjTNKS7P4CRqBML65uGsTm0ZKQ-NlpW1EIGyHd2WSITeMRmLou4ql9xQNF0g1mFJwP9jISU1maVvExtu1KQ8UsSi6L9Cgv0z00SzscO0xg9n7KNQ36f4yUPW8EgHEuw_vJQsnxDeMtK0xla0R6BQ",
+  "expiryTime": "/Date(1488872625837)/",
+  "_links": {
+    "self": {
+      "href": "https://webpoolbl20r04.infra.lync.com/platformservice/v1/applications/1393347000/anonApplicationTokens?endpointId=sip:monitoringaudio@0mcorp2cloudperf.onmicrosoft.com&redirect=1" 
+    },
+    "ms:rtc:saas:discover": {
+      "href": "http-no-so-good-uri" 
+    }
+  },
+  "rel": "ms:rtc:saas:anonApplicationToken"
+}

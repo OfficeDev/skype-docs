@@ -11,8 +11,10 @@ using Microsoft.Rtc.Internal.RestAPI.ResourceModel;
 namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 {
     /// <summary>
-    /// Define the conversation bridge class
+    /// Represents a ConversationBridge
     /// </summary>
+    /// <seealso cref="BasePlatformResource{TPlatformResource, TCapabilities}"/>
+    /// <seealso cref="IConversationBridge" />
     internal class ConversationBridge : BasePlatformResource<ConversationBridgeResource, ConversationBridgeCapability>, IConversationBridge
     {
         #region Private fields
@@ -20,12 +22,12 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <summary>
         /// the bridged participants collection
         /// </summary>
-        private ConcurrentDictionary<string, BridgedParticipant> m_bridgedParticipants;
+        private readonly ConcurrentDictionary<string, BridgedParticipant> m_bridgedParticipants;
 
         /// <summary>
         /// tcses to track bridged participant added events
         /// </summary>
-        private ConcurrentDictionary<string, TaskCompletionSource<BridgedParticipant>> m_bridgedParticipantTcses;
+        private readonly ConcurrentDictionary<string, TaskCompletionSource<BridgedParticipant>> m_bridgedParticipantTcses;
 
         #endregion
 
@@ -38,7 +40,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         {
             get
             {
-                if (m_bridgedParticipants != null && m_bridgedParticipants.Count > 0)
+                if (m_bridgedParticipants?.Count > 0)
                 {
                     return m_bridgedParticipants.Values.Cast<IBridgedParticipant>().ToList();
                 }
@@ -71,16 +73,16 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <summary>
         /// Add bridged participant
         /// </summary>
-        /// <param name="logginContext"></param>
+        /// <param name="loggingContext"></param>
         /// <param name="displayName"></param>
         /// <param name="sipUri"></param>
         /// <param name="enableMessageFilter"></param>
         /// <returns>the bridgeParticipant added</returns>
-        public async Task<IBridgedParticipant> AddBridgedParticipantAsync(LoggingContext logginContext, string displayName, string sipUri, bool enableMessageFilter)
+        public async Task<IBridgedParticipant> AddBridgedParticipantAsync(string displayName, SipUri sipUri, bool enableMessageFilter, LoggingContext loggingContext = null)
         {
-            if (string.IsNullOrWhiteSpace(sipUri) || sipUri.IndexOf('@') < 0)
+            if (sipUri == null)
             {
-                throw new ArgumentException(nameof(sipUri));
+                throw new ArgumentNullException(nameof(sipUri));
             }
 
             string href = PlatformResource?.BridgedParticipantsResourceLink?.Href;
@@ -95,13 +97,13 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             {
                 DisplayName = displayName,
                 MessageFilterState = enableMessageFilter ? FilterState.Enabled : FilterState.Disabled,
-                Uri = sipUri
+                Uri = sipUri.ToString()
             };
 
-            TaskCompletionSource<BridgedParticipant> tcs = new TaskCompletionSource<BridgedParticipant>();
-            m_bridgedParticipantTcses.TryAdd(sipUri.ToLower(), tcs);
+            var tcs = new TaskCompletionSource<BridgedParticipant>();
+            m_bridgedParticipantTcses.TryAdd(sipUri.ToString().ToLower(), tcs);
             //Waiting for bridgedParticipant operation added
-            await PostRelatedPlatformResourceAsync(bridgeUri, input, new ResourceJsonMediaTypeFormatter(), logginContext).ConfigureAwait(false);
+            await PostRelatedPlatformResourceAsync(bridgeUri, input, new ResourceJsonMediaTypeFormatter(), loggingContext).ConfigureAwait(false);
 
             BridgedParticipant result = null;
 
@@ -120,6 +122,20 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// Add bridged participant
+        /// </summary>
+        /// <param name="loggingContext"></param>
+        /// <param name="displayName"></param>
+        /// <param name="sipUri"></param>
+        /// <param name="enableMessageFilter"></param>
+        /// <returns>the bridgeParticipant added</returns>
+        [Obsolete("Please use the other variation")]
+        public Task<IBridgedParticipant> AddBridgedParticipantAsync(LoggingContext loggingContext, string displayName, string sipUri, bool enableMessageFilter)
+        {
+            return AddBridgedParticipantAsync(displayName, new SipUri(sipUri), enableMessageFilter, loggingContext);
         }
 
         public override bool Supports(ConversationBridgeCapability capability)
@@ -144,22 +160,22 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <summary>
         /// process conversation bridge participant events
         /// </summary>
-        /// <param name="eventcontext"></param>
+        /// <param name="eventContext"></param>
         /// <returns></returns>
-        internal override bool ProcessAndDispatchEventsToChild(EventContext eventcontext)
+        internal override bool ProcessAndDispatchEventsToChild(EventContext eventContext)
         {
             //No child to dispatch any more, need to dispatch to child , process locally for message type
-            if (string.Equals(eventcontext.EventEntity.Link.Token, TokenMapper.GetTokenName(typeof(BridgedParticipantResource))))
+            if (string.Equals(eventContext.EventEntity.Link.Token, TokenMapper.GetTokenName(typeof(BridgedParticipantResource))))
             {
-                if (eventcontext.EventEntity.Relationship == EventOperation.Added)
+                if (eventContext.EventEntity.Relationship == EventOperation.Added)
                 {
-                    BridgedParticipantResource resource = this.ConvertToPlatformServiceResource<BridgedParticipantResource>(eventcontext);
+                    BridgedParticipantResource resource = this.ConvertToPlatformServiceResource<BridgedParticipantResource>(eventContext);
                     if (resource != null)
                     {
                         BridgedParticipant newBridgedParticipant = new BridgedParticipant(this.RestfulClient, resource, this.BaseUri,
-                             UriHelper.CreateAbsoluteUri(eventcontext.BaseUri, resource.SelfUri), this);
+                             UriHelper.CreateAbsoluteUri(eventContext.BaseUri, resource.SelfUri), this);
                         TaskCompletionSource<BridgedParticipant> tcs = null;
-                        newBridgedParticipant.HandleResourceEvent(eventcontext);
+                        newBridgedParticipant.HandleResourceEvent(eventContext);
                         m_bridgedParticipants.TryAdd(UriHelper.NormalizeUri(resource.SelfUri, this.BaseUri), newBridgedParticipant);
                         if (m_bridgedParticipantTcses.TryRemove(resource.Uri.ToLower(), out tcs))
                         {
@@ -168,26 +184,26 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                     }
                 }
 
-                if (eventcontext.EventEntity.Relationship == EventOperation.Updated)
+                if (eventContext.EventEntity.Relationship == EventOperation.Updated)
                 {
-                    BridgedParticipantResource resource = this.ConvertToPlatformServiceResource<BridgedParticipantResource>(eventcontext);
+                    BridgedParticipantResource resource = this.ConvertToPlatformServiceResource<BridgedParticipantResource>(eventContext);
                     if (resource != null)
                     {
                         BridgedParticipant newBridgedParticipant = null;
 
                         if (m_bridgedParticipants.TryGetValue(UriHelper.NormalizeUri(resource.SelfUri, this.BaseUri), out newBridgedParticipant))
                         {
-                            newBridgedParticipant.HandleResourceEvent(eventcontext);
+                            newBridgedParticipant.HandleResourceEvent(eventContext);
                         }
                     }
                 }
 
-                if (eventcontext.EventEntity.Relationship == EventOperation.Deleted)
+                if (eventContext.EventEntity.Relationship == EventOperation.Deleted)
                 {
                     BridgedParticipant newBridgedParticipant = null;
-                    if (m_bridgedParticipants.TryRemove(UriHelper.NormalizeUri(eventcontext.EventEntity.Link.Href, this.BaseUri), out newBridgedParticipant))
+                    if (m_bridgedParticipants.TryRemove(UriHelper.NormalizeUri(eventContext.EventEntity.Link.Href, this.BaseUri), out newBridgedParticipant))
                     {
-                        newBridgedParticipant.HandleResourceEvent(eventcontext);
+                        newBridgedParticipant.HandleResourceEvent(eventContext);
                     }
                 }
                 return true;

@@ -15,7 +15,9 @@ Here we will discuss a few ways to schedule an Anonymous meeting and get meeting
 ](./DevelopingApplicationsforSFBOnline.md) for detailed workflow.
 
     1. **Discovery**
-        - Discover request - Your Service Application also known as SaaS application(SA) discovers the location of the **Trusted Application API**.
+        - Discover request - Your Service Application also known as SaaS application(SA) discovers the location of the **Trusted Application API**.**This GET request must be authenticated with a valid OAuth token.**
+         Please refer [Azure Active Directory - Service to Service calls using Client Credentials](./AADS2S.md) for more information on how to get a OAuth Token.
+   
         ```
         GET https://api.skypeforbusiness.com/platformservice/discover
         ```

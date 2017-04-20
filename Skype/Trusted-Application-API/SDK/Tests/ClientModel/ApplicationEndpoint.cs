@@ -15,7 +15,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests
         public void CanCreateMultipleApplicationEndpoints()
         {
             // Given
-            
+
             // When
             ApplicationEndpoint applicationEndpoint1 = TestHelper.CreateApplicationEndpoint().ApplicationEndpoint;
             ApplicationEndpoint applicationEndpoint2 = TestHelper.CreateApplicationEndpoint().ApplicationEndpoint;
@@ -168,7 +168,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests
             await applicationEndpoint.InitializeAsync(loggingContext).ConfigureAwait(false);
             await applicationEndpoint.InitializeApplicationAsync(loggingContext).ConfigureAwait(false);
 
-            applicationEndpoint.HandleIncomingInstantMessagingCall += (sender, args) => { callReceived = true; };
+            applicationEndpoint.HandleIncomingInstantMessagingCall += (sender, args) => callReceived = true;
 
             // When
             TestHelper.RaiseEventsFromFile(mockEventChannel, "Event_IncomingIMCall.json");
@@ -176,7 +176,6 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests
             // Then
             Assert.IsTrue(callReceived, "IM call not raised by SDK to the application.");
         }
-
 
         [TestMethod]
         public async Task ShouldRaiseIncomingIMInviteOnceIfSameEventHandlerRegisteredMultipleTimes()
@@ -189,10 +188,9 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests
             await applicationEndpoint.InitializeAsync(loggingContext).ConfigureAwait(false);
             await applicationEndpoint.InitializeApplicationAsync(loggingContext).ConfigureAwait(false);
 
-
             // Given
             var eventsReceived = 0;
-            EventHandler<IncomingInviteEventArgs<IMessagingInvitation>> handler = (sender, args) => { Interlocked.Increment(ref eventsReceived); };
+            EventHandler<IncomingInviteEventArgs<IMessagingInvitation>> handler = (sender, args) => Interlocked.Increment(ref eventsReceived);
             applicationEndpoint.HandleIncomingInstantMessagingCall += handler;
             applicationEndpoint.HandleIncomingInstantMessagingCall += handler;
 
@@ -263,7 +261,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests
             await applicationEndpoint.InitializeAsync(loggingContext).ConfigureAwait(false);
             await applicationEndpoint.InitializeApplicationAsync(loggingContext).ConfigureAwait(false);
 
-            applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => { callReceived = true; };
+            applicationEndpoint.HandleIncomingAudioVideoCall += (sender, args) => callReceived = true;
 
             // When
             TestHelper.RaiseEventsFromFile(mockEventChannel, "Event_IncomingAudioCall.json");
@@ -285,7 +283,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests
 
             // Given
             var eventsReceived = 0;
-            EventHandler<IncomingInviteEventArgs<IAudioVideoInvitation>> handler = (sender, args) => { Interlocked.Increment(ref eventsReceived); };
+            EventHandler<IncomingInviteEventArgs<IAudioVideoInvitation>> handler = (sender, args) => Interlocked.Increment(ref eventsReceived);
             applicationEndpoint.HandleIncomingAudioVideoCall += handler;
             applicationEndpoint.HandleIncomingAudioVideoCall += handler;
 
@@ -371,7 +369,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests
             await applicationEndpoint.InitializeAsync(loggingContext).ConfigureAwait(false);
             await applicationEndpoint.InitializeApplicationAsync(loggingContext).ConfigureAwait(false);
 
-            EventHandler<IncomingInviteEventArgs<IMessagingInvitation>> handler = (sender, args) => { callReceived = true; };
+            EventHandler<IncomingInviteEventArgs<IMessagingInvitation>> handler = (sender, args) => callReceived = true;
             applicationEndpoint.HandleIncomingInstantMessagingCall += handler;
 
             TestHelper.RaiseEventsFromFile(mockEventChannel, "Event_IncomingIMCall.json");
@@ -399,7 +397,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests
             await applicationEndpoint.InitializeAsync(loggingContext).ConfigureAwait(false);
             await applicationEndpoint.InitializeApplicationAsync(loggingContext).ConfigureAwait(false);
 
-            EventHandler<IncomingInviteEventArgs<IAudioVideoInvitation>> handler = (sender, args) => { callReceived = true; };
+            EventHandler<IncomingInviteEventArgs<IAudioVideoInvitation>> handler = (sender, args) => callReceived = true;
             applicationEndpoint.HandleIncomingAudioVideoCall += handler;
 
             TestHelper.RaiseEventsFromFile(mockEventChannel, "Event_IncomingAudioCall.json");

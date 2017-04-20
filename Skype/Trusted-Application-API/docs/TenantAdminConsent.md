@@ -1,7 +1,7 @@
 # Tenant Admin Consent
 
-A  service application is registered in Azure Active Directory in the context of a tenant. When the application is used in that tenant, tenant consent is not needed. 
-For service applications developed for a multi-tenant scenario, when the using tenant is not the registration context tenant, service application permission requests must be consented to by that tenant's admin.
+A service application is registered in Azure Active Directory in the context of a tenant. Before a trusted application can be used in that tenant or any other tenant, tenant consent is needed. 
+For service applications developed for a single or multi-tenant scenario, service application permission requests must be consented to by the tenant's admin.
  
 In order for a tenant to consent to the application, the following is required:
  

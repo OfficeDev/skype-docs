@@ -95,6 +95,8 @@
 ###### [P2P Escalation](WebSDK/docs/PTVideoP2PEscalation.md)
 ###### [Group](WebSDK/docs/PTVideoGroup.md)
 ###### [Group in Google Chrome](WebSDK/docs/PTVideoGroupGoogleChrome.md)
+##### [Meetings](WebSDK/docs/PTMeetings.md)
+###### [Schedule Meeting](WebSDK/docs/ScheduleMeeting.md)
 ##### [History](WebSDK/docs/PTHistory.md)
 ###### [Conversation History](WebSDK/docs/PTHistoryConversation.md)
 ##### [UI Controls](WebSDK/docs/PTUIControls.md)
@@ -145,6 +147,18 @@
 ##### [Discovery for Service Applications](Trusted-Application-API/docs/DiscoveryForServiceApplications.md)
 ##### [Authentication and Authorization](Trusted-Application-API/docs/AuthenticationAndAuthorization.md)
 
+######  [Trusted Application API PSTN communication](Trusted-Application-API/docs/PSTN.md)
+
+######  [Notifications: Service Application initiated chat conversations](Trusted-Application-API/docs/ApplicationCallFlow.md)
+####### [Simple messaging call flow](Trusted-Application-API/docs/MessagingCallFlow.md)
+
+######  [Customer Care: Client initiated chat conversations](Trusted-Application-API/docs/CustomerChatCallFlow.md)
+
+####### [Bootstrap chat widget](Trusted-Application-API/docs/BootstrapChatWidget.md)
+####### [Discovery by chat client](Trusted-Application-API/docs/DiscoveryChatClient.md)
+####### [Cross Origin Requests (CORS) from browser based chat clients](Trusted-Application-API/docs/CORChatClient.md)
+####### [Customer Care: Anonymous Chat call flow](Trusted-Application-API/docs/ChatCallflowDetail.md)
+####### [Implementing a Chat Client with the Skype Web SDK](Trusted-Application-API/docs/ImplementingChatClientWithSkypeWebSDK.md)
 
 ###### [Anonymous Meeting Join](Trusted-Application-API/docs/AnonymousMeetingJoin.md)
 ####### [Anonymous Meeting Scheduling](Trusted-Application-API/docs/AnonymousMeetingSchedule.md)

@@ -10,6 +10,11 @@ using Microsoft.Rtc.Internal.RestAPI.ResourceModel;
 
 namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 {
+    /// <summary>
+    /// Represents a  MessagingCall inside an conversation.
+    /// </summary>
+    /// <seealso cref="Call{TPlatformResource, TInvitation, TCapabilities}"/>
+    /// <seealso cref="IMessagingCall" />
     internal class MessagingCall : Call<MessagingResource, IMessagingInvitation, MessagingCallCapability>, IMessagingCall
     {
         #region Private fields
@@ -17,7 +22,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <summary>
         /// OutgoingMessagings
         /// </summary>
-        private ConcurrentDictionary<string, TaskCompletionSource<string>> m_outGoingmessageTcses;
+        private readonly ConcurrentDictionary<string, TaskCompletionSource<string>> m_outGoingmessageTcses;
 
         #endregion
 
@@ -49,8 +54,8 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <summary>
         /// Stop messaging, RemotePlatformServiceException may throw if remote failed
         /// </summary>
-        /// <returns></returns>
-        public override Task TerminateAsync(LoggingContext loggingContext)
+        /// <param name="loggingContext"><see cref="LoggingContext"/> to be used for logging all related events.</param>
+        public override Task TerminateAsync(LoggingContext loggingContext = null)
         {
             string href = PlatformResource?.StopMessagingLink?.Href;
             if (string.IsNullOrWhiteSpace(href))
@@ -65,8 +70,16 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <summary>
         /// Send message
         /// </summary>
-        /// <returns></returns>
-        public async Task SendMessageAsync(string message, LoggingContext loggingContext, string contentType = Constants.TextPlainContentType)
+        /// <param name="message">Message to be sent</param>
+        /// <param name="loggingContext"><see cref="LoggingContext"/> to be used for logging all related events.</param>
+        /// <param name="contentType">
+        /// Type of the message; could be any of these:
+        /// <ul>
+        /// <li><seealso cref="Common.Constants.TextPlainContentType"/></li>
+        /// <li><seealso cref="Common.Constants.TextHtmlContentType"/></li>
+        /// </ul>
+        /// </param>
+        public async Task SendMessageAsync(string message, LoggingContext loggingContext = null, string contentType = Constants.TextPlainContentType)
         {
             string href = PlatformResource?.SendMessageLink?.Href;
             if (string.IsNullOrWhiteSpace(href))
@@ -79,7 +92,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             using (var messageContent = new StringContent(message, Encoding.UTF8, contentType))
             {
                 HttpResponseMessage response = await this.PostRelatedPlatformResourceAsync(sendmessageUri, messageContent, loggingContext).ConfigureAwait(false);
-                if (response != null && response.Headers != null && response.Headers.Location != null)
+                if (response?.Headers?.Location != null)
                 {
                     m_outGoingmessageTcses.TryAdd(UriHelper.CreateAbsoluteUri(this.BaseUri, response.Headers.Location.ToString()).ToString().ToLower(), tcs);
                 }
@@ -88,7 +101,23 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             await tcs.Task.ConfigureAwait(false);
         }
 
-        public override async Task<IMessagingInvitation> EstablishAsync(LoggingContext loggingContext)
+        /// <summary>
+        /// Establishes a <see cref="IMessagingInvitation"/>> as an asynchronous operation.
+        /// </summary>
+        /// <param name="loggingContext">The logging context.</param>
+        /// <returns>Task&lt;TInvitation&gt;.</returns>
+        /// <exception cref="Microsoft.SfB.PlatformService.SDK.Common.CapabilityNotAvailableException">Link to establish messaging is not available.</exception>
+        /// <exception cref="System.Exception">
+        /// [Messaging] Failed to get Conversation from messaging base parent
+        /// or
+        /// [Messaging] Failed to get communication from conversation base parent
+        /// </exception>
+        /// <exception cref="Microsoft.SfB.PlatformService.SDK.Common.RemotePlatformServiceException">
+        /// Timeout to get incoming messaging invitation started event from platformservice!
+        /// or
+        /// Platformservice do not deliver a messageInvitation resource with operationId " + operationId
+        /// </exception>
+        public override async Task<IMessagingInvitation> EstablishAsync(LoggingContext loggingContext = null)
         {
             string href = PlatformResource?.AddMessagingLink?.Href;
             if (string.IsNullOrWhiteSpace(href))
@@ -146,6 +175,13 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             return result;
         }
 
+        /// <summary>
+        /// Gets whether a particular capability is available or not.
+        /// </summary>
+        /// <param name="capability">Capability that needs to be checked.</param>
+        /// <returns><code>true</code> iff the capability is available as of now.</returns>
+        /// <remarks>Capabilities can change when a resource is updated. So, this method returning <code>true</code> doesn't guarantee that
+        /// the capability will be available when it is actually used. Make sure to catch <see cref="T:Microsoft.SfB.PlatformService.SDK.Common.CapabilityNotAvailableException" /></remarks>
         public override bool Supports(MessagingCallCapability capability)
         {
             string href = null;
@@ -175,12 +211,12 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
         #region Internal methods
 
-        internal override bool ProcessAndDispatchEventsToChild(EventContext eventcontext)
+        internal override bool ProcessAndDispatchEventsToChild(EventContext eventContext)
         {
             //No child to dispatch any more, need to dispatch to child , process locally for message type
-            if (string.Equals(eventcontext.EventEntity.Link.Token, TokenMapper.GetTokenName(typeof(MessageResource))))
+            if (string.Equals(eventContext.EventEntity.Link.Token, TokenMapper.GetTokenName(typeof(MessageResource))))
             {
-                MessageResource message = this.ConvertToPlatformServiceResource<MessageResource>(eventcontext);
+                MessageResource message = this.ConvertToPlatformServiceResource<MessageResource>(eventContext);
                 if (message != null)
                 {
                     if (message.Direction == Direction.Incoming)
@@ -207,27 +243,27 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                     }
                     else //For out going, just detect the completed event
                     {
-                        if (eventcontext.EventEntity.Relationship == EventOperation.Completed)
+                        if (eventContext.EventEntity.Relationship == EventOperation.Completed)
                         {
-                            TaskCompletionSource<string> tcs = null;
-                            m_outGoingmessageTcses.TryGetValue(UriHelper.CreateAbsoluteUri(this.BaseUri, eventcontext.EventEntity.Link.Href).ToString().ToLower(), out tcs);
+                            TaskCompletionSource<string> tcs;
+                            m_outGoingmessageTcses.TryGetValue(UriHelper.CreateAbsoluteUri(this.BaseUri, eventContext.EventEntity.Link.Href).ToString().ToLower(), out tcs);
                             if (tcs != null)
                             {
-                                if (eventcontext.EventEntity.Status == EventStatus.Success)
+                                if (eventContext.EventEntity.Status == EventStatus.Success)
                                 {
                                     tcs.TrySetResult(string.Empty);
                                 }
-                                else if (eventcontext.EventEntity.Status == EventStatus.Failure)
+                                else if (eventContext.EventEntity.Status == EventStatus.Failure)
                                 {
-                                    string error = eventcontext.EventEntity.Error == null ? null : eventcontext.EventEntity.Error.GetErrorInformationString();
-                                    tcs.TrySetException(new RemotePlatformServiceException("Send Message failed with error" + error + eventcontext.LoggingContext.ToString()));
+                                    string error = eventContext.EventEntity.Error?.GetErrorInformationString();
+                                    tcs.TrySetException(new RemotePlatformServiceException("Send Message failed with error" + error + eventContext.LoggingContext.ToString()));
                                 }
                                 else
                                 {
                                     Logger.Instance.Error("Do not get a valid status code for message complete event!");
                                     tcs.TrySetException(new RemotePlatformServiceException("Send Message failed !"));
                                 }
-                                m_outGoingmessageTcses.TryRemove(eventcontext.EventEntity.Link.Href.ToLower(), out tcs);
+                                m_outGoingmessageTcses.TryRemove(eventContext.EventEntity.Link.Href.ToLower(), out tcs);
                             }
                         }
                     }

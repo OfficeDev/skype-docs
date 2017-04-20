@@ -1,0 +1,50 @@
+﻿{
+  "_links": {
+    "self": {
+      "href": "/platformservice/tgt-8c81281c925a5c2ea02ec14ac1b492c6/v1/applications/1393347000/events?ack=7&key=1393347000%7Esip%3Amonitoringaudio%400mcorp2cloudperf.onmicrosoft.com%7E869ce4f6-0076-483a-a7c1-968f6b935afe"
+    },
+    "next": {
+      "href": "/platformservice/tgt-8c81281c925a5c2ea02ec14ac1b492c6/v1/applications/1393347000/events?ack=8&key=1393347000%7Esip%3Amonitoringaudio%400mcorp2cloudperf.onmicrosoft.com%7E869ce4f6-0076-483a-a7c1-968f6b935afe"
+    }
+  },
+  "sender": [
+    {
+      "rel": "ms:rtc:saas:conversation",
+      "href": "/platformservice/tgt-8c81281c925a5c2ea02ec14ac1b492c6/v1/applications/1393347000/communication/conversations/869ce4f6-0076-483a-a7c1-968f6b935afe?endpointId=sip:monitoringaudio@0mcorp2cloudperf.onmicrosoft.com",
+      "events": [
+        {
+          "link": {
+            "rel": "ms:rtc:saas:prompt",
+            "href": "/platformservice/tgt-8c81281c925a5c2ea02ec14ac1b492c6/v1/applications/1393347000/communication/conversations/869ce4f6-0076-483a-a7c1-968f6b935afe/audioVideo/audioVideoFlow/prompts/08b7bd6e-0e79-4961-8981-116ac9ddd152?endpointId=sip:monitoringaudio@0mcorp2cloudperf.onmicrosoft.com"
+          },
+          "in": {
+            "rel": "ms:rtc:saas:audioVideoFlow",
+            "href": "/platformservice/tgt-8c81281c925a5c2ea02ec14ac1b492c6/v1/applications/1393347000/communication/conversations/869ce4f6-0076-483a-a7c1-968f6b935afe/audioVideo/audioVideoFlow?endpointId=sip:monitoringaudio@0mcorp2cloudperf.onmicrosoft.com"
+          },
+          "status": "Failure",
+          "_embedded": {
+            "ms:rtc:saas:prompt": {
+              "promptUri": "https://example.com/prompt2",
+              "_links": {
+                "self": {
+                  "href": "/platformservice/tgt-8c81281c925a5c2ea02ec14ac1b492c6/v1/applications/1393347000/communication/conversations/869ce4f6-0076-483a-a7c1-968f6b935afe/audioVideo/audioVideoFlow/prompts/08b7bd6e-0e79-4961-8981-116ac9ddd152?endpointId=sip:monitoringaudio@0mcorp2cloudperf.onmicrosoft.com"
+                },
+                "ms:rtc:saas:audioVideoFlow": {
+                  "href": "/platformservice/tgt-8c81281c925a5c2ea02ec14ac1b492c6/v1/applications/1393347000/communication/conversations/869ce4f6-0076-483a-a7c1-968f6b935afe/audioVideo/audioVideoFlow?endpointId=sip:monitoringaudio@0mcorp2cloudperf.onmicrosoft.com"
+                }
+              },
+              "rel": "ms:rtc:saas:prompt"
+            }
+          },
+		  "reason": {
+			"code": "Informational",
+			"subcode": "PromptsStopped",
+			"message": null
+          },
+          "type": "completed"
+        }
+      ]
+    }
+  ],
+  "baseuri": "https://webpoolbl20r04.infra.lync.com"
+}

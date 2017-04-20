@@ -45,6 +45,9 @@
                 "ms:rtc:saas:accept": {
                   "href": "/platformservice/tgt-8c81281c925a5c2ea02ec14ac1b492c6/v1/applications/1393347000/communication/audioVideoInvitations/3f96f5b2-9369-4b5e-b26c-5bc79caa05a6/accept?endpointId=sip:monitoringaudio@0mcorp2cloudperf.onmicrosoft.com"
                 },
+                "ms:rtc:saas:acceptAndBridgeAudioVideo": {
+                  "href": "/platformservice/tgt-8c81281c925a5c2ea02ec14ac1b492c6/v1/applications/1393347000/communication/audioVideoInvitations/3f96f5b2-9369-4b5e-b26c-5bc79caa05a6/acceptAndBridgeAudioVideo?endpointId=sip:monitoringaudio@0mcorp2cloudperf.onmicrosoft.com"
+                },
                 "ms:rtc:saas:forward": {
                   "href": "/platformservice/tgt-8c81281c925a5c2ea02ec14ac1b492c6/v1/applications/1393347000/communication/audioVideoInvitations/3f96f5b2-9369-4b5e-b26c-5bc79caa05a6/forward?endpointId=sip:monitoringaudio@0mcorp2cloudperf.onmicrosoft.com"
                 }

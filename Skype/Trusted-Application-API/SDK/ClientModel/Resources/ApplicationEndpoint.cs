@@ -14,17 +14,17 @@ using Microsoft.Rtc.Internal.RestAPI.Common.MediaTypeFormatters;
 namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 {
     /// <summary>
-    /// Entry point for an application endpoint
+    /// Entry point for an application
     /// </summary>
     public class ApplicationEndpoint : IApplicationEndpoint
     {
         #region Private fields
 
-        private IRestfulClient m_restfulClient;
-        private OAuthTokenIdentifier m_oauthTokenIdentifier;
-        private IEventChannel m_eventChannel;
-        private ITokenProvider m_tokenProvider;
-        private ApplicationEndpointSettings m_endpointSettings;
+        private readonly IRestfulClient m_restfulClient;
+        private readonly OAuthTokenIdentifier m_oauthTokenIdentifier;
+        private readonly IEventChannel m_eventChannel;
+        private readonly ITokenProvider m_tokenProvider;
+        private readonly ApplicationEndpointSettings m_endpointSettings;
 
         #endregion
 
@@ -38,24 +38,36 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         #region Public properties
 
         /// <summary>
-        /// Get the platform Application
+        /// Gets the platform application.
         /// </summary>
+        /// <value>The application.</value>
         public IApplication Application { get; private set; }
 
+        /// <summary>
+        /// Gets the application endpoint identifier.
+        /// </summary>
+        /// <value>The application endpoint identifier.</value>
         public Uri ApplicationEndpointId
         {
             get { return m_endpointSettings.ApplicationEndpointId; }
         }
 
-        public IClientPlatform ClientPlatform { get; private set; }
+        /// <summary>
+        /// Gets the client platform.
+        /// </summary>
+        /// <value>The client platform.</value>
+        public IClientPlatform ClientPlatform { get; }
 
         #endregion
 
         #region Constructors
 
         /// <summary>
-        /// Prevents a default instance of the ApplicationEndpoint class from being created
+        /// Initializes a new instance of the <see cref="ApplicationEndpoint"/> class. Prevents a default instance of the ApplicationEndpoint class from being created
         /// </summary>
+        /// <param name="platform">The platform.</param>
+        /// <param name="applicationEndpointSettings">The application endpoint settings.</param>
+        /// <param name="eventChannel">The event channel.</param>
         public ApplicationEndpoint(IClientPlatform platform, ApplicationEndpointSettings applicationEndpointSettings, IEventChannel eventChannel)
         {
             ClientPlatform = platform;
@@ -65,7 +77,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             {
                 m_eventChannel = eventChannel;
                 m_eventChannel.HandleIncomingEvents += this.OnReceivedCallback;
-            }          
+            }
 
             Logger.Instance.Information("Initializing ApplicationEndpoint");
 
@@ -73,9 +85,9 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                Constants.PlatformAudienceUri,
                 applicationEndpointSettings.ApplicationEndpointId.Domain);
 
-            var tokenProvider = new AADServiceTokenProvider(platform.AADClientId.ToString(), Constants.AAD_AuthorityUri, platform.AADAppCertificate,platform.AADClientSecret);            
+            var tokenProvider = new AADServiceTokenProvider(platform.AADClientId.ToString(), Constants.AAD_AuthorityUri, platform.AADAppCertificate,platform.AADClientSecret);
 
-            if(!platform.IsInternalPartner)
+            if(!(platform as ClientPlatform).IsInternalPartner)
             {
                 TokenMapper.RegisterNameSpaceHandling(Constants.DefaultResourceNamespace, Constants.PublicServiceResourceNamespace);
             }
@@ -94,7 +106,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         #region Public events
 
         /// <summary>
-        /// Handle new incoming IM call
+        /// Handles new incoming IM call
         /// </summary>
         public event EventHandler<IncomingInviteEventArgs<IMessagingInvitation>> HandleIncomingInstantMessagingCall
         {
@@ -108,6 +120,9 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             remove { handleIncomingInstantMessagingCall -= value; }
         }
 
+        /// <summary>
+        /// Handles new incoming Audio Video call
+        /// </summary>                     
         public event EventHandler<IncomingInviteEventArgs<IAudioVideoInvitation>> HandleIncomingAudioVideoCall
         {
             add
@@ -137,17 +152,17 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         }
 
         /// <summary>
-        /// Initialize ApplicationPlatform.
+        /// Starts the eventChannel of the <see cref="ApplicationEndpoint"/>.
         /// </summary>
         /// <param name="loggingContext">The logging context.</param>
         /// <returns>The task.</returns>
-        public Task InitializeAsync(LoggingContext loggingContext)
+        public Task InitializeAsync(LoggingContext loggingContext = null)
         {
             if (m_eventChannel != null)
             {
                 return m_eventChannel.TryStartAsync();
             }
-            return TaskHelpers.CompletedTask;            
+            return TaskHelpers.CompletedTask;
         }
 
         /// <summary>
@@ -155,19 +170,18 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// </summary>
         /// <param name="loggingContext">The logging context.</param>
         /// <returns>The task.</returns>
-        public async Task InitializeApplicationAsync(LoggingContext loggingContext)
+        public async Task InitializeApplicationAsync(LoggingContext loggingContext = null)
         {
             if (Application == null)
             {
-                IApplications ApplicationsResource = null;
-                if (!this.ClientPlatform.IsSandBoxEnv)
+                if (!(ClientPlatform as ClientPlatform).IsSandBoxEnv)
                 {
                     Uri discoverUri = ClientPlatform.DiscoverUri;
                     Uri baseUri = UriHelper.GetBaseUriFromAbsoluteUri(discoverUri.ToString());
 
                     var discover = new Discover(m_restfulClient, baseUri, discoverUri, this);
-                    await discover.RefreshAndInitializeAsync(loggingContext, ApplicationEndpointId.ToString()).ConfigureAwait(false);
-                    ApplicationsResource = discover.Applications;
+                    await discover.RefreshAndInitializeAsync(ApplicationEndpointId.ToString(), loggingContext).ConfigureAwait(false);
+                    Application = discover.Application;
                 }
                 else
                 {
@@ -177,12 +191,12 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                     {
                         applicationsUri = UriHelper.AppendQueryParameterOnUrl(applicationsUri.ToString(), Constants.EndpointId, ApplicationEndpointId.ToString(), false);
                     }
-                    ApplicationsResource = new Applications(m_restfulClient, null, baseUri, applicationsUri, this);
+
+                    var applications = new Applications(m_restfulClient, null, baseUri, applicationsUri, this);
+                    await applications.RefreshAndInitializeAsync(loggingContext).ConfigureAwait(false);
+                    Application = applications.Application;
                 }
 
-                await ApplicationsResource.RefreshAndInitializeAsync(loggingContext).ConfigureAwait(false);
-
-                Application = ApplicationsResource.Application;
                 await Application.RefreshAndInitializeAsync(loggingContext).ConfigureAwait(false);
             }
         }
@@ -252,16 +266,13 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                             }
                             else
                             {
-                                if (conversationEvents == null)
-                                {
-                                    conversationEvents = new List<EventContext>();
-                                }
+                                conversationEvents = conversationEvents ?? new List<EventContext>();
                                 conversationEvents.Add(eventContext);
                             }
                         }
                     }
 
-                    if (conversationEvents != null && conversationEvents.Count > 0)
+                    if (conversationEvents?.Count > 0)
                     {
                         communication.DispatchConversationEvents(conversationEvents);
                     }
@@ -269,10 +280,6 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             }
         }
 
-        /// <summary>
-        /// The action when receive callback.
-        /// </summary>
-        /// <returns>The task.</returns>
         private void OnReceivedCallback(object sender, EventsChannelArgs events)
         {
             SerializableHttpRequestMessage httpMessage = events.CallbackHttpRequest;
@@ -284,7 +291,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             if (Logger.Instance.HttpRequestResponseNeedsToBeLogged)
             {
                 //Technically we should not wait a task here. However, this is in event channel call back thread, and we should not use async in event channel handler
-                LogHelper.LogProtocolHttpRequestAsync(httpMessage, httpMessage.LoggingContext != null ? httpMessage.LoggingContext.TrackingId.ToString() : string.Empty, true).Wait(1000);
+                LogHelper.LogProtocolHttpRequestAsync(httpMessage).Wait(1000);
             }
 
             EventsEntity eventsEntity = null;
@@ -292,7 +299,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(httpMessage.Content)))
             {
                 MediaTypeHeaderValue typeHeader = null;
-                MediaTypeHeaderValue.TryParse(httpMessage.ContentType, out typeHeader); 
+                MediaTypeHeaderValue.TryParse(httpMessage.ContentType, out typeHeader);
                 if (typeHeader != null)
                 {
                     try
@@ -312,7 +319,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                 }
             }
 
-            if (eventsEntity != null && eventsEntity.Senders != null && eventsEntity.Senders.Count > 0) //Ignore heartbeat events or call back reachability check events
+            if (eventsEntity?.Senders?.Count > 0) //Ignore heartbeat events or call back reachability check events
             {
                 this.ProcessEvents(new EventsChannelContext(eventsEntity, httpMessage.LoggingContext));
             }
@@ -323,8 +330,9 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         #region Internal methods
 
         /// <summary>
-        /// Handle new incoming invite
+        /// Handle a new incoming invite
         /// </summary>
+        /// <param name="newInvite">The incoming invite</param>
         internal void HandleNewIncomingInvite(IInvitation newInvite)
         {
             var messagingInvite = newInvite as IMessagingInvitation;
@@ -343,24 +351,21 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         #endregion
     }
 
+    /// <summary>
+    /// Class IncomingInviteEventArgs.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <seealso cref="System.EventArgs" />
     public class IncomingInviteEventArgs<T> : EventArgs where T : IInvitation
     {
         /// <summary>
-        /// The new invite fields
-        /// </summary>
-        private T m_invite;
-
-        /// <summary>
         /// Get the new invite
         /// </summary>
-        public T NewInvite
-        {
-            get { return m_invite; }
-        }
+        public T NewInvite { get; }
 
         internal IncomingInviteEventArgs(T newInvite) : base()
         {
-            m_invite = newInvite;
+            NewInvite = newInvite;
         }
     }
 }

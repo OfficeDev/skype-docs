@@ -7,7 +7,13 @@ You can easily register **Trusted Application Endpoints** by using the PowerShel
 General information about PowerShell cmdlets usage can be found in [Using Windows PowerShell to manage Skype for Business Online](https://technet.microsoft.com/en-us/library/dn362831.aspx).  You will need to complete the following steps to run the admin PowerShell:
 
 1. [Download and install the Skype for Business Online Connector module](http://go.microsoft.com/fwlink/?LinkId=294688)
-2. [Connecting to Skype for Business Online by using Windows PowerShell](https://technet.microsoft.com/en-us/library/dn362795.aspx)
+2. Open Windows PowerShell as Administrator and run the following:
+
+```PowerShell
+Import-PSSession (New-CsOnlineSession -Credential Get-Credential)
+```
+
+For more information see: [Connecting to Skype for Business Online by using Windows PowerShell](https://technet.microsoft.com/en-us/library/dn362795.aspx)
 
 ## Managing Trusted Application Endpoint With PowerShell
 
@@ -23,7 +29,7 @@ General information about PowerShell cmdlets usage can be found in [Using Window
 |:-----|:-----|:-----|:-----|
 |Name|Required|String|Friendly name for Application endpoint|
 |ApplicationId|Required|Guid|Unique application Id that this endpoint will use.|
-|Uri|Required|String|The SipUri for the Endpoint.|
+|Uri|Required|String|The SipUri for the Endpoint. SIP Uri must be lowercase.|
 |PhoneNumber|Optional|String|Phone number for the endpoint.|
 
 
@@ -38,14 +44,14 @@ General information about PowerShell cmdlets usage can be found in [Using Window
 
 | Parameters     | Required | Type   | Description                                       |
 | ---------------|:---------|:------:| -------------------------------------------------:|
-| Uri            | Required | String | The SipUri for the Endpoint.        |
+| Uri            | Required | String | The SipUri for the Endpoint. SIP Uri must be lowercase. |
 | PhoneNumber    | Optional | String |    Phone number for the endpoint.    |
 
 - **Remove-CsOnlineApplicationEndpoint** - It is used to remove the application endpoint.
 
 | Parameters     | Required | Type   | Description                                       |
 | ---------------|:---------|:------:| -------------------------------------------------:|
-| Uri            | Required | String | The SipUri for the Endpoint.        |
+| Uri            | Required | String | The SipUri for the Endpoint. SIP Uri must be lowercase.        |
 
 >Note: For PSTN, Assign the **service numbers** to the trusted application endpoint using _New-CsOnlineApplicationEndpoint PhoneNumber_ parameter. PhoneNumber is not required.
  
@@ -67,14 +73,3 @@ The following PowerShell cmdlet creates a new application endpoint.
 ```PowerShell
 New-CsOnlineApplicationEndpoint -Uri "sip:sample@domain.com" -ApplicationId "44ff763b-5d1f-40ab-95bf-f31kc8757998" -Name "SampleApp" -PhoneNumber "19841110909"
 ```
-
-### Assigning a Phone Number to a Trusted Endpoint
-
- 1. For PSTN, You are required to have an **E5 license** 
-to enable PSTN calling with the **Trusted Application API**. To enable PSTN calling, the Skype for Business Domestic and International Calling feature must be active. Please refer to [products.microsoft.com](https://products.office.com/en-us/business/office-365-enterprise-e5-business-software)  for more details.
-
- 2. For PSTN, Acquire the **service numbers** to assign to the trusted application endpoint. Please refer to [support.office.com](https://support.office.com/en-us/article/Getting-Skype-for-Business-service-phone-numbers-e434aeb2-af99-40e7-981e-a474f0383734) for more details. 
- 
-   ![Assign service telephone number](images/PSTNEndpoint2.jpeg)
-
-

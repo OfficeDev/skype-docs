@@ -29,14 +29,12 @@ namespace Microsoft.SfB.PlatformService.SDK.Tests.ClientModel
 
             var communication = data.ApplicationEndpoint.Application.Communication;
 
-            m_restfulClient.HandleRequestProcessed += (sender, args) =>
-            {
-                TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.MessagingInvitations, HttpMethod.Post, "Event_MessagingInvitationStarted.json", m_eventChannel);
-            };
+            m_restfulClient.HandleRequestProcessed +=
+                (sender, args) => TestHelper.RaiseEventsOnHttpRequest(args, DataUrls.MessagingInvitations, HttpMethod.Post, "Event_MessagingInvitationStarted.json", m_eventChannel);
 
             // Start a conversation with messaging modality
             IMessagingInvitation invitation = await communication
-                .StartMessagingWithIdentityAsync("Test message", "sip:user@example.com", "https://example.com/callback", "Test user 1", "sip:user1@example.com")
+                .StartMessagingAsync("Test message", new SipUri("sip:user@example.com"), "https://example.com/callback")
                 .ConfigureAwait(false);
 
             TestHelper.RaiseEventsFromFile(m_eventChannel, "Event_ConversationConferenceAdded.json");

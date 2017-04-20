@@ -10,12 +10,15 @@ using System.Threading.Tasks;
 
 namespace Microsoft.SfB.PlatformService.SDK.Common
 {
+    /// <summary>
+    /// Helper Class for  Http Messages.
+    /// </summary>
     public static class HttpMessageHelper
     {
         /// <summary>
         /// Get value from headers in http request and response.
         /// </summary>
-        /// <param name="httpHeaders">The http  headers.</param>
+        /// <param name="httpHeaders">The http headers.</param>
         /// <param name="headerName">The header name which you look for.</param>
         /// <returns>The header value.</returns>
         public static string GetHttpHeaderValue(HttpHeaders httpHeaders, string headerName)
@@ -30,7 +33,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
             {
                 IEnumerable<string> headerValues;
                 httpHeaders.TryGetValues(headerName, out headerValues);
-                if (headerValues != null && headerValues.Any())
+                if (headerValues?.Any() == true)
                 {
                     result = headerValues.First();
                 }
@@ -39,6 +42,12 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
             return result;
         }
 
+        /// <summary>
+        /// Formats the HTTP content as an asynchronous operation.
+        /// </summary>
+        /// <param name="sb">a <see cref="System.Text.StringBuilder"/>.</param>
+        /// <param name="content">The content of the http message.</param>
+        /// <returns>Task.</returns>
         public static async Task FormatHttpContentAsync(StringBuilder sb, HttpContent content)
         {
             if (content.Headers != null)

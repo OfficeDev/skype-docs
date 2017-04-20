@@ -17,7 +17,7 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
         /// <summary>
         /// The participant cache
         /// </summary>
-        private ConcurrentDictionary<string, Participant> m_participantsCache;
+        private readonly ConcurrentDictionary<string, Participant> m_participantsCache;
 
         #endregion
 
@@ -49,6 +49,11 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
         #region Public methods
 
+        /// <summary>
+        /// <see cref="ParticipantsInternal"/> doesn't support any capability so always returns <code>false</code>.
+        /// </summary>
+        /// <param name="capability">Capability that needs to be checked</param>
+        /// <returns><code>false</code> </returns>
         public override bool Supports(ParticipantsCapability capability)
         {
             return false;
@@ -58,29 +63,29 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
         #region Internal methods
 
-        internal override bool ProcessAndDispatchEventsToChild(EventContext eventcontext)
+        internal override bool ProcessAndDispatchEventsToChild(EventContext eventContext)
         {
             ParticipantChangeEventArgs participantChangeEventArgs = null;
 
             //No child to dispatch any more, need to dispatch to child , process locally for message type
-            if (string.Equals(eventcontext.EventEntity.Link.Token, TokenMapper.GetTokenName(typeof(ParticipantResource))))
+            if (string.Equals(eventContext.EventEntity.Link.Token, TokenMapper.GetTokenName(typeof(ParticipantResource))))
             {
-                if (eventcontext.EventEntity.In != null)
+                if (eventContext.EventEntity.In != null)
                 {
                     //TODO: currently we do not handle in link
                     return true;
                 }
 
-                string normalizedUri = UriHelper.NormalizeUri(eventcontext.EventEntity.Link.Href, this.BaseUri);
-                ParticipantResource participantResource = this.ConvertToPlatformServiceResource<ParticipantResource>(eventcontext);
-                switch (eventcontext.EventEntity.Relationship)
+                string normalizedUri = UriHelper.NormalizeUri(eventContext.EventEntity.Link.Href, this.BaseUri);
+                ParticipantResource participantResource = this.ConvertToPlatformServiceResource<ParticipantResource>(eventContext);
+                switch (eventContext.EventEntity.Relationship)
                 {
-                    case Rtc.Internal.RestAPI.ResourceModel.EventOperation.Added:
+                    case EventOperation.Added:
                         {
                             Participant tempParticipant = null;
                             if (!m_participantsCache.TryGetValue(normalizedUri, out tempParticipant))
                             {
-                                tempParticipant = new Participant(this.RestfulClient, participantResource, this.BaseUri, UriHelper.CreateAbsoluteUri(this.BaseUri, eventcontext.EventEntity.Link.Href), this.Parent as Conversation);
+                                tempParticipant = new Participant(this.RestfulClient, participantResource, this.BaseUri, UriHelper.CreateAbsoluteUri(this.BaseUri, eventContext.EventEntity.Link.Href), this.Parent as Conversation);
                                 m_participantsCache.TryAdd(normalizedUri, tempParticipant);
                                 participantChangeEventArgs = new ParticipantChangeEventArgs();
                                 participantChangeEventArgs.AddedParticipants = new List<IParticipant> { tempParticipant };
@@ -91,26 +96,26 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
                             }
                             break;
                         }
-                    case Rtc.Internal.RestAPI.ResourceModel.EventOperation.Updated:
+                    case EventOperation.Updated:
                         {
                             Participant tempParticipant = null;
                             if (!m_participantsCache.TryGetValue(normalizedUri, out tempParticipant))
                             {
                                 Logger.Instance.Warning("Get a participant updated event for a participant not in cache, any error happened ?");
-                                tempParticipant = new Participant(this.RestfulClient, participantResource, this.BaseUri, UriHelper.CreateAbsoluteUri(this.BaseUri, eventcontext.EventEntity.Link.Href), this.Parent as Conversation);
+                                tempParticipant = new Participant(this.RestfulClient, participantResource, this.BaseUri, UriHelper.CreateAbsoluteUri(this.BaseUri, eventContext.EventEntity.Link.Href), this.Parent as Conversation);
                                 m_participantsCache.TryAdd(normalizedUri, tempParticipant);
                             }
-                            tempParticipant.HandleResourceEvent(eventcontext);
+                            tempParticipant.HandleResourceEvent(eventContext);
                             participantChangeEventArgs = new ParticipantChangeEventArgs();
                             participantChangeEventArgs.UpdatedParticipants = new List<IParticipant> { tempParticipant };
                             break;
                         }
-                    case Rtc.Internal.RestAPI.ResourceModel.EventOperation.Deleted:
+                    case EventOperation.Deleted:
                         {
                             Participant tempParticipant = null;
                             if (m_participantsCache.TryRemove(normalizedUri, out tempParticipant))
                             {
-                                tempParticipant.HandleResourceEvent(eventcontext);
+                                tempParticipant.HandleResourceEvent(eventContext);
                                 participantChangeEventArgs = new ParticipantChangeEventArgs();
                                 participantChangeEventArgs.RemovedParticipants = new List<IParticipant> { tempParticipant };
                             }
@@ -126,17 +131,17 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
                 return true;
             }
-            else if (string.Equals(eventcontext.EventEntity.Link.Token, TokenMapper.GetTokenName(typeof(ParticipantMessagingResource)))
-                || string.Equals(eventcontext.EventEntity.Link.Token, TokenMapper.GetTokenName(typeof(ParticipantAudioResource)))
-                || string.Equals(eventcontext.EventEntity.Link.Token, TokenMapper.GetTokenName(typeof(ParticipantApplicationSharingResource))))
+            else if (string.Equals(eventContext.EventEntity.Link.Token, TokenMapper.GetTokenName(typeof(ParticipantMessagingResource)))
+                || string.Equals(eventContext.EventEntity.Link.Token, TokenMapper.GetTokenName(typeof(ParticipantAudioResource)))
+                || string.Equals(eventContext.EventEntity.Link.Token, TokenMapper.GetTokenName(typeof(ParticipantApplicationSharingResource))))
             {
-                if (eventcontext.EventEntity.In != null)
+                if (eventContext.EventEntity.In != null)
                 {
-                    string normalizedParticipantUri = UriHelper.NormalizeUri(eventcontext.EventEntity.In.Href, this.BaseUri);
+                    string normalizedParticipantUri = UriHelper.NormalizeUri(eventContext.EventEntity.In.Href, this.BaseUri);
                     Participant tempParticipant = null;
                     if (m_participantsCache.TryGetValue(normalizedParticipantUri, out tempParticipant))
                     {
-                        tempParticipant.ProcessAndDispatchEventsToChild(eventcontext);
+                        tempParticipant.ProcessAndDispatchEventsToChild(eventContext);
                     }
                 }
 

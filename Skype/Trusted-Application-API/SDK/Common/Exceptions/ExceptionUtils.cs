@@ -6,8 +6,16 @@ using System.Text;
 
 namespace Microsoft.SfB.PlatformService.SDK.Common
 {
-    public class ExceptionUtils
+    /// <summary>
+    /// Provides utilities for the exception formats
+    /// </summary>
+    public static class ExceptionUtils
     {
+        /// <summary>
+        /// Formats the exception.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        /// <returns>System.String.</returns>
         public static string FormatExceptionSimple(Exception ex)
         {
             if (ex == null)
@@ -43,10 +51,13 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
 
         #endregion
 
-        public static string FormatException(Exception ex,
-            bool includeStackTrace = true,
-            bool includeContext = false,
-            int maxInnerExceptionDepth = 5)
+        /// <summary>
+        /// Formats the exception.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
+        /// <param name="includeContext">if set to <c>true</c> [include context].</param>
+        /// <returns>System.String.</returns>
+        public static string FormatException(Exception ex, bool includeContext = false)
         {
             if (ex == null)
                 return String.Empty;
@@ -57,7 +68,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
                 if (includeContext)
                     AppendContext(sb);
 
-                AppendExceptionInfo(sb, ex, 0);
+                AppendExceptionInfo(sb, ex);
             }
             catch (Exception ex0)
             {
@@ -67,8 +78,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
             return sb.ToString();
         }
 
-        private static void AppendExceptionInfo(StringBuilder sb,
-            Exception exception, int depth)
+        private static void AppendExceptionInfo(StringBuilder sb, Exception exception)
         {
             Func<Exception, string> formatter = defaultFormatter;
             if (FormatExceptionMap.ContainsKey(exception.GetType()))

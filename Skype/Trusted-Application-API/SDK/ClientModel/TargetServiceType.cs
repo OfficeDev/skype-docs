@@ -2,6 +2,6 @@
 {
     internal enum TargetServiceType
     {
-        PlatformService
+        PlatformService = 0
     }
 }
