@@ -93,11 +93,13 @@ $(function() {
             });
 
             //customContent to ucap application endpoint
-            var costumContext = {
+            var customContext = {
                 context: 'This is a custom message',
                 contextType: 'foo/foo',//must be foo/foo
             };
 
+            //Use below to have custom Context
+            //chatService.start(customContext).then(function () {
             chatService.start().then(function () {
                 console.log('conversation started');
                 $('.chat-service').show();

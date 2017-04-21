@@ -200,29 +200,16 @@ namespace AcceptAndBridgeIM
             IParticipantInvitation participantInvitation = await m_confConversation.AddParticipantAsync(new SipUri(m_handleIncomingMessageInput.InviteTargetUri), m_loggingContext).ConfigureAwait(false);
             await participantInvitation.WaitForInviteCompleteAsync().ConfigureAwait(false);
             #endregion
-
-
-            //#region Step 7 Send custom message to conference
+            
+            //#region Step 7 Send custom message to conference TODO enable this once the feature enabled from SDK
             //string customContent = e.NewInvite.GetCustomContent();
 
             //if (!string.IsNullOrEmpty(customContent) && !string.IsNullOrWhiteSpace(customContent))
             //{
-            //    Logger.Instance.Information(string.Format("[HandleIncomingMessageJob] Step 7 : Start send customcontent to conference: LoggingContext: {0}", LoggingContext));
-            //    await confMessaging.SendMessageAsync(customContent, LoggingContext).ConfigureAwait(false);
+            //    Logger.Instance.Information(string.Format("[HandleIncomingMessageJob] Step 7 : Start send customcontent to conference: LoggingContext: {0}", m_loggingContext));
+            //    await confMessaging.SendMessageAsync(customContent, m_loggingContext).ConfigureAwait(false);
             //}
             //#endregion
-
-            //MessagingInviation from SDK.
-            //public string GetCustomContent()
-            //{
-            //    string value = string.Empty;
-            //    if (PlatformResource?.CustomContent?.Value != null)
-            //    {
-            //        value = PlatformResource?.CustomContent?.Value.ToString();
-            //    }
-
-            //    return value;
-            //}
         }
 
         private void OnClientChatDisconnected()
