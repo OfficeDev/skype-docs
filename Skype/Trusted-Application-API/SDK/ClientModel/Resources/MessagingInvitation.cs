@@ -111,6 +111,21 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
             return !string.IsNullOrWhiteSpace(href);
         }
 
+        /// <summary>
+        /// Get custome content 
+        /// </summary>
+        /// <returns></returns>
+        public string GetCustomContent()
+        {
+            string value = string.Empty;
+            if (PlatformResource?.CustomContent?.Value != null)
+            {
+                value = PlatformResource?.CustomContent?.Value.ToString();
+            }
+
+            return value;
+        }
+
         #endregion
 
         #region Internal methods
