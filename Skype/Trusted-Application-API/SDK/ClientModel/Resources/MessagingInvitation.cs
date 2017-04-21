@@ -110,6 +110,20 @@ namespace Microsoft.SfB.PlatformService.SDK.ClientModel
 
             return !string.IsNullOrWhiteSpace(href);
         }
+        
+        /// <summary>
+        /// Get customer content in format of foo/foo
+        /// </summary>
+        /// <returns></returns>
+        public string GetCustomContent()
+        {
+            string value = string.Empty;
+            if (PlatformResource?.CustomContent?.Value != null)
+            {
+                value = PlatformResource?.CustomContent?.Value.ToString();
+            }
+            return value;
+        }
 
         #endregion
 

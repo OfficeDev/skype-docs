@@ -211,6 +211,7 @@ namespace AcceptAndBridgeIM
             //    await confMessaging.SendMessageAsync(customContent, LoggingContext).ConfigureAwait(false);
             //}
             //#endregion
+
             //MessagingInviation from SDK.
             //public string GetCustomContent()
             //{
