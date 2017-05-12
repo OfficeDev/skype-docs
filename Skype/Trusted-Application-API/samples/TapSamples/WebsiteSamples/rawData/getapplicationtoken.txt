@@ -1,0 +1,25 @@
+﻿POST https://ext.vdomain.com:4443/platformservice/v1/applications/1037450622/anonApplicationTokens?endpointId=sip:helpdesk@ucaptenant.com HTTP/1.1
+client-request-id: ResExp/b8f4b9be-a612-4dbf-85c1-261cd20375c2
+Content-Type: application/json; charset=utf-8
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlRoU18weTJ5WnhUR2hOc2dpR0d1dTBmZnlIbyJ9.eyJhdWQiOiIwMDAwMDAwNC0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvZXh0LnZkb21haW4uY29tQDAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMCIsImlzcyI6IjAwMDAwMDA0LTAwMDAtMGZmMS1jZTAwLTAwMDAwMDAwMDAwMEB2ZG9tYWluLmNvbSIsIm5iZiI6IjE0NjMxODQ3MTEiLCJleHAiOiIxNDYzMjcxNDExIiwibmFtZWlkIjoiMDAwMDAwMDQtMDAwMC0wZmYxLWNlMDAtMDAwMDAwMDAwMDAwQHZkb21haW4uY29tIiwidHJ1c3RlZGZvcmRlbGVnYXRpb24iOiJ0cnVlIn0.j4Dhntyf961VLIFqKc6oluQbB1Lo2LtAWZMVC5LaojTL7JSmyONl_x_WPvqEZmPIIl_XVTra1QOtxlYawDwnY0RPRr74maOQ3y1Azeg_V1WI-7a0MhAhCDZzWmjHp98I_LX4D4pm12DlzJeEpKGPXTXzXEC8vKwsAWPPA8fNods
+Host: ext.vdomain.com:4443
+Content-Length: 143
+Expect: 100-continue
+
+{"applicationSessionId":"kkkk","allowedOrigins":"https://contoso.com;https://litware.com;http://www.microsoftstore.com/store/msusa/en_US/home"}
+
+
+Response:
+{  
+   "token":"psat=eyJ...",
+   "expiryTime":"\/Date(1463213817292)\/",
+   "_links":{  
+      "self":{  
+         "href":"https://ext.vdomain.com:4443/platformservice/v1/applications/1037450622/anonApplicationTokens?endpointId=sip:helpdesk@ucaptenant.com"
+      },
+      "ms:rtc:saas:discover":{  
+         "href":"https://noammeetings.resources.lync.com/platformService/discover?anonymousContext=psat%253deyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5TSV9rVzg1cnFMTEN0VTE1dWlnQ2gxTlZfYyJ9.eyJuYmYiOjE0NjMxODUwMTcsImV4cCI6MTQ2MzIxMzgxNywicnV1Ijoic2lwOlVjYXBVc2VyMTlAdWNhcHRlbmFudC5jb20iLCJhc2kiOiJra2trIiwiYWV1Ijoic2lwOmhlbHBkZXNrQHVjYXB0ZW5hbnQuY29tIiwiYW8iOiJodHRwczovL2NvbnRvc28uY29tO2h0dHBzOi8vbGl0d2FyZS5jb207aHR0cDovL3d3dy5taWNyb3NvZnRzdG9yZS5jb20ifQ.EzDBcDXPYfQRICPXOdbhzgyZs0FSw5vFVgE8Fm_h7kJRvm7GlxFFB6-1c6ZB_JLgRXoNylG9jWutIfH2h2-CwWf3riMiKurY4OA6glvm_Q6d9-0JmlJ2CSuTnd9FgvO5PWXTsnlVkilKXc30MbJDShoEZSHuMZsUn45FzSgKzyg_h2V71xNwrC326BFMzSCaiKSHQijNWqmvb6bQ2oLObepXevkZvG3sDQNjXvI5motoJ6uyHza2b8SxWpe65-O0A9h9V7MUUNRn_FNYDbpSli2_8Nt1q3bEqm4Drmn5jZeAll5TyJCm2GL1bINpGhzV1p-9mtfAeLsd7b02OdFJNw"
+      }
+   },
+   "rel":"ms:rtc:saas:anonApplicationToken"
+}
