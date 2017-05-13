@@ -42,11 +42,11 @@ To add your bot to Skype for Business, you must be the Tenant Administrator of a
 1. [Download and install the Skype for Business Online Connector module](http://go.microsoft.com/fwlink/?LinkId=294688)
 2. Open Windows PowerShell as Administrator and run the following:
 
-```PowerShell
-Import-PSSession (New-CsOnlineSession -Credential (Get-Credential))
-```
+  ```PowerShell
+     Import-PSSession (New-CsOnlineSession -Credential (Get-Credential))
+  ```
 
-For more information see: [Connecting to Skype for Business Online by using Windows PowerShell](https://technet.microsoft.com/en-us/library/dn362795.aspx)
+ >Note: For more information refer [Connecting to Skype for Business Online by using Windows PowerShell](https://technet.microsoft.com/en-us/library/dn362795.aspx)
 
 3.	You will be prompted with windows PowerShell credential dialog box. Sign in using the tenant admin credentials.
 
@@ -157,11 +157,11 @@ The Skype for Business Bot Framework channel is currently supported for Skype fo
 1. [Download and install the Skype for Business Online Connector module](http://go.microsoft.com/fwlink/?LinkId=294688)
 2. Open Windows PowerShell as Administrator and run the following:
 
-```PowerShell
- Import-PSSession (New-CsOnlineSession -Credential (Get-Credential))
-```
+   ```PowerShell
+     Import-PSSession (New-CsOnlineSession -Credential (Get-Credential))
+   ```
 
-For more information see: [Connecting to Skype for Business Online by using Windows PowerShell](https://technet.microsoft.com/en-us/library/dn362795.aspx)
+ >Note: For more information refer: [Connecting to Skype for Business Online by using Windows PowerShell](https://technet.microsoft.com/en-us/library/dn362795.aspx)
 
 3.	You will be prompted with windows PowerShell credential dialog box. Sign in using the tenant admin credentials.
 
