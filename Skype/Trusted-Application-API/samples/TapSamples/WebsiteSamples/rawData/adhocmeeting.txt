@@ -1,0 +1,122 @@
+﻿Website will send following request to Cloud App:
+POST https://cloudapp.cloudapp.net/GetAdhocMeetingJob HTTP/1.1
+Host: avstart1.cloudapp.net
+Connection: keep-alive
+Content-Length: 72
+Accept: text/plain, */*; q=0.01
+Origin: http://localhost
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36
+Content-Type: application/json; charset=UTF-8
+Referer: http://localhost/udpate/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.8,zh-CN;q=0.6,zh;q=0.4
+
+{"Subject":"adhocMeeting","Description":"adhocMeeting","AccessLevel":""}
+
+
+Adhocmeeting job will send following request to Trusted Application API:
+POST https://ring0noammeetings.resources.lync.com/platformservice/v1/applications/1177804319/adhocMeetings?endpointId=sip:appendpoint@metio.onmicrosoft.com
+TimeStamp: 1:51 AM
+RequestId: 7406c0c0-eb1f-4e63-b57d-468a2e0333a4
+client-request-id : 6208320dc40a4e199459cce1f664ffe3
+Authorization : Bearer eyJ...
+Content-Type : application/vnd.microsoft.com.ucwa+json; charset=utf-8
+Content-Length : 252
+{
+    "subject": "adhocMeeting",
+    "description": "adhocMeeting",
+	...
+
+}
+
+Response:
+X-MS-ClientDiagnostics : T3BlcmF0aW9...
+X-MS-Server-Fqdn : DM20R02FES03.infra.lync.com
+X-MS-Correlation-Id : fd31fe78-b960-4629-8c52-dcdf67ec604e
+client-request-id : 6208320dc40a4e199459cce1f664ffe3
+x-ms-client-request-id : b8f1ead1-ad8b-4ea6-a9b5-a4fc5246a544
+Strict-Transport-Security : max-age=31536000; includeSubDomains
+Cache-Control : no-cache
+Date : Thu, 16 Feb 2017 01:51:45 GMT
+ETag : "1458271881"
+Content-Type : application/vnd.microsoft.com.ucwa+json; charset=utf-8
+Content-Length : 1786
+{
+    "accessLevel": "Everyone",
+    "entryExitAnnouncement": "Disabled",
+    "automaticLeaderAssignment": "Disabled",
+    "description": "adhocMeeting",
+    "expirationTime": "2017-02-16T09:51:46Z",
+    "onlineMeetingId": "YAZEP7G2",
+    "onlineMeetingUri": "sip:DM20R02meet1013@noammeetings.lync.com;gruu;opaque=app:conf:focus:id:YAZEP7G2",
+    "organizerUri": "sip:DM20R02meet1013@noammeetings.lync.com",
+    "conferenceId": "YAZEP7G2",
+    "phoneUserAdmission": "Disabled",
+    "lobbyBypassForPhoneUsers": "Disabled",
+    "subject": "adhocMeeting",
+    "joinUrl": "https://meet.resources.lync.com/NOAMmeetings/dm20r02meet1013/YAZEP7G2",
+    "_links": {
+        "self": {
+            "href": "/platformservice/v1/applications/1177804319/adhocMeetings/YAZEP7G2?endpointId=sip:appendpoint@metio.onmicrosoft.com&onlineMeetingContext=sip:DM20R02meet1013@noammeetings.lync.com"
+        },
+        "ms:rtc:saas:discover": {
+            "href": "https://noammeetings.resources.lync.com/platformService/discover?discoverContext=dKR..."
+        },
+        "ms:rtc:saas:joinAdhocMeeting": {
+            "href": "https://webpooldm20r02.infra.lync.com/platformservice/v1/applications/1177804319/communication/onlineMeetingInvitations?confUrl=sip:DM20R02meet1013@noammeetings.lync.com;gruu;opaque=app:conf:focus:id:YAZEP7G2&endpointId=sip:appendpoint@metio.onmicrosoft.com"
+        },
+        "applications": {
+            "href": "https://webpooldm20r02.infra.lync.com/ucwa/v1/applications"
+        }
+    },
+    "rel": "ms:rtc:saas:adhocMeeting",
+    "etag": "1458271881"
+}
+
+Server code:
+            public override async Task<T> ExecuteCoreWithResultAsync<T>()
+        {
+            AdhocMeetingToken result = null;
+            LoggingContext loggingContext = new LoggingContext(this.JobId, this.InstanceId);
+            Logger.Instance.Information(string.Format("[GetAdhoc meeting job] stared: LoggingContext: {0}", loggingContext.JobId));
+
+            try
+            {
+                GetAdhocMeetingResourceInput getAnonTokenInput = this.JobInput as GetAdhocMeetingResourceInput;
+                if (getAnonTokenInput == null)
+                {
+                    throw new InvalidOperationException("Failed to get valid AdhocMeetingInput intance");
+                }
+                                
+                AdhocMeetingInput adhocinput = new AdhocMeetingInput()
+                {
+                    AccessLevel = AccessLevel.Everyone,
+                    EntryExitAnnouncement = EntryExitAnnouncement.Disabled,
+                    AutomaticLeaderAssignment = AutomaticLeaderAssignment.Disabled,
+                    Subject = getAnonTokenInput.Subject,
+                    LobbyBypassForPhoneUsers = LobbyBypassForPhoneUsers.Disabled,
+                    PhoneUserAdmission = PhoneUserAdmission.Disabled,
+                    Description = getAnonTokenInput.Description
+                };
+
+                var adhocmeetingResources = await AzureApplication.ApplicationEndpoint.Application.GetAdhocMeetingResourceAsync(loggingContext, adhocinput);
+
+                if (adhocmeetingResources != null)
+                {
+                    result = new AdhocMeetingToken
+                    {
+                        DiscoverUri = adhocmeetingResources.DiscoverLink.Href,
+                        ExpireTime = adhocmeetingResources.ExpirationTime,
+                        JoinUrl = adhocmeetingResources.JoinUrl,
+                        OnlineMeetingUri = adhocmeetingResources.OnlineMeetingUri,
+                        OrganizerUri = adhocmeetingResources.OrganizerUri
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Failed to get anon token and discover url " + ex.Message);
+            }
+
+            return result as T;
+        }

@@ -1,0 +1,17 @@
+﻿GET https://ext.vdomain.com:4443/platformservice/v1/applications?endpointid=sip:helpdesk@ucaptenant.com HTTP/1.1
+client-request-id: ResExp/e141a061-9efa-4898-969f-94bc772d024b
+Authorization: Bearer eyJ...
+Host: ext.vdomain.com:4443
+
+Response:
+{  
+   "_links":{  
+      "self":{  
+         "href":"/platformservice/v1/applications"
+      },
+      "ms:rtc:saas:application":{  
+         "href":"/platformservice/v1/applications/1037450622?endpointId=sip%3ahelpdesk%40ucaptenant.com"
+      }
+   },
+   "rel":"ms:rtc:saas:applications"
+}

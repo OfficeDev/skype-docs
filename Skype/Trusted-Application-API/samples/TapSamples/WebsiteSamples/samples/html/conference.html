@@ -1,0 +1,51 @@
+<div class="conference">
+	<h2>Conference</h2>
+
+	<h3> Joined the meeting below by calling below jLync code: </h3>
+
+	<div id="meetingUri" contenteditable="false" class="sdk-input" style="display:none">sip:someone@example.com;gruu;opaque=app:conf:focus:id:1WRB13D2</div>
+
+	<div class="codeBody">
+		<pre>
+			conv = client.conversationsManager.conversations(0);
+		</pre>
+	</div>
+
+	<div id="confcon" class="conversation">
+
+	</div>
+
+
+	<div>
+		<div>
+			<div id="startChatMeeting" class="button">Start chat in meeting</div>
+			<div id="startAudioMeeting" class="button">Start audio in meeting</div>
+			<div id="startVideoMeeting" class="button">Start video in meeting</div>
+		</div>
+	</div>
+
+	<div>
+		<h3>Manage Video</h3>
+		<div id="endMeeting" class="button">End meeting</div>
+	</div>
+	<div class="conversations">
+		<div class="conversation self">
+			<div class="header">
+				<h3>Self Camera</h3>
+				<p>Display Name: <strong class="displayName"></strong></p>
+			</div>
+			<div id="av-self" class="av-container">
+				<div id="previewWindow" class="render-window"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="conversation template" style="display: none">
+	<div class="header remote">
+		<h3 class="heading">Conference Video</h3>
+		<p>Display Name: <strong class="displayName"></strong></p>
+	</div>
+	<div class="av-container">
+		<div id="renderWindow" class="render-window"></div>
+	</div>
+</div>

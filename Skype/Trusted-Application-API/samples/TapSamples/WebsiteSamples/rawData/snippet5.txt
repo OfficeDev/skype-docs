@@ -1,0 +1,20 @@
+
+POST https://webpoolco16d03.infra.lync.com/ucwa/psanon/v1/applications/112409054559/communication/messagingInvitations HTTP/1.1
+Host: webpoolco16d03.infra.lync.com
+Connection: keep-alive
+Content-Length: 228
+Origin: http://localhost
+X-Ms-Namespace: internal
+Authorization: Bearer psat=ey...oGCX_BbeFbcoVcsQ70tO1TDZ5g
+Client-Request-Id: 1426086122
+Content-Type: application/json
+Accept: application/json
+X-Ms-SDK-Instance: SkypeWeb/master_0.4.212-eaeb6be3a5f91-95247daa970fe
+X-MS-Correlation-Id: 761075068
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.84 Safari/537.36
+Referer: http://localhost/demos/sdksamples/ui/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.8,zh-CN;q=0.6,zh;q=0.4
+
+{"operationId":"43994c23-bcf6-468d-87ea-1241e5c88a4b","threadId":"AdHIdEWpvhOpuuicQjGmCKEOHnvt/w==","to":"sip:helpdesk@metio.ccsctp.net","importance":"Normal","subject":"",
+"sessionContext":"f03bea1c-1695-4253-9f77-a10bc23b76b1"}

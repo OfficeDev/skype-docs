@@ -1,0 +1,4 @@
+﻿Request:
+GET https://noammeetings.resources.lync.com/platformservice/discover 
+Response:
+"ms:rtc:saas:applications":{"href":"https://ring2noammeetings.resources.lync.com/platformService/v1/applications"}
