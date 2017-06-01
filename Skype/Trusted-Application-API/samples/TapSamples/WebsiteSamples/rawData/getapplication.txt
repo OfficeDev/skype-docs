@@ -1,0 +1,45 @@
+﻿GET https://ext.vdomain.com:4443/platformservice/v1/applications/1037450622?endpointId=sip:helpdesk%40ucaptenant.com HTTP/1.1
+client-request-id: ResExp/44068d92-615f-412b-9d88-11ad90d77794
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlRoU18weTJ5WnhUR2hOc2dpR0d1dTBmZnlIbyJ9.eyJhdWQiOiIwMDAwMDAwNC0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvZXh0LnZkb21haW4uY29tQDAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMCIsImlzcyI6IjAwMDAwMDA0LTAwMDAtMGZmMS1jZTAwLTAwMDAwMDAwMDAwMEB2ZG9tYWluLmNvbSIsIm5iZiI6IjE0NjMxODQ3MTEiLCJleHAiOiIxNDYzMjcxNDExIiwibmFtZWlkIjoiMDAwMDAwMDQtMDAwMC0wZmYxLWNlMDAtMDAwMDAwMDAwMDAwQHZkb21haW4uY29tIiwidHJ1c3RlZGZvcmRlbGVnYXRpb24iOiJ0cnVlIn0.j4Dhntyf961VLIFqKc6oluQbB1Lo2LtAWZMVC5LaojTL7JSmyONl_x_WPvqEZmPIIl_XVTra1QOtxlYawDwnY0RPRr74maOQ3y1Azeg_V1WI-7a0MhAhCDZzWmjHp98I_LX4D4pm12DlzJeEpKGPXTXzXEC8vKwsAWPPA8fNods
+Host: ext.vdomain.com:4443
+
+Response:
+{  
+   "_links":{  
+      "self":{  
+         "href":"/platformservice/v1/applications/1037450622?endpointId=sip%3ahelpdesk%40ucaptenant.com"
+      },
+      "ms:rtc:saas:anonApplicationTokens":{  
+         "href":"/platformservice/v1/applications/1037450622/anonApplicationTokens?endpointId=sip:helpdesk@ucaptenant.com"
+      }
+   },
+   "_embedded":{  
+      "ms:rtc:saas:communication":{  
+         "_links":{  
+            "self":{  
+               "href":"/platformservice/v1/applications/1037450622/communication?endpointId=sip:helpdesk@ucaptenant.com"
+            },
+            "ms:rtc:saas:joinOnlineMeeting":{  
+               "href":"/platformservice/v1/applications/1037450622/communication/onlineMeetingInvitations?endpointId=sip:helpdesk@ucaptenant.com"
+            },
+            "ms:rtc:saas:inviteUserToMeeting":{  
+               "href":"/platformservice/v1/applications/1037450622/communication/userMeetingInvitations?endpointId=sip:helpdesk@ucaptenant.com"
+            },
+            "ms:rtc:saas:startMessaging":{  
+               "href":"/platformservice/v1/applications/1037450622/communication/messagingInvitations?endpointId=sip:helpdesk@ucaptenant.com"
+            }
+         },
+         "rel":"ms:rtc:saas:communication",
+         "etag":"4294967295"
+      },
+      "ms:rtc:saas:adhocMeetings":{  
+         "_links":{  
+            "self":{  
+               "href":"/platformservice/v1/applications/1037450622/adhocMeetings?endpointId=sip:helpdesk@ucaptenant.com"
+            }
+         },
+         "rel":"ms:rtc:saas:adhocMeetings"
+      }
+   },
+   "rel":"ms:rtc:saas:application"
+}

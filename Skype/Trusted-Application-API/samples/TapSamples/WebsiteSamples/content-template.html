@@ -1,0 +1,18 @@
+
+<script id="code-template" type="x-jquery-tmpl">
+    <a href="#">Top</a>
+    {{if isModule !== undefined && isModule }}
+    <h4 class="code">Code - Click to Expand</h4>
+    {{else}}
+    <h4 class="code">Request - Click to Expand</h4>
+    {{/if}}
+    <div>
+        <div class="codeHeader">
+            <a href=${file}>${file}</a>
+        </div>
+        <div class="codeBody">
+            <pre></pre>
+        </div>
+    </div>
+
+</script>

@@ -1,0 +1,77 @@
+﻿<!DOCTYPE doctype html>
+<html>
+    <head>
+        <title>
+            WebClient Samples
+        </title>
+        <link href="style.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div class="modal">
+        </div>
+        <div class="header">
+            <h1>
+                WebClient Samples
+            </h1>
+        </div>
+        <div class="container">
+            <!--class:wrappingdiv nests other classes so that css applied to
+            descendents of wrappingdiv don't affect the conversation control -->
+            <div class="wrappingdiv">
+                <div class="menu">
+                    <h2>
+                        Samples
+                    </h2>
+                    <ul class="nav" id="tasklist">
+                        <li>
+                            <a class="idleNav" id="sign-in">
+                                Sign In
+                            </a>
+                        </li>
+                        <li>
+                            <a class="idleNav" id="chat-service">
+                                Chat Service
+                            </a>
+                        </li>   
+                        <li>
+                            <a class="idleNav" id="conference">
+                                Conference
+                            </a>
+                        </li>             
+                        <li>
+                            <a class="idleNav" id="sign-out">
+                                Sign out
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="content">
+                </div>
+            </div>
+            <div id="cc-conversations">
+            </div>
+        </div>
+        <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.2.min.js">
+        </script>
+        <script src="//ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js" type="text/javascript">
+        </script>
+        <script src="//swx.cdn.skype.com/shared/v/1.2.15/SkypeBootstrap.min.js">
+        </script>
+        <script src="config.js">
+        </script>
+        <script src="scripts/index.js">
+        </script>
+        <script src="scripts/site.js">
+        </script>
+        <script src="samples/scripts/sign-in.js">
+        </script>
+        <script src="samples/scripts/chat-service.js">
+        </script>
+        <script src="samples/scripts/conference.js">
+        </script>
+        <script src="samples/scripts/sign-out.js">
+        </script>
+        <script src="samples/scripts/trustedappwebclient.js">
+        </script>
+    </body>
+</html>
