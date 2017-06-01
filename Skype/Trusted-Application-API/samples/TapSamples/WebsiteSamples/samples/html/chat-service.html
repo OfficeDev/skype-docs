@@ -1,0 +1,99 @@
+<div class="chat-service">
+    <div class="noMe">
+        Ability to receive chat, audio, and video invitations is not available in the current release.
+    </div>
+    <h4>
+        4) Send instant message to Trusted Application Endpoint
+    </h4>
+
+    <div class="callstack">
+        <p>
+            Web SDK will send messageInvitation
+        </p>
+
+        <div class="description">
+            <p>
+                Your Trusted Application will receive the request, and execute the following steps:
+            <p>
+                a) Get the messagingInvitation(which has startAdhocMeeting and acceptAndBridge operations) event from callback
+            </p>
+            <p>
+                b) Post on the startAdhocMeeting resource with input as
+            </p>
+            <pre>
+{
+"subject": "helpcustomermeeting",
+"callbackUrl": "https://platformservicemonitor.cloudapp.net:443/callback?callbackContext=d8805f85e2b34fe896cbf55d5012d4b8&instanceId;=wr1af3d12758554e98a23819c77740207b",
+"operationId": "abc" //Guid for tracking 
+}               
+                </pre>
+            <p>
+                c) onlineMeetingInvitation operation started and adhoc meeting created, and posted to the application callback.
+            </p>
+            <p>
+                d) onlineMeetingInvitation operation completed and add messaging modality.
+            </p>
+
+            <p>
+                e) Post on acceptAndBridge with the adhoc meeting URL,so that anonymous user will be bridged into the adhoc meeting. Input is like below:
+            </p>
+            <pre>
+{
+"impersonatedDisplayName": "contosohelpdesk",
+"onlineMeetingUri": "sip:CO16D03meet144@edognoammeetings.lync.com;gruu;opaque=app:conf:focus:id:QTYLHRUM"
+}                    
+                </pre>
+            <p>
+                f) Once MessagingInvitation is completed, add bridged participant. This step will set the message filter and display name
+            </p>
+            <pre>
+{
+    displayName = "displayName",
+    messageFilterState = FilterState.Disabled, //Filter disabled so that anon user could see message from agent.
+    uri = "sipUri"
+};
+</pre>
+            <p>
+                g) Once MessagingInvitation is completed, invite the third agent to join the adhoc meeting by post against addParticipant resources. The input is as below:
+            </p>
+            <pre>
+{
+"operationId":"ucwap2pimop",//Guid for tracking 
+"to":"sip:someone@metio.ccsctp.net"
+}                </pre>
+            <p>
+                h) Agent is now joined into the meeting (anonymous user is bridged into the same adhoc meeting) and messages can be exchanged
+            </p>
+            </p>
+        </div>
+    </div>
+    <div class="conversation">
+        <div class="header" id="start">
+            <div class="editable" contenteditable="false" id="chat-to" placeholder="sip:someone@example.com">
+            </div>
+            <div>
+                <a class="iconfont chat" id="btn-start-messaging" title="Start Instant Messaging">
+                </a>
+            </div>
+        </div>
+        <div class="header" id="status-header" style="display: none;">
+            <div class="right-controls">
+                <a class="icon icon-small icon-close" id="btn-stop-messaging" title="Stop Instant Messaging">
+                </a>
+            </div>
+            <h3>
+                Found Agent
+            </h3>
+            <div class="chat-name">
+            </div>
+            <div class="notification">
+            </div>
+        </div>
+        <div class="messages" id="message-history">
+        </div>
+        <div class="chatinput editable" contenteditable="true" id="input-message" placeholder="Type a message here" style="display: none;">
+        </div>
+    </div>
+    <div id="codeSnippet5">
+    </div>
+</div>

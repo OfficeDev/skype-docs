@@ -1,0 +1,243 @@
+
+<div class="start-sign-in">
+    <div style="margin-top: 20px;">
+      <!--  Please login prior to viewing Samples-->
+    </div>
+    <div class="login-options">       
+        <div class="anon-login" style="">
+            <a href="javascript:void(0)">
+                IMBridge 
+            </a>
+        </div>
+
+        <div class="ivr" style="">
+            <a href="javascript:void(0)">
+                IVR/Phone
+            </a>
+        </div>
+
+        <div class="adhoc-login">
+            <a href="javascript:void(0)">
+                SimpleNotify 
+            </a>
+        </div>
+
+        <div class="anonmeeting-login">
+            <a href="javascript:void(0)">
+                Anonymous meeting join
+            </a>
+        </div>
+
+    </div>
+    <div class="useConvoControl">
+    </div>
+</div>
+
+<div class="ivrsample">
+    <h3>IVR Sample</h3>
+    <p>Post to IVR job to start the application endpoint start listening for incoming PSTN call. The application endpoint must have a valid phone number in this case</p>
+    
+    <div>
+        <input id="ivrto" placeholder="sip:someone@domainName" style="display:block; margin-bottom:10px;" value="sip:liben@metio.onmicrosoft.com" />
+        <button id="btnStartAVBridge">Start IVR Job </button>
+        <p id="status"></p>
+    </div>
+
+    <div id="ivr"></div>    
+</div>
+
+    <div class="anon-sign-in">
+        <h3>IMBridge Sample</h3>
+        <h4>
+            1) Get Anonymous Token and Discover URL from your Trusted Application
+        </h4>
+        <div class="description">
+            <p>
+                The following button will send a POST request to your Trusted Application and receive a response with the Anonymous Token and Discover URL needed to initialize the Web SDK.
+
+                Your Trusted Application will receive the request, and execute the following steps:
+            <p>
+                a) Authenicates against AAD using Client Credentials Grant Flow in ADAL, and receives AAD token.
+            </p>
+            <div id="getaadtoken">
+            </div>
+            <p>
+                b) Platform Service Discovery Requests.
+            </p>
+            <div id="getdiscoverurl"></div>
+            <p>
+                c) Get SkypeDiscoverURL and receive a 401 challenge for authentication.
+            </p>
+            <div id="getdiscoverurl_1">
+            </div>
+            <p>
+                d) Include AAD token in Authorization header and receive back the applications link.
+            </p>
+            <div id="getdiscoverurl_2">
+            </div>
+            <p>
+                e) GET on applications link, and response includes new application.
+            </p>
+            <div id="getapplication">
+            </div>
+            <p>
+                f) Post on anonApplicationToken, and return the Token and Discover URL back.
+            </p>
+            <div id="getapplicationtoken">
+            </div>
+        </div>       
+
+        <div>
+            <span id="btn-get-anontoken">
+                Get Anonymous Token and Discover URL
+            </span>
+        </div>
+
+
+        <div class="description">
+            <div id="codeSnippet1">
+            </div>
+        </div>
+        <div id="anontokenresult">
+            <p>
+                The UCAP application initialized an intance and returned JSON object as below:
+            </p>
+            <div class="rawdata">
+                <p id="discoveryuri" style="width:100%">
+                </p>
+                <p id="anonymousetoken">
+                </p>
+                <p id="tenantEndpointid">
+                </p>
+            </div>
+        </div>
+
+    </div>
+<div class="signinwithtoken">
+        <div>
+            <h4>
+                2) Sign in to the Web SDK using the Anonymous Token and Discover URL in your sign-in parameters.
+            </h4>
+            <span id="btn-anon-sign-in">
+                Anonymous Sign in
+            </span>
+            <div class="description">
+                <div id="codeSnippet2">
+                </div>
+            </div>
+    </div>
+</div>
+
+<div class="anonlogic">
+    <ol>
+        <h3>
+            Web SDK signed in based on discover URL and Anonymous token, see steps below:
+        </h3>
+        <li>
+            Http Get based on discover URL
+            <div id="codeSnippet3">
+            </div>
+        </li>
+        <li>
+            Http Post on applications href to get application
+            <div id="codeSnippet4">
+            </div>
+        </li>
+    </ol>
+    <h4>
+        3) Start Chat Service
+    </h4>
+    <div>
+        <span class="style-button" id='link-startchat'>
+            Start Chat
+        </span>
+    </div>
+</div>
+
+
+
+<div id="notificationsample" style="display:none" class="get-adhocmeeting">
+    <h3>Noticification Sample</h3>
+    <p>1. Input target sip Uri which will receive text message</p>
+    <p>2. Type something and click send</p>
+    
+    <div >
+        <input id="sendto" placeholder="sip:someone@domainName" style="display:block; margin-bottom:10px;" value="sip:liben@metio.onmicrosoft.com" />
+        <input id="inputmsg" placeholder="Input message here" value="Hello, Ucap is cool!" />
+        <button id="btnsend">Send</button>
+        <p id="status"></p>
+    </div>
+
+    <div id="notification"></div>
+
+</div>
+    
+<div id="anonmeetingjoin" style="display:none">
+    <h3>Anonymous meeting join sample</h3>
+    <span>1. Click to get a meeting url from the Trusted Application API or input a UCWA meeting url (Meeting URL must be from the same tenant as your Trusted Application) :</span>
+
+    <div id="btn-get-adhoc" class="button" style="display:block; margin:5px 5px 5px 0; width:185px">
+        Get adhoc meeting Url
+    </div>
+
+    <div style="margin-bottom:10px">
+        <input id="txt-meetingurl" style="width:300px" placeholder="https://meet.lync.com/metio/user/PMJB38VJ" />
+    </div>
+
+    <div id="adhocmeeting-snippet"> </div>
+
+    <p>2. Click to get anonymous token based on the meeting url above</p>
+    <div id="btn-get-anonmeetingtoken" class = "button">Get anon meeting token</div>
+    <div style="display:none" id="anonmeetingresource">
+        <p>
+            Anon meeting join tokens
+        </p>
+        <div class="rawdata">
+            <p id="discoveruri">
+            </p>
+            <p id="token">
+            </p>
+        </div>
+    </div>
+    <div id="adhocmeeting-token-snippet"> </div>
+
+    <div id="btn-anontoken-signin" style="display:none" class="button">        
+            Sign in with anon token        
+    </div>
+
+    <div>
+        <span id="anonstatus"></span>
+    </div>
+
+    <div id = 'confmodality' style="display:none">    
+        <div id="startChatMeeting" class="button">Start chat in meeting</div>
+        <div id="startAudioMeeting" class="button">Start audio in meeting</div>
+        <div id="startVideoMeeting" class="button">Start video in meeting</div>
+    </div>
+</div>
+    
+<div class="signed-in">
+    <h3> You have signed in successfully as an anonymous user. <h3>
+</div>
+
+
+
+    <div id="videodiv" style="display:none">
+        <div class="conversation">
+            <div class="header">
+                <h3>Conference Video</h3>
+            </div>
+            <div class="av-container">
+                <div id="renderWindow" class="render-window"></div>
+            </div>
+        </div>
+        <div class="conversation">
+            <div class="header">
+                <h3>Self Camera</h3>
+            </div>
+            <div id="av-self" class="av-container">
+                <div id="previewWindow" class="render-window"></div>
+            </div>
+        </div>
+    </div>
+

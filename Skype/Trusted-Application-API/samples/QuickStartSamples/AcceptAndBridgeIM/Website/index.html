@@ -1,0 +1,101 @@
+﻿<!DOCTYPE doctype html>
+<html>
+    <head>
+        <title>
+           IM Bridge
+        </title>
+        <link href="style.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div class="modal">
+        </div>
+        <div class="header">
+            <h1>
+                Accept and Bridge Incoming Message
+            </h1>
+        </div>
+        <div class="container">
+            <div class="wrappingdiv">
+                <div class="anon-sign-in">
+
+                    <div>
+                        <span id="btn-get-anontoken">
+                            Get Anonymous Token and Discover URL
+                        </span>
+                    </div>
+
+                    <div id="anontokenresult">
+                        <p>
+                            The UCAP application initialized an intance and returned JSON object as below:
+                        </p>
+                        <div class="rawdata">
+                            <p id="discoveryuri" style="width:100%">
+                            </p>
+                            <p id="anonymousetoken">
+                            </p>
+                            <p id="tenantEndpointid">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="signinwithtoken">
+                    <span id="btn-anon-sign-in">
+                        Anonymous Sign in
+                    </span>
+                    <p id="signedinstatus" style="display:none">
+                       Signed in anonymously
+                    </p>
+                </div>
+
+                <div class="signinwithtoken">
+                    <p id="btn-startchat" class="buttonstyle">
+                        Start chat
+                    </p>
+                </div>
+
+                <div class="chat-service" style="display:none">
+                    
+                    <div class="conversation">
+                        <div class="header" id="start">
+                            Anonymous Chat 
+                        </div>
+                        <div class="header" id="status-header" style="display: none;">
+                            <div class="right-controls">
+                                <a class="icon icon-small icon-close" id="btn-stop-messaging" title="Stop Instant Messaging">
+                                </a>
+                            </div>
+                            <h3>
+                                Found Agent
+                            </h3>
+                            <div class="chat-name">
+                            </div>
+                            <div class="notification">
+                            </div>
+                        </div>
+                        <div class="messages" id="message-history">
+                        </div>
+                        <div class="chatinput editable" contenteditable="true" id="input-message" placeholder="Type a message here" style="display: none;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.2.min.js">
+        </script>
+        <script src="//ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js" type="text/javascript">
+        </script>
+        <script src="//swx.cdn.skype.com/shared/v/1.2.15/SkypeBootstrap.min.js">
+        </script>
+        <script src="config.js">
+        </script>
+        <script src="scripts/index.js">
+        </script>
+        <script src="scripts/sign-in.js">
+        </script>
+        <script src="scripts/chat-service.js">
+        </script>
+        <script src="scripts/trustedappwebclient.js">
+        </script>
+    </body>
+</html>

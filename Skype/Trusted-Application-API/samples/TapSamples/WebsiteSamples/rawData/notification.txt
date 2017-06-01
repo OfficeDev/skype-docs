@@ -1,0 +1,13 @@
+﻿POST https://cloudapp.cloudapp.net/SimpleNotifyJob HTTP/1.1
+Host: cloudapp.cloudapp.net
+Connection: keep-alive
+Content-Length: 92
+Accept: text/plain, */*; q=0.01
+Origin: http://localhost
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36
+Content-Type: application/json; charset=UTF-8
+Referer: http://localhost/udpate/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.8,zh-CN;q=0.6,zh;q=0.4
+
+{"TargetUri":"sip:liben@metio.onmicrosoft.com","NotificationMessage":"Hello, Ucap is cool!"}

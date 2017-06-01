@@ -1,0 +1,19 @@
+
+Sign in to the Web SDK using the following parameters and code:
+
+var options = {   name: "John Doe",
+token: "Bearer psat=ey...Xg", // OAuth token
+root: { user: "https://lync.com/platformService/discover?anonymousContext=psat%3dey...Xg" }, 
+cors:true
+}
+
+window.skypeWebApp.signInManager.signIn(options).then(function() {
+	            console.log('Signed in');
+            }, function(error) {
+                // if something goes wrong in either of the steps above,
+                // display the error message
+                $(".modal").hide();
+                alert("Can't sign in, please check the user name and password.");
+                console.log(error || 'Cannot sign in');
+            });
+        }
