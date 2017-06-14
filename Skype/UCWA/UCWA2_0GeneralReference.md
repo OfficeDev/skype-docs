@@ -17,7 +17,6 @@ Key use cases that this API enables include:
  
 Although UCWA 2.0 is language-independent, you can develop using any programming language from C/C++ to Java, and the API is fine-tuned for web developers familiar with ordinary web technologies such as HTTP, OAuth, JSON, and JavaScript.
 
- **Note** UCWA 2.0 is available only to customers who have an on-premises deployment.
 
 
 ## Key scenarios
