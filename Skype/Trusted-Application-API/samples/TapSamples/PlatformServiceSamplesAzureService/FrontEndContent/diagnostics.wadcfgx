@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DiagnosticsConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
+  <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
+    <WadCfg>
+      <DiagnosticMonitorConfiguration overallQuotaInMB="4096" sinks="applicationInsights.errors">
+        <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter="Information" />
+        <Directories scheduledTransferPeriod="PT1M">
+          <IISLogs containerName="wad-iis-logfiles" />
+          <FailedRequestLogs containerName="wad-failedrequestlogs" />
+        </Directories>
+        <WindowsEventLog scheduledTransferPeriod="PT1M">
+          <DataSource name="Application!*[System[(Level=1 or Level=2 or Level=3)]]" />
+          <DataSource name="Windows Azure!*[System[(Level=1 or Level=2 or Level=3 or Level=4)]]" />
+        </WindowsEventLog>
+        <CrashDumps>
+          <CrashDumpConfiguration processName="WaIISHost.exe" />
+          <CrashDumpConfiguration processName="WaWorkerHost.exe" />
+          <CrashDumpConfiguration processName="w3wp.exe" />
+        </CrashDumps>
+        <Logs scheduledTransferPeriod="PT1M" scheduledTransferLogLevelFilter="Information" />
+      </DiagnosticMonitorConfiguration>
+      <SinksConfig>
+        <Sink name="applicationInsights">
+          <ApplicationInsights />
+          <Channels>
+            <Channel logLevel="Error" name="errors" />
+          </Channels>
+        </Sink>
+      </SinksConfig>
+    </WadCfg>
+    <StorageAccount />
+  </PublicConfig>
+  <PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
+    <StorageAccount name="" endpoint="" />
+  </PrivateConfig>
+  <IsEnabled>true</IsEnabled>
+</DiagnosticsConfiguration>

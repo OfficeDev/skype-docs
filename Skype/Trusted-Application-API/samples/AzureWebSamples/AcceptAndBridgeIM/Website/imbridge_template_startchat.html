@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div class="description">
+        <div id="codeSnippet2">
+            <a href="#">Top</a>          <h4 class="code">Request - Click to Expand</h4>          <div style="display: none;">
+                <div class="codeHeader" style="display: block;">             <a href="rawdata/snippet2.txt">rawdata/snippet2.txt</a>         </div>         <div class="codeBody" style="display: none;">
+                    <pre>Web SDK will send messageInvitation 
+Your Trusted Application will receive the request, and execute the following steps: 
+a) Get the messagingInvitation(which has startAdhocMeeting and acceptAndBridge operations) event from callback 
+b) Post on the startAdhocMeeting resource with input as 
+{
+"subject": "helpcustomermeeting",
+"callbackUrl": "https://platformservicemonitor.cloudapp.net:443/callback?callbackContext=d8805f85e2b34fe896cbf55d5012d4b8&instanceId;=wr1af3d12758554e98a23819c77740207b",
+"operationId": "abc" //Guid for tracking 
+}               
+                
+c) onlineMeetingInvitation operation started and adhoc meeting created, and posted to the application callback. 
+d) onlineMeetingInvitation operation completed and add messaging modality. 
+e) Post on acceptAndBridge with the adhoc meeting URL,so that anonymous user will be bridged into the adhoc meeting. Input is like below: 
+{
+"impersonatedDisplayName": "contosohelpdesk",
+"onlineMeetingUri": "sip:CO16D03meet144@edognoammeetings.lync.com;gruu;opaque=app:conf:focus:id:QTYLHRUM"
+}                    
+                
+f) Once MessagingInvitation is completed, add bridged participant. This step will set the message filter and display name 
+{
+    displayName = "displayName",
+    messageFilterState = FilterState.Disabled, //Filter disabled so that anon user could see message from agent.
+    uri = "sipUri"
+};
+g) Once MessagingInvitation is completed, invite the third agent to join the adhoc meeting by post against addParticipant resources. The input is as below: 
+{
+"operationId":"ucwap2pimop",//Guid for tracking 
+"to":"sip:someone@metio.ccsctp.net"
+}                
+h) Agent is now joined into the meeting (anonymous user is bridged into the same adhoc meeting) and messages can be exchanged</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

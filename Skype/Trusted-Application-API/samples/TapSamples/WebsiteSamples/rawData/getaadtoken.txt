@@ -1,0 +1,10 @@
+﻿
+var tokenIssuingAuthority = "https://login.windows.net/metio.ccsctp.net/";
+var resource = "https://NOAMmeetings.resources.lync.com";
+var clientId = "45366303-5516-489f-a6f4-bfe14fb7aa5e";
+X509Certificate2 cert = new X509Certificate2(@"e:\ucap\UCAPcert.pfx", "07Apples");
+
+AuthenticationContext authenticationContext = new AuthenticationContext(tokenIssuingAuthority, false);
+
+ClientAssertionCertificate clientCred = new ClientAssertionCertificate(clientId, cert);
+var aResult = authenticationContext.AcquireToken(resource, clientCred);

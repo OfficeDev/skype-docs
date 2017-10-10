@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="PlatformServiceNotificationCenter" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="5" osVersion="*" schemaVersion="2015-04.2.6">
+  <Role name="FrontEnd">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <!-- Replace these with values relevant to your deployment -->
+      
+      <!--This is optional. only needed if you want to leverage the AzureDiagnosticLogger which log all traces in azure diagnostic storage table
+      if you have other storage to store your trace, this is not needed. -->
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=..." />
+
+      <!--this is needed if you are using QueueBasedEventChannel in this sample -->
+      <Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint=..." />
+
+      <!--this is the cert that you register with AAD to map to your App. You will use this cert to get an oauth token from AAD
+      You need to upload this cert to Azure Cloud service 
+      But if you have ClientSecret for your app, you may not need this cert -->      
+      <Setting name="AppTokenCertThumbprint" value="ABCDEF1234567890ABCDEF1234567890ABCDEF12" />
+
+      <!--this is the  client id of your app on AAD-->
+      <Setting name="AAD_ClientId" value="GUID" />
+
+      <!--this is the Secret string that you register with AAD to map to your App . If you have this , you will not need the AppTokenCertThumbprint any more.-->
+      <Setting name="AAD_ClientSecret" value="" />
+
+      <!--this is the application endpoint id you register with SFB. This is a sip uri is created by tenant admin and register with SFB-->
+      <Setting name="ApplicationEndpointId" value="sip:trustedEndpoint@tenantname.onmicrosoft.com" />
+
+      <!--this is optional. If you want to validate the oauth token on the incoming callback message, you need the audience uri.
+      You register this audience uri (application Id url) with AAD, and also with SFB through app register portal
+      SFB will request an oauth token from AAD for this audience url and use that oauth token to make http call to your callback endpoint-->
+      <Setting name="AudienceUri" value="https://base.url" />
+
+      <!--this is the callback uri you want to input to some APis like  joinAdHocMeeting. 
+      The callbackContext will include information to route a specific callback message to your deployment instance
+      You can also put more properties as your needs to CallbackContext class for your own purpose-->
+      <Setting name="CallbackUriFormat" value="https://base.url/callback?callbackContext={0}" />
+      
+      <Setting name="ResourcesUriFormat" value="https://base.url/resources/{0}" />
+
+      <!--this indicate if you want to log full Http Request Response (both incoming and outgoing). This is optional since the trace volumn will be large 
+      But that info is really helpful for debugging or SFB team investigating-->
+      <Setting name="LogFullHttpRequestResponse" value="true" />
+
+      <!--Indicate whether or not you are using our sand box tenant/appId/appEndpoint.-->
+      <Setting name="IsSandBoxEnv" value="false" />
+    </ConfigurationSettings>
+    <Certificates>
+      <!-- After uploading them, the Azure Portal will list thumbprints for your Cloud Service's certificates -->
+      <!--this cert is for SSL of your callback endpoint-->
+      <Certificate name="HttpsCert" thumbprint="ABCDEF1234567890ABCDEF1234567890ABCDEF12" thumbprintAlgorithm="sha1" />
+      
+      <!--This is the same cert as AppTokenCertThumbprint. Define it here to make sure Azure cloud service upload it to cert store-->
+      <Certificate name="OauthApplicationCert" thumbprint="ABCDEF1234567890ABCDEF1234567890ABCDEF12" thumbprintAlgorithm="sha1" />
+    </Certificates>
+  </Role>
+</ServiceConfiguration>

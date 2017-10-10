@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="anon-sign-in" style="display: block;">        
+        <h4>
+            1) Get Anonymous Token and Discover URL from your Trusted Application
+        </h4>
+        <div class="description">
+            <p>
+                The following button will send a POST request to your Trusted Application and receive a response with the Anonymous Token and Discover URL needed to initialize the Web SDK.
+
+                Your Trusted Application will receive the request, and execute the following steps:
+            </p><p>
+                a) Authenicates against AAD using Client Credentials Grant Flow in ADAL, and receives AAD token.
+            </p>
+            <div id="getaadtoken">
+                <a href="#">Top</a>          <h4 class="code">Code - Click to Expand</h4>          <div style="display: none;">
+                    <div class="codeHeader" style="display: block;">             <a href="rawdata/getaadtoken.txt">rawdata/getaadtoken.txt</a>         </div>         <div class="codeBody" style="display: none;">
+                        <pre>
+var tokenIssuingAuthority = "https://login.windows.net/metio.ccsctp.net/";
+var resource = "https://NOAMmeetings.resources.lync.com";
+var clientId = "45366303-5516-489f-a6f4-bfe14fb7aa5e";
+X509Certificate2 cert = new X509Certificate2(@"e:\ucap\UCAPcert.pfx", "07Apples");
+
+AuthenticationContext authenticationContext = new AuthenticationContext(tokenIssuingAuthority, false);
+
+ClientAssertionCertificate clientCred = new ClientAssertionCertificate(clientId, cert);
+var aResult = authenticationContext.AcquireToken(resource, clientCred);</pre>
+                    </div>
+                </div>
+            </div>
+            <p>
+                b) Platform Service Discovery Requests.
+            </p>
+            <div id="getdiscoverurl">
+                <a href="#">Top</a>          <h4 class="code">Request - Click to Expand</h4>          <div style="display: none;">
+                    <div class="codeHeader" style="display: block;">             <a href="rawdata/getdiscoverurl.txt">rawdata/getdiscoverurl.txt</a>         </div>         <div class="codeBody" style="display: none;">
+                        <pre>Request:
+GET&nbsp;https://noammeetings.resources.lync.com/platformservice/discover&nbsp;
+Response:
+"ms:rtc:saas:applications":{"href":"https://ring2noammeetings.resources.lync.com/platformService/v1/applications"}</pre>
+                    </div>
+                </div>
+            </div>
+            <p>
+                c) Get SkypeDiscoverURL and receive a 401 challenge for authentication.
+            </p>
+            <div id="getdiscoverurl_1">
+                <a href="#">Top</a>          <h4 class="code">Request - Click to Expand</h4>          <div style="display: none;">
+                    <div class="codeHeader" style="display: block;">             <a href="rawdata/getdiscoverurl_1.txt">rawdata/getdiscoverurl_1.txt</a>         </div>         <div class="codeBody" style="display: none;">
+                        <pre>GET https://ext.vdomain.com:4443/platformservice/v1/applications?endpointid=sip:helpdesk@ucaptenant.com HTTP/1.1
+client-request-id: ResExp/e141a061-9efa-4898-969f-94bc772d024b
+Host: ext.vdomain.com:4443
+
+HTTP/1.1 401 Unauthorized
+Cache-Control: private
+Content-Type: text/html; charset=utf-8
+WWW-Authenticate: Bearer trusted_issuers="00000002-0000-0ff1-ce00-000000000000@vdomain.com,00000004-0000-0ff1-ce00-000000000000@vdomain.com,00000004-0000-0ff1-ce00-000000000000@ucaptenant.com", client_id="00000004-0000-0ff1-ce00-000000000000", authorization_uri="file://client/common/oauth2/authorize"
+WWW-Authenticate: MsRtcOAuth href="https://ext.vdomain.com:4443/WebTicket/oauthtoken",grant_type="urn:microsoft.rtc:windows,urn:microsoft.rtc:anonmeeting,password"
+X-MS-Server-Fqdn: server.vdomain.com
+X-MS-Correlation-Id: 717986751
+client-request-id: ResExp/e141a061-9efa-4898-969f-94bc772d024b
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Date: Sat, 14 May 2016 00:16:49 GMT
+Content-Length: 4955
+</pre>
+                    </div>
+                </div>
+            </div>
+            <p>
+                d) Include AAD token in Authorization header and receive back the applications link.
+            </p>
+            <div id="getdiscoverurl_2">
+                <a href="#">Top</a>          <h4 class="code">Request - Click to Expand</h4>          <div style="display: none;">
+                    <div class="codeHeader" style="display: block;">             <a href="rawdata/getdiscoverurl_2.txt">rawdata/getdiscoverurl_2.txt</a>         </div>         <div class="codeBody" style="display: none;">
+                        <pre>GET https://ext.vdomain.com:4443/platformservice/v1/applications?endpointid=sip:helpdesk@ucaptenant.com HTTP/1.1
+client-request-id: ResExp/e141a061-9efa-4898-969f-94bc772d024b
+Authorization: Bearer eyJ...
+Host: ext.vdomain.com:4443
+
+Response:
+{  
+   "_links":{  
+      "self":{  
+         "href":"/platformservice/v1/applications"
+      },
+      "ms:rtc:saas:application":{  
+         "href":"/platformservice/v1/applications/1037450622?endpointId=sip%3ahelpdesk%40ucaptenant.com"
+      }
+   },
+   "rel":"ms:rtc:saas:applications"
+}</pre>
+                    </div>
+                </div>
+            </div>
+            <p>
+                e) GET on applications link, and response includes new application.
+            </p>
+            <div id="getapplication">
+                <a href="#">Top</a>          <h4 class="code">Request - Click to Expand</h4>          <div style="display: none;">
+                    <div class="codeHeader" style="display: block;">             <a href="rawdata/getapplication.txt">rawdata/getapplication.txt</a>         </div>         <div class="codeBody" style="display: none;">
+                        <pre>GET https://ext.vdomain.com:4443/platformservice/v1/applications/1037450622?endpointId=sip:helpdesk%40ucaptenant.com HTTP/1.1
+client-request-id: ResExp/44068d92-615f-412b-9d88-11ad90d77794
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlRoU18weTJ5WnhUR2hOc2dpR0d1dTBmZnlIbyJ9.eyJhdWQiOiIwMDAwMDAwNC0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvZXh0LnZkb21haW4uY29tQDAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMCIsImlzcyI6IjAwMDAwMDA0LTAwMDAtMGZmMS1jZTAwLTAwMDAwMDAwMDAwMEB2ZG9tYWluLmNvbSIsIm5iZiI6IjE0NjMxODQ3MTEiLCJleHAiOiIxNDYzMjcxNDExIiwibmFtZWlkIjoiMDAwMDAwMDQtMDAwMC0wZmYxLWNlMDAtMDAwMDAwMDAwMDAwQHZkb21haW4uY29tIiwidHJ1c3RlZGZvcmRlbGVnYXRpb24iOiJ0cnVlIn0.j4Dhntyf961VLIFqKc6oluQbB1Lo2LtAWZMVC5LaojTL7JSmyONl_x_WPvqEZmPIIl_XVTra1QOtxlYawDwnY0RPRr74maOQ3y1Azeg_V1WI-7a0MhAhCDZzWmjHp98I_LX4D4pm12DlzJeEpKGPXTXzXEC8vKwsAWPPA8fNods
+Host: ext.vdomain.com:4443
+
+Response:
+{  
+   "_links":{  
+      "self":{  
+         "href":"/platformservice/v1/applications/1037450622?endpointId=sip%3ahelpdesk%40ucaptenant.com"
+      },
+      "ms:rtc:saas:anonApplicationTokens":{  
+         "href":"/platformservice/v1/applications/1037450622/anonApplicationTokens?endpointId=sip:helpdesk@ucaptenant.com"
+      }
+   },
+   "_embedded":{  
+      "ms:rtc:saas:communication":{  
+         "_links":{  
+            "self":{  
+               "href":"/platformservice/v1/applications/1037450622/communication?endpointId=sip:helpdesk@ucaptenant.com"
+            },
+            "ms:rtc:saas:joinOnlineMeeting":{  
+               "href":"/platformservice/v1/applications/1037450622/communication/onlineMeetingInvitations?endpointId=sip:helpdesk@ucaptenant.com"
+            },
+            "ms:rtc:saas:inviteUserToMeeting":{  
+               "href":"/platformservice/v1/applications/1037450622/communication/userMeetingInvitations?endpointId=sip:helpdesk@ucaptenant.com"
+            },
+            "ms:rtc:saas:startMessaging":{  
+               "href":"/platformservice/v1/applications/1037450622/communication/messagingInvitations?endpointId=sip:helpdesk@ucaptenant.com"
+            }
+         },
+         "rel":"ms:rtc:saas:communication",
+         "etag":"4294967295"
+      },
+      "ms:rtc:saas:adhocMeetings":{  
+         "_links":{  
+            "self":{  
+               "href":"/platformservice/v1/applications/1037450622/adhocMeetings?endpointId=sip:helpdesk@ucaptenant.com"
+            }
+         },
+         "rel":"ms:rtc:saas:adhocMeetings"
+      }
+   },
+   "rel":"ms:rtc:saas:application"
+}</pre>
+                    </div>
+                </div>
+            </div>
+            <p>
+                f) Post on anonApplicationToken, and return the Token and Discover URL back.
+            </p>
+            <div id="getapplicationtoken">
+                <a href="#">Top</a>          <h4 class="code">Request - Click to Expand</h4>          <div style="display: none;">
+                    <div class="codeHeader" style="display: block;">             <a href="rawdata/getapplicationtoken.txt">rawdata/getapplicationtoken.txt</a>         </div>         <div class="codeBody" style="display: none;">
+                        <pre>POST https://ext.vdomain.com:4443/platformservice/v1/applications/1037450622/anonApplicationTokens?endpointId=sip:helpdesk@ucaptenant.com HTTP/1.1
+client-request-id: ResExp/b8f4b9be-a612-4dbf-85c1-261cd20375c2
+Content-Type: application/json; charset=utf-8
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlRoU18weTJ5WnhUR2hOc2dpR0d1dTBmZnlIbyJ9.eyJhdWQiOiIwMDAwMDAwNC0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvZXh0LnZkb21haW4uY29tQDAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMCIsImlzcyI6IjAwMDAwMDA0LTAwMDAtMGZmMS1jZTAwLTAwMDAwMDAwMDAwMEB2ZG9tYWluLmNvbSIsIm5iZiI6IjE0NjMxODQ3MTEiLCJleHAiOiIxNDYzMjcxNDExIiwibmFtZWlkIjoiMDAwMDAwMDQtMDAwMC0wZmYxLWNlMDAtMDAwMDAwMDAwMDAwQHZkb21haW4uY29tIiwidHJ1c3RlZGZvcmRlbGVnYXRpb24iOiJ0cnVlIn0.j4Dhntyf961VLIFqKc6oluQbB1Lo2LtAWZMVC5LaojTL7JSmyONl_x_WPvqEZmPIIl_XVTra1QOtxlYawDwnY0RPRr74maOQ3y1Azeg_V1WI-7a0MhAhCDZzWmjHp98I_LX4D4pm12DlzJeEpKGPXTXzXEC8vKwsAWPPA8fNods
+Host: ext.vdomain.com:4443
+Content-Length: 143
+Expect: 100-continue
+
+{"applicationSessionId":"kkkk","allowedOrigins":"https://contoso.com;https://litware.com;http://www.microsoftstore.com/store/msusa/en_US/home"}
+
+
+Response:
+{  
+   "token":"psat=eyJ...",
+   "expiryTime":"\/Date(1463213817292)\/",
+   "_links":{  
+      "self":{  
+         "href":"https://ext.vdomain.com:4443/platformservice/v1/applications/1037450622/anonApplicationTokens?endpointId=sip:helpdesk@ucaptenant.com"
+      },
+      "ms:rtc:saas:discover":{  
+         "href":"https://noammeetings.resources.lync.com/platformService/discover?anonymousContext=psat%253deyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5TSV9rVzg1cnFMTEN0VTE1dWlnQ2gxTlZfYyJ9.eyJuYmYiOjE0NjMxODUwMTcsImV4cCI6MTQ2MzIxMzgxNywicnV1Ijoic2lwOlVjYXBVc2VyMTlAdWNhcHRlbmFudC5jb20iLCJhc2kiOiJra2trIiwiYWV1Ijoic2lwOmhlbHBkZXNrQHVjYXB0ZW5hbnQuY29tIiwiYW8iOiJodHRwczovL2NvbnRvc28uY29tO2h0dHBzOi8vbGl0d2FyZS5jb207aHR0cDovL3d3dy5taWNyb3NvZnRzdG9yZS5jb20ifQ.EzDBcDXPYfQRICPXOdbhzgyZs0FSw5vFVgE8Fm_h7kJRvm7GlxFFB6-1c6ZB_JLgRXoNylG9jWutIfH2h2-CwWf3riMiKurY4OA6glvm_Q6d9-0JmlJ2CSuTnd9FgvO5PWXTsnlVkilKXc30MbJDShoEZSHuMZsUn45FzSgKzyg_h2V71xNwrC326BFMzSCaiKSHQijNWqmvb6bQ2oLObepXevkZvG3sDQNjXvI5motoJ6uyHza2b8SxWpe65-O0A9h9V7MUUNRn_FNYDbpSli2_8Nt1q3bEqm4Drmn5jZeAll5TyJCm2GL1bINpGhzV1p-9mtfAeLsd7b02OdFJNw"
+      }
+   },
+   "rel":"ms:rtc:saas:anonApplicationToken"
+}</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.2.min.js">
+    </script>
+    <script src="scripts/imbridge.js">
+    </script>-->
+</body>
+</html>

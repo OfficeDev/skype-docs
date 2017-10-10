@@ -1,0 +1,86 @@
+
+POST https://webpoolco16d03.infra.lync.com/ucwa/psanon/v1/applications HTTP/1.1
+Host: webpoolco16d03.infra.lync.com
+Connection: keep-alive
+Content-Length: 87
+Origin: http://localhost
+X-Ms-Namespace: internal
+Authorization: Bearer psat=eyJ...SVcsQ70tO1TDZ5g
+Client-Request-Id: 796731188
+Content-Type: application/json
+Accept: application/json
+X-Ms-SDK-Instance: SkypeWeb/master_0.4.212-eaeb6be3a5f91-95247daa970fe
+X-MS-Correlation-Id: 2050690442
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.84 Safari/537.36
+Referer: http://localhost/demos/sdksamples/ui/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.8,zh-CN;q=0.6,zh;q=0.4
+
+{"AnonymousDisplayName":"WLB1","UserAgent":"SkypeWeb/master_0.4.212","Culture":"en-us"}
+
+Response:
+{  
+   "culture":"en-us",
+   "userAgent":"SkypeWeb/master_0.4.212",
+   "type":"Browser",
+   "endpointId":"test",
+   "id":"112409054559",
+   "_links":{  
+      "self":{  
+         "href":"/ucwa/psanon/v1/applications/112409054559"
+      },
+      "policies":{  
+         "href":"/ucwa/psanon/v1/applications/112409054559/policies"
+      },
+      "batch":{  
+         "href":"/ucwa/psanon/v1/applications/112409054559/batch"
+      },
+      "events":{  
+         "href":"/ucwa/psanon/v1/applications/112409054559/events?ack=14\u0026key=c2lwO...09054559-"
+      }
+   },
+   "_embedded":{  
+      "me":{  
+         "uri":"sip:1546268894@anonymous.invalid",
+         "name":"WLB1",
+         "_links":{  
+            "self":{  
+               "href":"/ucwa/psanon/v1/applications/112409054559/me"
+            }
+         },
+         "rel":"me"
+      },
+      "communication":{  
+         "simultaneousRingNumberMatch":"Disabled",
+         "videoBasedScreenSharing":"Enabled",
+         "55bc13ab-e9fa-49e9-820a-5503cc2878af":"please pass this in a PUT request",
+         "supportedMessageFormats":[  
+            "Plain"
+         ],
+         "voipFallbackToPhoneAudioTimeOut":"00:00:00",
+         "_links":{  
+            "self":{  
+               "href":"/ucwa/psanon/v1/applications/112409054559/communication"
+            },
+            "mediaRelayAccessToken":{  
+               "href":"/ucwa/psanon/v1/applications/112409054559/communication/mediaRelayAccessToken"
+            },
+            "mediaPolicies":{  
+               "href":"/ucwa/psanon/v1/applications/112409054559/mediaPolicies"
+            },
+            "conversations":{  
+               "href":"/ucwa/psanon/v1/applications/112409054559/communication/conversations?filter=active"
+            },
+            "startMessaging":{  
+               "href":"/ucwa/psanon/v1/applications/112409054559/communication/messagingInvitations",
+               "revision":"2"
+            }
+         },
+         "rel":"communication",
+         "etag":"960382518"
+      }
+   },
+   "rel":"application",
+   "etag":"1512544136",
+   "expires":"\/Date(1466181726193)\/"
+}

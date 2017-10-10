@@ -50,7 +50,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Samples.ApplicationCore
                 platformSettings = new ClientPlatformSettings(Guid.Parse(aadClientId), appTokenCertThumbprint);
             }
             else if (!string.IsNullOrEmpty(aadClientSecret))
-            {
+            {   
                 platformSettings = new ClientPlatformSettings(aadClientSecret, Guid.Parse(aadClientId));
             }
             else

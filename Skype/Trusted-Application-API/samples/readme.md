@@ -1,11 +1,15 @@
 # Trusted Application API samples
 
-To jump start developement with the Trusted Application API, we've created two sample applications that you can clone or download from our **GitHub** OfficeDev organization.
+To jump start developement with the Trusted Application API, we've created the following sample applications that you can clone or download from our **GitHub** OfficeDev organization.
 
 ## QuickStart application sample
 
 The [Quick start console application](https://github.com/OfficeDev/skype-docs/tree/live/Skype/Trusted-Application-API/samples/QuickStartSamples) can be considered a "100 level" sample. It shows you how to make the minimum usable calls against the Trusted Application API. There are only
 five steps to deploy this application.  Be sure to get familiar with this sample and deploy it before you tackle the next sample.  
+
+## Azure web application samples
+
+The [Trusted Application - Azure web app samples](https://github.com/OfficeDev/skype-docs/tree/live/Skype/Trusted-Application-API/samples/AzureWebSamples) are other "100 level" samples that can be deployed to a cloud such as Azure to run simple Trusted Application scenarios.
 
 ## Anonymous meeting join application sample
 
