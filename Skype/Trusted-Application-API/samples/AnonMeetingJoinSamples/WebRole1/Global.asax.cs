@@ -65,7 +65,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Samples.FrontEnd
             bool isSandBoxEnv = false;
             Boolean.TryParse(CloudConfigurationManager.GetSetting("IsSandBoxEnv"), out isSandBoxEnv);
             //Initialize application
-           
+
             AzureApplication = new SampleJobPlayGroundApplication();//The azure app will act as a sample job playground, which accept command from controller (incoming http requests), and execute simple job tasks.
 
 
@@ -79,6 +79,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Samples.FrontEnd
                     aadClientSecret,
                     appTokenCertThumbprint,
                     InstanceId,
+                    discoverUri,
                     isSandBoxEnv,
                     logFullHttpRequestResponse
                 ).Wait();

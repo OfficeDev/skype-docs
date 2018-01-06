@@ -34,6 +34,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Samples.ApplicationCore
                  string aadClientSecret,
                  string appTokenCertThumbprint,
                  string instanceId,
+                 string discoverUri,
                  bool isSandBoxEnvionment = false,
                  bool logFullHttpRequestResponse = true)
         {
@@ -44,19 +45,12 @@ namespace Microsoft.SfB.PlatformService.SDK.Samples.ApplicationCore
             var logger = IOCHelper.Resolve<IPlatformServiceLogger>();
             logger.HttpRequestResponseNeedsToBeLogged = logFullHttpRequestResponse;
 
-            ClientPlatformSettings platformSettings = null;
-            if (!string.IsNullOrEmpty(appTokenCertThumbprint))
-            {              
-                platformSettings = new ClientPlatformSettings(Guid.Parse(aadClientId), appTokenCertThumbprint);
-            }
-            else if (!string.IsNullOrEmpty(aadClientSecret))
-            {
-                platformSettings = new ClientPlatformSettings(aadClientSecret, Guid.Parse(aadClientId));
-            }
-            else
+            if(string.IsNullOrEmpty(appTokenCertThumbprint) && string.IsNullOrEmpty(aadClientSecret))
             {
                 throw new InvalidOperationException("Should provide at least one prarameter in aadClientSecret and appTokenCertThumbprint");
             }
+
+            ClientPlatformSettings platformSettings = new ClientPlatformSettings(new Uri(discoverUri), Guid.Parse(aadClientId), appTokenCertThumbprint, aadClientSecret);
 
             var platform = new ClientPlatform(platformSettings, logger);
 
