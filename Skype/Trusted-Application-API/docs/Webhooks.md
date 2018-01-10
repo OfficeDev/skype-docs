@@ -1,13 +1,13 @@
 # Webhooks (Events)
 
-In UCWA, the clients had a pending GET parked on the server, it received any events from the UCWA server.
-But for Service applications (SA), the way to get events from the **Trusted Application API** is via web hook events.  Webhooks are HTTP callbacks that are usually triggered by some event.  When an event occurs, the Trusted App API makes an HTTP request to the URI configured as a Callback.
+In UCWA, a client had a pending GET parked on the server. The pending GET let a client receive any events from the UCWA server.
+For Service applications (SA), web hooks are used to get events from the **Trusted Application API**.  Web hooks are HTTP callbacks that are usually started by some event.  When an event occurs, the Trusted App API makes an HTTP request to the URI configured as a Callback.
  
-The event structure, syntax is similar to the UCWA event structure.
+The event structure and syntax is similar to the UCWA event structure.
  
 1. When a tenant specific application endpoint is registered with Skype for Business (sfb) Online, a default web hook callback url is registered for the SA, which can be unique for that tenant application endpoint.
   For example:
-  If litware.com was the SA developer, a tenant application endpoint for IM modality for contoso tenant can be `helpdesk@contoso.com`, and can have a default url as `https://litware.com/callback`
+  If litware.com was the SA developer, a tenant application endpoint for IM modality for a contoso tenant is `helpdesk@contoso.com`, and can have a default url as `https://litware.com/callback`
 2. For every conversation started or joined by the SA, a custom url can be set with context in the url itself
  
 Using the previous example, if the SA was starting a new messaging invitation to an SFB online user in the contoso tenant, a custom url can be set in the `POST` on **messagingInvitation** request sent to the Trusted App API.
@@ -29,7 +29,7 @@ Content-Type: application/json; charset=utf-8
  
 3. When the SA receives an invitation on the default url, it can request the API to send future calls related to that conversation, to be sent with some callback context
  
-Example:
+**Example:**
  
 Call back received by SA at the default callback it set during application registration -
  

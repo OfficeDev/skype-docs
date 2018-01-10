@@ -16,6 +16,7 @@
 - [Desktop components](https://msdn.microsoft.com/en-us/library/office/jj933180.aspx)
 - [Unified Communications Managed API (UCMA)](https://msdn.microsoft.com/en-us/library/office/dn454984(v=office.16).aspx)
 - [Unified Communications Web API](ucwa/UnifiedCommunicationsWebAPI2_0.md)
+- [Skype for Business Software Defined Networking (SDN) Interface 3.0](SDN/articles/skype-for-business-sdn-interface.md)
 
 
 Related sites 
