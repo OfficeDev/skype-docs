@@ -64,7 +64,8 @@ This resource can have the following relationships.
 
 
 
-The user must have at least one of these scopes for operations on the resource to be allowed.
+The user must have at least one of these scopes for operations on the resource to be allowed. 
+
 |**Scope**|**Permission**|**Description**|
 |:-----|:-----|:-----|
 |Conversations.Initiate|Initiate conversations and join meetings|Allows the app to initiate instant messages, audio, video, and desktop sharing conversations; and join meetings on-behalf of the signed-in user|
@@ -78,9 +79,11 @@ The user must have at least one of these scopes for operations on the resource t
 
 |**Resource**|**Priority**|**Sender**|**Reason**|
 |:-----|:-----|:-----|:-----|
-|messagingInvitation|High|communication|Delivered when a messaging invitation is started. This occurs when the application starts the [messaging](messaging_ref.md) modality.|
+|messagingInvitation|High|communication|Delivered when a messaging invitation is started. This occurs when the application starts the [messaging](messaging_ref.md) modality.| 
+
 Sample of returned event data.
 This sample is given only as an illustration of event syntax. The semantic content is not guaranteed to correspond to a valid scenario.
+```
 {
   "_links" : {
     "self" : {
@@ -106,6 +109,7 @@ This sample is given only as an illustration of event syntax. The semantic conte
     }
   ]
 }
+```
 
 
 ### Updated
@@ -117,6 +121,7 @@ This sample is given only as an illustration of event syntax. The semantic conte
 |messagingInvitation|High|communication|Delivered when the messaging invitation is updated.|
 Sample of returned event data.
 This sample is given only as an illustration of event syntax. The semantic content is not guaranteed to correspond to a valid scenario.
+```
 {
   "_links" : {
     "self" : {
