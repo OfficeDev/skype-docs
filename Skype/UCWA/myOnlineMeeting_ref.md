@@ -4,7 +4,7 @@
 
 
             Represents a scheduled meeting on the user's calendar.
-            
+
 
 ## Web Link
 <a name = "sectionSection0"> </a>
@@ -55,7 +55,6 @@ This resource can have the following relationships.
 |**Link**|**Description**|
 |:-----|:-----|
 |self|The link to the current resource.|
-|onlineMeetingExtensions|Represents the set of [onlineMeetingExtension](onlineMeetingExtension_ref.md)s for the associated [onlineMeeting](onlineMeeting_ref.md).|
 |onlineMeetingExtensions|Represents the set of [onlineMeetingExtension](onlineMeetingExtension_ref.md)s for the associated [onlineMeeting](onlineMeeting_ref.md).|
 
 ### Azure Active Directory scopes for online applications
@@ -556,5 +555,3 @@ Content-Length: 2092
   </resource>
 </resource>
 ```
-
-
