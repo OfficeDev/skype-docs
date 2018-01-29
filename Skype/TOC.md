@@ -98,8 +98,6 @@
 ###### [Group in Google Chrome](WebSDK/docs/PTVideoGroupGoogleChrome.md)
 ##### [Meetings](WebSDK/docs/PTMeetings.md)
 ###### [Schedule Meeting](WebSDK/docs/ScheduleMeeting.md)
-##### [History](WebSDK/docs/PTHistory.md)
-###### [Conversation History](WebSDK/docs/PTHistoryConversation.md)
 ##### [UI Controls](WebSDK/docs/PTUIControls.md)
 ###### [Conversation Control(s)](WebSDK/docs/PTUIControlsConversationControl.md)
 ##### [Devices Manager](WebSDK/docs/PTDevicesManager.md)
