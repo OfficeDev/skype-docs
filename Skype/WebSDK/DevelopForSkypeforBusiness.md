@@ -1,5 +1,5 @@
 ---
-redirect_url: https://msdn.microsoft.com/Skype/WebSDK/docs/DevelopForSkypeforBusiness
+redirect_url: https://docs.microsoft.com/en-us/skype-sdk/WebSDK/docs/DevelopForSkypeforBusiness
 ---
 # do not edit
 This document is a redirection source for redirection to the WebSDK/docs/ folder. Please make all edits to the Skype/WebSDK/docs/DevelopForSkypeforBusiness.md file.

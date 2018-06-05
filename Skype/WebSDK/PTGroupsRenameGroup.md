@@ -1,5 +1,5 @@
 ---
-redirect_url: https://msdn.microsoft.com/Skype/WebSDK/docs/PTGroupsRenameGroup
+redirect_url: https://docs.microsoft.com/en-us/skype-sdk/WebSDK/docs/PTGroupsRenameGroup
 ---
 # do not edit
 This document is a redirection source for redirection to the WebSDK/docs/ folder. Please make all edits to the Skype/WebSDK/docs/PTGroupsRenameGroup.md file.
