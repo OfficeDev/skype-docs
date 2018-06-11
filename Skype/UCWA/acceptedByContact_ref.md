@@ -136,7 +136,8 @@ if-none-match: a05a6c5a-d407-4c5e-8358-340e17e823fa
 
 
 This sample is given only as an illustration of response syntax. The semantic content is not guaranteed to correspond to a valid scenario.
-```
+
+```json
 HTTP/1.1 200 OK
 Etag: 985c5617-2536-4444-89c9-bc8e27aeb464
 Content-Type: application/json
@@ -206,7 +207,8 @@ if-none-match: c1fc5188-617c-4f0d-86ec-f87d6ee73726
 
 
 This sample is given only as an illustration of response syntax. The semantic content is not guaranteed to correspond to a valid scenario.
-```
+
+```xml
 HTTP/1.1 200 OK
 Etag: 39b3573a-5dae-4258-abd6-fcf24b4439dc
 Content-Type: application/xml
