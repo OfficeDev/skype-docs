@@ -954,12 +954,8 @@
           href: UCWA/GenericSynchronousErrors.md
     - name: Skype for Business Uris
       href: Skype-For-Business-Uris/SfBMobileURI.md
-    - name: Desktop Apps
-      href: https://msdn.microsoft.com/en-us/library/office/jj933180.aspx
     - name: Unified Communications Managed API (UCMA)
-      href: https://msdn.microsoft.com/en-us/library/office/dn454984.aspx
-    - name: Unified Communications Web API (UCWA)
-      href: https://msdn.microsoft.com/en-us/library/office/dn324971.aspx
+      href: https://msdn.microsoft.com/en-us/library/office/dn454984(v=office.16).aspx
     - name: Skype for Business SDN Interface
       href: SDN/articles/skype-for-business-sdn-interface.md
       items:
