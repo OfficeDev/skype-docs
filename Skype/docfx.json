@@ -28,8 +28,7 @@
 	 "fileMetadata": {
  	"ms.technology": 
        { 
-         "WebSDK/**.md" : "sdk",
-		 "UCWA/**.md" : "web-api"
+         "skype"
        }
 	},
     "externalReference": [
