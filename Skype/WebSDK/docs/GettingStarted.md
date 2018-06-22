@@ -50,7 +50,7 @@ Add a reference to the bootstrapper to your client application's HTML file by in
 
 
 ```html
-<script src="https://swx.cdn.skype.com/shared/v/1.2.15/SkypeBootstrap.min.js"></script> 
+<script src="https://swx.cdn.skype.com/shared/v/1.2.35/SkypeBootstrap.min.js"></script> 
 ```
 
 Then initialize the bootstrapper with the appropriate [API key](APIProductKeys.md) as in the following example code:
@@ -60,7 +60,7 @@ Then initialize the bootstrapper with the appropriate [API key](APIProductKeys.m
 
 ```js
 // Reference to SkypeBootstrap.min.js
-// Implements the Skype object model via https://swx.cdn.skype.com/shared/v/1.2.15/SkypeBootstrap.min.js
+// Implements the Skype object model via https://swx.cdn.skype.com/shared/v/1.2.35/SkypeBootstrap.min.js
 
 // Call the application object
 var config = {
