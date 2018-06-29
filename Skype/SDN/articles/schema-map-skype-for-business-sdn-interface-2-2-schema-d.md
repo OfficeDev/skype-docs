@@ -6,7 +6,7 @@ ms.date: 10/08/2015
 ---
 
 
-# Schema map 
+# Schema map (Skype for Business SDN Interface 2.2, Schema "D") 
 
 This topic shows the schema definition for **SDNInterface.Schema.D.xsd**.
 
