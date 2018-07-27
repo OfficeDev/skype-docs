@@ -9,7 +9,7 @@
 | Skype Web SDK Production| 0.4.940 | 07/27/18 | 0.4.872 |
 
 **Bug fixed in Web SDK:**
-*Remove "displayName" from queryString in contactHref property of json returned from UCWA when searching a  contact.
+* Removed "displayName" from queryString in contactHref property of json returned from UCWA when searching a  contact.
 
 
 ## Skype Web SDK Version Update 10/02/17
