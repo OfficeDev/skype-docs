@@ -51,9 +51,6 @@ Even without any quality issues, the client will send an InCallUpdate message af
 - After 35 seconds has passed since the previous quality update and a call quality change event was raised during this period 
     
   
--  [Configuring InCallQoE Messages](configuring-incallqoe-messages.md)
-    
-  
 
 ## See also
 <a name="bk_addresources"> </a>
