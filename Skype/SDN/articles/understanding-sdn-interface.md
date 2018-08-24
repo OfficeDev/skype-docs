@@ -42,8 +42,8 @@ In Skype for Business SDN Interface, the call and quality data is defined by the
     
 
 > [!NOTE]
-> With release 3.0, the presence of some fields provided to a Subscriber (primarily Wi-Fi quality metrics) can be suppressed; see Subscriber setting 'SchemaExtension'. 
-  
+> With release 3.0, the presence of some fields provided to a Subscriber (primarily Wi-Fi quality metrics) can be suppressed; see the `schemaextension` [subscriber configuration setting](configuring-sdn-interface-using-the-command-prompt.md#subscriber-configuration-settings). 
+
     
     
 
