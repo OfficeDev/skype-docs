@@ -96,37 +96,67 @@ This sample is given only as an illustration of event syntax. The semantic conte
     }
   ]
 }
+				
+```
 
+
+### completed
+
+|**Resource**|**Priority**|**Sender**|**Reason**|
+|:-----|:-----|:-----|:-----|
+|message|High|conversation|Delivered when the message is completed for an incoming instant message.|
+Sample of returned event data.
+
+This sample is given only as an illustration of event syntax. The semantic content is not guaranteed to correspond to a valid scenario.
+
+
+```
+{
+ "_links" : {
+ "self" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+ },
+ "next" : {
+ "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+ }
+ },
+ "sender" : [
+ {
+ "rel" : "conversation",
+ "href" : "https://fe1.contoso.com:443//v1/applications/316/communication/conversations/271",
+ "events" : [
+ {
+ "link" : {
+ "rel" : "message",
+ "href" : "https://fe1.contoso.com:443//v1/applications/316/communication/conversations/271/messaging/messages/142"
+ },
+ "type" : "completed"
+ }
+ ]
+ }
+ ]
+}
+					
+```
 
 ## Operations
-
-
 
 <a name="sectionSection2"></a>
 
 ### GET
 
-
-
-
 Operation description coming soon...
 
 #### Request body
-
-
 
 None
 
 
 #### Response body
 
-
-
 The response from a GET request contains the properties and links shown in the Properties and Links sections at the top of this page.
 
 #### Synchronous errors
-
-
 
 The errors below (if any) are specific to this resource. Generic errors that can apply to any resource are covered in [Generic synchronous errors](GenericSynchronousErrors.md).
 
@@ -162,6 +192,7 @@ Accept: application/json
 
 
 This sample is given only as an illustration of response syntax. The semantic content is not guaranteed to correspond to a valid scenario.
+
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
