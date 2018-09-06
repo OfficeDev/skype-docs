@@ -34,6 +34,7 @@ The following procedure assumes that a user has signed in before searching for p
   ```js
 var personSearchQuery = application.personsAndGroupsManager.createPersonSearchQuery();
 personSearchQuery.text('John Doe');
+personSearchQuery.sources('AddressBook');  // To search outside the user's contacts, try 'SkypeDirectory' or 'All'
 personSearchQuery.limit(50);
 personSearchQuery.getMore().then(null, function (results) {
     results.forEach(function (result) {
@@ -64,6 +65,7 @@ personSearchQuery.getMore().then(null, function (results) {
   ```js
 var groupSearchQuery = application.personsAndGroupsManager.createGroupSearchQuery();
 groupSearchQuery.text('mygroup');
+personSearchQuery.sources('AddressBook');  // To search outside the user's contacts, try 'SkypeDirectory' or 'All'
 groupSearchQuery.limit(50);
 groupSearchQuery.getMore().then(null, function (results) {
     results.forEach(function (result) {
