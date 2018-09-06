@@ -86,7 +86,7 @@ Connection: Keep-Alive
 
 4. Process the response from the previous request.
  
- The response from the previous GET request should be 401 Unauthorized. This should be no surprise, as the user is not yet authenticated. The body of the response contains a URL that can be used to get an OAuth token that is used in all subsequent requests. 
+ The response from the previous GET request should be 401 Unauthorized. This should be no surprise, as the user is not yet authenticated. The header of the response contains a URL that can be used to get an OAuth token that is used in all subsequent requests. 
  
     ```
     HTTP/1.1 401 Unauthorized
