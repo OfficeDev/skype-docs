@@ -40,7 +40,7 @@ conversation.videoService.activeSpeaker.participant.changed(function (participan
 
         // add listener to turn video on/off
         channel.isVideoOn.changed(function (isVideoOn) {
-            channel.source.sink.container(/* DOM node */);
+            channel.stream.source.sink.container(/* DOM node */);
             channel.isStarted(isVideoOn);
         });
     }
