@@ -122,7 +122,7 @@ A bot can be enabled for groups in outgoing bot scenarios.  A bot can message mu
 <a name="create-outbound-bots"></a>
 ## Creating outbound bots
 
-Skype for Business bots can initiate outbound messages to users proactively because they are enabled by a Tenant Administrator.  In order to initiate an outbound message, your bot must be Skype for Business tenant-specific (your code must be written for a bot that will only be deployed in a single tenant. Eg. bot@contoso.com). 
+Skype for Business bots can initiate outbound messages to users proactively (so long as the user is in a user initiated conversation with the bot and still has the skype conversation window open) because they are enabled by a Tenant Administrator.  In order to initiate an outbound message, your bot must be Skype for Business tenant-specific (your code must be written for a bot that will only be deployed in a single tenant. Eg. bot@contoso.com). 
 
  In addition, in order to initiate an outbound message, your bot must also have the Skype for Business identity of the user or users that bot will be messaging directly eg. user@contoso.com.
 Your bot will also need to add the Skype for Business Channel entry point URL (https://api.skypeforbusiness.com/platformservice/botframework) to the Trusted Service URLs.
