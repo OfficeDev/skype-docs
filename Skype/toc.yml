@@ -955,7 +955,553 @@
     - name: Skype for Business Uris
       href: Skype-For-Business-Uris/SfBMobileURI.md
     - name: Unified Communications Managed API (UCMA)
-      href: https://msdn.microsoft.com/en-us/library/office/dn454984(v=office.16).aspx
+      href: UCMA/unified-communications-managed-api-ucma-5-0-sdk-documentation.md
+      items:
+      - name: UCMA 5.0 general reference
+        href: UCMA/ucma-5-0-general-reference.md
+        items:
+        - name: Glossary
+          href: UCMA/glossary-ucma-5-0-sdk.md
+        - name: UCMA 5.0 business scenarios
+          href: UCMA/ucma-5-0-business-scenarios.md
+          items:
+          - name: Contact center
+            href: UCMA/contact-center.md
+          - name: Standalone IVR application
+            href: UCMA/standalone-ivr-application.md
+          - name: Voice companion
+            href: UCMA/voice-companion.md
+          - name: Alert notification system
+            href: UCMA/alert-notification-system.md
+          - name: Additional scenarios
+            href: UCMA/additional-scenarios.md
+        - name: Get started with development
+          href: UCMA/get-started-with-ucma-5-0-development.md
+          items:
+          - name: Software and hardware requirements
+            href: UCMA/ucma-5-0-sdk-software-and-hardware-requirements.md
+          - name: Installing UCMA 5.0 SDK
+            href: UCMA/installing-ucma-5-0-sdk.md
+          - name: Uninstalling UCMA 5.0 SDK
+            href: UCMA/uninstalling-ucma-5-0-sdk.md
+        - name: UCMA 5.0 overview
+          href: UCMA/ucma-5-0-overview.md
+          items:
+          - name: What is UCMA 5.0
+            href: UCMA/what-is-ucma-5-0.md
+          - name: Support for IPv6
+            href: UCMA/support-for-ipv6.md
+          - name: UCMA 5.0 features
+            href: UCMA/ucma-5-0-features.md
+            items:
+            - name: Key features of UCMA 5.0
+              href: UCMA/key-features-of-ucma-5-0.md
+            - name: Audio devices
+              href: UCMA/audio-devices-feature.md
+            - name: Back-to-back user agent
+              href: UCMA/back-to-back-user-agent-feature.md
+            - name: Conference features
+              href: UCMA/conference-features.md
+              items:
+              - name: 'Pre-meeting: conference scheduling'
+                href: UCMA/pre-meeting-conference-scheduling.md
+              - name: 'In-meeting: during the conference'
+                href: UCMA/in-meeting-during-the-conference.md
+            - name: Contacts and groups management
+              href: UCMA/contacts-and-groups-management.md
+            - name: Contextual communication
+              href: UCMA/contextual-communication.md
+            - name: Escalation to conferencing
+              href: UCMA/escalation-to-conferencing.md
+            - name: Infrastructure enhancements
+              href: UCMA/infrastructure-enhancements.md
+              items:
+              - name: Auto-provisioning and PowerShell activation
+                href: UCMA/auto-provisioning-and-powershell-activation.md
+              - name: Bandwidth management
+                href: UCMA/bandwidth-management.md
+              - name: DNS load balancing
+                href: UCMA/dns-load-balancing.md
+              - name: Endpoint draining
+                href: UCMA/endpoint-draining.md
+              - name: Session dialog resiliency
+                href: UCMA/session-dialog-resiliency.md
+            - name: PSTN user authentication
+              href: UCMA/pstn-user-authentication.md
+            - name: PSTN gateway and IP-PBX interoperability
+              href: UCMA/pstn-gateway-and-ip-pbx-interoperability.md
+            - name: Publishing presence
+              href: UCMA/publishing-presence.md
+            - name: Subscribing to presence
+              href: UCMA/subscribing-to-presence.md
+            - name: Telephony call controls
+              href: UCMA/telephony-call-controls.md
+            - name: Trusted conference users
+              href: UCMA/trusted-conference-users.md
+            - name: Trusted service discovery
+              href: UCMA/trusted-service-discovery.md
+            - name: User impersonation
+              href: UCMA/user-impersonation.md
+            - name: VoiceXML 2.0 support
+              href: UCMA/voicexml-2-0-support.md
+          - name: UCMA 5.0 building blocks
+            href: UCMA/ucma-5-0-building-blocks.md
+            items:
+            - name: Personas
+              href: UCMA/personas.md
+            - name: Collaboration platform
+              href: UCMA/collaboration-platform.md
+            - name: Endpoint services
+              href: UCMA/endpoint-services.md
+            - name: Calls, flows, conversations, and MCU sessions
+              href: UCMA/calls-flows-conversations-and-mcu-sessions.md
+            - name: Conference scheduling and management
+              href: UCMA/conference-scheduling-and-management.md
+            - name: Presence - self and remote
+              href: UCMA/presence-self-and-remote.md
+            - name: Contacts and groups
+              href: UCMA/contacts-and-groups.md
+          - name: Reference topologies
+            href: UCMA/reference-topologies.md
+            items:
+            - name: Reference topology with limited high availability
+              href: UCMA/reference-topology-with-limited-high-availability.md
+            - name: Reference topology with high availability and a single data center
+              href: UCMA/reference-topology-with-high-availability-and-a-single-data-center.md
+            - name: Reference topology with high availability and multiple data center
+              href: UCMA/reference-topology-with-high-availability-and-multiple-data-center.md
+          - name: UCMA 5.0 object model
+            href: UCMA/ucma-5-0-object-model.md
+        - name: UCMA 5.0 details
+          href: UCMA/ucma-5-0-details.md
+          items:
+          - name: Collaboration layer
+            href: UCMA/collaboration-layer.md
+            items:
+            - name: Communications - conversations, calls, conferences, and back-to-back user agents
+              href: UCMA/communications-conversations-calls-conferences-and-back-to-back-user-agents.md
+              items:
+              - name: Conversations
+                href: UCMA/conversations.md
+                items:
+                - name: Conversation state transitions - outbound
+                  href: UCMA/conversation-state-transitions-outbound.md
+                - name: Conversation state transitions - inbound
+                  href: UCMA/conversation-state-transitions-inbound.md
+                - name: Registering for conversation events
+                  href: UCMA/registering-for-conversation-events.md
+                - name: Creating an outgoing two-party conversation
+                  href: UCMA/creating-an-outgoing-two-party-conversation.md
+                - name: Impersonating a user
+                  href: UCMA/impersonating-a-user.md
+                - name: Adding a modality to an existing conversation
+                  href: UCMA/adding-a-modality-to-an-existing-conversation.md
+                - name: Escalating a two-party conversation to a conference
+                  href: UCMA/escalating-a-two-party-conversation-to-a-conference.md
+                - name: Terminating a conversation
+                  href: UCMA/terminating-a-conversation.md
+              - name: Calls
+                href: UCMA/calls.md
+                items:
+                - name: Call state transitions
+                  href: UCMA/call-state-transitions.md
+                - name: Registering for call events
+                  href: UCMA/registering-for-call-events.md
+                - name: Adding an instant messaging or audio/video call
+                  href: UCMA/adding-an-instant-messaging-or-audio-video-call.md
+                - name: Establishing an outgoing call
+                  href: UCMA/establishing-an-outgoing-call.md
+                - name: Accepting an incoming call
+                  href: UCMA/accepting-an-incoming-call.md
+                - name: Transferring a call
+                  href: UCMA/transferring-a-call.md
+                - name: Call park
+                  href: UCMA/call-park.md
+                - name: Back-to-back user agent
+                  href: UCMA/back-to-back-user-agent.md
+                  items:
+                  - name: Call leg scenarios
+                    href: UCMA/call-leg-scenarios.md
+                  - name: Back-to-back user agent architecture
+                    href: UCMA/back-to-back-user-agent-architecture.md
+              - name: Conferences
+                href: UCMA/conferences.md
+                items:
+                - name: ConferenceSession state transitions
+                  href: UCMA/conferencesession-state-transitions.md
+                - name: Conference lobby
+                  href: UCMA/conference-lobby.md
+                - name: Conference operations
+                  href: UCMA/conference-operations.md
+                - name: Joining a conference
+                  href: UCMA/joining-a-conference.md
+                - name: Inviting a new participant
+                  href: UCMA/inviting-a-new-participant.md
+                - name: Conference invitation state transitions
+                  href: UCMA/conference-invitation-state-transitions.md
+                - name: Receiving a conference invitation
+                  href: UCMA/receiving-a-conference-invitation.md
+              - name: Conversation context channel
+                href: UCMA/conversation-context-channel.md
+            - name: Trusted conferencing user
+              href: UCMA/trusted-conferencing-user.md
+              items:
+              - name: Trusted conferencing user conversation model
+                href: UCMA/trusted-conferencing-user-conversation-model.md
+              - name: Trusted conferencing user conversation model API
+                href: UCMA/trusted-conferencing-user-conversation-model-api.md
+              - name: Trusted conferencing user model usage
+                href: UCMA/trusted-conferencing-user-model-usage.md
+              - name: Trusted conferencing user audio routes
+                href: UCMA/trusted-conferencing-user-audio-routes.md
+              - name: MCU call establishment and handling
+                href: UCMA/mcu-call-establishment-and-handling.md
+            - name: Presence, contacts, and groups
+              href: UCMA/presence-contacts-and-groups.md
+              items:
+              - name: Simplified presence publication for endpoints
+                href: UCMA/simplified-presence-publication-for-endpoints.md
+              - name: RemotePresenceView
+                href: UCMA/remotepresenceview.md
+              - name: LocalOwnerPresence
+                href: UCMA/localownerpresence.md
+              - name: ContactGroupServices
+                href: UCMA/contactgroupservices.md
+              - name: Privacy management
+                href: UCMA/privacy-management.md
+            - name: Media handling - InstantMessage
+              href: UCMA/media-handling-instantmessage.md
+              items:
+              - name: InstantMessagingCall
+                href: UCMA/instantmessagingcall.md
+              - name: InstantMessagingMcuSession
+                href: UCMA/instantmessagingmcusession.md
+              - name: InstantMessagingFlow
+                href: UCMA/instantmessagingflow.md
+              - name: Using an InstantMessagingFlowTemplate
+                href: UCMA/using-an-instantmessagingflowtemplate.md
+              - name: Using an InstantMessagingFlow
+                href: UCMA/using-an-instantmessagingflow.md
+              - name: Handle an InstantMessagingFlow
+                href: UCMA/handle-an-instantmessagingflow.md
+            - name: Media handling - AudioVideo
+              href: UCMA/media-handling-audiovideo.md
+              items:
+              - name: AudioVideoCall
+                href: UCMA/audiovideocall.md
+              - name: AudioVideoMcuSession
+                href: UCMA/audiovideomcusession.md
+              - name: AudioVideoFlow
+                href: UCMA/audiovideoflow.md
+              - name: Using an AudioVideoFlowTemplate
+                href: UCMA/using-an-audiovideoflowtemplate.md
+              - name: Using an AudioVideoFlow
+                href: UCMA/using-an-audiovideoflow.md
+              - name: Starting a media flow
+                href: UCMA/starting-a-media-flow.md
+            - name: Audio devices
+              href: UCMA/audio-devices.md
+              items:
+              - name: Player
+                href: UCMA/player.md
+              - name: Recorder
+                href: UCMA/recorder.md
+              - name: ToneController
+                href: UCMA/tonecontroller.md
+              - name: SpeechRecognitionConnector
+                href: UCMA/speechrecognitionconnector.md
+              - name: SpeechSynthesisConnector
+                href: UCMA/speechsynthesisconnector.md
+          - name: Platform and endpoints
+            href: UCMA/platform-and-endpoints.md
+            items:
+            - name: Client platforms
+              href: UCMA/client-platforms.md
+            - name: Server platforms
+              href: UCMA/server-platforms.md
+            - name: User endpoints and application endpoints
+              href: UCMA/user-endpoints-and-application-endpoints.md
+            - name: Incoming message dispatching
+              href: UCMA/incoming-message-dispatching.md
+            - name: Trusted applications
+              href: UCMA/trusted-applications.md
+            - name: Trusted domains and SIP gateways
+              href: UCMA/trusted-domains-and-sip-gateways.md
+          - name: Signaling layer
+            href: UCMA/signaling-layer.md
+            items:
+            - name: Connection manager
+              href: UCMA/connection-manager.md
+            - name: RealTimeEndpoint, SipEndpoint, SipPeerToPeerEndpoint
+              href: UCMA/realtimeendpoint-sipendpoint-sippeertopeerendpoint.md
+            - name: SignalingSession
+              href: UCMA/signalingsession.md
+            - name: SIP URIs
+              href: UCMA/sip-uris.md
+            - name: RealTimeAddress and SipUriParser classes
+              href: UCMA/realtimeaddress-and-sipuriparser-classes.md
+            - name: Page-mode messaging
+              href: UCMA/page-mode-messaging.md
+            - name: Sending and receiving page-mode messages
+              href: UCMA/sending-and-receiving-page-mode-messages.md
+              items:
+              - name: Sending page-mode messages synchronously
+                href: UCMA/sending-page-mode-messages-synchronously.md
+              - name: Sending page-mode messages asynchronously
+                href: UCMA/sending-page-mode-messages-asynchronously.md
+              - name: Receiving page-mode messages
+                href: UCMA/receiving-page-mode-messages.md
+            - name: Parsing and constructing SDP documents
+              href: UCMA/parsing-and-constructing-sdp-documents.md
+          - name: Error handling and diagnostics
+            href: UCMA/error-handling-and-diagnostics.md
+            items:
+            - name: UCMA 5.0 exception model
+              href: UCMA/ucma-5-0-exception-model.md
+            - name: Diagnostics and error reporting
+              href: UCMA/diagnostics-and-error-reporting.md
+            - name: Troubleshooting media connectivity issues
+              href: UCMA/troubleshooting-media-connectivity-issues.md
+          - name: High availability and recovery
+            href: UCMA/high-availability-and-recovery.md
+            items:
+            - name: High availability and failover in UCMA 5.0
+              href: UCMA/high-availability-and-failover-in-ucma-5-0.md
+            - name: Failover concepts
+              href: UCMA/failover-concepts.md
+            - name: Call recovery
+              href: UCMA/call-recovery.md
+              items:
+              - name: Call recovery concepts
+                href: UCMA/call-recovery-concepts.md
+              - name: Call recovery usage
+                href: UCMA/call-recovery-usage.md
+            - name: Presence recovery
+              href: UCMA/presence-recovery.md
+            - name: Conference recovery
+              href: UCMA/conference-recovery.md
+          - name: UCMA 5.0 implementation architecture and application behavior
+            href: UCMA/ucma-5-0-implementation-architecture-and-application-behavior.md
+            items:
+            - name: Asynchronous pattern
+              href: UCMA/asynchronous-pattern.md
+            - name: Threading model
+              href: UCMA/threading-model.md
+            - name: Queue usage model
+              href: UCMA/queue-usage-model.md
+            - name: Platform behaviors (methods and properties)
+              href: UCMA/platform-behaviors-methods-and-properties.md
+            - name: Shutdown and termination
+              href: UCMA/shutdown-and-termination.md
+            - name: Application behavior
+              href: UCMA/application-behavior.md
+        - name: Advanced concepts and best practices
+          href: UCMA/advanced-concepts-and-best-practices.md
+          items:
+          - name: Extending the UCMA platform
+            href: UCMA/extending-the-ucma-platform.md
+            items:
+            - name: Extending the Call class
+              href: UCMA/extending-the-call-class.md
+            - name: Extending the MediaProvider class
+              href: UCMA/extending-the-mediaprovider-class.md
+            - name: MediaProvider and Call architecture
+              href: UCMA/mediaprovider-and-call-architecture.md
+              items:
+              - name: Negotiating declined offers
+                href: UCMA/negotiating-declined-offers.md
+              - name: Triggering SDP renegotiations
+                href: UCMA/triggering-sdp-renegotiations.md
+              - name: Call forking with early media
+                href: UCMA/call-forking-with-early-media.md
+              - name: Error handling
+                href: UCMA/error-handling.md
+            - name: Extending the MediaFlow class
+              href: UCMA/extending-the-mediaflow-class.md
+            - name: Extending the CallFactory and MediaProviderFactory classes
+              href: UCMA/extending-the-callfactory-and-mediaproviderfactory-classes.md
+          - name: Best practices
+            href: UCMA/best-practices.md
+            items:
+            - name: General guidelines
+              href: UCMA/ucma-5-0-general-guidelines.md
+            - name: Media guidelines
+              href: UCMA/media-guidelines.md
+        - name: Managing UCMA 5.0 applications
+          href: UCMA/managing-ucma-5-0-applications.md
+          items:
+          - name: UCMA 5.0 Runtime
+            href: UCMA/ucma-5-0-runtime.md
+          - name: Administering a UCMA 5.0 application
+            href: UCMA/administering-a-ucma-5-0-application.md
+            items:
+            - name: Managed SIP stack performance counters
+              href: UCMA/managed-sip-stack-performance-counters.md
+              items:
+              - name: Dialogs performance counters
+                href: UCMA/dialogs-performance-counters.md
+              - name: Transactions performance counters
+                href: UCMA/transactions-performance-counters.md
+              - name: Connections performance counters
+                href: UCMA/connections-performance-counters.md
+              - name: Incoming messages performance counters
+                href: UCMA/incoming-messages-performance-counters.md
+              - name: Outgoing messages performance counters
+                href: UCMA/outgoing-messages-performance-counters.md
+            - name: Media stack performance counters
+              href: UCMA/media-stack-performance-counters.md
+              items:
+              - name: Operations performance counters
+                href: UCMA/operations-performance-counters.md
+              - name: Planning performance counters
+                href: UCMA/planning-performance-counters.md
+              - name: Informational performance counters
+                href: UCMA/informational-performance-counters.md
+            - name: Adjusting application performance
+              href: UCMA/adjusting-application-performance.md
+            - name: Security considerations in UCMA 5.0
+              href: UCMA/security-considerations-in-ucma-5-0.md
+            - name: Call admission control
+              href: UCMA/call-admission-control.md
+              items:
+              - name: Call admission control usage scenarios
+                href: UCMA/call-admission-control-usage-scenarios.md
+              - name: MediaProvider recommendations
+                href: UCMA/mediaprovider-recommendations.md
+          - name: Activating a UCMA 5.0 trusted application
+            href: UCMA/activating-a-ucma-5-0-trusted-application.md
+            items:
+            - name: General application activation
+              href: UCMA/general-application-activation.md
+            - name: Activating an auto-provisioned application
+              href: UCMA/activating-an-auto-provisioned-application.md
+            - name: Activating a manually-provisioned application
+              href: UCMA/activating-a-manually-provisioned-application.md
+            - name: Activating applications programmatically
+              href: UCMA/activating-applications-programmatically.md
+            - name: Deactivation best practices
+              href: UCMA/deactivation-best-practices.md
+          - name: Using Skype for Business Server 2015 Logging Tool
+            href: UCMA/using-skype-for-business-server-2015-logging-tool.md
+          - name: Migration, coexistence, and upgrade of UCMA applications
+            href: UCMA/migration-coexistence-and-upgrade-of-ucma-applications.md
+            items:
+            - name: 'UCMA applications: Coexistence, migration, and upgrade scenarios'
+              href: UCMA/ucma-applications-coexistence-migration-and-upgrade-scenarios.md
+            - name: 'UCMA 3.0 Core applications: Coexistence and deployment scenarios'
+              href: UCMA/ucma-3-0-core-applications-coexistence-and-deployment-scenarios.md
+            - name: 'UCMA 2.0 Core applications: Coexistence, migration, and upgrade scenarios'
+              href: UCMA/ucma-2-0-core-applications-coexistence-migration-and-upgrade-scenarios.md
+            - name: Migration and coexistence details (UCMA 2.0 and UCMA 3.0)
+              href: UCMA/migration-and-coexistence-details-ucma-2-0-and-ucma-3-0.md
+            - name: Modifying ApplicationProvisioner.exe sample code
+              href: UCMA/modifying-applicationprovisioner-exe-sample-code.md
+          - name: Deploying UCMA 4.0 and UCMA 5.0 Applications in a Skype for Business Server 2015 Environment
+            href: UCMA/deploying-ucma-4-0-and-ucma-5-0-applications-in-a-skype-for-business-server-2015-environment.md
+        - name: VoiceXML support in UCMA 5.0
+          href: UCMA/voicexml-support-in-ucma-5-0.md
+          items:
+          - name: Overview of VoiceXML support in UCMA 5.0
+            href: UCMA/overview-of-voicexml-support-in-ucma-5-0.md
+          - name: Diagram of a VoiceXML call
+            href: UCMA/diagram-of-a-voicexml-call.md
+          - name: VoiceXML browser
+            href: UCMA/voicexml-browser.md
+          - name: Connecting to audio resources in UCMA 5.0
+            href: UCMA/connecting-to-audio-resources-in-ucma-5-0.md
+          - name: Tasks of the host .NET application
+            href: UCMA/tasks-of-the-host-net-application.md
+        - name: UCMA 5.0 sample applications
+          href: UCMA/ucma-5-0-sample-applications.md
+          items:
+          - name: QuickStart sample applications
+            href: UCMA/quickstart-sample-applications.md
+            items:
+            - name: AudioVideoCall samples
+              href: UCMA/audiovideocall-samples.md
+              items:
+              - name: AVFlow-ApplyChanges (QuickStart)
+                href: UCMA/avflow-applychanges-quickstart.md
+              - name: AVFlow-Hold (QuickStart)
+                href: UCMA/avflow-hold-quickstart.md
+              - name: AVFlow-Initialize (QuickStart)
+                href: UCMA/avflow-initialize-quickstart.md
+              - name: AVFlow-Mute (QuickStart)
+                href: UCMA/avflow-mute-quickstart.md
+              - name: BasicAudioVideoCall (QuickStart)
+                href: UCMA/basicaudiovideocall-quickstart.md
+              - name: Player (QuickStart)
+                href: UCMA/player-quickstart.md
+              - name: PortRange (QuickStart)
+                href: UCMA/portrange-quickstart.md
+              - name: Recorder (QuickStart)
+                href: UCMA/recorder-quickstart.md
+              - name: SpeechRecognitionConnector (QuickStart)
+                href: UCMA/speechrecognitionconnector-quickstart.md
+              - name: SpeechSynthesisConnector (QuickStart)
+                href: UCMA/speechsynthesisconnector-quickstart.md
+              - name: ToneController (QuickStart)
+                href: UCMA/tonecontroller-quickstart.md
+            - name: Autoprovisioning (QuickStart)
+              href: UCMA/autoprovisioning-quickstart.md
+            - name: BasicCallHandling (QuickStart)
+              href: UCMA/basiccallhandling-quickstart.md
+            - name: BasicConferencing (QuickStart)
+              href: UCMA/basicconferencing-quickstart.md
+            - name: CallModalityAddition (QuickStart)
+              href: UCMA/callmodalityaddition-quickstart.md
+            - name: CallTransferBasic (QuickStart)
+              href: UCMA/calltransferbasic-quickstart.md
+            - name: CallTransferSupervised (QuickStart)
+              href: UCMA/calltransfersupervised-quickstart.md
+            - name: ConferenceEscalation (QuickStart)
+              href: UCMA/conferenceescalation-quickstart.md
+            - name: ConferenceManagement (QuickStart)
+              href: UCMA/conferencemanagement-quickstart.md
+            - name: ConversationContextChannel (QuickStart)
+              href: UCMA/conversationcontextchannel-quickstart.md
+            - name: DeclineIncomingCall (QuickStart)
+              href: UCMA/declineincomingcall-quickstart.md
+            - name: ForwardIncomingCall (QuickStart)
+              href: UCMA/forwardincomingcall-quickstart.md
+            - name: InstantMessagingCall (QuickStart)
+              href: UCMA/instantmessagingcall-quickstart.md
+            - name: ManualProvisioning (QuickStart)
+              href: UCMA/manualprovisioning-quickstart.md
+            - name: PresenceContainerMemberShip (QuickStart)
+              href: UCMA/presencecontainermembership-quickstart.md
+            - name: PublishAlwaysOnline (QuickStart)
+              href: UCMA/publishalwaysonline-quickstart.md
+            - name: PublishPresence (QuickStart)
+              href: UCMA/publishpresence-quickstart.md
+            - name: SubscribePresence (QuickStart)
+              href: UCMA/subscribepresence-quickstart.md
+            - name: SubscribePresenceView (QuickStart)
+              href: UCMA/subscribepresenceview-quickstart.md
+            - name: TrustedConferenceParticipant (QuickStart)
+              href: UCMA/trustedconferenceparticipant-quickstart.md
+            - name: VoiceXMLSample (QuickStart)
+              href: UCMA/voicexmlsample-quickstart.md
+          - name: Reference applications
+            href: UCMA/reference-applications.md
+            items:
+            - name: Contact Center (sample)
+              href: UCMA/contact-center-sample.md
+            - name: Voice Companion (sample)
+              href: UCMA/voice-companion-sample.md
+            - name: Build a Bot (sample)
+              href: UCMA/build-a-bot-sample.md
+              items:
+              - name: Setting up the development environment
+                href: UCMA/setting-up-the-development-environment.md
+              - name: Creating a generic bot
+                href: UCMA/creating-a-generic-bot.md
+              - name: Creating a Skype for Business bot
+                href: UCMA/creating-a-skype-for-business-bot.md
+              - name: Creating an Excel bot
+                href: UCMA/creating-an-excel-bot.md
+            - name: Visual IVR (sample)
+              href: UCMA/visual-ivr-sample.md
     - name: Skype for Business SDN Interface
       href: SDN/articles/skype-for-business-sdn-interface.md
       items:
