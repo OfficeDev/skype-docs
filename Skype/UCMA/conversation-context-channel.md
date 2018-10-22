@@ -79,7 +79,7 @@ To create a **ConversationContextChannel** instance, call its constructor with t
 
 Next, register for events on the channel. The following example creates a **ConversationContextChannel** instance.
 
-``` csharp
+```csharp
 conversationContextChannel = new ConversationContextChannel(conversation, remoteParticipantEndpoint); 
 // Register for changes in state. 
 conversationContextChannel.StateChanged += this.conversationContextChannel_StateChanged; 
@@ -93,7 +93,7 @@ A **ConversationContextChannel** instance can be established only if the convers
 
 The following example shows the steps involved in establishing a **ConversationContextChannel** instance.
 
-``` csharp
+```csharp
 ConversationContextChannelEstablishOptions establishOptions = new ConversationContextChannelEstablishOptions(); 
 // Pass the name for your application. The remote endpoint uses this name to display messages
 // about your application. For example if the application is not 
@@ -154,7 +154,7 @@ After the channel is established it can be used to send or receive data. To send
 
 The following example shows a typical call to **BeginSendData**, and the outline of a handler for the **DataReceived** event.
 
-``` csharp
+```csharp
 conversationContextChannel.BeginSendData( 
         new System.Net.Mime.ContentType(″application/myApplication+xml″), 
         new ASCIIEncoding().GetBytes(myDataString), 

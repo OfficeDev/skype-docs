@@ -39,7 +39,7 @@ Developers can use the key features listed in this topic to create multimodal an
 
   - Platform extensibility by means of the factory-based [Call](https://msdn.microsoft.com/en-us/library/hh384235\(v=office.16\)) and [MediaProvider](https://msdn.microsoft.com/en-us/library/hh383767\(v=office.16\)) classes.
     
-    Developers can extend the platform to handle a new media type by creating custom **Call**, **MediaProvider**, and [MediaFlow](https://msdn.microsoft.com/en-us/library/hh366262\(v=office.16\)) subclasses that work with the new media type.
+    Developers can extend the platform to handle a new media type by creating custom **Call**, **MediaProvider**, and [MediaFlow](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.componentmodel.mediaflow?view=ucma-api) subclasses that work with the new media type.
 
 ## Offline conference scheduling and management
 
@@ -53,7 +53,7 @@ Developers can use the key features listed in this topic to create multimodal an
 
 ## Contacts and groups
 
-The following features apply only to [UserEndpoint](https://msdn.microsoft.com/en-us/library/hh348819\(v=office.16\)) type, not the [ApplicationEndpoint](https://msdn.microsoft.com/en-us/library/hh384825\(v=office.16\)) type:
+The following features apply only to [UserEndpoint](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.userendpoint?view=ucma-api) type, not the [ApplicationEndpoint](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.applicationendpoint?view=ucma-api) type:
 
   - Contact object registration
 

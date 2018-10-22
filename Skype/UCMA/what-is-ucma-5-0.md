@@ -10,10 +10,9 @@ mtps_version: v=office.16
 
 # What is UCMA 5.0
 
-
 **Applies to**: Skype for Business 2015
 
-Microsoft Unified Communications Managed API 5.0 is used primarily to build middle-tier applications that work with .
+Microsoft Unified Communications Managed API 5.0 enables developers to build applications that leverage the full power of the platform. Applications built on UCMA 5.0 incorporate unified communications concepts such as presence, call, conversation, and conference.
 
 UCMA 4.0 provides a flexible managed-code platform for unified communication and collaboration that allows developers to implement communication-enabled and collaboration-enabled services against Skype for Business Server 2015.
 
@@ -23,13 +22,13 @@ UCMA 4.0 provides a flexible managed-code platform for unified communication and
 
 - The platform is multilayered, with different levels of abstraction, as shown in the following illustration. The components that make up the platform are shown in the blue blocks.
     
-  - Unified Communications and Collaboration protocol layer (UCMA 5.0). The classes in this layer are exposed in the [Microsoft.Rtc.Collaboration](https://msdn.microsoft.com/en-us/library/hh384297\(v=office.16\)) namespace. The protocols include Enhanced Presence, Centralized Conference Control Protocol (C3P), Contacts and Groups, and Call Control.
+  - Unified Communications and Collaboration protocol layer (UCMA 5.0). The classes in this layer are exposed in the [Microsoft.Rtc.Collaboration](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration?view=ucma-api) namespace. The protocols include Enhanced Presence, Centralized Conference Control Protocol (C3P), Contacts and Groups, and Call Control.
         
     The **Microsoft.Speech** namespace can be used to provide speech recognition and speech synthesis capabilities in UCMA 5.0 applications.
         
-    Interactive Voice Response (IVR) applications that can optionally use Voice XML can be created from classes contained in the [Microsoft.Rtc.Collaboration.AudioVideo.VoiceXml](https://msdn.microsoft.com/en-us/library/gg452705\(v=office.16\)) and **Microsoft.Speech.VoiceXml** namespaces (Microsoft.Rtc.Collaboration.AudioVideo.VoiceXml.dll and Microsoft.Speech.VoiceXml.dll, respectively). For more information, see [VoiceXML support in UCMA 5.0](voicexml-support-in-ucma-5-0.md).
+    Interactive Voice Response (IVR) applications that can optionally use Voice XML can be created from classes contained in the [Microsoft.Rtc.Collaboration.AudioVideo.VoiceXml](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.voicexml?view=ucma-voice) and **Microsoft.Speech.VoiceXml** namespaces (Microsoft.Rtc.Collaboration.AudioVideo.VoiceXml.dll and Microsoft.Speech.VoiceXml.dll, respectively). For more information, see [VoiceXML support in UCMA 5.0](voicexml-support-in-ucma-5-0.md).
     
-  - Signaling layer. This layer provides access to the SIP/SIMPLE infrastructure. The classes in this layer are exposed in the [Microsoft.Rtc.Signaling](https://msdn.microsoft.com/en-us/library/hh365949\(v=office.16\)) namespace.
+  - Signaling layer. This layer provides access to the SIP/SIMPLE infrastructure. The classes in this layer are exposed in the [Microsoft.Rtc.Signaling](https://docs.microsoft.com/dotnet/api/microsoft.rtc.signaling?view=ucma-api) namespace.
         
     The Audio stack is used by some classes in UCMA 5.0, but does not expose any public classes.
     
@@ -40,7 +39,7 @@ UCMA 4.0 provides a flexible managed-code platform for unified communication and
 
 - The platform is highly scalable.
     
-  The platform is able to support thousands of endpoints and concurrent communications and collaborations. The platform is designed for server operating systems (the recommended operating systems are Microsoft Windows Server 2008 SP2 64-bit or Windows Server 2008 R2), and is multi-threaded.
+  The platform is able to support thousands of endpoints and concurrent communications and collaborations. The platform is designed for server operating systems (the recommended operating systems are Windows Server 2008 SP2 64-bit or Windows Server 2008 R2), and is multi-threaded.
 
 - The platform provides high availability.
     

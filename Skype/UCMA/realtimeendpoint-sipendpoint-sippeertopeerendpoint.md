@@ -53,7 +53,7 @@ For user authentication, **SipEndpoint** supports NTLM and Kerberos authenticati
 
 A client application might need to enable support the forking of incoming messages when registering the endpoint with Skype for Business Server 2015. This involves calling the **BeginRegister** method on a **SipEndpoint** instance and passing in a specific header, as in the following code example.
 
-``` csharp
+```csharp
 List<SignalingHeader> headers = new List<SignalingHeader>();
 headers.Add(SignalingHeader.MicrosoftSupportedForking);
 sipEndpoint.BeginRegister(headers, registerCallback, null);

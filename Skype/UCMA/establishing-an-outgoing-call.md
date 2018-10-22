@@ -26,7 +26,7 @@ The following sample demonstrates creating a new audio/video conversation, imple
 
 
 
-``` csharp
+```csharp
 // Set up the conversation and place the call.
 ConversationSettings convSettings = new ConversationSettings();
 convSettings.Priority = conversationPriority;

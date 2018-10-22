@@ -27,7 +27,7 @@ For UCMA 5.0 SDK applications that require optimal server performance and scalab
 
 The following code shows a handler for the **AudioVideoFlowConfigurationRequested** event on an **AudioVideoCall** instance. The handler can be used for incoming and outgoing audio/video calls. In this code example, the **UseHighPerformance** property is set to true, thereby selecting server performance over audio quality.
 
-``` csharp
+```csharp
 private void UserAvCall_AudioVideoFlowConfigurationRequested(object sender, AudioVideoFlowConfigurationRequestedEventArgs e)
 {
   AudioVideoCall call = sender as AudioVideoCall;

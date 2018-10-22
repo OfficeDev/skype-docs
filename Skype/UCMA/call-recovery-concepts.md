@@ -19,7 +19,7 @@ If the SIP route between endpoints has failed, the Skype for Business Server 201
 
 In the UCMA 5.0 layer, an endpoint is set by default to **MaximumRetry**, one of the values of the [RouteSetRecoveryMode](https://msdn.microsoft.com/en-us/library/hh382127\(v=office.16\)) enumeration. In the signaling layer, however, an application has a number of High Availability modes to choose from. An endpoint can be set with one of these modes as shown in the following example.
 
-``` csharp
+```csharp
 RealTimeEndpoint rte = applicationEndpoint.InnerEndpoint;
 rte.ApplyRouteSetRecoverySettings(new RouteSetRecoverySettings(RouteSetRecoverMode.LimitedRetry));
 ```

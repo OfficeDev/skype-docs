@@ -17,7 +17,7 @@ dev_langs:
 
 To listen for incoming calls, an application must register the handler with [RegisterForIncomingCall\<TCall\>](https://msdn.microsoft.com/en-us/library/hh382399\(v=office.16\)). When an incoming INVITE is received on an endpoint, the endpoint uses the factory to create the appropriate type of call and raise the event to the application. The application can call [BeginAccept()](https://msdn.microsoft.com/en-us/library/hh383161\(v=office.16\)) to accept the call, or [Decline()](https://msdn.microsoft.com/en-us/library/hh348897\(v=office.16\)) to decline the call. If the incoming call contains MIME parts, the application must specify the accepted Content-ID values list on the call to **BeginAccept**.
 
-``` csharp
+```csharp
 //Register the event handler to receive the incoming AudioVideoCall.
 endpoint.RegisterForIncomingCall<AudioVideoCall>(Endpoint_CallReceived);
 

@@ -83,7 +83,7 @@ The values of the [PrivacyMode](https://msdn.microsoft.com/en-us/library/hh38290
 </table>
 
 
-A user endpoint can update its privacy mode using the [BeginUpdatePrivacyPreference(PrivacyModePreference, AsyncCallback, Object)](https://msdn.microsoft.com/en-us/library/hh382158\(v=office.16\)) and [EndUpdatePrivacyPreference(IAsyncResult)](https://msdn.microsoft.com/en-us/library/hh383237\(v=office.16\)) methods that are available from the [PresenceServices](https://msdn.microsoft.com/en-us/library/hh349242\(v=office.16\)) property on the [UserEndpoint](https://msdn.microsoft.com/en-us/library/hh348819\(v=office.16\)) class.
+A user endpoint can update its privacy mode using the [BeginUpdatePrivacyPreference(PrivacyModePreference, AsyncCallback, Object)](https://msdn.microsoft.com/en-us/library/hh382158\(v=office.16\)) and [EndUpdatePrivacyPreference(IAsyncResult)](https://msdn.microsoft.com/en-us/library/hh383237\(v=office.16\)) methods that are available from the [PresenceServices](https://msdn.microsoft.com/en-us/library/hh349242\(v=office.16\)) property on the [UserEndpoint](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.userendpoint?view=ucma-api) class.
 
 The only constraint on UCMA 5.0 endpoints in participating in migration is that they must be subscribed to both [LocalOwnerPresence](https://msdn.microsoft.com/en-us/library/hh382370\(v=office.16\)) and [ContactGroupServices](https://msdn.microsoft.com/en-us/library/hh381099\(v=office.16\)). There is a tight coupling between these sessions, such that addition of a contact might require an Access Control Entry to be added in the local owner’s roaming data or vice-versa requiring both the data to be available for UCMA to perform the operation.
 

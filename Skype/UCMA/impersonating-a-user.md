@@ -21,7 +21,7 @@ Before adding calls to the conversation, the application must first indicate who
 
 The following code demonstrates impersonating the user specified by the first parameter. The second parameter specifies the phone number of the impersonated user, and the string "Help Desk" is the name that will be displayed for the impersonated user.
 
-``` csharp
+```csharp
 conversation.Impersonate("sip:helpdesk@xyz.com", "tel:+2341234678", "Help Desk"); 
 ```
 

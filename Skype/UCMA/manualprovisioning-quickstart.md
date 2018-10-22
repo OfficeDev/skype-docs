@@ -27,7 +27,7 @@ In comparison to automatic provisioning, manual provisioning has several limitat
 
 For more information about provisioning trusted applications and endpoints in Skype for Business Server 2015, see [Activating a UCMA 5.0 trusted application](activating-a-ucma-5-0-trusted-application.md), as well as [General application activation](general-application-activation.md) and [Activating a manually-provisioned application](activating-a-manually-provisioned-application.md).
 
-This sample demonstrates how to create a [CollaborationPlatform](https://msdn.microsoft.com/en-us/library/hh385176\(v=office.16\)) instance using the [ServerPlatformSettings](https://msdn.microsoft.com/en-us/library/hh382156\(v=office.16\)) constructor, establish a single [ApplicationEndpoint](https://msdn.microsoft.com/en-us/library/hh384825\(v=office.16\)) instance, and monitor the state changes on the endpoint.
+This sample demonstrates how to create a [CollaborationPlatform](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.collaborationplatform?view=ucma-api) instance using the [ServerPlatformSettings](https://msdn.microsoft.com/en-us/library/hh382156\(v=office.16\)) constructor, establish a single [ApplicationEndpoint](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.applicationendpoint?view=ucma-api) instance, and monitor the state changes on the endpoint.
 
 ## Features
 

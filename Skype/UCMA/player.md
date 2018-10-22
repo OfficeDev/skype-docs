@@ -17,7 +17,7 @@ dev_langs:
 
 
 
-The [Player](https://msdn.microsoft.com/en-us/library/hh349780\(v=office.16\)) class represents an entity that is capable of playing media to one or more media flows, and as such, provides a simple, scalable way to play an audio segment in a Windows Media Audio (WMA) file to multiple listeners. A **Player** instance renders the media that is represented by an instance of a subclass of the [MediaSource](https://msdn.microsoft.com/en-us/library/hh348635\(v=office.16\)) abstract base class. The output from a **Player** instance goes to one or more [AudioVideoFlow](https://msdn.microsoft.com/en-us/library/hh383533\(v=office.16\)) instances.
+The [Player](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.player?view=ucma-api) class represents an entity that is capable of playing media to one or more media flows, and as such, provides a simple, scalable way to play an audio segment in a Windows Media Audio (WMA) file to multiple listeners. A **Player** instance renders the media that is represented by an instance of a subclass of the [MediaSource](https://msdn.microsoft.com/en-us/library/hh348635\(v=office.16\)) abstract base class. The output from a **Player** instance goes to one or more [AudioVideoFlow](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiovideoflow?view=ucma-api) instances.
 
 A **Player** acts as a pointer to a **MediaSource** object, and determines the current position to play in the media.
 
@@ -68,7 +68,7 @@ The **Player** class is scalable. In buffered mode, the **MediaSource** caches e
 
 ## Example – using a player
 
-The following code example shows the steps involved in using a [Player](https://msdn.microsoft.com/en-us/library/hh349780\(v=office.16\)).
+The following code example shows the steps involved in using a [Player](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.player?view=ucma-api).
 
 
 > [!WARNING]
@@ -106,7 +106,7 @@ The essential points of creating and using a **Player** instance are shown in th
 
 <!-- end list -->
 
-``` csharp
+```csharp
 public void Run()
 {
   // Initialize and start the platform.

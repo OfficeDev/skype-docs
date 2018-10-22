@@ -53,7 +53,7 @@ The **SipUriParser** class provides properties and methods to access data contai
 
 The following example constructs a SIP URI using the constructor on the **SipUriParser** class.
 
-``` csharp
+```csharp
 SipUriParser p = new SipUriParser("sip:someone@example.com:2020;maddr=10.0.0.20?replaces=somebodyelse%40example.com%3Btotag%3Dadf1713ab");
 ```
 
@@ -61,7 +61,7 @@ SipUriParser p = new SipUriParser("sip:someone@example.com:2020;maddr=10.0.0.20?
 
 In the following example, the [Host](https://msdn.microsoft.com/en-us/library/hh349142\(v=office.16\)), [HostAndPort](https://msdn.microsoft.com/en-us/library/hh381626\(v=office.16\)), [Port](https://msdn.microsoft.com/en-us/library/hh384973\(v=office.16\)), [User](https://msdn.microsoft.com/en-us/library/hh384004\(v=office.16\)), and [UserAtHost](https://msdn.microsoft.com/en-us/library/hh349890\(v=office.16\)) properties on the **SipUriParser** instance are used to extract the similarly named components of the URI specified in the **SipUriParser** constructor.
 
-``` csharp
+```csharp
 SipUriParser p = new SipUriParser("sip:someone@example.com:2020");
 string uriHost = p.Host;
 string uriHostAndPort = p.HostAndPort;
@@ -74,7 +74,7 @@ string uriUserAtHost = p.UserAtHost;
 
 The following example uses the [FindParameter(String)](https://msdn.microsoft.com/en-us/library/hh384282\(v=office.16\)) method to access the *maddr* parameter value in the specified URI.
 
-``` csharp
+```csharp
 SipUriParser p = new SipUriParser("sip:someone@example.com:2020;maddr=10.0.0.20");
 SipUriParameter param = p.FindParameter("maddr");
 ```
@@ -83,7 +83,7 @@ SipUriParameter param = p.FindParameter("maddr");
 
 The following example uses the [FindHeader(String)](https://msdn.microsoft.com/en-us/library/hh349374\(v=office.16\)) method to access the *Replaces* header in the specified URI.
 
-``` csharp
+```csharp
 SipUriParser p = new SipUriParser("sip:someone@example.com:2020;maddr=10.0.0.20?replaces=somebodyelse%40example.com%3Btotoag%3Dadf1713ab");
 SignalingHeader header = p.FindHeader("replaces");
 ```

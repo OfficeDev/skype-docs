@@ -10,12 +10,11 @@ mtps_version: v=office.16
 
 # Connecting to audio resources in UCMA 5.0
 
-
 **Applies to**: Skype for Business 2015
 
-A hosting .NET application uses the **SetAudioVideoCall()** method to bind an instance of the [Browser](https://msdn.microsoft.com/en-us/library/gg452712\(v=office.16\)) with an [AudioVideoCall](https://msdn.microsoft.com/en-us/library/hh383901\(v=office.16\)) object.
+A hosting .NET application uses the **SetAudioVideoCall()** method to bind an instance of the [Browser](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.voicexml.browser?view=ucma-voice) with an [AudioVideoCall](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiovideocall?view=ucma-api) object.
 
-An [AudioVideoCall](https://msdn.microsoft.com/en-us/library/hh383901\(v=office.16\)) object contains an instance of [AudioVideoFlow](https://msdn.microsoft.com/en-us/library/hh383533\(v=office.16\)), which includes the audio devices in Microsoft Unified Communications Managed API 5.0 that will be used to record audio, play audio, send and receive telephone keypad tones, and connect to speech engines that convert spoken utterances into text and convert text into synthesized speech during the processing of a call. For more information about the audio devices in UCMA 5.0, see [AudioVideoFlow](https://msdn.microsoft.com/en-us/library/hh383533\(v=office.16\)).
+An **AudioVideoCall** object contains an instance of [AudioVideoFlow](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiovideoflow?view=ucma-api), which includes the audio devices in Microsoft Unified Communications Managed API 5.0 that will be used to record audio, play audio, send and receive telephone keypad tones, and connect to speech engines that convert spoken utterances into text and convert text into synthesized speech during the processing of a call. 
 
-The .NET application must ensure that the call is established and is active prior to calling **SetAudioVideoCall()**. After the call to the **SetAudioVideoCall** method has been made, the .Net application can launch the [Browser](https://msdn.microsoft.com/en-us/library/gg452712\(v=office.16\)).
+The .NET application must ensure that the call is established and is active prior to calling **SetAudioVideoCall()**. After the call to the **SetAudioVideoCall** method has been made, the .Net application can launch the Browser.
 

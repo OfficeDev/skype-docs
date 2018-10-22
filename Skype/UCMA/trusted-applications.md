@@ -17,9 +17,9 @@ A typical Microsoft Unified Communications Managed API 5.0 application is truste
 
 There are two types of trusted applications. The two types differ by the type of endpoint used:
 
-  - Communication-enabled and collaboration-enabled applications use [ApplicationEndpoint](https://msdn.microsoft.com/en-us/library/hh384825\(v=office.16\)).
+  - Communication-enabled and collaboration-enabled applications use [ApplicationEndpoint](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.applicationendpoint?view=ucma-api).
 
-  - Middle-tier client applications that emulate Skype for Business 2015 use [UserEndpoint](https://msdn.microsoft.com/en-us/library/hh348819\(v=office.16\)).
+  - Middle-tier client applications that emulate Skype for Business 2015 use [UserEndpoint](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.userendpoint?view=ucma-api).
 
 ## Communication-enabled and collaboration-enabled applications
 

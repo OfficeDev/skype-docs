@@ -28,7 +28,7 @@ The associated conversation monitors and manages the call, relays state informat
 
 The following code demonstrates how to add an IM call to a conversation.
 
-``` csharp
+```csharp
 InstantMessagingCall imCall = new InstantMessagingCall(conversation);
 ```
 
@@ -40,7 +40,7 @@ As with adding an instant messaging call, the remote participant for the call is
 
 The following code demonstrates how to add audio to a conversation.
 
-``` csharp
+```csharp
 AudioVideoCall avCall = new AudioVideoCall(conversation);
 ```
 

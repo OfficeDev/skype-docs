@@ -13,9 +13,9 @@ mtps_version: v=office.16
 
 **Applies to**: Skype for Business 2015
 
-The endpoint (an [ApplicationEndpoint](https://msdn.microsoft.com/en-us/library/hh384825\(v=office.16\)) or [UserEndpoint](https://msdn.microsoft.com/en-us/library/hh348819\(v=office.16\)) instance) plays a central role in Microsoft Unified Communications Managed API 5.0 because of the access it provides to the communication and collaboration infrastructure.
+The endpoint (an [ApplicationEndpoint](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.applicationendpoint?view=ucma-api) or [UserEndpoint](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.userendpoint?view=ucma-api) instance) plays a central role in Microsoft Unified Communications Managed API 5.0 because of the access it provides to the communication and collaboration infrastructure.
 
-After a [CollaborationPlatform](https://msdn.microsoft.com/en-us/library/hh385176\(v=office.16\)) instance is created, it can be used to create one or more endpoints. An endpoint can then be used to create a conversation, schedule an upcoming conference, publish presence information to others, subscribe to the presence of other parties, manage your contacts, or collect related contacts into groups.
+After a [CollaborationPlatform](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.collaborationplatform?view=ucma-api) instance is created, it can be used to create one or more endpoints. An endpoint can then be used to create a conversation, schedule an upcoming conference, publish presence information to others, subscribe to the presence of other parties, manage your contacts, or collect related contacts into groups.
 
 ## Communication framework
 

@@ -17,7 +17,7 @@ dev_langs:
 
 
 
-After creating subclasses of the [Call](https://msdn.microsoft.com/en-us/library/hh384235\(v=office.16\)), [MediaProvider](https://msdn.microsoft.com/en-us/library/hh383767\(v=office.16\)), and [MediaFlow](https://msdn.microsoft.com/en-us/library/hh366262\(v=office.16\)) classes, you must create factory classes for the **Call** and **MediaProvider** subclasses. These factory classes are subclasses of the [CallFactory](https://msdn.microsoft.com/en-us/library/hh384820\(v=office.16\)) and [MediaProviderFactory](https://msdn.microsoft.com/en-us/library/hh382428\(v=office.16\)) abstract classes. These factory classes create instances of the **Call** and **MediaProvider** subclasses that you created previously. After the factory classes are created, they must be registered with the platform. If the custom media type is replacing an existing media type, the existing extension must be unregistered first. If the custom media type is not replacing an existing media type, applications should be designed to attempt to remove the media type before adding it.
+After creating subclasses of the [Call](https://msdn.microsoft.com/en-us/library/hh384235\(v=office.16\)), [MediaProvider](https://msdn.microsoft.com/en-us/library/hh383767\(v=office.16\)), and [MediaFlow](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.componentmodel.mediaflow?view=ucma-api) classes, you must create factory classes for the **Call** and **MediaProvider** subclasses. These factory classes are subclasses of the [CallFactory](https://msdn.microsoft.com/en-us/library/hh384820\(v=office.16\)) and [MediaProviderFactory](https://msdn.microsoft.com/en-us/library/hh382428\(v=office.16\)) abstract classes. These factory classes create instances of the **Call** and **MediaProvider** subclasses that you created previously. After the factory classes are created, they must be registered with the platform. If the custom media type is replacing an existing media type, the existing extension must be unregistered first. If the custom media type is not replacing an existing media type, applications should be designed to attempt to remove the media type before adding it.
 
 The skills required for creating the factory classes are more extensive than those required for registering these classes with the platform. The two sections that follow describe how to register and unregister platform extensions, and provide tips on managing media types. These tasks can be allocated to less experienced developers. The last section in this topic describes how to create the factory classes, a task that should be assigned to more experienced developers.
 
@@ -63,7 +63,7 @@ Platform extension media types match the media types that can be found on the "m
 
 Before registering an extension that supports existing media types, the application should call UnregisterPlatformExtension to clear the old extension that handled that media type, and then register the new extension, using RegisterPlatformExtension. The following example shows how to replace an existing audio extension.
 
-``` csharp
+```csharp
 ContosoMediaProviderFactory factory = new ContosoMediaProviderFactory();
 
 platform.UnregisterPlatformExtension(factory.ExtensionType, MediaType.Audio);
@@ -94,7 +94,7 @@ The **MediaTypes** property returns a list of all of the media types that are su
 
 A **Create** method defined on an instance of the **CallFactory** subclass is used to create an instance of a new **Call** subclass. Similarly, a **Create** method defined on an instance of the **MediaProviderFactory** subclass is used to create an instance of a new **MediaProvider** subclass. In either case, the particular type of instance that is created depends on the media types and additional information specified when **Create** is called. The **Create** method you implement on a subclass of **CallFactory** or **MediaProviderFactory** has the following declaration:
 
-``` csharp
+```csharp
 public object Create(IEnumerable<string> mediaTypes, FactoryContext context);
 ```
 

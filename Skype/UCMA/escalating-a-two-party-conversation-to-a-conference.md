@@ -25,7 +25,7 @@ An application can escalate a two-party IM conversation to a conference conversa
 
 The following code demonstrates escalating an IM conversation to a conference.
 
-``` csharp
+```csharp
 conversation.BeginEscalateToConference(Conference_EscalationCompleted, conferenceSession);
 ```
 
@@ -39,13 +39,13 @@ When an application is in a two-party IM conversation, a remote participant can 
 
 The following example shows how to register to receive notifications of incoming escalation requests. In this example, the application registers a handler for the [EscalateToConferenceRequested](https://msdn.microsoft.com/en-us/library/hh366360\(v=office.16\)) event.
 
-``` csharp
+```csharp
 conversation.EscalateToConferenceRequested += this.Conversation_EscalateToConferenceRequested;
 ```
 
 The following code demonstrates responding to an incoming escalation request.
 
-``` csharp
+```csharp
 void Conversation_EscalateToConferenceRequested(object sender, EscalateToConferenceRequestedEventArgs e)
 {
   Conversation conversation = sender as Conversation;

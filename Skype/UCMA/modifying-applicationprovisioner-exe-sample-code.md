@@ -19,7 +19,7 @@ The ApplicationProvisioner.exe sample code that shipped with UCMA 2.0 SDK can be
 
 The file that must be changed is Application.cs, which is located in the %Program Files%\\Microsoft Office Communications Server 2007 R2\\UCMA SDK 2.0\\Sample Applications\\ApplicationProvisioner\\ApplicationProvisioning\\ directory. The code that must be changed is in the **GetApplication** method in Application.cs. The change entails adding a second Boolean expression in the second if statement. The **GetApplication** method, with modification, is shown in the following code example.
 
-``` csharp
+```csharp
 /// <summary>
 /// Gets the collection of TrustedApplication objects representing each pool for the application.
 /// </summary>

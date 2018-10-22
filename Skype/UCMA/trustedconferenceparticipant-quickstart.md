@@ -35,9 +35,7 @@ The application establishes an application endpoint and impersonates a user who 
 
 ## Prerequisites
 
-  - .
-
-  - Provisioned trusted [ApplicationEndpoint](https://msdn.microsoft.com/en-us/library/hh384825\(v=office.16\)) object
+  - Provisioned trusted [ApplicationEndpoint](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.applicationendpoint?view=ucma-api) object
 
   - A currently logged-on client on Skype for Business Server 2015.
 

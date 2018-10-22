@@ -10,14 +10,11 @@ mtps_version: v=office.16
 
 # Visual IVR (sample)
 
-
 Sample name: VisualIVR
 
 Sample location: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\Reference\\VisualIVR
 
-## Description
-
 The sample creates a UCMA "bot" that extends an IVR by adding a graphical selection menu in the Lync Conversation Extension Window, which simplifies navigation before making a call.
 
-For more information, see [Microsoft Lync Dev Center](https://go.microsoft.com/fwlink/?linkid=201840).
+For more information, see [Microsoft Lync Dev Center](https://docs.microsoft.com/lync/lync-2013).
 

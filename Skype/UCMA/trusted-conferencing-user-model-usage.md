@@ -19,15 +19,15 @@ This topic provides the details of using the trusted conferencing user model in 
 
 ### To use the trusted conferencing user capability in an application
 
-1.  Create and start a [CollaborationPlatform](https://msdn.microsoft.com/en-us/library/hh385176\(v=office.16\)) instance.
+1.  Create and start a [CollaborationPlatform](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.collaborationplatform?view=ucma-api) instance.
 
-2.  Create and establish an [ApplicationEndpoint](https://msdn.microsoft.com/en-us/library/hh384825\(v=office.16\)) instance.
+2.  Create and establish an [ApplicationEndpoint](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.applicationendpoint?view=ucma-api) instance.
 
 3.  Create a [Conversation](https://msdn.microsoft.com/en-us/library/hh349224\(v=office.16\)) instance.
 
 4.  Join the [ConferenceSession](https://msdn.microsoft.com/en-us/library/hh349315\(v=office.16\)).
 
-5.  Create an [AudioVideoCall](https://msdn.microsoft.com/en-us/library/hh383901\(v=office.16\)) instance.
+5.  Create an [AudioVideoCall](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiovideocall?view=ucma-api) instance.
 
 6.  Establish the **AudioVideoCall** instance.
 
@@ -41,7 +41,7 @@ The steps in the preceding procedure are described in detail in the following se
 
 ### Creating and starting the CollaborationPlatform
 
-Create a server [CollaborationPlatform](https://msdn.microsoft.com/en-us/library/hh385176\(v=office.16\)) instance with MTLS, a server certificate, and a trusted service GRUU.
+Create a server [CollaborationPlatform](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.collaborationplatform?view=ucma-api) instance with MTLS, a server certificate, and a trusted service GRUU.
 
 
 > [!NOTE]
@@ -49,7 +49,7 @@ Create a server [CollaborationPlatform](https://msdn.microsoft.com/en-us/library
 
 
 
-``` csharp
+```csharp
 private void InitializePlatform()
 {
   // Create and start a server CollaborationPlatform instance.
@@ -90,7 +90,7 @@ private void PlatformStartupCompleted(IAsyncResult result)
 
 ### Establishing an ApplicationEndpoint instance
 
-The application then establishes an [ApplicationEndpoint](https://msdn.microsoft.com/en-us/library/hh384825\(v=office.16\)) instance.
+The application then establishes an [ApplicationEndpoint](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.applicationendpoint?view=ucma-api) instance.
 
 
 > [!NOTE]
@@ -98,7 +98,7 @@ The application then establishes an [ApplicationEndpoint](https://msdn.microsoft
 
 
 
-``` csharp
+```csharp
 // Given a CollaborationPlatform, initialize and register an Application Endpoint.
 private void InitializeRegisteredApplicationEndpoint()
 {
@@ -164,7 +164,7 @@ The application creates a [Conversation](https://msdn.microsoft.com/en-us/librar
 
 To join as a trusted user, the application must supply a [ConferenceJoinOptions](https://msdn.microsoft.com/en-us/library/hh385064\(v=office.16\)) instance to the [BeginJoin()](https://msdn.microsoft.com/en-us/library/hh349641\(v=office.16\)) method on the [ConferenceSession](https://msdn.microsoft.com/en-us/library/hh349315\(v=office.16\)) class, setting the [JoinMode](https://msdn.microsoft.com/en-us/library/hh384536\(v=office.16\)) property to **TrustedParticipant**. If the application has been configured correctly, it will be joined to the conference and will not appear in the roster of any Skype for Business 2015 clients. The following code sample shows how to accomplish this.
 
-``` csharp
+```csharp
 ConferenceJoinOptions options = new ConferenceJoinOptions();
 options.JoinMode = JoinMode.TrustedParticipant;
 
@@ -176,9 +176,9 @@ conversation.ConferenceSession.BeginJoin(
 
 ### Creating an AudioVideoCall instance
 
-The application now creates an [AudioVideoCall](https://msdn.microsoft.com/en-us/library/hh383901\(v=office.16\)) instance. It should set the [RemoveFromDefaultRouting](https://msdn.microsoft.com/en-us/library/hh349908\(v=office.16\)) property to true. This property can be accessed from the [AudioVideoMcuDialInOptions](https://msdn.microsoft.com/en-us/library/hh348625\(v=office.16\)) property on an [AudioVideoCallEstablishOptions](https://msdn.microsoft.com/en-us/library/hh382857\(v=office.16\)) instance.
+The application now creates an [AudioVideoCall](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiovideocall?view=ucma-api) instance. It should set the [RemoveFromDefaultRouting](https://msdn.microsoft.com/en-us/library/hh349908\(v=office.16\)) property to true. This property can be accessed from the [AudioVideoMcuDialInOptions](https://msdn.microsoft.com/en-us/library/hh348625\(v=office.16\)) property on an [AudioVideoCallEstablishOptions](https://msdn.microsoft.com/en-us/library/hh382857\(v=office.16\)) instance.
 
-``` csharp
+```csharp
 AudioVideoCallEstablishOptions callOptions = new AudioVideoCallEstablishOptions();
 callOptions.AudioVideoMcuDialInOptions.RemoveFromDefaultRouting = true; // Required
 
@@ -199,7 +199,7 @@ Before establishing the call, the application sets the [ApplicationContext](http
 
 
 
-``` csharp
+```csharp
 // The application sets the context to the ConversationParticipant instance of the user it represents.
 avCall.ApplicationContext = pstnUser1;
 avCall.AudioVideoFlowConfigurationRequested += ConfigurationRequested;
@@ -227,7 +227,7 @@ The platform is responsible for using the appropriate identity whenever an opera
 
 After the call is established, the application can specify custom audio routes to and from the call. The following example code demonstrates routing customization. Note that routing customization is valid only when the application has joined the conference as a trusted user and the call has been established. The following example demonstrates how to specify custom routing.
 
-``` csharp
+```csharp
 // This code demonstrates a personal virtual assistant (PVA) scenario with an incoming route that is DTMF enabled.
 List<OutgoingAudioRoute> outgoingRoutes = new List<OutgoingAudioRoute>();
 outgoingRoutes.Add(new OutgoingAudioRoute(pstnUser1Endpoint));
@@ -279,7 +279,7 @@ The application is now ready to serve its users. Generally speaking, the applica
 
 Using the TCU model, the application can issue commands within the context of other users who are unable to issue conference commands because they are not connected to the Focus (such as PSTN users). The following example demonstrates issuing a mute command in the context of a PSTN user.
 
-``` csharp
+```csharp
 MuteOptions options = new MuteOptions();
 options.Issuer = pstnUser1;
 

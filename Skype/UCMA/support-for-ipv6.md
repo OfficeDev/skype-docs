@@ -53,7 +53,7 @@ You can perform additional verification that your application is working properl
 
 ### Additional design considerations
 
-In addition to the points already discussed, there are two more items to consider. This first discusses IPv6 implications for the [CollaborationPlatform](https://msdn.microsoft.com/en-us/library/hh385176\(v=office.16\)) instance for your application, and the second discusses how the addition of IPv6 can affect load balancing and resiliency for your application.
+In addition to the points already discussed, there are two more items to consider. This first discusses IPv6 implications for the [CollaborationPlatform](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.collaborationplatform?view=ucma-api) instance for your application, and the second discusses how the addition of IPv6 can affect load balancing and resiliency for your application.
 
 #### Configuring the CollaborationPlatform
 
@@ -91,7 +91,7 @@ To give the best experience possible, follow these recommendations.
     
     1.  If you are working with [RealTimeEndpoint](https://msdn.microsoft.com/en-us/library/hh366081\(v=office.16\)) objects in your application, you can use the **\[M:Microsoft.Rtc.Signaling.RealTimeConnectionManager.DisableIpV6Support()\]** method.
     
-    2.  If you are using a [CollaborationPlatform](https://msdn.microsoft.com/en-us/library/hh385176\(v=office.16\)) object in your application, you can disable IPv6 support by setting the [IpV6SupportDisabled](https://msdn.microsoft.com/en-us/library/jj728958\(v=office.16\)) property on a [ServerPlatformSettings](https://msdn.microsoft.com/en-us/library/hh382156\(v=office.16\)) instance to true.
+    2.  If you are using a [CollaborationPlatform](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.collaborationplatform?view=ucma-api) object in your application, you can disable IPv6 support by setting the [IpV6SupportDisabled](https://msdn.microsoft.com/en-us/library/jj728958\(v=office.16\)) property on a [ServerPlatformSettings](https://msdn.microsoft.com/en-us/library/hh382156\(v=office.16\)) instance to true.
 
 ### Using IP Addresses instead of FQDNs; Configuring application instances consistently
 

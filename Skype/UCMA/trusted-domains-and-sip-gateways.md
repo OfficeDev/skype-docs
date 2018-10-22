@@ -17,7 +17,7 @@ dev_langs:
 
  
 
-Microsoft Unified Communications Managed API 5.0 is able to interoperate with third-party SIP peers such as IP-PBXs and SIP PSTN gateways. This topic describes the APIs on the [CollaborationPlatform](https://msdn.microsoft.com/en-us/library/hh385176\(v=office.16\)) and related classes that developers must understand when they create applications that interoperate with SIP gateways.
+Microsoft Unified Communications Managed API 5.0 is able to interoperate with third-party SIP peers such as IP-PBXs and SIP PSTN gateways. This topic describes the APIs on the [CollaborationPlatform](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.collaborationplatform?view=ucma-api) and related classes that developers must understand when they create applications that interoperate with SIP gateways.
 
 ## Configuring trusted domains for the CollaborationPlatform
 
@@ -27,13 +27,13 @@ UCMA 5.0 supports two modes of trusted domains as specified in the [TrustedDomai
 
 Most of the SIP messages and call flows in both **TrustedDomainMode** modes are of the same type. The principal differences involve header parsing and the filtering of headers in outgoing messages. These differences between these modes are described later in this topic.
 
-If a **CollaborationPlatform** instance is created with the TLS or MTLS transport type, the default behavior of the platform is to consider the first-hop proxy (specified in the [ProxyHost](https://msdn.microsoft.com/en-us/library/hh381683\(v=office.16\)) property on an [ApplicationEndpointSettings](https://msdn.microsoft.com/en-us/library/hh349433\(v=office.16\)) instance) to be a Lync Server 2010 server (**TrustedDomainMode.CommunicationsServer**). Unless specified by application writer (the application writer can use the [ConnectionContext](https://msdn.microsoft.com/en-us/library/hh380911\(v=office.16\)) property on a [CallEstablishOptions](https://msdn.microsoft.com/en-us/library/hh381079\(v=office.16\)) instance. to override this behavior), all outgoing messages and INVITE messages are routed to this first-hop proxy.
+If a **CollaborationPlatform** instance is created with the TLS or MTLS transport type, the default behavior of the platform is to consider the first-hop proxy (specified in the [ProxyHost](https://msdn.microsoft.com/en-us/library/hh381683\(v=office.16\)) property on an [ApplicationEndpointSettings](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.applicationendpointsettings?view=ucma-api) instance) to be a Lync Server 2010 server (**TrustedDomainMode.CommunicationsServer**). Unless specified by application writer (the application writer can use the [ConnectionContext](https://msdn.microsoft.com/en-us/library/hh380911\(v=office.16\)) property on a [CallEstablishOptions](https://msdn.microsoft.com/en-us/library/hh381079\(v=office.16\)) instance. to override this behavior), all outgoing messages and INVITE messages are routed to this first-hop proxy.
 
 UCMA 5.0 allows application writers to prepopulate all known trusted domains. This can be done by adding the known domains on the property [TrustedDomains](https://msdn.microsoft.com/en-us/library/hh348697\(v=office.16\)) property on a [ServerPlatformSettings](https://msdn.microsoft.com/en-us/library/hh382156\(v=office.16\)) instance when the **CollaborationPlatform** is constructed. The **TrustedDomains** property is similar to the obsolete **AllowedDomains** property on the **ServerPlatformSettings** class, except that developers can use the **TrustedDomains** property to choose the type of trusted domain for each entry. For incoming connections this property represents a list of computers that are allowed to make incoming connections, when mutual TLS is used. The subject or subject alternate names (SANs) in the certificate are matched against each [DomainName](https://msdn.microsoft.com/en-us/library/hh384107\(v=office.16\)) property (on the [TrustedDomain](https://msdn.microsoft.com/en-us/library/hh385045\(v=office.16\)) class) in the **TrustedDomains** collection. For outgoing connections domain names are matched with the fully qualified domain names specified in the connection context.
 
 The following code example demonstrates how to add two trusted domains in platform settings when a **CollaborationPlatform** instance is constructed.
 
-``` csharp
+```csharp
 private CollaborationPlatform CreateServerPlatform()
 {
   ServerPlatformSettings mySettings = new ServerPlatformSettings();
@@ -52,7 +52,7 @@ In some applications an application might not be aware of all trusted domains at
 
 The following example demonstrates an implementation of a handler for the **ConnectionAuthorizationRequested** event. In this event handler, an application selectively allows connections that match a specific domain name.
 
-``` csharp
+```csharp
 private void myConnectionAuthorizationRequested(object sender, 
 ConnectionAuthorizationRequestedEventArgs e)
 {
@@ -108,11 +108,11 @@ There are few differences in behavior between the **CommunicationsServer** and *
 
 ## Setting ConnectionContext on an outgoing call
 
-The default behavior of a **CollaborationPlatform** instance is to always route messages to the first-hop proxy that is specified in the [ProxyHost](https://msdn.microsoft.com/en-us/library/hh381683\(v=office.16\)) property in the [ApplicationEndpointSettings](https://msdn.microsoft.com/en-us/library/hh349433\(v=office.16\)) instance. An application writer who intends to route outgoing message to any destination host other than the first-hop proxy should set the [ConnectionContext](https://msdn.microsoft.com/en-us/library/hh380911\(v=office.16\)) property on the [CallEstablishOptions](https://msdn.microsoft.com/en-us/library/hh381079\(v=office.16\)) instance for the outgoing call.
+The default behavior of a **CollaborationPlatform** instance is to always route messages to the first-hop proxy that is specified in the [ProxyHost](https://msdn.microsoft.com/en-us/library/hh381683\(v=office.16\)) property in the [ApplicationEndpointSettings](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.applicationendpointsettings?view=ucma-api) instance. An application writer who intends to route outgoing message to any destination host other than the first-hop proxy should set the [ConnectionContext](https://msdn.microsoft.com/en-us/library/hh380911\(v=office.16\)) property on the [CallEstablishOptions](https://msdn.microsoft.com/en-us/library/hh381079\(v=office.16\)) instance for the outgoing call.
 
 The following code sample demonstrates setting connection context on an outgoing call, so that outgoing INVITE messages are routed to the gateway server specified in *options.ConnectionContext*.
 
-``` csharp
+```csharp
 Conversation conversation = new Conversation(myAppEndpoint);
 AudioVideoCall outgoingCall = new AudioVideoCall(conversation);
 CallEstablishOptions options = new CallEstablishOptions();

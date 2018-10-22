@@ -17,7 +17,7 @@ dev_langs:
 
 For an application that intends to wait for dialog healing, an event handler for the [RouteSetStatusChanged](https://msdn.microsoft.com/en-us/library/hh382697\(v=office.16\)) event should be patterned as shown in the following code example.
 
-``` csharp
+```csharp
 private void RouteSetStatusChangedHandler(object sender, RouteSetStatusChangedEventArgs e)
 {
   if(e.RouteSetStatus == RouteSetStatus.Recovering)

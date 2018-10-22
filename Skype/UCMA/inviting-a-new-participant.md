@@ -27,7 +27,7 @@ When an application receives an invitation, it is normally expected to accept th
 
 For most applications that send invitations, being able to detect whether the invitation was accepted is of utmost importance. The following example demonstrates how this can be done.
 
-``` csharp
+```csharp
 public void InviteToConference()
 {
   ConferenceInvitation invitation = new ConferenceInvitation(m_conversation);

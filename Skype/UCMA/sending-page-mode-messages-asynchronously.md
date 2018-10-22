@@ -17,7 +17,7 @@ dev_langs:
 
 The asynchronous call to send a page-mode message uses the **BeginSendMessage** … **EndSendMessage** pattern adopted in the .NET Framework, and recommended in this documentation. The pattern requires an application to supply a callback method that is invoked before the asynchronous operation finishes. This sample calls the [BeginSendMessage(MessageType, RealTimeAddress, ContentType, \[\], AsyncCallback, Object)](https://msdn.microsoft.com/en-us/library/hh161734\(v=office.16\)) overloaded method. The [EndSendMessage(IAsyncResult)](https://msdn.microsoft.com/en-us/library/hh382471\(v=office.16\)) method is called in the callback method, *CompleteSendMessage*.
 
-``` csharp
+```csharp
 RealTimeEndpoint endpoint = ...; // Assumed to be created elsewhere
 RealTimeAddress target = new RealTimeAddress("sip:bob@contoso.com");
 string msg = "Greetings!";

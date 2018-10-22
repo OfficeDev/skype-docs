@@ -17,7 +17,7 @@ dev_langs:
 
 
 
-A contact is a unified communication entity that is identified by a SIP URI. One or more contacts can be assembled into logical collections called groups. When a group is created, it is assigned a group ID, which is a server-assigned integer. The Contacts and Groups API in Microsoft Unified Communications Managed API 5.0 is available only for [UserEndpoint](https://msdn.microsoft.com/en-us/library/hh348819\(v=office.16\)) objects.
+A contact is a unified communication entity that is identified by a SIP URI. One or more contacts can be assembled into logical collections called groups. When a group is created, it is assigned a group ID, which is a server-assigned integer. The Contacts and Groups API in Microsoft Unified Communications Managed API 5.0 is available only for [UserEndpoint](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.userendpoint?view=ucma-api) objects.
 
 
 > [!NOTE]
@@ -67,7 +67,7 @@ Adding a contact to your contact list does not automatically indicate that their
 
 ## Managing contacts and groups
 
-The [ContactGroupServices](https://msdn.microsoft.com/en-us/library/hh383122\(v=office.16\)) property on a [UserEndpoint](https://msdn.microsoft.com/en-us/library/hh348819\(v=office.16\)) instance provides access to a [ContactGroupServices](https://msdn.microsoft.com/en-us/library/hh381099\(v=office.16\)) instance. The methods and properties on the **ContactGroupServices** instance can be used to manage the endpoint owner’s contacts and groups.
+The [ContactGroupServices](https://msdn.microsoft.com/en-us/library/hh383122\(v=office.16\)) property on a [UserEndpoint](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.userendpoint?view=ucma-api) instance provides access to a [ContactGroupServices](https://msdn.microsoft.com/en-us/library/hh381099\(v=office.16\)) instance. The methods and properties on the **ContactGroupServices** instance can be used to manage the endpoint owner’s contacts and groups.
 
 
 > [!NOTE]
@@ -79,7 +79,7 @@ The [ContactGroupServices](https://msdn.microsoft.com/en-us/library/hh383122\(v=
 
 The following code example shows how to use the **ContactGroupServices** property on a **UserEndpoint** instance to start a contacts and groups subscription. Also shown in this example are implementations of a callback method named *ContactGroupSubscriptionCompleted* and an event handler for the [NotificationReceived](https://msdn.microsoft.com/en-us/library/hh349964\(v=office.16\)) event.
 
-``` csharp
+```csharp
 // Set up contact and group services.
 ContactGroupServices cgServices = UserEndpoint.ContactGroupServices;
 // Register for the NotificationReceived event.
@@ -164,7 +164,7 @@ After a **ContactGroupServices** instance is successfully initialized with a sub
 
 The following code example shows the details involved in adding a new contact. The example also shows a callback method named *AddContactCompleted*.
 
-``` csharp
+```csharp
 try
 {
   cgServices.BeginAddContact(
@@ -205,7 +205,7 @@ The application can update a contact by first retrieving the cached contact, upd
 
 The cache is time-based and expires in five minutes if unused. On its next use it will be repopulated.
 
-``` csharp
+```csharp
 // Assume that the application wants to update the name of a contact. 
 try
 {
@@ -283,7 +283,7 @@ void UpdateContactCompleted(IAsyncResult asyncResult)
 
 The following example demonstrates how to tag a contact by adding XML to the [Contact](https://msdn.microsoft.com/en-us/library/hh381065\(v=office.16\)) object, which can be obtained from the [NotificationReceived](https://msdn.microsoft.com/en-us/library/hh349964\(v=office.16\)) event handler, and then publishing the modified **Contact** object.
 
-``` csharp
+```csharp
 // If the ContactExtension property has existing XML, keep the existing XML 
 // intact (to preserve information published by other endpoints), and
 // ensure that the "contactSettings" node is present (adjacent to the root
@@ -312,7 +312,7 @@ private void UpdateContactCallback(IAsyncResult result)
 
 The following code demonstrates how to untag a contact by removing XML from the **Contact** object, which can be obtained from the **NotificationReceived** event handler, and then publishing the modified **Contact** object.
 
-``` csharp
+```csharp
 // Remove the "tag" attribute from the "contactSettings" node from the
 // ContactExtension property.
 string originalExtensionXml = _contact.ContactExtension;
@@ -350,7 +350,7 @@ private void UpdateContactCallback(IAsyncResult result)
 
 The following code demonstrates how to add a distribution list to the endpoint’s contact list.
 
-``` csharp
+```csharp
 // Add a group using the following XML as the groupData and provide the name
 // and email address of the distribution group.
 string groupDataXml = "<groupExtension groupType=\"dg\"><email>" + groupEmailAddress + "</email></groupExtension>";

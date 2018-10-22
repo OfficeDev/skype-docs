@@ -21,7 +21,7 @@ A conversation can be created initially as a conference, or an existing two-part
 
 The following code demonstrates creating a conference session and then joining the conference.
 
-``` csharp
+```csharp
 ConferenceSession conferenceSession = conversation.ConferenceSession;
 ConferenceJoinOptions cjo = new ConferenceJoinOptions();
 cjo.JoinAsTrustedApplication = false;
@@ -40,7 +40,7 @@ Classes and methods in UCMA 5.0 enable an application to join a conference as a 
 
 ### Trusted join
 
-To join a conference as a trusted user, an application should set the [JoinMode](https://msdn.microsoft.com/en-us/library/hh384536\(v=office.16\)) property on a [ConferenceJoinOptions](https://msdn.microsoft.com/en-us/library/hh385064\(v=office.16\)) instance to **TrustedParticipant**, a value of the [JoinMode](https://msdn.microsoft.com/en-us/library/hh381559\(v=office.16\)) enumeration. The conversation must belong to an [ApplicationEndpoint](https://msdn.microsoft.com/en-us/library/hh384825\(v=office.16\)) instance that is provisioned with a trusted service GRUU.
+To join a conference as a trusted user, an application should set the [JoinMode](https://msdn.microsoft.com/en-us/library/hh384536\(v=office.16\)) property on a [ConferenceJoinOptions](https://msdn.microsoft.com/en-us/library/hh385064\(v=office.16\)) instance to **TrustedParticipant**, a value of the [JoinMode](https://msdn.microsoft.com/en-us/library/hh381559\(v=office.16\)) enumeration. The conversation must belong to an [ApplicationEndpoint](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.applicationendpoint?view=ucma-api) instance that is provisioned with a trusted service GRUU.
 
 ### Default join
 

@@ -37,11 +37,11 @@ The general call flow typical of a standalone interactive voice response (IVR) a
 
 UCMA-based IVR applications include the full power of Microsoft.Speech-based speech recognition, text-to-speech, and DTMF handling. A user can call a UCMA application, be connected to a custom IVR (which can be VoiceXML-based), provide his or her information to the IVR, and then be connected to streaming music-on-hold. Meanwhile, the information that the user provides is passed to the application, allowing the application to intelligently route the call, fetch information from external sources, and play customized messages to the user.
 
-  - The [Player](https://msdn.microsoft.com/en-us/library/hh349780\(v=office.16\)), [Recorder](https://msdn.microsoft.com/en-us/library/hh381624\(v=office.16\)), and [ToneController](https://msdn.microsoft.com/en-us/library/hh349643\(v=office.16\)) classes can be used to implement an IVR workflow that involves playing prerecorded prompts, handling DTMF tones, and recording audio.
+  - The [Player](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.player?view=ucma-api), [Recorder](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.recorder?view=ucma-api), and [ToneController](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.tonecontroller?view=ucma-api) classes can be used to implement an IVR workflow that involves playing prerecorded prompts, handling DTMF tones, and recording audio.
 
-  - The [Browser](https://msdn.microsoft.com/en-us/library/gg452712\(v=office.16\)) class can interpret VoiceXML code to implement workflow logic that involves TTS or speech recognition.
+  - The [Browser](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.voicexml.browser?view=ucma-voice) class can interpret VoiceXML code to implement workflow logic that involves TTS or speech recognition.
 
-  - Connector objects (the [SpeechRecognitionConnector](https://msdn.microsoft.com/en-us/library/hh383253\(v=office.16\)) and [SpeechSynthesisConnector](https://msdn.microsoft.com/en-us/library/hh349773\(v=office.16\)) classes) can be used to implement an application that involves TTS or speech recognition.
+  - Connector objects (the [SpeechRecognitionConnector](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.speechrecognitionconnector?view=ucma-api) and [SpeechSynthesisConnector](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.speechsynthesisconnector?view=ucma-api) classes) can be used to implement an application that involves TTS or speech recognition.
 
   - Recording and Music on Hold
     

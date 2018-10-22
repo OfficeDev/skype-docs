@@ -19,7 +19,7 @@ Conversations expose several events that can be useful to an application, and ma
 
 The following code demonstrates registering for the PropertiesChanged event and the implementation of a simple handler for this event.
 
-``` csharp
+```csharp
 conversation.PropertiesChanged += Conversation_PropertiesChanged;
 
 private void Conversation_PropertiesChanged(object sender, PropertiesChangedEventArgs<ConversationProperties> e)

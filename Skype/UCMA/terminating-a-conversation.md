@@ -19,7 +19,7 @@ The recommended way for an application can terminate a conversation is as follow
 
 The following code example demonstrates terminating an existing conversation.
 
-``` csharp
+```csharp
 Conversation conversation = new Conversation(endpoint);
 ...
 conversation.BeginTerminate(Conversation_TerminateCompleted, conversation);

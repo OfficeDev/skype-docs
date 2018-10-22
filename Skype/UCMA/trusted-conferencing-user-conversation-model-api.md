@@ -150,7 +150,7 @@ The [RouteUpdateOperation](https://msdn.microsoft.com/en-us/library/hh366418\(v=
 
 ### AudioVideoMcuRouting
 
-For UCMA 3.0, a new property was added to the [AudioVideoCall](https://msdn.microsoft.com/en-us/library/hh383901\(v=office.16\)) class-the [AudioVideoMcuRouting](https://msdn.microsoft.com/en-us/library/hh381149\(v=office.16\)) property. This property returns a reference to the **AudioVideoMcuRouting** instance associated with a given **AudioVideoCall** instance. This property is never null, but if the **AudioVideoMcuRouting** methods are called with invalid arguments (such as empty audio routes), these methods throw exceptions.
+For UCMA 3.0, a new property was added to the [AudioVideoCall](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiovideocall?view=ucma-api) class-the [AudioVideoMcuRouting](https://msdn.microsoft.com/en-us/library/hh381149\(v=office.16\)) property. This property returns a reference to the **AudioVideoMcuRouting** instance associated with a given **AudioVideoCall** instance. This property is never null, but if the **AudioVideoMcuRouting** methods are called with invalid arguments (such as empty audio routes), these methods throw exceptions.
 
 ### BeginEstablish
 

@@ -21,7 +21,7 @@ The cmdlets needed to create and manage Skype for Business Server 2015 trusted a
 
 The following example demonstrates how to invoke a Skype for Business Server 2015 trusted application cmdlet. Note that this code snippet should be compiled as a 64-bit application. Running Skype for Business Server 2015 Manageability cmdlets from 32-bit instances of Powershell is unsupported. If a 32-bit application is required, care must be taken to enable the execution of scripts for 32-bit PowerShell instances.
 
-``` csharp
+```csharp
 using System;
 using System.Collections.ObjectModel;
 using System.Management.Automation;

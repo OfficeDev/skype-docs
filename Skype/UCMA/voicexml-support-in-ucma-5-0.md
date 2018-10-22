@@ -16,18 +16,12 @@ Microsoft Unified Communications Managed API 5.0 supports Interactive Voice Resp
 
 A hosting .NET application authored in UCMA 5.0 can process the markup language in VoiceXML applications. UCMA 5.0 gives VoiceXML applications access to telephony and audio functionality that facilitates automated communication with callers.
 
-## In this section
-
 This section provides an introduction to the features that support VoiceXML applications in UCMA 5.0.
 
 - [Overview of VoiceXML support in UCMA 5.0](overview-of-voicexml-support-in-ucma-5-0.md)
-
 - [Diagram of a VoiceXML call](diagram-of-a-voicexml-call.md)
-
 - [VoiceXML browser](voicexml-browser.md)
-
 - [Connecting to audio resources in UCMA 5.0](connecting-to-audio-resources-in-ucma-5-0.md)
-
 - [Tasks of the host .NET application](tasks-of-the-host-net-application.md)
 
 ## See also

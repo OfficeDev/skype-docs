@@ -63,7 +63,7 @@ The following table lists the **MediaProvider** properties that define the behav
 
 ### Methods that handle SDP offer/answer negotiation
 
-A key role of a class derived from the **MediaProvider** class is to participate in SDP offer/answer negotiation for a **Call**. A typical **MediaProvider** subclass, such as the **AudioVideoProvider** class, also manages the [MediaFlow](https://msdn.microsoft.com/en-us/library/hh366262\(v=office.16\)) instance (media session) associated with the **Call**. This section describes the most important **MediaProvider** methods related to offer/answer negotiation.
+A key role of a class derived from the **MediaProvider** class is to participate in SDP offer/answer negotiation for a **Call**. A typical **MediaProvider** subclass, such as the **AudioVideoProvider** class, also manages the [MediaFlow](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.componentmodel.mediaflow?view=ucma-api) instance (media session) associated with the **Call**. This section describes the most important **MediaProvider** methods related to offer/answer negotiation.
 
 
 > [!NOTE]

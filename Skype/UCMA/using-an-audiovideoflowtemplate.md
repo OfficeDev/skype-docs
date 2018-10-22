@@ -12,20 +12,19 @@ dev_langs:
 
 # Using an AudioVideoFlowTemplate
 
-
 **Applies to**: Skype for Business 2015
 
-The [AudioVideoFlow](https://msdn.microsoft.com/en-us/library/hh383533\(v=office.16\)) class has no public constructors, but instead relies on settings in an [AudioVideoFlowTemplate](https://msdn.microsoft.com/en-us/library/hh349157\(v=office.16\)) instance to initialize or modify an **AudioVideoFlow** instance.
+The [AudioVideoFlow](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiovideoflow?view=ucma-api) class has no public constructors, but instead relies on settings in an [AudioVideoFlowTemplate](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiovideoflowtemplate?view=ucma-api) instance to initialize or modify an **AudioVideoFlow** instance.
 
-After an **AudioVideoFlowTemplate** instance has been created, its settings can be copied to an **AudioVideoFlow** instance by a call to the [Initialize](https://msdn.microsoft.com/en-us/library/hh381417\(v=office.16\)) method on the **AudioVideoFlow** class. This initialization must occur within the body of a handler for the [AudioVideoFlowConfigurationRequested](https://msdn.microsoft.com/en-us/library/hh383342\(v=office.16\)) event. Alternatively, an **AudioVideoFlowTemplate** instance can be set and then passed in a call to the [BeginApplyChanges](https://msdn.microsoft.com/en-us/library/hh384566\(v=office.16\)) method on the **AudioVideoFlow** class.
+After an **AudioVideoFlowTemplate** instance has been created, its settings can be copied to an **AudioVideoFlow** instance by a call to the [Initialize](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiovideoflow.initialize?view=ucma-api) method on the **AudioVideoFlow** class. This initialization must occur within the body of a handler for the [AudioVideoFlowConfigurationRequested](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiovideocall.audiovideoflowconfigurationrequested?view=ucma-api) event. Alternatively, an **AudioVideoFlowTemplate** instance can be set and then passed in a call to the [BeginApplyChanges](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiovideoflow.beginapplychanges?view=ucma-api#overloads) method on the **AudioVideoFlow** class.
 
 **AudioVideoFlowTemplate** and **AudioVideoFlow** instances are independent of one another. A new **AudioVideoFlowTemplate** instance can be created each time an **AudioVideoFlow** instance is to be set or modified, or a single **AudioVideoFlowTemplate** instance can be used to set or modify multiple **AudioVideoFlow** instances.
 
 ## Initializing an AudioVideoFlow instance
 
-The technique of calling [Initialize](https://msdn.microsoft.com/en-us/library/hh381417\(v=office.16\)) to initialize an **AudioVideoFlow** instance can be used only when the **AudioVideoFlow** is in the **Idle** state, and only within the body of a handler for the [AudioVideoFlowConfigurationRequested](https://msdn.microsoft.com/en-us/library/hh383342\(v=office.16\)) event.
+The technique of calling [Initialize](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiovideoflow.initialize?view=ucma-api) to initialize an **AudioVideoFlow** instance can be used only when the **AudioVideoFlow** is in the **Idle** state, and only within the body of a handler for the [AudioVideoFlowConfigurationRequested](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiovideocall.audiovideoflowconfigurationrequested?view=ucma-api) event.
 
-``` csharp
+```csharp
 AudioVideoFlow audioVideoFlow;
 ...
 
@@ -57,17 +56,15 @@ void audioVideoCall_StateChanged(object sender, CallStateChangedEventArgs e)
 
 
 > [!IMPORTANT]
-> <P>The <STRONG>AudioVideoFlowTemplate</STRONG> constructor throws <STRONG>InvalidOperationException</STRONG> if the state of its <STRONG>AudioVideoFlow</STRONG> parameter is in the <STRONG>Terminated</STRONG> state.</P>
-
-
+> The **AudioVideoFlowTemplate** constructor throws **InvalidOperationException** if the state of its **AudioVideoFlow** parameter is in the **Terminated** state.
 
 ## Modifying an AudioVideoFlowTemplate instance
 
 The settings of an **AudioVideoFlow** instance can also be changed by a call to **BeginApplyChanges**.
 
-In the following code example, which is shown only for purposes of illustration, it is assumed that *AVCall*, an [AudioVideoCall](https://msdn.microsoft.com/en-us/library/hh383901\(v=office.16\)) instance, previously has been created, and that the state of *audioVideoFlow* is **Active**.
+In the following code example, which is shown only for purposes of illustration, it is assumed that *AVCall*, an [AudioVideoCall](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiovideocall?view=ucma-api) instance, previously has been created, and that the state of *audioVideoFlow* is **Active**.
 
-``` csharp
+```csharp
 AudioVideoFlow audioVideoFlow;
 ...
 

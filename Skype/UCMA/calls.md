@@ -19,7 +19,7 @@ A call is a communication session between two endpoints: a local endpoint and a 
     
     An **InstantMessagingCall** instance is used in a communication session for which the media type is Message, or text.
 
-  - [AudioVideoCall](https://msdn.microsoft.com/en-us/library/hh383901\(v=office.16\)) class.
+  - [AudioVideoCall](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiovideocall?view=ucma-api) class.
     
     An **AudioVideoCall** instance is used in a communication session for which the media type is Audio.
     

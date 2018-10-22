@@ -17,7 +17,7 @@ dev_langs:
 
 The following code example shows how to send a simple text message synchronously in page mode. It is assumed that the endpoint is properly created and registered, if it is registration-based. In this example, the message is sent using a call to the [SendMessage(MessageType, RealTimeAddress, ContentType, \[\])](https://msdn.microsoft.com/en-us/library/hh349067\(v=office.16\)) method on the endpoint.
 
-``` csharp
+```csharp
 RealTimeEndpoint endpoint = ...; // Assumed to be created elsewhere
 RealTimeAddress target = new RealTimeAddress("sip:bob@contoso.com");
 string msg = "Greetings!";

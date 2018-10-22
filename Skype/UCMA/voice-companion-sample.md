@@ -1,6 +1,6 @@
 ﻿---
-title: Voice Companion (sample)
-TOCTitle: Voice Companion (sample)
+title: Voice companion (sample)
+TOCTitle: Voice companion (sample)
 ms:assetid: 4aa901e9-7de1-41cd-8978-49c832f15c07
 ms:mtpsurl: https://msdn.microsoft.com/en-us/library/Dn454820(v=office.16)
 ms:contentKeyID: 65240107
@@ -8,11 +8,9 @@ ms.date: 07/27/2015
 mtps_version: v=office.16
 ---
 
-# Voice Companion (sample)
-
+# Voice companion (sample)
 
 **Applies to**: Skype for Business 2015
-
 
 Sample name: VoiceCompanion
 
@@ -20,7 +18,7 @@ Sample location: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applicati
 
 ## Description
 
-Voice Companion application provides PSTN phone users with access to unified communications capabilities such as conferencing, presence, and contact lists.
+The VoiceCompanion application provides PSTN phone users with access to unified communications capabilities such as conferencing, presence, and contact lists.
 
 The following actions describe the main scenario:
 
@@ -36,39 +34,41 @@ This sample demonstrates how to create a **CollaborationPlatform** instance usin
 
 ## Available voice services
 
-  - Contact list service
+- Contact list service
     
-    Using this service, the user can be connected to users from his/her contact list via speech recognition. Before connecting the user to the contact, Voice Companion checks the contact presence status. If not available, the user is prompted with the option of setting a callback when the contact becomes available.
+  Using this service, the user can be connected to users from his/her contact list via speech recognition. Before connecting the user to the contact, Voice Companion checks the contact presence status. If not available, the user is prompted with the option of setting a callback when the contact becomes available.
 
-  - International number dial-up service.
+- International number dial-up service.
     
-    The PSTN phone user can dial an international phone number through her corporate network thereby potentially leveraging cheaper rates for business calls.
+  The PSTN phone user can dial an international phone number through her corporate network thereby potentially leveraging cheaper rates for business calls.
 
-  - Conferencing service
+- Conferencing service
     
-    The PSTN phone user can setup an ad-hoc conference and invite users to this conference either by selecting them from her contact list or entering a phone number. The PSTN user can do so without interrupting the conference (the PSTN user is isolated from the conference while being prompted).
+  The PSTN phone user can setup an ad-hoc conference and invite users to this conference either by selecting them from her contact list or entering a phone number. The PSTN user can do so without interrupting the conference (the PSTN user is isolated from the conference while being prompted).
 
 ## Setting up the application
 
-An application with ID "urn:application:voicecompanion" needs to be configured in the topology. For more information about provisioning trusted applications and endpoints in , see [Activating a UCMA 5.0 trusted application](activating-a-ucma-5-0-trusted-application.md), as well as [General application activation](general-application-activation.md) and [Activating a manually-provisioned application](activating-a-manually-provisioned-application.md).
+An application with ID "urn:application:voicecompanion" needs to be configured in the topology. For more information about provisioning trusted applications and endpoints, see [Activating a UCMA 5.0 trusted application](activating-a-ucma-5-0-trusted-application.md), as well as [General application activation](general-application-activation.md) and [Activating a manually-provisioned application](activating-a-manually-provisioned-application.md).
 
-PowerShell Commands - The following PowerShell commands are relevant for setting up the application:
+### PowerShell commands
 
-  - New-CsTrustedApplication
+The following PowerShell commands are relevant for setting up the application:
+
+- New-CsTrustedApplication
     
-    Create a new application in the topology. You need to assign a listening port for the application using this command.
+  Create a new application in the topology. You need to assign a listening port for the application using this command.
 
-  - New-CsTrustedApplicationPool
+- New-CsTrustedApplicationPool
     
-    Create a pool for this application. This is useful if you intend to run multiple application instances as the demand increases.
+  Create a pool for this application. This is useful if you intend to run multiple application instances as the demand increases.
 
-  - New-CsTrustedApplicationComputer
+- New-CsTrustedApplicationComputer
     
-    Create a computer in the pool created by the previous cmdlet.
+  Create a computer in the pool created by the previous cmdlet.
 
-  - New-CsTrustedApplicationEndpoint
+- New-CsTrustedApplicationEndpoint
     
-    Create the application endpoint for the application. Note that the same instance of the application endpoint can be run from different computers. However, any number of endpoints could be assigned to this application to allow different numbers to be used for contacting the application.
+  Create the application endpoint for the application. Note that the same instance of the application endpoint can be run from different computers. However, any number of endpoints could be assigned to this application to allow different numbers to be used for contacting the application.
 
 ### Firewall configuration
 
@@ -76,7 +76,9 @@ The application must listen for incoming connections from . This requires the po
 
 ### Reverse number lookup
 
-This sample program uses an XML file that stores the \<callerid, sipuri\> mappings. Initially, this file contains a sample entry. The reason for this design is to make user experience simpler by not having to enter the telephone number of the corresponding user. To simplify administration of this file, the sample uses subscription notification as a hint for adding the telephone numbers assigned to the user who added the application in his/her contact list. Users can also use IM calls with the application to add, remove, or list the telephone numbers. The application will update the file periodically (every hour) and when the application is shut down. If the application must be run on multiple computers, this file should be stored in a database so that any application can access it. This can be easily done by adding the required code to the sample.
+This sample program uses an XML file that stores the `<callerid, sipuri>` mappings. Initially, this file contains a sample entry. The reason for this design is to make user experience simpler by not having to enter the telephone number of the corresponding user. To simplify administration of this file, the sample uses subscription notification as a hint for adding the telephone numbers assigned to the user who added the application in his/her contact list. Users can also use IM calls with the application to add, remove, or list the telephone numbers. 
+
+The application will update the file periodically (every hour) and when the application is shut down. If the application must be run on multiple computers, this file should be stored in a database so that any application can access it. This can be easily done by adding the required code to the sample.
 
 ### Logging
 
@@ -84,7 +86,11 @@ The application supports a simple logging mechanism. See Program.cs to see how i
 
 ### User provisioning
 
-To use the application, users must know their PINs to authenticate themselves. Normally, a web site is used for setting up the PIN. Users can also use Microsoft Skype for Business 2015 to update their PIN. An administrator can use PowerShell to update the PIN as well, as in the following example. Set-CSClientPin -identity sip:user1@contoso.com -Pin 23567 It is possible to add the ability for a user to set his or her PIN using an IM call with the application. The application can use **UserEndpoint** to update the PIN. It is very important for the application to authenticate the user before updating the PIN.
+To use the application, users must know their PINs to authenticate themselves. Normally, a website is used for setting up the PIN. Users can also use Microsoft Skype for Business 2015 to update their PIN. An administrator can use PowerShell to update the PIN as well, as in the following example: 
+
+`Set-CSClientPin -identity sip:user1@contoso.com -Pin 23567` 
+
+It is possible to add the ability for a user to set his or her PIN by using an IM call with the application. The application can use **UserEndpoint** to update the PIN. It is very important for the application to authenticate the user before updating the PIN.
 
 ## Program design
 
@@ -96,7 +102,7 @@ Every component in the application derives from the **ComponentBase** base class
 
 ### AsyncResult
 
-There are a couple of classes that provide asynchronous implementation that are primarily used by the component base. Derived classes need not use them. Instead, it is much easier to use the **AsyncTask** class which is described below.
+There are a couple of classes that provide asynchronous implementation that are primarily used by the component base. Derived classes need not use them. Instead, it is much easier to use the **AsyncTask** class, which is described next.
 
 ### AsyncTask
 
@@ -138,17 +144,17 @@ This component is used to determine the list of contacts of the customer and the
 
 There are there voice services available for the customer:
 
-  - Get Contact Service
+- Get Contact Service
     
-    This service looks up the presence of the contact and offers a callback option to the customer if the contact is not immediately available.
+  This service looks up the presence of the contact and offers a callback option to the customer if the contact is not immediately available.
 
-  - International Dial-in Service
+- International Dial-in Service
     
-    This service provides a way to connect the customer with another phone number. When the call is business related, this service makes it possible to make the call as if had been made from within the corporate network. Note that the user identity is used to make the call.
+  This service provides a way to connect the customer with another phone number. When the call is business related, this service makes it possible to make the call as if had been made from within the corporate network. Note that the user identity is used to make the call.
 
-  - Conference Service
+- Conference Service
     
-    This service is used to make a conference call. The customer can bring a number of contacts and phone numbers into the conference by pressing \#1 and \#2 to perform these tasks. While performing these tasks, the application has the ability to interact only with the customer (others will not hear any of the interactions with the application).
+  This service is used to make a conference call. The customer can bring a number of contacts and phone numbers into the conference by pressing \#1 and \#2 to perform these tasks. While performing these tasks, the application has the ability to interact only with the customer (others will not hear any of the interactions with the application).
 
 ### Workflows
 
@@ -158,19 +164,19 @@ There are various workflows used in the application to accomplish the user exper
 
 The Voice Companion sample has the following known issues:
 
-  - Voice Companion throws a **NullReferenceException** if it receives a phone call from a user whose phone number is not in the reverse-number lookup list.
+- Voice Companion throws a **NullReferenceException** if it receives a phone call from a user whose phone number is not in the reverse-number lookup list.
     
-    Workaround: Configure Voice Companion with as many phone numbers as feasible.
+  Workaround: Configure Voice Companion with as many phone numbers as feasible.
 
-  - Voice Companion throws an **ArgumentException** if it receives an instant message from a user whose IM URI is not in the reverse-number lookup list.
+- Voice Companion throws an **ArgumentException** if it receives an instant message from a user whose IM URI is not in the reverse-number lookup list.
     
-    Workaround: Configure Voice Companion with as many IM URIs as feasible.
+  Workaround: Configure Voice Companion with as many IM URIs as feasible.
 
-  - Voice Companion is unable to add a URI and then remove it, in some circumstances.
+- Voice Companion is unable to add a URI and then remove it, in some circumstances.
     
-    If a user adds a URI to the reverse-number lookup list, and then removes a logically equivalent but not literally equivalent URI, Voice Companion is unable to complete the operation. For example, if a logged in user sends an instant message to Voice Companion with the text, add tel:+14255551212, and then later sends this text, remove 4255551212, Voice Companion responds with this message: Telephone number does not exist or you do not own the telephone number. Voice Companion is unable to determine that these two telephone numbers are the same.
+  If a user adds a URI to the reverse-number lookup list, and then removes a logically equivalent but not literally equivalent URI, Voice Companion is unable to complete the operation. For example, if a logged in user sends an instant message to Voice Companion with the text `add tel:+14255551212` and then later sends this text `remove 4255551212`, Voice Companion responds with this message: "Telephone number does not exist or you do not own the telephone number." Voice Companion is unable to determine that these two telephone numbers are the same.
     
-    Workaround: Use literally equivalent URIs.
+  Workaround: Use literally equivalent URIs.
 
 ## Disclaimer
 

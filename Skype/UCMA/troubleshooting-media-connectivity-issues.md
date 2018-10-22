@@ -19,7 +19,7 @@ Several classes that are part of Microsoft Unified Communications Managed API 5.
 
 The [MediaTroubleshootingDataReportedEventArgs](https://msdn.microsoft.com/en-us/library/hh349570\(v=office.16\)) class provides troubleshooting data to the application, regarding a media connectivity error that involves a remote, external Microsoft Skype for Business 2015 call (a corporate user who is not logged into the corporate network).
 
-An application can register a handler for the [MediaTroubleshootingDataReported](https://msdn.microsoft.com/en-us/library/hh383527\(v=office.16\)) event on the [AudioVideoCall](https://msdn.microsoft.com/en-us/library/hh383901\(v=office.16\)) class. The second parameter of the handler is of type [MediaTroubleshootingDataReportedEventArgs](https://msdn.microsoft.com/en-us/library/hh349570\(v=office.16\)).
+An application can register a handler for the [MediaTroubleshootingDataReported](https://msdn.microsoft.com/en-us/library/hh383527\(v=office.16\)) event on the [AudioVideoCall](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiovideocall?view=ucma-api) class. The second parameter of the handler is of type [MediaTroubleshootingDataReportedEventArgs](https://msdn.microsoft.com/en-us/library/hh349570\(v=office.16\)).
 
 The [MediaChannelEstablishmentDataCollection](https://msdn.microsoft.com/en-us/library/hh382882\(v=office.16\)) property on a **MediaTroubleshootingDataReportedEventArgs** instance returns a list of [MediaChannelEstablishmentData](https://msdn.microsoft.com/en-us/library/hh383850\(v=office.16\)) instances.
 

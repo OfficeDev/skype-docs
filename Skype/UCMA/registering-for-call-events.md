@@ -21,7 +21,7 @@ Applications must register for any events of interest before a call is establish
 
 The following code demonstrates registering an event handler for the **StateChanged** event on an instant messaging call and implementing a simple event handler for this event.
 
-``` csharp
+```csharp
 imCall.StateChanged += IMCall_StateChanged;
 private void IMCall_StateChanged(object sender, CallStateChangedEventArgs<CallState> e)
 {
@@ -30,7 +30,7 @@ private void IMCall_StateChanged(object sender, CallStateChangedEventArgs<CallSt
 
 The following code demonstrates registering an event handler for the **StateChanged** event on an audio/video call and implementing a simple event handler for this event.
 
-``` csharp
+```csharp
 avCall.StateChanged += AVCall_StateChanged;
 private void AVCall_StateChanged(object sender, CallStateChangedEventArgs<CallState> e)
 {

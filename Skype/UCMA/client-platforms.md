@@ -15,7 +15,7 @@ dev_langs:
 
 **Applies to**: Skype for Business 2015
 
-When a [CollaborationPlatform](https://msdn.microsoft.com/en-us/library/hh385176\(v=office.16\)) instance is created, it can be created as a client platform, a server platform, or as a provisioned application server platform. Each of the three **CollaborationPlatform** constructors can be used to create one type of platform.
+When a [CollaborationPlatform](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.collaborationplatform?view=ucma-api) instance is created, it can be created as a client platform, a server platform, or as a provisioned application server platform. Each of the three **CollaborationPlatform** constructors can be used to create one type of platform.
 
 A client platform typically is used to support the creation of a large number of clients that can be used to simulate users connected to an application, for the purpose of carrying out stress and scalability testing on an implementation of an application server.
 
@@ -37,7 +37,7 @@ A client platform can be used with a small number of user endpoints to test the 
 
 The following examples show how to initialize and uninitialize a client platform.
 
-``` csharp
+```csharp
 private void Initialize()
 {
 

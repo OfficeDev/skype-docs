@@ -25,7 +25,7 @@ After the application determines an appropriate response, use the **Sdp** class 
 
 Use the **TryParse()** method to determine whether the SDP is valid. Subclass the [SdpMediaDescription](https://msdn.microsoft.com/en-us/library/hh383755\(v=office.16\)) and [SdpGlobalDescription](https://msdn.microsoft.com/en-us/library/hh385124\(v=office.16\)) classes to get the values of session description attributes. See the following sample code.
 
-``` csharp
+```csharp
 public void SetAnswer(object sender, ContentDescription answer)
 {
   SignalingSession Session = sender as SignalingSession;
@@ -63,7 +63,7 @@ public void SetAnswer(object sender, ContentDescription answer)
 
 Use the **Sdp**, [SdpMediaDescription](https://msdn.microsoft.com/en-us/library/hh383755\(v=office.16\)), and [SdpGlobalDescription](https://msdn.microsoft.com/en-us/library/hh385124\(v=office.16\)) classes to set the values of session description attributes. When the **Sdp** class is initially constructed it will have default values as specified in the documentation for this class. See the following sample code.
 
-``` csharp
+```csharp
 public ContentDescription GetOffer(object sender)
 {
   SignalingSession Session = sender as SignalingSession;

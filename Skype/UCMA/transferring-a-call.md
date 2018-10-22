@@ -41,7 +41,7 @@ The platform monitors the progress of an attended transfer and completes the tra
 
 The following code demonstrates an attended call transfer (also known as a basic transfer).
 
-``` csharp
+```csharp
 CallTransferOptions basicTransferOptions = new CallTransferOptions(CallTransferType.Attended);
 call.BeginTransfer(target, basicTransferOptions, userCallback, state);
 ```
@@ -56,7 +56,7 @@ A supervised transfer is a type of attended transfer in which the transferor est
 
 
 
-``` csharp
+```csharp
 CallTransferOptions supervisedTransferOptions = new CallTransferOptions(CallTransferType.Attended);
 call.BeginTransfer(callToReplace, supervisedTransferOptions, userCallback, state);
 ```
@@ -65,7 +65,7 @@ call.BeginTransfer(callToReplace, supervisedTransferOptions, userCallback, state
 
 For an unattended transfer, the platform completes the transfer and terminates the primary call immediately after receiving a "REFER Accepted" message from the Transferee. At this time, the Transferee has already sent an INVITE to the Transfer Target specified by the REFER message, and must independently go through the process of establishing a new call with the Transfer Target. The platform terminates the primary call without waiting for an INVITE success or failure notification from the Transfer Target. The following code demonstrates the unattended transfer (also known as a blind transfer).
 
-``` csharp
+```csharp
 CallTransferOptions unattendedTransferOptions = new CallTransferOptions(CallTransferType.UnAttended);
 call.BeginTransfer(target, unattendedTransferOptions, userCallback, state);
 ```

@@ -31,7 +31,7 @@ The sample expects a user logged on to a client (such as Skype for Business 2015
 
   - Handling of incoming instant messages
 
-  - [InstantMessagingFlow](https://msdn.microsoft.com/en-us/library/hh383312\(v=office.16\)) handling and control
+  - [InstantMessagingFlow](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.instantmessagingflow?view=ucma-api) handling and control
 
 ## Prerequisites
 

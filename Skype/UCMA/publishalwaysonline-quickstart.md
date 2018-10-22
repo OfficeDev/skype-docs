@@ -21,7 +21,7 @@ Sample location: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applicati
 
 ## Description
 
-Based on the Application ID specified, the sample initializes the platform and any trusted application endpoints corresponding to the provisioned application. Upon establishment, the endpoints publish a static presence of "alwaysonline" by setting the [AutomaticPresencePublicationEnabled](https://msdn.microsoft.com/en-us/library/hh381653\(v=office.16\)) property on an [ApplicationEndpointSettings](https://msdn.microsoft.com/en-us/library/hh349433\(v=office.16\)) object to true. The sample establishes as many application endpoints as have been provisioned on the particular trusted application within the deployment.
+Based on the Application ID specified, the sample initializes the platform and any trusted application endpoints corresponding to the provisioned application. Upon establishment, the endpoints publish a static presence of "alwaysonline" by setting the [AutomaticPresencePublicationEnabled](https://msdn.microsoft.com/en-us/library/hh381653\(v=office.16\)) property on an [ApplicationEndpointSettings](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.applicationendpointsettings?view=ucma-api) object to true. The sample establishes as many application endpoints as have been provisioned on the particular trusted application within the deployment.
 
 For more information about provisioning trusted applications and endpoints in , see [Activating a UCMA 5.0 trusted application](activating-a-ucma-5-0-trusted-application.md) as well as [General application activation](general-application-activation.md) and [Activating a manually-provisioned application](activating-a-manually-provisioned-application.md).
 

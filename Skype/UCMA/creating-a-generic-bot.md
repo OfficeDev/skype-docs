@@ -55,7 +55,7 @@ The following steps should be performed before you implement a single-state mess
 
 For a single-state message handler, your code should look like this, at this point.
 
-``` csharp
+```csharp
 using System.ComponentModel.Composition;
 using BuildABot.Core.MessageHandlers;
  
@@ -78,7 +78,7 @@ namespace BuildABot.Samples.MessageHandlers
 
 By optionally calling the *MessageHandler* (base class) constructor(s), as shown below, your message handler can be configured.
 
-``` csharp
+```csharp
 public TimeMessageHandler()
             :base("time","Please wait while I get the current time...", true)
 {
@@ -121,7 +121,7 @@ public TimeMessageHandler()
 
 While using regular expression patterns is a very convenient way to specify whether a message handler can handle a given user message, you can implement your own logic to indicate that ability. Simply override the *CanHandle* method and return a *MessageHandlingResponse* object, which contains a confidence and initial handling text. The following code returns a response with zero confidence for requests made during weekends.
 
-``` csharp
+```csharp
 public override MessageHandlingResponse CanHandle(Message message)
 {
     MessageHandlingResponse response = new MessageHandlingResponse();
@@ -149,7 +149,7 @@ User: "Please show details of bug Windows SE:12345"Bot: "Sure, retrieving detail
 
 As you might notice, the first reply message from the bot in this conversation is a string composed of dynamic elements (items in bold), such as the user input, the expected response time, and so on. To create dynamic initial handling text like this, you need to override the *GetInitialHandlingText* method, as shown in the next example.
 
-``` csharp
+```csharp
 protected override string GetInitialHandlingText()
 {
     string bugId = this.GetBugId();
@@ -168,7 +168,7 @@ protected override string GetInitialHandlingText()
 
 *GetInitialHandlingText* is called by the default *MessageHandler.CanHandle* implementation (for more information, see [Custom message handling confidence logic](creating-a-generic-bot.md)). If you override *CanHandle* to provide your own *MessageHandlingResponse*, you might need to call *GetInitialHandlingText* explicitly to set the *InitialHandlingText* property of the *MessageHandlingResponse* object, as shown in the following example.
 
-``` csharp
+```csharp
 public virtual MessageHandlingResponse CanHandle(Message message)
 {
     MessageHandlingResponse response = new MessageHandlingResponse();
@@ -184,7 +184,7 @@ public virtual MessageHandlingResponse CanHandle(Message message)
 
 For single-state message handlers, handling a user message requires you only to override the *Handle* method. In such a method, you should build a *Reply* object, which contains a collection of *ReplyMessages*. The example below shows a typical message handling logic for the *TimeMessageHandler*.
 
-``` csharp
+```csharp
 public override Reply Handle(Message message)
 {
     Reply reply = new Reply();
@@ -198,7 +198,7 @@ If your message handler needs to get additional information about the message th
 
 The *Reply* object also has an *AddRtfMessage* method, that enables you to send formatted text to the user (bold, underline, and so on). You can use the *EncloseRtf* helper methods to make your string an RTF string and add the desired modifiers. The following example shows this.
 
-``` csharp
+```csharp
 string text = "This " + "text".EncloseRtfBold() + " is in bold";
 Reply reply = new Reply();
 reply.AddRtfMessage(text);
@@ -221,7 +221,7 @@ Conversation state flow chart
 
 The next code sample implements the conversation state machine that is shown in the preceding flow chart.
 
-``` csharp
+```csharp
 using System;
 using System.ComponentModel.Composition;
 using BuildABot.Core.MessageHandlers;
@@ -378,7 +378,7 @@ As introduced before, the Build a Bot framework supports bot developers by enabl
 
 You can now use the index operator (this\["..."\]) to retrieve the group value anywhere in your message handler code. An example follows.
 
-``` csharp
+```csharp
 public override Reply Handle(Message message)
 {
     Reply reply = new Reply();
@@ -410,7 +410,7 @@ The *BuildABot.Core.MessageHandlers.QAs.QAMessageHandler* class can be used to a
 
 To create a question/answer message handler, just inherit from *BuildABot.Core.MessageHandlers.QAs.QAMessageHandler* and, in the constructor, add *QA* objects to your message handler's *QAs* collection, as in the next sample.
 
-``` csharp
+```csharp
 using System.ComponentModel.Composition;
 using BuildABot.Core.MessageHandlers;
 using BuildABot.Core.MessageHandlers.QAs;
@@ -438,7 +438,7 @@ The qa1, qa2, and qa3 parameters in the three calls to the *Add* method are ques
 
 A *BuildABot.Core.MessageHandlers.QAs.RandomQA* object contains a question and a set of (static) answers. If the question matches the user message content, one answer from the collection is chosen randomly. If only one answer is provided, that answer is always chosen. Here are some examples of *RandomQA* instances.
 
-``` csharp
+```csharp
 RandomQA qa1 = new RandomQA("Who are you?", "Just a demo bot!");
 RandomQA qa2 = new RandomQA("Hello", "Hi", "Howdy");
 ```
@@ -449,7 +449,7 @@ The first parameter of the *RandomQA* constructor is the question. The following
 
 A *BuildABot.Core.MessageHandlers.QAs.ActionQA* contains a question and an action (method, pointed to by a delegate). If the question matches the user message content, the method is invoked to get the answer. This is useful when the answer for the question is not static. A complete example, merged with the preceding code, follows. If the user says "Excuse me", the bot will answer "good morning/afternoon/evening" according to the current time.
 
-``` csharp
+```csharp
 using System.ComponentModel.Composition;
 using BuildABot.Core.MessageHandlers;
 using BuildABot.Core.MessageHandlers.QAs;
@@ -501,7 +501,7 @@ The following extension methods are useful for adding QA objects to a *QAMessage
   - AddBatchRandomQAs  
     Adds a batch of *RandomQA* instances to a *QAs* list, as in this example.
     
-    ``` vb
+    ```vb
     public QASampleMessageHandler()
     {
         // ...
@@ -516,7 +516,7 @@ The following extension methods are useful for adding QA objects to a *QAMessage
   - AddBatchActionQAs  
     Adds a batch of *ActionQA* instances to a *QAs* list.
     
-    ``` csharp
+    ```csharp
     public QASampleMessageHandler()
     {
       // ...
@@ -538,7 +538,7 @@ After message handlers are implemented (see [Create message handlers](creating-a
 
 3.  Instantiate the *Bot* class and create an event handler for the bot's *Replied* event. This event is raised whenever the bot replies to a user message. In the following example, which is part of a command prompt application, the bot reply messages are printed to the console.
     
-    ``` csharp
+    ```csharp
     static void Main(string[] args)
     {
         Bot bot = new Bot();
@@ -560,7 +560,7 @@ After message handlers are implemented (see [Create message handlers](creating-a
 
 4.  Get user input and call the bot's *ProcessMessage* method to make the bot invoke its message handlers in order to handle user messages. In the following example, the Main method repeatedly receives user messages and asks the bot to process them, stopping when the user enters "exit".
     
-    ``` csharp
+    ```csharp
     static void Main(string[] args)
     {
         Bot bot = new Bot();
@@ -593,7 +593,7 @@ To improve the intelligence of your bot, you might want it to collect feedback f
 
 1.  Feedback in the Build a Bot framework can be collected per message handler. Turn on feedback collection in the message handlers by setting the message handler's *RequiresFeedback* property. This can also be set through the constructors of the base *MessageHandler* and *SingleStateMessageHandler* classes.
     
-    ``` csharp
+    ```csharp
     public HelloWorldMessageHandler()
              : base(@"hello|(how are you\?)")
     {
@@ -610,7 +610,7 @@ To improve the intelligence of your bot, you might want it to collect feedback f
     
     By default, after a feedback-enabled message handler handles a request, your bot will ask "Did I understand you correctly?" and expect the following as possible answers: yes, yep, y, sure, no, nope, n, not at all. You can change these default settings after instantiating your bot (or UC bot host), as follows:
     
-    ``` csharp
+    ```csharp
     static void Main(string[] args)
     {
         Bot bot = new Bot();
@@ -626,7 +626,7 @@ To improve the intelligence of your bot, you might want it to collect feedback f
 
 3.  Handle the bot's (or the UC bot host's) *FeedbackEngine.FeedbackCollected* event. This event handler has a *FeedbackCollectedEventArgs* parameter, through which you can get the feedback type (positive, negative, or not provided), the user's feedback message and the user's original message for whose handling the bot is requesting feedback. Finally, this method returns a *Reply* object, which is what the bot will say to the user to acknowledge that feedback was received.
     
-    ``` csharp
+    ```csharp
     static void Main(string[] args)
     {
         Bot bot = new Bot(); 

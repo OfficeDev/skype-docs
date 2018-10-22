@@ -21,7 +21,7 @@ Sample location: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applicati
 
 ## Description
 
-The application initializes a server platform, four [UserEndpoint](https://msdn.microsoft.com/en-us/library/hh348819\(v=office.16\)) objects, and one [ApplicationEndpoint](https://msdn.microsoft.com/en-us/library/hh384825\(v=office.16\)) object. The UserEndpoint objects act as the conference organizer and participants. The ApplicationEndpoint endpoint impersonates a phone user in the conference, simulating someone joining from a PSTN gateway. The organizer endpoint schedules an audio/video conference using the conference scheduling APIs, with the following conference scheduling options:
+The application initializes a server platform, four [UserEndpoint](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.userendpoint?view=ucma-api) objects, and one [ApplicationEndpoint](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.applicationendpoint?view=ucma-api) object. The UserEndpoint objects act as the conference organizer and participants. The ApplicationEndpoint endpoint impersonates a phone user in the conference, simulating someone joining from a PSTN gateway. The organizer endpoint schedules an audio/video conference using the conference scheduling APIs, with the following conference scheduling options:
 
   - Conference access level set to **Invited**. Only participants on the invited list can be admitted.
 
@@ -41,9 +41,9 @@ The sample application logic proceeds as follows:
 
 3.  Participant A is notified that Participants B and C are in the lobby.
 
-4.  The [ApplicationEndpoint](https://msdn.microsoft.com/en-us/library/hh384825\(v=office.16\)) endpoint, impersonating a phone user, joins the conference successfully as a gateway participant.
+4.  The [ApplicationEndpoint](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.applicationendpoint?view=ucma-api) endpoint, impersonating a phone user, joins the conference successfully as a gateway participant.
 
-5.  The [ApplicationEndpoint](https://msdn.microsoft.com/en-us/library/hh384825\(v=office.16\)) is notified that Participant A is in the conference and Participants B and C are in the conference lobby.
+5.  The [ApplicationEndpoint](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.applicationendpoint?view=ucma-api) is notified that Participant A is in the conference and Participants B and C are in the conference lobby.
 
 6.  Organizer joins the conference successfully and receives notification that Participants B and C are in the lobby and participants A and phone user are in the conference.
 

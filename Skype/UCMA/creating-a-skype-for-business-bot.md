@@ -42,13 +42,13 @@ Some steps of this procedure are described in [Creating a generic bot](creating-
 
 ## Create a trusted application and a trusted application endpoint for the UC bot
 
-In typical production scenarios, your bot will run on an [ApplicationEndpoint](https://msdn.microsoft.com/en-us/library/hh384825\(v=office.16\)) instance. You will need to create a trusted application and a trusted application endpoint in the Skype for Business environment.
+In typical production scenarios, your bot will run on an [ApplicationEndpoint](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.applicationendpoint?view=ucma-api) instance. You will need to create a trusted application and a trusted application endpoint in the Skype for Business environment.
 
 If your Skype for Business Server is not set up for provisioning UCMA 5.0 applications, see [Activating a UCMA 5.0 trusted application](activating-a-ucma-5-0-trusted-application.md).
 
 To create a trusted application and trusted application endpoint, use the following PowerShell script.
 
-``` powershell
+```powershell
 # Create new trusted application and application end point 
 Write-Host
 Write-Host "This will create a trusted application and an application endpoint"
@@ -84,7 +84,7 @@ Write-Host
 
 In Skype for Business Management Shell, run the following script.
 
-``` powershell
+```powershell
 # Create Trusted Application
 New-CSTrustedApplication –ApplicationId $ApplicationId -TrustedApplicationPoolFqdn $ApplicationFqdn -Port $PortNo
 #Enable the topology
@@ -114,7 +114,7 @@ When you develop a generic bot (see [Creating a generic bot](creating-a-generic-
 
 3.  Create a configuration (config) file as shown here and use it to get the application urn and application user agent. Notice that the config file has a *startup* element that enables your UCMA 5.0 application to consume the UCMA 5.0 SDK.
     
-    ``` xml
+    ```xml
     <?xml version="1.0"?>
     <configuration>
       <startup useLegacyV2RuntimeActivationPolicy="true">
@@ -132,7 +132,7 @@ When you develop a generic bot (see [Creating a generic bot](creating-a-generic-
 
 4.  Create a main method like the following one in your Main class to instantiate a *UCBotHost* object.
     
-    ``` csharp
+    ```csharp
     static void Main(string[] args)
      {
        // Print all Debug.WriteLine calls to the console to make it
@@ -188,7 +188,7 @@ You will probably want to run your bot as a Windows service in the background, i
 
 4.  In the "service launcher" class of the Windows Service project, create a method containing the *UCBotHost* initialization. This is very similar to the code that was shown in the "Instantiate the UCBotHost environment" section.
     
-    ``` csharp
+    ```csharp
     private void StartBotListenerService(object state)
     {
        String applicationUserAgent = ConfigurationManager.AppSettings["applicationuseragent"];
@@ -201,7 +201,7 @@ You will probably want to run your bot as a Windows service in the background, i
 
 5.  In the "service launcher" class of the Windows Service project, add a *System.Threading.Timer* object that will launch the *StartBotListenerService* method and initialize the timer in the *OnStart* method, as shown in the following sample.
     
-    ``` csharp
+    ```csharp
     private Timer botTimer;
     protected override void OnStart(string[] args)
     {
