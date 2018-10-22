@@ -10,24 +10,15 @@ mtps_version: v=office.16
 
 # Conferences
 
-
 **Applies to**: Skype for Business 2015
 
-This section discusses concepts that are related to conferences.
+This section discusses concepts related to conferences:
 
-## In this section
-
-  - [ConferenceSession state transitions](conferencesession-state-transitions.md)
-
-  - [Conference lobby](conference-lobby.md)
-
-  - [Conference operations](conference-operations.md)
-
-  - [Joining a conference](joining-a-conference.md)
-
-  - [Inviting a new participant](inviting-a-new-participant.md)
-
-  - [Conference invitation state transitions](conference-invitation-state-transitions.md)
-
-  - [Receiving a conference invitation](receiving-a-conference-invitation.md)
+- [ConferenceSession state transitions](conferencesession-state-transitions.md)
+- [Conference lobby](conference-lobby.md)
+- [Conference operations](conference-operations.md)
+- [Joining a conference](joining-a-conference.md)
+- [Inviting a new participant](inviting-a-new-participant.md)
+- [Conference invitation state transitions](conference-invitation-state-transitions.md)
+- [Receiving a conference invitation](receiving-a-conference-invitation.md)
 

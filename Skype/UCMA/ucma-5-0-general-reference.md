@@ -12,27 +12,18 @@ mtps_version: v=office.16
 
 **Applies to**: Skype for Business 2015
 
-The Microsoft Unified Communications Managed API (UCMA) 5.0 general reference consists of the following main sections.
+The Microsoft Unified Communications Managed API (UCMA) 5.0 general reference consists of the following main sections:
 
-## In this section
-
-  - [Glossary (UCMA 5.0 SDK)](glossary-ucma-5-0-sdk.md)
-
-  - [UCMA 5.0 business scenarios](ucma-5-0-business-scenarios.md)
-
-  - [UCMA 5.0 overview](ucma-5-0-overview.md)
-
-  - [UCMA 5.0 features](ucma-5-0-features.md)
-
-  - [UCMA 5.0 details](ucma-5-0-details.md)
-
-  - [Advanced concepts and best practices](advanced-concepts-and-best-practices.md)
-
-  - [Managing UCMA 5.0 applications](managing-ucma-5-0-applications.md)
-
-  - [VoiceXML support in UCMA 5.0](voicexml-support-in-ucma-5-0.md)
-
-  - [UCMA 5.0 sample applications](ucma-5-0-sample-applications.md)
+- [Glossary (UCMA 5.0 SDK)](glossary-ucma-5-0-sdk.md)
+- [UCMA 5.0 business scenarios](ucma-5-0-business-scenarios.md)
+- [Get started with UCMA 5.0 development](get-started-with-ucma-5-0-development.md)
+- [UCMA 5.0 overview](ucma-5-0-overview.md)
+- [UCMA 5.0 features](ucma-5-0-features.md)
+- [UCMA 5.0 details](ucma-5-0-details.md)
+- [Advanced concepts and best practices](advanced-concepts-and-best-practices.md)
+- [Managing UCMA 5.0 applications](managing-ucma-5-0-applications.md)
+- [VoiceXML support in UCMA 5.0](voicexml-support-in-ucma-5-0.md)
+- [UCMA 5.0 sample applications](ucma-5-0-sample-applications.md)
 
 ## See also
 

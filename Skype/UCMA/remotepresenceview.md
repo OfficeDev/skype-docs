@@ -78,7 +78,7 @@ Subscriptions to targets connected to a given server can be batched.
 
 To subscribe to remote presentities in a presence view, a [RemotePresentitySubscriptionTarget](https://msdn.microsoft.com/en-us/library/hh349759\(v=office.16\)) instance must be created for each target. This **RemotePresentitySubscriptionTarget** instance indicates the SIP URI of that target and an optional context data property, [ContextData](https://msdn.microsoft.com/en-us/library/hh348487\(v=office.16\)), that indicates whether the presentity is to be informed about this subscription. When the **ContextData** property is non-null, the remote presentity is notified of the subscription. This notification is intended to prompt the remote presentity to assign an appropriate container membership, such as **Workgroup** or **Friends and Family**. For more information, see [LocalOwnerPresence](localownerpresence.md).
 
-In other situations, such as in an *ad hoc* conversation window or looking at presence in an e-mail, the **RemotePresenceView** can be used to obtain presence information based on the current default permissions. In this case the **SubscriptionContext** property should not be set; otherwise unnecessary prompts are sent to the subscription targets.
+In other situations, such as in an *ad hoc* conversation window or looking at presence in an email, the **RemotePresenceView** can be used to obtain presence information based on the current default permissions. In this case the **SubscriptionContext** property should not be set; otherwise unnecessary prompts are sent to the subscription targets.
 
 ## Presence query
 

@@ -10,14 +10,10 @@ mtps_version: v=office.16
 
 # Best practices
 
-
 **Applies to**: Skype for Business 2015
 
 This section contains information about best practices in developing applications. The topics in this section provide guidelines of interest to any developers of Microsoft Unified Communications Managed API 5.0 applications, and guidelines of interest for those developing applications that work with audio medial.
 
-## In this section
-
-  - [UCMA 5.0 general guidelines](ucma-5-0-general-guidelines.md)
-
-  - [Media guidelines](media-guidelines.md)
+- [UCMA 5.0 general guidelines](ucma-5-0-general-guidelines.md)
+- [Media guidelines](media-guidelines.md)
 

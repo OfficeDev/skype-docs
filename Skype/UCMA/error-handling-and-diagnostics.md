@@ -17,11 +17,9 @@ The topics in this section provide information about Microsoft Unified Communica
 
 ![UCMA error handling classes](images/Dn466062.UCMA-ErrorHandling(Office.16).png "UCMA error handling classes")
 
-## In this section
+This section includes the following topics:
 
-  - [UCMA 5.0 exception model](ucma-5-0-exception-model.md)
-
-  - [Diagnostics and error reporting](diagnostics-and-error-reporting.md)
-
-  - [Troubleshooting media connectivity issues](troubleshooting-media-connectivity-issues.md)
+- [UCMA 5.0 exception model](ucma-5-0-exception-model.md)
+- [Diagnostics and error reporting](diagnostics-and-error-reporting.md)
+- [Troubleshooting media connectivity issues](troubleshooting-media-connectivity-issues.md)
 

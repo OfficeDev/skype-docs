@@ -10,10 +10,7 @@ mtps_version: v=office.16
 
 # Managed SIP stack performance counters
 
-
 **Applies to**: Skype for Business 2015
-
-
 
 This section summarizes the managed SIP stack performance counters that are available with UcmaRedist.msi (Skype for Business Server, Unified Communications Managed API 5.0 Redist).
 
@@ -23,21 +20,19 @@ Performance counters allow you to monitor specific aspects of work performed by 
 
 The managed SIP stack performance counters are provided by the following files, which can be found in the SDK\\Core\\Bin directory under the Microsoft UCMA 5.0 installation directory:
 
-  - S4Perf.dll
-
-  - S4Perf.ini
-
-  - S4Perf.h
+- S4Perf.dll
+- S4Perf.ini
+- S4Perf.h
 
 The counters listed in this topic fall into one of two categories: PERF\_COUNTER\_LARGE\_RAWCOUNT or PERF\_COUNTER\_LARGE\_BULK\_COUNT. Counters whose **CounterType** is PERF\_COUNTER\_LARGE\_RAWCOUNT show the last observed value, not an average. Counters of type PERF\_COUNTER\_BULK\_COUNT show an average number of operations per second.
 
-## Installing and configuring the managed SIP stack performance counters
+## Installing and configuring managed SIP stack performance counters
 
 The managed SIP stack performance objects and counters are installed when UcmaRedist.msi is executed. If necessary, an application can unregister these performance objects similar to the way shown in the following command line.
 
-regsvr32 /u /n /i " C:\\Program Files\\Microsoft UCMA 5.0\\SDK\\Core\\Bin \\s4perf.dll"
+`regsvr32 /u /n /i "C:\Program Files\Microsoft UCMA 5.0\SDK\Core\Bin\s4perf.dll"`
 
-## Accessing the managed SIP stack performance counters
+## Accessing managed SIP stack performance counters
 
 The following procedure shows the steps that must be performed to access the managed SIP stack performance counters.
 
@@ -55,15 +50,11 @@ The following procedure shows the steps that must be performed to access the man
 
 4.  Click **Add** and then click **Close**.
 
-## In this section
+This section includes the following topics:
 
-  - [Dialogs performance counters](dialogs-performance-counters.md)
-
-  - [Transactions performance counters](transactions-performance-counters.md)
-
-  - [Connections performance counters](connections-performance-counters.md)
-
-  - [Incoming messages performance counters](incoming-messages-performance-counters.md)
-
-  - [Outgoing messages performance counters](outgoing-messages-performance-counters.md)
+- [Dialogs performance counters](dialogs-performance-counters.md)
+- [Transactions performance counters](transactions-performance-counters.md)
+- [Connections performance counters](connections-performance-counters.md)
+- [Incoming messages performance counters](incoming-messages-performance-counters.md)
+- [Outgoing messages performance counters](outgoing-messages-performance-counters.md)
 

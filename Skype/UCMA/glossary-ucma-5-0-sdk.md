@@ -72,7 +72,7 @@ mtps_version: v=office.16
 </tr>
 <tr class="odd">
 <td><p><a href="https://msdn.microsoft.com/en-us/library/hh348915(v=office.16)">Conference</a></p></td>
-<td><p>A conference represents an online meeting place for participants to discuss topics of interest, using one or more media types, such as instant messaging or audio-video. A conference organizer typically schedules a conference in advance by using a Web application or add-in tools for e-mail programs such as Microsoft Outlook. An impromptu or <em>ad hoc</em> conference can also be created. A conference becomes active when the first participant joins the conference. Conference participants who are neither leaders nor the organizer are called attendees. A conference leader typically has more control over a conference than an attendee. For example, only leaders have the ability to mute all participants or admit or deny entrance to users who are in the conference lobby.</p></td>
+<td><p>A conference represents an online meeting place for participants to discuss topics of interest, using one or more media types, such as instant messaging or audio-video. A conference organizer typically schedules a conference in advance by using a Web application or add-in tools for email programs such as Microsoft Outlook. An impromptu or <em>ad hoc</em> conference can also be created. A conference becomes active when the first participant joins the conference. Conference participants who are neither leaders nor the organizer are called attendees. A conference leader typically has more control over a conference than an attendee. For example, only leaders have the ability to mute all participants or admit or deny entrance to users who are in the conference lobby.</p></td>
 </tr>
 <tr class="even">
 <td><p>Conference Leader</p></td>
@@ -100,7 +100,7 @@ mtps_version: v=office.16
 <td><p><a href="https://msdn.microsoft.com/en-us/library/hh381065(v=office.16)">Contact</a></p></td>
 <td><p>A contact is usually another user who has the ability to use real-time communications, but can also be an application, such as a &quot;bot&quot; or a Help Desk service.</p>
 <p>Users of real-time communications often maintain a list of &quot;buddies&quot; (or contacts in Skype for Business Server 2015 terminology) with whom they frequently communicate. Every contact has a uniquely identifiable SIP URI and display name, as well as other attributes.</p>
-<p>The contact list can exist in different stores such as e-mail servers or Communications Server backend stores. UCMA provides an API for managing contacts that are stored in the Skype for Business Server 2015 backend stores. An application written using UCMA can use other mechanisms as well, if necessary.</p>
+<p>The contact list can exist in different stores such as email servers or Communications Server backend stores. UCMA provides an API for managing contacts that are stored in the Skype for Business Server 2015 backend stores. An application written using UCMA can use other mechanisms as well, if necessary.</p>
 <p>An application can organize its contacts into contact groups, and usually subscribes to the presence (the online state of the contact) of users in a contact list.</p>
 <p>A contact is different from an Active Directory contact object.</p></td>
 </tr>

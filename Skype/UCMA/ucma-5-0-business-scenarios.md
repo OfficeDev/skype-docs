@@ -10,10 +10,7 @@ mtps_version: v=office.16
 
 # UCMA 5.0 business scenarios
 
-
 **Applies to**: Skype for Business 2015
-
-
 
 Microsoft Unified Communications Managed API 5.0 can be used to create a number of different types of application. In this topic, four of the most important application types are presented.
 
@@ -29,11 +26,11 @@ The following illustration describes the entities involved in a contact center a
 
 UCMA APIs provide all of the functionality needed to implement a typical contact center solution, including the following capabilities:
 
-  - Route incoming communications to available agents with matching skills.
+- Route incoming communications to available agents with matching skills.
 
-  - Use Enhanced Presence in Informal Agent switch-boarding (skills-based routing).
+- Use Enhanced Presence in Informal Agent switch-boarding (skills-based routing).
 
-  - Create multimodal helpdesk scenarios, such as back-to-back user agent.
+- Create multimodal helpdesk scenarios, such as back-to-back user agent.
 
 For more information, see [Contact center](contact-center.md).
 
@@ -47,7 +44,9 @@ For more information, see [Standalone IVR application](standalone-ivr-applicatio
 
 ## Voice companion
 
-A Voice Companion application makes it easier to expose an enterprise application through a unified voice portal, including unified messaging, voice mail playback, *ad hoc* conferencing, and contact lists. The following illustration describes the entities involved in a voice companion application.
+A Voice Companion application makes it easier to expose an enterprise application through a unified voice portal, including unified messaging, voice mail playback, *ad hoc* conferencing, and contact lists. 
+
+The following illustration describes the entities involved in a voice companion application.
 
 ![Personal virtual assistant](images/Dn465936.UCMA-PVA1(Office.16).png "Personal virtual assistant")
 
@@ -55,11 +54,9 @@ This type of worker’s is frequently "on the go." As a result, there are a vari
 
 UCMA APIs can be used to create a Voice Companion application by enabling developers to develop a backend service that:
 
-  - Integrates with .
+- Simplifies mobile-user communication scenarios using ordinary phones.
 
-  - Simplifies mobile-user communication scenarios using ordinary phones.
-
-  - Takes advantage of presence-based communications.
+- Takes advantage of presence-based communications.
 
 For more information, see [Voice companion](voice-companion.md).
 
@@ -77,17 +74,13 @@ For more information, see [Alert notification system](alert-notification-system.
 
 Besides the scenarios already listed, developers can use UCMA 5.0 to create applications for several other scenarios. For more information, see [Additional scenarios](additional-scenarios.md).
 
-## In this section
+This section includes the following topics:
 
-  - [Contact center](contact-center.md)
-
-  - [Voice companion](voice-companion.md)
-
-  - [Standalone IVR application](standalone-ivr-application.md)
-
-  - [Alert notification system](alert-notification-system.md)
-
-  - [Additional scenarios](additional-scenarios.md)
+- [Contact center](contact-center.md)
+- [Voice companion](voice-companion.md)
+- [Standalone IVR application](standalone-ivr-application.md)
+- [Alert notification system](alert-notification-system.md)
+- [Additional scenarios](additional-scenarios.md)
 
 ## See also
 

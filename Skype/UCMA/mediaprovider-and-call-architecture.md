@@ -10,10 +10,7 @@ mtps_version: v=office.16
 
 # MediaProvider and Call architecture
 
-
 **Applies to**: Skype for Business 2015
-
-
 
 The [MediaProvider](https://msdn.microsoft.com/en-us/library/hh383767\(v=office.16\)) abstract class is intended to provide an abstraction of the link between the Signaling layer and Session Description Protocol (SDP) negotiation. A **MediaProvider** subclass facilitates offer/answer negotiation in a signaling session when an application initiates an outgoing call or accepts an incoming call. The [Call](https://msdn.microsoft.com/en-us/library/hh384235\(v=office.16\)) abstract class is intended to provide an abstraction of a call that uses a particular media type. A **Call** subclass instance invokes methods on the associated **MediaProvider** subclass instance to get an offer or answer, or to set an answer on the associated **MediaProvider** subclass instance.
 
@@ -65,11 +62,8 @@ The following table lists the **MediaProvider** properties that define the behav
 
 A key role of a class derived from the **MediaProvider** class is to participate in SDP offer/answer negotiation for a **Call**. A typical **MediaProvider** subclass, such as the **AudioVideoProvider** class, also manages the [MediaFlow](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.componentmodel.mediaflow?view=ucma-api) instance (media session) associated with the **Call**. This section describes the most important **MediaProvider** methods related to offer/answer negotiation.
 
-
 > [!NOTE]
-> <P>A developer who is implementing a <STRONG>MediaProvider</STRONG> subclass should be familiar with the standard .NET Framework asynchronous pattern that uses <STRONG>Begin</STRONG><EM>Xxx</EM> and <STRONG>End</STRONG><EM>Xxx</EM> for asynchronous operations. The <STRONG>MediaProvider</STRONG> subclass requires implementations of the abstract <STRONG>BeginGetOffer</STRONG> and <STRONG>BeginGetAnswer</STRONG> methods.</P>
-
-
+> A developer who is implementing a **MediaProvider** subclass should be familiar with the standard .NET Framework asynchronous pattern that uses **Begin**_Xxx_ and **End**_Xxx_ for asynchronous operations. The **MediaProvider** subclass requires implementations of the abstract **BeginGetOffer** and **BeginGetAnswer** methods.
 
 <table>
 <colgroup>
@@ -187,16 +181,12 @@ This scenario describes the steps involved in handling an incoming SDP renegotia
 
 3.  The **Call** instance invokes **EndGetAnswer** and expects the **MediaProvider** instance to return the SDP answer. The **SdpAnswer** object returned by **EndGetOffer** is used in response to an incoming negotiation request.
 
-
 Whenever a **MediaProvider** subclass object, such as an **AudioVideoMediaProvider** instance, intends to renegotiate SDP, it calls the [BeginSdpRenegotiation(CallDialogContext, AsyncCallback, Object)](https://msdn.microsoft.com/en-us/library/hh384458\(v=office.16\)) method to notify the associated non-abstract **Call** subclass instance to start SDP renegotiation. Any collision of renegotiation is handled by the **Call** instance.
 
 Whenever the **Call** object receives a message in an existing session and the message is not to the **Call** object itself, the message is delivered to the **MediaProvider** instance by a call to **HandleMessageReceived(MessageReceivedEventArgs)**. If the **MediaProvider** instance takes no action on the message, it is forwarded to the application. If a delegate for the application also takes no action on the message, the **Call** instance rejects the message. The **AudioVideoProvider** and **InstantMessagingProvider** implementations are internal, but are tied into the platform architecture as described in the following diagram.
 
-
 > [!NOTE]
-> <P>The numbers at the ends of the horizontal arrows indicate the number of objects of one type that can be paired with the other type. For example, a <A href="https://msdn.microsoft.com/en-us/library/hh349224(v=office.16)">Conversation</A> instance can be associated with multiple <STRONG>Call</STRONG> instances.</P>
-
-
+> The numbers at the ends of the horizontal arrows indicate the number of objects of one type that can be paired with the other type. For example, a [Conversation](https://msdn.microsoft.com/en-us/library/hh349224(v=office.16)) instance can be associated with multiple **Call** instances.
 
 ![AudioVideoProvider and InstantMessagingProvider](images/Dn466101.Call_MediaProvider(Office.16).png "AudioVideoProvider and InstantMessagingProvider")
 
@@ -218,13 +208,10 @@ The following figure illustrates the relationship between **SdpAnswer**, **SdpOf
 
 ![Relationship between Sdp objects](images/Dn466101.SDPOfferAnswer(Office.16).png "Relationship between Sdp objects")
 
-## In this section
+This section includes the following topics:
 
-  - [Negotiating declined offers](negotiating-declined-offers.md)
-
-  - [Triggering SDP renegotiations](triggering-sdp-renegotiations.md)
-
-  - [Call forking with early media](call-forking-with-early-media.md)
-
-  - [Error handling](error-handling.md)
+- [Negotiating declined offers](negotiating-declined-offers.md)
+- [Triggering SDP renegotiations](triggering-sdp-renegotiations.md)
+- [Call forking with early media](call-forking-with-early-media.md)
+- [Error handling](error-handling.md)
 

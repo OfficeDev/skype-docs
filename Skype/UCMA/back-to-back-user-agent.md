@@ -10,20 +10,20 @@ mtps_version: v=office.16
 
 # Back-to-back user agent
 
-
 **Applies to**: Skype for Business 2015
 
-Microsoft Unified Communications Managed API 5.0 provides several classes to support the back-to-back user agent concept. The principal class of interest to application developers is the [BackToBackCall](https://msdn.microsoft.com/en-us/library/hh365598\(v=office.16\)) class. Using back-to-back user agent functionality, an application can perform the following operations:
+Microsoft Unified Communications Managed API 5.0 provides several classes to support the back-to-back user agent concept. The principal class of interest to application developers is the [BackToBackCall](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.backtobackcall?view=ucma-api) class. 
 
-  - Create a **BackToBackCall** instance, which establishes back-to-back connectivity between two calls. For example, a customer and an agent are connected through a back-end call center.
+Using back-to-back user agent functionality, an application can perform the following operations:
 
-  - Perform midway call control (transfer calls, park calls, play music to customers on hold) on an established back-to-back call.
+- Create a **BackToBackCall** instance, which establishes back-to-back connectivity between two calls. For example, a customer and an agent are connected through a back-end call center.
 
-## In this section
+- Perform midway call control (transfer calls, park calls, play music to customers on hold) on an established back-to-back call.
 
-  - [Call leg scenarios](call-leg-scenarios.md)
+This section includes the following topics:
 
-  - [Back-to-back user agent architecture](back-to-back-user-agent-architecture.md)
+- [Call leg scenarios](call-leg-scenarios.md)
+- [Back-to-back user agent architecture](back-to-back-user-agent-architecture.md)
 
 ## See also
 

@@ -19,7 +19,7 @@ A communication application often must watch the presence of other users to make
 
   - A Microsoft Unified Communications Managed API 5.0-based web reach application might enable its users to persistently subscribe to its contacts’ presence so that the user may use the presence information before starting a conversation. An example of how this can be useful is a user not even trying to start a phone call when the remote user is offline and instead using email.
 
-  - A UCMA 5.0-based notification application might use a remote user’s presence to decide how to route a notification in an appropriate modality. For example, the notification application can decide to send an instant message when the remote user is online, and send an e-mail when the remote user is offline.
+  - A UCMA 5.0-based notification application might use a remote user’s presence to decide how to route a notification in an appropriate modality. For example, the notification application can decide to send an instant message when the remote user is online, and send an email when the remote user is offline.
 
 ## Problems in subscribing to remote presentities
 

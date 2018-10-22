@@ -16,19 +16,14 @@ This section provides conceptual details of Microsoft Unified Communications Man
 
 ![Major components of UCMA 4.0](images/Dn465945.UCMA-Blocks(Office.16).png "Major components of UCMA 4.0")
 
-## In this section
+This section includes the following topics:
 
-  - [Collaboration layer](collaboration-layer.md)
-
-  - [Platform and endpoints](platform-and-endpoints.md)
-
-  - [Signaling layer](signaling-layer.md)
-
-  - [Error handling and diagnostics](error-handling-and-diagnostics.md)
-
-  - [High availability and recovery](high-availability-and-recovery.md)
-
-  - [UCMA 5.0 implementation architecture and application behavior](ucma-5-0-implementation-architecture-and-application-behavior.md)
+- [Collaboration layer](collaboration-layer.md)
+- [Platform and endpoints](platform-and-endpoints.md)
+- [Signaling layer](signaling-layer.md)
+- [Error handling and diagnostics](error-handling-and-diagnostics.md)
+- [High availability and recovery](high-availability-and-recovery.md)
+- [UCMA 5.0 implementation architecture and application behavior](ucma-5-0-implementation-architecture-and-application-behavior.md)
 
 ## See also
 

@@ -48,7 +48,7 @@ The general call flow typical of the voice companion application is as follows:
 
 5.  UCMA can then serve as a virtual conference assistant, intercepting user commands entered as DTMF or (optionally) speech, so that the user can control the conference.
 
-6.  A user can use the application to read e-mail, and the application can inform the user of upcoming meetings, or automatically dial out to another user before a meeting starts.
+6.  A user can use the application to read email, and the application can inform the user of upcoming meetings, or automatically dial out to another user before a meeting starts.
 
 ## Related features
 

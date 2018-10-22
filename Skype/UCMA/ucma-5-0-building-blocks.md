@@ -96,7 +96,7 @@ Each of the top-level feature areas described in [Key features of UCMA 5.0](key-
 </table>
 
 
-## In this section
+This section includes the following topics:
 
 - [Personas](personas.md)
 - [Collaboration platform](collaboration-platform.md)

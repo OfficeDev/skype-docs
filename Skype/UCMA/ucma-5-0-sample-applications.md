@@ -13,13 +13,10 @@ mtps_version: v=office.16
 
 **Applies to**: Skype for Business 2015
 
-The following topics describe the sample applications that are shipped with .
+The following topics describe the sample applications that are shipped with the UCMA 5.0 SDK:
 
-## In this section
-
-  - [QuickStart sample applications](quickstart-sample-applications.md)
-
-  - [Reference applications](reference-applications.md)
+- [QuickStart sample applications](quickstart-sample-applications.md)
+- [Reference applications](reference-applications.md)
 
 ## See also
 

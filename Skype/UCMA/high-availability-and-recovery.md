@@ -10,20 +10,13 @@ mtps_version: v=office.16
 
 # High availability and recovery
 
-
 **Applies to**: Skype for Business 2015
 
-This section provides conceptual details about high service availability and recovery from errors and service disruptions.
+This section provides conceptual details about high service availability and recovery from errors and service disruptions:
 
-## In this section
-
-  - [High availability and failover in UCMA 5.0](high-availability-and-failover-in-ucma-5-0.md)
-
-  - [Failover concepts](failover-concepts.md)
-
-  - [Call recovery](call-recovery.md)
-
-  - [Presence recovery](presence-recovery.md)
-
-  - [Conference recovery](conference-recovery.md)
+- [High availability and failover in UCMA 5.0](high-availability-and-failover-in-ucma-5-0.md)
+- [Failover concepts](failover-concepts.md)
+- [Call recovery](call-recovery.md)
+- [Presence recovery](presence-recovery.md)
+- [Conference recovery](conference-recovery.md)
 

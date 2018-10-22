@@ -35,7 +35,7 @@ Every real-time endpoint is uniquely identified in one of three ways:
 
 To discover and communicate with other users, use one of the following techniques:
 
-  - A mechanism such as a registration-free network or e-mail system that uses [SipPeerToPeerEndpoint](https://msdn.microsoft.com/en-us/library/hh161884\(v=office.16\)) objects.
+  - A mechanism such as a registration-free network or email system that uses [SipPeerToPeerEndpoint](https://msdn.microsoft.com/en-us/library/hh161884\(v=office.16\)) objects.
 
   - A SIP proxy to keep the presence information updated, that uses registration-based real-time endpoints, represented by [SipEndpoint](https://msdn.microsoft.com/en-us/library/hh348350\(v=office.16\)) objects.
 
