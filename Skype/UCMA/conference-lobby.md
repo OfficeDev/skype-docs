@@ -1,4 +1,4 @@
-﻿---
+---
 title: Conference lobby
 TOCTitle: Conference lobby
 ms:assetid: a299808b-4228-4934-8fe7-7ec000382ee8

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Activating a UCMA 5.0 trusted application
 TOCTitle: Activating a UCMA 5.0 trusted application
 ms:assetid: f75a02e0-6bc2-4e18-81fd-17907b06fb7d

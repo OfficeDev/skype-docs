@@ -26,7 +26,7 @@ The following procedure shows the steps required to manually provision an applic
 
    ```powershell    
       $a = Get-CsTrustedApplication -identity "client.contoso.com/urn:application:ucmasampleapplication"
-   ```   
+   ``` 
 
    > [!NOTE]
    > Use the identity of your application.

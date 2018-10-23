@@ -1,4 +1,4 @@
-﻿---
+---
 title: Audio devices
 TOCTitle: Audio devices
 ms:assetid: e8820e34-eadb-42c5-bbc5-b8c8ccb7671f
@@ -10,17 +10,12 @@ mtps_version: v=office.16
 
 # Audio devices
 
-
 **Applies to**: Skype for Business 2015
 
 The topics in this section describe the audio devices that are available in Microsoft Unified Communications Managed API 5.0: [Player](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.player?view=ucma-api), [Recorder](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.recorder?view=ucma-api), [ToneController](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.tonecontroller?view=ucma-api), [SpeechRecognitionConnector](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.speechrecognitionconnector?view=ucma-api), and [SpeechSynthesisConnector](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.speechsynthesisconnector?view=ucma-api). These devices, respectively, can be used to play recorded audio, record audio, send and receive telephone dial tones, convert speech to text, or convert text to speech.
 
-
 > [!IMPORTANT]
 > The **SpeechRecognitionConnector** and **SpeechSynthesisConnector** classes are designed to work exclusively with classes in the **Microsoft.Speech** namespace.
-
-
-
 
 In UCMA 5.0, devices are users of media data, and have [AudioVideoFlow](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiovideoflow?view=ucma-api) instances attached to them. Although these devices are represented as properties on the **AudioVideoFlow** class, they are not automatically instantiated and each device is independent of the **AudioVideoFlow** instance that is attached to it. Before any of these devices can be used, it must be created, and then attached to an **AudioVideoFlow** instance. Although most of the devices are associated with a single **AudioVideoFlow** instance, a **Player** device can have multiple **AudioVideoFlow** instances attached to it. In addition, an **AudioVideoFlow** instance can be detached from a given **Player**, and another **AudioVideoFlow** instance can be attached.
 

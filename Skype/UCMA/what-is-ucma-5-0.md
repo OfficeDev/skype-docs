@@ -29,7 +29,7 @@ UCMA 4.0 provides a flexible managed-code platform for unified communication and
     Interactive Voice Response (IVR) applications that can optionally use Voice XML can be created from classes contained in the [Microsoft.Rtc.Collaboration.AudioVideo.VoiceXml](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.voicexml?view=ucma-voice) and **Microsoft.Speech.VoiceXml** namespaces (Microsoft.Rtc.Collaboration.AudioVideo.VoiceXml.dll and Microsoft.Speech.VoiceXml.dll, respectively). For more information, see [VoiceXML support in UCMA 5.0](voicexml-support-in-ucma-5-0.md).
     
   - Signaling layer. This layer provides access to the SIP/SIMPLE infrastructure. The classes in this layer are exposed in the [Microsoft.Rtc.Signaling](https://docs.microsoft.com/dotnet/api/microsoft.rtc.signaling?view=ucma-api) namespace.
-        
+
     The Audio stack is used by some classes in UCMA 5.0, but does not expose any public classes.
     
   > [!NOTE]

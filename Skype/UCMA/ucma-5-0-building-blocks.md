@@ -95,7 +95,6 @@ Each of the top-level feature areas described in [Key features of UCMA 5.0](key-
 </tbody>
 </table>
 
-
 This section includes the following topics:
 
 - [Personas](personas.md)

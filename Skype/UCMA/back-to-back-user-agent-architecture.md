@@ -1,4 +1,4 @@
-﻿---
+---
 title: Back-to-back user agent architecture
 TOCTitle: Back-to-back user agent architecture
 ms:assetid: 433baf9b-d4c3-441d-a5fb-9f4010cc0f21

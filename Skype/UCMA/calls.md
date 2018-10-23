@@ -26,7 +26,6 @@ A call is a communication session between two endpoints: a local endpoint and a 
   > [!IMPORTANT]
   > The default media provider for the **AudioVideoCall** class does not support the Video media type.
 
-
 - [BackToBackCall](https://msdn.microsoft.com/en-us/library/hh365598\(v=office.16\)) class.
     
   A **BackToBackCall** instance represents a logical SIP network element that mediates SIP signaling between two call legs. A **BackToBackCall** instance can be used to connect two clients that send and receive audio alone or audio and video.

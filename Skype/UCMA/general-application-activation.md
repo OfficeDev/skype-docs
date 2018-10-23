@@ -213,7 +213,7 @@ To perform these actions using Skype for Business Server Management Shell, you m
       ```
 
    2. For a trusted application pool consisting of multiple computers, or a trusted application pool consisting of a single computer where the pool FQDN does not match the computer, the **Request-CsCertificate** cmdlet can still be used to create a certificate. However, the –**DomainName** argument must be used. In the following example, the friendly name of the requested certificate will be set to trustedapps.contoso.com Pool, the certificate authority is on the computer ca.contoso.com with a name of ContosoCA, the FQDN of the trusted application computer the cmdlet is being run on is machine1.contoso.com, and the trusted application pool consists of two computers: machine1.contoso.com and machine2.contoso.com.
-        
+       
       ```powershell
        Request-CsCertificate -New -Type default -FriendlyName "trustedapps.contoso.com Pool" -CA ca.contoso.com\\ContosoCA -ComputerFQDN machine1.contoso.com -DomainName "machine1.contoso.com,machine2.contoso.com"
       ```
