@@ -10,7 +10,6 @@ mtps_version: v=office.16
 
 # Trusted conferencing user conversation model
 
-
 **Applies to**: Skype for Business 2015
 
 Using the Trusted Conferencing User model, an application can create multiple [AudioVideoCall](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiovideocall?view=ucma-api) instances in the context of a single [Conversation](https://msdn.microsoft.com/en-us/library/hh349224\(v=office.16\)) instance. This call structure allows for a closer alignment with the problem domain. An application not using this model must manage one conversation for each user, all of whom communicate with the same conference. The TCU model reduces management overhead for the application by having it manage only one conversation for each conference, resulting in fewer objects to manage.
@@ -23,11 +22,8 @@ The following illustration shows the architecture of the TCU model.
 
 A Trusted Conferencing User conversation serves multiple users. Some of these users might not have a Focus channel in which to issue conference control commands such as muting self, muting or unmuting others, dialing out to another user, and similar operations. A TCU conversation enables an application to provide a Focus channel for users who would not ordinarily have a Focus channel. The commands are issued within the context of a specific user, so the server enforces the appropriate security policies for that user. For example, an attendee cannot mute others.
 
-
 > [!NOTE]
-> <P>An application that uses the TCU conversation model can still issue commands under its own identity. However, because the application is trusted, it is automatically treated as a presenter. For this reason, an application also must have the ability to execute commands in the context of another user to avoid an elevation of privilege.</P>
-
-
+> An application that uses the TCU conversation model can still issue commands under its own identity. However, because the application is trusted, it is automatically treated as a presenter. For this reason, an application also must have the ability to execute commands in the context of another user to avoid an elevation of privilege.
 
 ### Shared notification channel
 

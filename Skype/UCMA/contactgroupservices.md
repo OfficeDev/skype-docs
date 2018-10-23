@@ -12,34 +12,23 @@ dev_langs:
 
 # ContactGroupServices
 
-
 **Applies to**: Skype for Business 2015
-
-
 
 A contact is a unified communication entity that is identified by a SIP URI. One or more contacts can be assembled into logical collections called groups. When a group is created, it is assigned a group ID, which is a server-assigned integer. The Contacts and Groups API in Microsoft Unified Communications Managed API 5.0 is available only for [UserEndpoint](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.userendpoint?view=ucma-api) objects.
 
-
 > [!NOTE]
-> <P>The Contacts and Groups API is not available for <A href="https://msdn.microsoft.com/en-us/library/hh384825(v=office.16)">ApplicationEndpoint</A> objects.</P>
-
+> The Contacts and Groups API is not available for [ApplicationEndpoint](https://msdn.microsoft.com/en-us/library/hh384825(v=office.16)) objects.
 
 
 The Contacts and Groups API can be used to perform the following operations:
 
-  - Create a new contact.
-
-  - Update the details of a published contact.
-
-  - Delete an existing contact.
-
-  - Create a new group.
-
-  - Associate contacts with one or more groups.
-
-  - Delete an existing group.
-
-  - Find the contacts and groups for a particular endpoint owner.
+- Create a new contact.
+- Update the details of a published contact.
+- Delete an existing contact.
+- Create a new group.
+- Associate contacts with one or more groups.
+- Delete an existing group.
+- Find the contacts and groups for a particular endpoint owner.
 
 The [ContactGroupServices](https://msdn.microsoft.com/en-us/library/hh381099\(v=office.16\)) class provides a number of methods for managing contacts and groups.
 
@@ -47,21 +36,23 @@ The [ContactGroupServices](https://msdn.microsoft.com/en-us/library/hh381099\(v=
 
 The [BeginSubscribe(AsyncCallback, Object)](https://msdn.microsoft.com/en-us/library/hh383375\(v=office.16\)) and [EndSubscribe(IAsyncResult)](https://msdn.microsoft.com/en-us/library/hh348322\(v=office.16\)) methods can be used to subscribe to and obtain the endpoint owner’s contacts and groups, and receive updates on any changes to them.
 
-The state of the subscription can be tracked by the **CurrentState()** property and by the [SubscriptionStateChange](https://msdn.microsoft.com/en-us/library/hh382084\(v=office.16\)) event. Following a successful subscription, notifications can be received by registering a handler for the [NotificationReceived](https://msdn.microsoft.com/en-us/library/hh349964\(v=office.16\)) event. The first notification is a complete notification (the [IsFullNotification](https://msdn.microsoft.com/en-us/library/hh366286\(v=office.16\)) property on the [ContactGroupNotificationEventArgs](https://msdn.microsoft.com/en-us/library/hh365894\(v=office.16\)) object) indicates that this notification contains a complete snapshot of the endpoint owner’s contacts and groups. Subsequent notifications denote a change in the existing list of contacts and groups. If the application is to receive a full notification again it can do so by calling the [BeginRefresh](https://msdn.microsoft.com/en-us/library/hh350093\(v=office.16\)) and [EndRefresh](https://msdn.microsoft.com/en-us/library/hh383490\(v=office.16\)) methods.
+The state of the subscription can be tracked by the **CurrentState()** property and by the [SubscriptionStateChange](https://msdn.microsoft.com/en-us/library/hh382084\(v=office.16\)) event. Following a successful subscription, notifications can be received by registering a handler for the [NotificationReceived](https://msdn.microsoft.com/en-us/library/hh349964\(v=office.16\)) event. 
+
+The first notification is a complete notification (the [IsFullNotification](https://msdn.microsoft.com/en-us/library/hh366286\(v=office.16\)) property on the [ContactGroupNotificationEventArgs](https://msdn.microsoft.com/en-us/library/hh365894\(v=office.16\)) object) indicates that this notification contains a complete snapshot of the endpoint owner’s contacts and groups. Subsequent notifications denote a change in the existing list of contacts and groups. If the application is to receive a full notification again it can do so by calling the [BeginRefresh](https://msdn.microsoft.com/en-us/library/hh350093\(v=office.16\)) and [EndRefresh](https://msdn.microsoft.com/en-us/library/hh383490\(v=office.16\)) methods.
 
 ## Creating and deleting contacts
 
 The [ContactAddOptions](https://msdn.microsoft.com/en-us/library/hh382330\(v=office.16\)) class is new in UCMA 5.0. An application can use the members of this class to add a contact and fill in the following details for the contact:
 
-  - Contact name
+- Contact name
 
-  - Additional data or description for the contact
+- Additional data or description for the contact
 
-  - An optional container ID where an equivalent Access Control Entry (ACE) will be added for this contact. If none are specified and the user is operating in the privacy mode, an ACE is automatically added.
+- An optional container ID where an equivalent Access Control Entry (ACE) will be added for this contact. If none are specified and the user is operating in the privacy mode, an ACE is automatically added.
     
-    For more information, see the Relationship level management section in [LocalOwnerPresence](localownerpresence.md).
+  For more information, see the Relationship level management section in [LocalOwnerPresence](localownerpresence.md).
 
-  - Any groups to which this contact belongs.
+- Any groups to which this contact belongs.
 
 Adding a contact to your contact list does not automatically indicate that their presence is being subscribed to. This must be done separately using members of the [RemotePresenceView](https://msdn.microsoft.com/en-us/library/hh381152\(v=office.16\)) class. Deletion of a contact can result in the deletion of an ACE (if one exists) that belongs to that user, unless the user is blocked. If the user is blocked, the ACE is not removed.
 
@@ -69,11 +60,8 @@ Adding a contact to your contact list does not automatically indicate that their
 
 The [ContactGroupServices](https://msdn.microsoft.com/en-us/library/hh383122\(v=office.16\)) property on a [UserEndpoint](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.userendpoint?view=ucma-api) instance provides access to a [ContactGroupServices](https://msdn.microsoft.com/en-us/library/hh381099\(v=office.16\)) instance. The methods and properties on the **ContactGroupServices** instance can be used to manage the endpoint owner’s contacts and groups.
 
-
 > [!NOTE]
-> <P>The <A href="https://msdn.microsoft.com/en-us/library/hh384825(v=office.16)">ApplicationEndpoint</A> class has no <STRONG>ContactGroupServices</STRONG> property. Consequently, only a <STRONG>UserEndpoint</STRONG> instance can be used to manage contacts and groups.</P>
-
-
+> The [ApplicationEndpoint](https://msdn.microsoft.com/en-us/library/hh384825(v=office.16)) class has no **ContactGroupServices** property. Consequently, only a **UserEndpoint** instance can be used to manage contacts and groups.
 
 ### Starting a contacts and groups subscription
 
@@ -393,13 +381,13 @@ The **ContactGroupServices** state transitions are shown in the following illust
 
 7.  The transition from **Subscribed** to **WaitingForRetry** occurs for connectivity failures and reasons such as the following.
     
-      - The server requests UCMA 5.0 to close this subscription and to create a new subscription by sending a NOTIFY request with an Expires:0 parameter. The server can make this request at any time.
+    - The server requests UCMA 5.0 to close this subscription and to create a new subscription by sending a NOTIFY request with an Expires:0 parameter. The server can make this request at any time.
     
-      - Route-set recovery begins.
+    - Route-set recovery begins.
     
-      - The server sends a "481 Call leg unavailable" response.
+    - The server sends a "481 Call leg unavailable" response.
     
-      - The endpoint owner’s home server UserServices pool is offline and cannot respond to service requests. UCMA 5.0 automatically recovers when the UserServices pool is online again.
+    - The endpoint owner’s home server UserServices pool is offline and cannot respond to service requests. UCMA 5.0 automatically recovers when the UserServices pool is online again.
 
 8.  The transition from **Subscribed** to **Terminating** occurs when **BeginUnsubscribe** is called.
 

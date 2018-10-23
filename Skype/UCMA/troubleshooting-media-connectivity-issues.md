@@ -29,9 +29,9 @@ After the call terminates, determine whether there was a media connectivity prob
 
 If the value of the **EstablishmentStatus** property is **Failed**, the application can call the [GetDiagnosticsReason](https://msdn.microsoft.com/en-us/library/hh384673\(v=office.16\)) method to obtain diagnostics information. The **GetDiagnostics** method returns a value of the [MediaChannelEstablishmentDiagnosticsReason](https://msdn.microsoft.com/en-us/library/hh383063\(v=office.16\)) enumeration.
 
-  - If the value returned by **GetDiagnosticsReason** is either **MediaEdgeAuthenticationServiceDiscoveryFailed** or **MediaEdgeAuthenticationServiceCredentialsAquisitionFail**, raise "Alert 1".
+- If the value returned by **GetDiagnosticsReason** is either **MediaEdgeAuthenticationServiceDiscoveryFailed** or **MediaEdgeAuthenticationServiceCredentialsAquisitionFail**, raise "Alert 1".
 
-  - If the value returned by **GetDiagnosticsReason** is **MediaEdgeResourceAllocationFailed**, raise "Alert 2".
+- If the value returned by **GetDiagnosticsReason** is **MediaEdgeResourceAllocationFailed**, raise "Alert 2".
 
 The following are suggested alert messages for these two alerts:
 
@@ -41,6 +41,6 @@ Alert 2: "Skype for Business Server 2015 calls involving remote users (located o
 
 
 > [!NOTE]
-> <P>An application should implement a throttling mechanism based on specific alert keys so that warnings do not flood the system.</P>
+> An application should implement a throttling mechanism based on specific alert keys so that warnings do not flood the system.
 
 

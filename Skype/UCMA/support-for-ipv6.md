@@ -15,7 +15,9 @@ mtps_version: v=office.16
 
 ## IPv6 overview
 
-The added support of Internet Protocol Version 6 (IPv6) addresses in Skype for Business Server 2015 has some implications for applications written on UCMA. Applications written for Skype for Business Server 2015 need to be IPv6-aware, and must use the new and updated APIs in UCMA 5.0 for this purpose. Any Skype for Business Server 2015 deployment could at some point become an IPv6 only deployment, and would break most existing applications if they have not been updated. In addition to the standard recommendations for writing applications to support IPv6, there are best practices for writing applications on UCMA 5.0 that should be followed when updating applications Even though UCMA 5.0 supports IPv6, using IPv4 is to be preferred in most deployments, if available. This is because media quality is generally better over IPv4, and configuration and deployment become much more difficult when you add IPv6 support in your deployment.
+The added support of Internet Protocol Version 6 (IPv6) addressed in Skype for Business Server 2015 has some implications for applications written on UCMA. Applications written for Skype for Business Server 2015 need to be IPv6-aware, and must use the new and updated APIs in UCMA 5.0 for this purpose. Any Skype for Business Server 2015 deployment could at some point become an IPv6-only deployment, and would break most existing applications if they have not been updated. 
+
+In addition to the standard recommendations for writing applications to support IPv6, there are best practices for writing applications on UCMA 5.0 that should be followed when updating applications. Even though UCMA 5.0 supports IPv6, using IPv4 is preferred in most deployments, if available. This is because media quality is generally better over IPv4, and configuration and deployment become much more difficult when you add IPv6 support in your deployment.
 
 ### Support for IPv6 in Skype for Business Server 2015
 
@@ -35,11 +37,11 @@ There are a number of things to check for in your code when you update it to sup
 
 Check your code for the following:
 
-  - Any uses of the [Dns](https://msdn.microsoft.com/en-us/library/b8hth2dy) class. It is very possible that there might be built-in assumptions about the number of addresses that this class will return, that the first address is an IPv4 address, or there is some logic that filters out IPv6 addresses. In addition, some code might assume that the results from a DNS query are separate physical machines and thus some form of resiliency or load balancing can be accomplished across the addresses being returned. This is no longer a safe assumption.
+- Any uses of the [Dns](https://msdn.microsoft.com/en-us/library/b8hth2dy) class. It is very possible that there might be built-in assumptions about the number of addresses that this class will return, that the first address is an IPv4 address, or there is some logic that filters out IPv6 addresses. In addition, some code might assume that the results from a DNS query are separate physical machines and thus some form of resiliency or load balancing can be accomplished across the addresses being returned. This is no longer a safe assumption.
 
-  - Hard-coded IP addresses. This might be [Any](https://msdn.microsoft.com/en-us/library/hdk35zc9) or [Loopback](https://msdn.microsoft.com/en-us/library/8e4b4zeh). Supporting IPv6 means that there are now two **Any** addresses and two **Loopback** addresses that must be considered—the two fields already listed, as well as the [IPv6Any](https://msdn.microsoft.com/en-us/library/h2ca14s4) and [IPv6Loopback](https://msdn.microsoft.com/en-us/library/052fbtx7) fields in your code. For best results, hosts should be specified by their FQDN and not by address.
+- Hard-coded IP addresses. This might be [Any](https://msdn.microsoft.com/en-us/library/hdk35zc9) or [Loopback](https://msdn.microsoft.com/en-us/library/8e4b4zeh). Supporting IPv6 means that there are now two **Any** addresses and two **Loopback** addresses that must be considered—the two fields already listed, as well as the [IPv6Any](https://msdn.microsoft.com/en-us/library/h2ca14s4) and [IPv6Loopback](https://msdn.microsoft.com/en-us/library/052fbtx7) fields in your code. For best results, hosts should be specified by their FQDN and not by address.
 
-  - Dual stack mode requires configuring at least two listening addresses (**IPAddress.Any** and **IPAddress.IPv6Any**). Check that your code can support configuring two addresses.
+- Dual stack mode requires configuring at least two listening addresses (**IPAddress.Any** and **IPAddress.IPv6Any**). Check that your code can support configuring two addresses.
 
 After searching your code for occurrences of these items, you should have a good idea of the changes you might need in your application to get it ready for Skype for Business Server 2015.
 
@@ -59,11 +61,8 @@ In addition to the points already discussed, there are two more items to conside
 
 If you are using [ServerPlatformSettings](https://msdn.microsoft.com/en-us/library/hh382156\(v=office.16\)) to configure your application, consider provisioning your application provisioning by the use of [ProvisionedApplicationPlatformSettings](https://msdn.microsoft.com/en-us/library/hh385058\(v=office.16\)). Provisioning in this manner makes it possible for the platform to automatically configure the IPv4/IPv6/dual listening addresses at start up.
 
-
 > [!NOTE]
-> <P>Note that Skype for Business Server components currently check the pool setting once at start up. A change to the pool stack mode requires restarting all the services. Although it is good to plan ahead to support this pool setting being changed dynamically during runtime, it is not strictly necessary to immediately implement this capability. Provisioned applications require a restart to pick up a new configuration of stack mode.</P>
-
-
+> Note that Skype for Business Server components currently check the pool setting once at start up. A change to the pool stack mode requires restarting all the services. Although it is good to plan ahead to support this pool setting being changed dynamically during runtime, it is not strictly necessary to immediately implement this capability. Provisioned applications require a restart to pick up a new configuration of stack mode.
 
 If you cannot use provisioning in your application and must use **ServerPlatformSettings**, it is best to always run in a dual stack mode unless you can detect that there is no operating system support for one of the protocols. This allows a Skype for Business Server administrator to change the stack mode, and other components in the server can still contact your application.
 
@@ -77,21 +76,21 @@ While this is fine in most cases, it is important to be as specific as possible 
 
 To give the best experience possible, follow these recommendations.
 
-  - Ensure that each instance of your application running in the pool is configured to listen on the same address families.
+- Ensure that each instance of your application running in the pool is configured to listen on the same address families.
 
-  - Do not configure extra DNS entries that are not needed.
+- Do not configure extra DNS entries that are not needed.
 
-  - Use DNS instead of the hosts file to increase your chances of a consistent configuration.
+- Use DNS instead of the hosts file to increase your chances of a consistent configuration.
 
-  - Configure your application to use dual stack mode (if you are using **ServerPlatformSettings**) and so that it is consistently configured with the Skype for Business Server pool it is running in.
+- Configure your application to use dual stack mode (if you are using **ServerPlatformSettings**) and so that it is consistently configured with the Skype for Business Server pool it is running in.
 
-  - Use the new APIs and hints as appropriate to specify exceptions to the default configuration. The [AddressFamilyHint](https://msdn.microsoft.com/en-us/library/jj728964\(v=office.16\)) enumeration, which is new in UCMA 5.0, can be used to configure [ConnectionContext](https://msdn.microsoft.com/en-us/library/hh366132\(v=office.16\)) instances that are passed in various places in the API to give more detailed information on how to connect to differently configured hosts.
+- Use the new APIs and hints as appropriate to specify exceptions to the default configuration. The [AddressFamilyHint](https://msdn.microsoft.com/en-us/library/jj728964\(v=office.16\)) enumeration, which is new in UCMA 5.0, can be used to configure [ConnectionContext](https://msdn.microsoft.com/en-us/library/hh366132\(v=office.16\)) instances that are passed in various places in the API to give more detailed information on how to connect to differently configured hosts.
 
-  - If you have tried everything else and you need compatibility with the previous version of the UCMA stack, there are two alternatives. Note that either alternative should be used as a last resort as your application will not function properly with an IPv6-only Skype for Business Server 2015 pool.
+- If you have tried everything else and you need compatibility with the previous version of the UCMA stack, there are two alternatives. Note that either alternative should be used as a last resort as your application will not function properly with an IPv6-only Skype for Business Server 2015 pool.
     
-    1.  If you are working with [RealTimeEndpoint](https://msdn.microsoft.com/en-us/library/hh366081\(v=office.16\)) objects in your application, you can use the **\[M:Microsoft.Rtc.Signaling.RealTimeConnectionManager.DisableIpV6Support()\]** method.
+  1.  If you are working with [RealTimeEndpoint](https://msdn.microsoft.com/en-us/library/hh366081\(v=office.16\)) objects in your application, you can use the **\[M:Microsoft.Rtc.Signaling.RealTimeConnectionManager.DisableIpV6Support()\]** method.
     
-    2.  If you are using a [CollaborationPlatform](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.collaborationplatform?view=ucma-api) object in your application, you can disable IPv6 support by setting the [IpV6SupportDisabled](https://msdn.microsoft.com/en-us/library/jj728958\(v=office.16\)) property on a [ServerPlatformSettings](https://msdn.microsoft.com/en-us/library/hh382156\(v=office.16\)) instance to true.
+  2.  If you are using a [CollaborationPlatform](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.collaborationplatform?view=ucma-api) object in your application, you can disable IPv6 support by setting the [IpV6SupportDisabled](https://msdn.microsoft.com/en-us/library/jj728958\(v=office.16\)) property on a [ServerPlatformSettings](https://msdn.microsoft.com/en-us/library/hh382156\(v=office.16\)) instance to true.
 
 ### Using IP Addresses instead of FQDNs; Configuring application instances consistently
 

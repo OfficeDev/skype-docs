@@ -10,10 +10,7 @@ mtps_version: v=office.16
 
 # Conference lobby
 
-
 **Applies to**: Skype for Business 2015
-
-
 
 The conference lobby is a virtual room in which participants in a multi-party conversation (a conference session) wait until the presenters of in the meeting are ready to begin.
 
@@ -27,12 +24,8 @@ The [CanManageLobby](https://msdn.microsoft.com/en-us/library/hh381614\(v=office
 
 The [BeginJoin(ConferenceJoinOptions, AsyncCallback, Object)](https://msdn.microsoft.com/en-us/library/hh348502\(v=office.16\)) method joins the application to an *ad hoc* conference organized under the application’s identity. However, if the application receives and accepted a conference invitation or received a conference MCU dial out, then calling this method will join the application to that specific conference.
 
-
 > [!NOTE]
 > It is possible for an application to land in the conference lobby if it received a conference invitation.
-
-
-
 
 The [BeginJoin(String, ConferenceJoinOptions, AsyncCallback, Object)](https://msdn.microsoft.com/en-us/library/hh348983\(v=office.16\)) joins the application to the supplied conference URI.
 

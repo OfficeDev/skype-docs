@@ -10,7 +10,6 @@ mtps_version: v=office.16
 
 # Security considerations in UCMA 5.0
 
-
 **Applies to**: Skype for Business 2015
 
 ## Security notes
@@ -49,7 +48,6 @@ Developers who create applications using UCMA 5.0 SDK are strongly advised to ob
 
 - Although the UCMA 5.0 platform supports Real-time Transport Protocol (RTP), applications should use Secure Real-time Transport Protocol (SRTP) whenever possible. It is highly recommended that you use Encryption=Required so that audio packets cannot be tampered with or sniffed.
     
-
 > [!NOTE]
 > If a UCMA 5.0 application interoperates with a non-Skype for Business Server 2015 proxy (for example, a gateway), ensure that the non-Skype for Business Server 2015 proxy supports SRTP (see RFC 3711). If Encryption=Required is used and the non-Skype for Business Server 2015 proxy does not support encryption, call failure will result.
 

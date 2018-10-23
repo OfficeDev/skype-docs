@@ -10,40 +10,37 @@ mtps_version: v=office.16
 
 # In-meeting: during the conference
 
-
 **Applies to**: Skype for Business 2015
-
-
 
 From the perspective of an end-user, there are two main types of conferences:
 
-  - Scheduled conferences that are referenced in meeting invitations.
+- Scheduled conferences that are referenced in meeting invitations.
     
-    Participants of this type of conference join by clicking a Web URL or by dialing into the Audio Conference bridge with information retrieved from their calendar.
+  Participants of this type of conference join by clicking a Web URL or by dialing into the Audio Conference bridge with information retrieved from their calendar.
 
-  - *Ad hoc* conferences (impromptu collaboration meetings)
+- *Ad hoc* conferences (impromptu collaboration meetings)
     
-    *Ad hoc* conferences usually result from the escalation of a peer-to-peer conversation to a conference or from a meet-now feature invocation.
+  *Ad hoc* conferences usually result from the escalation of a peer-to-peer conversation to a conference or from a meet-now feature invocation.
 
 Several conference-join and in-meeting features are present in UCMA 5.0 and Skype for Business Server 2015. These new features consist of the following actions:
 
-  - Joining the conference lobby before being admitted into the Conference.
+- Joining the conference lobby before being admitted into the Conference.
 
-  - Managing the conference lobby.
+- Managing the conference lobby.
 
-  - Enabling or disabling PSTN lobby bypass.
+- Enabling or disabling PSTN lobby bypass.
 
-  - Changing the conference Access Level.
+- Changing the conference Access Level.
 
-  - Modifying the Automatic Presenter Assignment.
+- Modifying the Automatic Presenter Assignment.
 
-  - Being notified when the conference Termination Countdown is activated.
+- Being notified when the conference Termination Countdown is activated.
 
-  - Being notified when participants are recording the Conference.
+- Being notified when participants are recording the Conference.
 
-  - Muting all participants of the conference.
+- Muting all participants of the conference.
 
-  - Enabling or disabling the conference entry/exit announcements.
+- Enabling or disabling the conference entry/exit announcements.
 
 ## Join the conference lobby
 
@@ -55,11 +52,8 @@ Conference leaders can manage a UCMA 5.0 conference lobby. They can admit lobby 
 
 Leaders and attendees of UCMA 5.0 conferences are made aware of when a participant joins or leaves the conference lobby as well as the reason (the participant left, was admitted into the conference, or was ejected due to time out or presenter action).
 
-
 > [!NOTE]
-> <P>Opening the lobby (by changing the conference Access Level to <STRONG>Everyone</STRONG>) applies only to new participants entering the lobby. It does not result in admitting existing lobby participants, as the operation is not retroactive. The application writer is responsible for admitting current lobby participants.</P>
-
-
+> Opening the lobby (by changing the conference Access Level to **Everyone**) applies only to new participants entering the lobby. It does not result in admitting existing lobby participants, as the operation is not retroactive. The application writer is responsible for admitting current lobby participants.
 
 ## Change the lobby bypass assignment
 
@@ -69,13 +63,10 @@ Conference leaders can enable or disable the PSTN conference Lobby Bypass featur
 
 The leader of a conference hosted by Skype for Business Server 2015 can modify the Access Level of a conference after joining it. For example, the leader can change the Access Level of a conference to **Everyone**, which is equivalent to opening the lobby.
 
-
 > [!NOTE]
-> <P>An application developer should verify which allowed conference Access Levels (if any) can be used after joining a conference. The allowed conference Access Levels vary from conference to conference and cannot be inferred from the conferencing capabilities. For example, it is possible that no conference Access Level change is allowed when joining a conference during migration.</P>
+> An application developer should verify which allowed conference Access Levels (if any) can be used after joining a conference. The allowed conference Access Levels vary from conference to conference and cannot be inferred from the conferencing capabilities. For example, it is possible that no conference Access Level change is allowed when joining a conference during migration.
 
-
-
-**Locking a conference**
+### Locking a conference
 
 There are two ways to lock a conference using UCMA 5.0. The first way consists of changing the conference Access Level to **Locked**. After the conference is locked, the application developer, conference owner, or conference presenter must supply a new Access Level for the conference to unlock the conference.
 
@@ -85,21 +76,15 @@ The second way of locking the conference consists of using a dedicated set of AP
 
 In addition to enabling conference leaders to change the role of a participant from Attendee to Leader (promotion), UCMA 5.0 also enables conference Leaders to control the automatic Leader Role Assignment in a meeting. For example, the automatic promotion to **Leader** can be changed from **Everyone** to **SameEnterprise** to avoid anonymous users taking control of a meeting. Alternatively, automatic Leader Role Assignment can simply be turned off.
 
-
 > [!NOTE]
-> <P>An application developer should first decide which allowed automatic Leader Role assignment (if any) can be used after joining a conference.</P>
-
-
+> An application developer should first decide which allowed automatic Leader Role assignment (if any) can be used after joining a conference.
 
 ## Conference termination countdown
 
 UCMA 5.0 informs the application developer of when the conference Termination Countdown is fired. This typically results from the last authenticated (**SameEnterprise**) user of the conference leaving it and consists of a grace period after which the conference is deactivated.
 
-
 > [!NOTE]
-> <P>During this grace period, if an authenticated (<STRONG>SameEnterprise</STRONG>) user rejoins the conference, the conference Termination Countdown is stopped.</P>
-
-
+> During this grace period, if an authenticated (**SameEnterprise**) user rejoins the conference, the conference Termination Countdown is stopped.
 
 ## Conference recording
 
@@ -109,11 +94,8 @@ Conference recording (which is initiated by a conference participant) differs fr
 
 Participants of a conference who have joined with UCMA 5.0 are notified of the participants who are currently recording the conference. However, these participants are unable to let other conference participants know that they are recording with UCMA 5.0; this is a limitation of the API.
 
-
 > [!IMPORTANT]
-> <P>Just because there is no indication of participants who are recording a conference, this does not guarantee that no participants are doing so. Honoring the conference recording policy is left to application implementers.</P>
-
-
+> Just because there is no indication of participants who are recording a conference, this does not guarantee that no participants are doing so. Honoring the conference recording policy is left to application implementers.
 
 ## Inviting new participants
 
@@ -129,18 +111,14 @@ When a conference leader enables the Mute-All mode in a conference, everyone but
 
 When the Mute-All mode is enabled, new participants joining the meeting are automatically muted. When the Mute-All mode is exited, conference leaders and attendees who are already in the conference remain muted but can unmute themselves; this includes attendees who may not have been able to unmute themselves while Mute-All was enabled. New participants join the conference unmuted.
 
-
 > [!NOTE]
-> <P>Note that before muting all, the application developer should verify that the conference supports Mute-All.</P>
-
-
+> Note that before muting all, the application developer should verify that the conference supports Mute-All.
 
 ## Entry-Exit announcement
 
 UCMA 5.0 supports turning the Entry-Exit announcement on or off in an audio conference. This announcement is played to all participants of the conference when a participant enters or leaves the conference. The announcement includes the name of the participant who is entering or leaving.
 
-
 > [!NOTE]
-> <P>Before toggling Entry Exit announcements, an application developer should first verify whether the audio conference supports toggling the Entry Exit announcement.</P>
+> Before toggling Entry Exit announcements, an application developer should first verify whether the audio conference supports toggling the Entry Exit announcement.
 
 

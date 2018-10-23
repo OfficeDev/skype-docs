@@ -10,10 +10,8 @@ mtps_version: v=office.16
 
 # Pre-meeting: conference scheduling
 
-
 **Applies to**: Skype for Business 2015
  
-
 The features described in this section apply to a conference before it becomes an active conference; that is, before the conference session comes into existence.
 
 ## Conferencing capabilities
@@ -32,17 +30,17 @@ The Scheduling Template represents the list of configurable options (Conference 
 
 The configurable scheduling options include the following:
 
-  - A description of the conference
+- A description of the conference
 
-  - General information about the conference (which can be read by an organizer or by participants on joining the conference)
+- General information about the conference (which can be read by an organizer or by participants on joining the conference)
 
-  - The list of invitees and their respective roles (Attendee or Leader)
+- The list of invitees and their respective roles (Attendee or Leader)
 
-  - The Access Level of the conference
+- The Access Level of the conference
 
-  - The modalities that can be used during the conference
+- The modalities that can be used during the conference
 
-  - Whether phone users (people calling through a SIP PSTN gateway or IP-PBX) can dial in to the conference
+- Whether phone users (people calling through a SIP PSTN gateway or IP-PBX) can dial in to the conference
 
 ## Pre-meeting conference access level and conference lobby
 
@@ -104,17 +102,14 @@ Unlike Attendees, leaders of a Skype for Business Server 2015 conference can sha
 
 Although the primary modalities of UCMA 5.0 are IM and audio, an organizer can supply information when the conference is being scheduled about additional Multipoint Control Units (MCUs) for other modalities such as data collaboration or application sharing. In such cases, the organizer supplies C3P protocol extensions to the UCMA 5.0 Conference Schedule Information.
 
-
 > [!NOTE]
-> <P>Extending modalities is an advanced scenario. For more information, see <A href="extending-the-ucma-platform.md">Extending the UCMA platform</A>.</P>
-
-
+> Extending modalities is an advanced scenario. For more information, see [Extending the UCMA platform](extending-the-ucma-platform.md).
 
 ## Conference web URL
 
 Starting with Microsoft Office Communications Server 2007 R2, a conference is uniquely identified by its conference ID. The conference entry points include a SIP conference URI and a list of phone numbers (Phone Information) coupled with a PSTN conference ID (a numerical sequence that can easily be entered using Dual Tone Multi Frequency (DTMF) tones on a touch-tone phone).
 
-In addition to the previously listed conference entry points, a conference in UCMA 5.0 is assigned a Web URL, such as https://meet.contoso.com/johndoe/TO765HML, that can be shared with new conference invitees before, during, or after a meeting.
+In addition to the previously listed conference entry points, a conference in UCMA 5.0 is assigned a Web URL such as `https://meet.contoso.com/johndoe/TO765HML` that can be shared with new conference invitees before, during, or after a meeting.
 
 Clicking this Web URL is the preferred technique for joining a meeting from a computer. The Web URL points to a Web server from which is downloaded a Join launcher agent that will join the meeting either from Skype for Business 2015, if installed on the computer, or from .
 

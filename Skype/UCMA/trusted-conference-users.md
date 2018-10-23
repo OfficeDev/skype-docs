@@ -10,10 +10,7 @@ mtps_version: v=office.16
 
 # Trusted conference users
 
-
 **Applies to**: Skype for Business 2015
-
-
 
 The Trusted Conferencing User model can be used to enable advanced telephony scenarios. At a high level, the Trusted Conferencing User model is a programming model that gives application writers a way to seamlessly enhance the communication experience of one or more participants engaged in a conversation.
 
@@ -31,11 +28,8 @@ A trusted user can issue conferencing commands on behalf-of participants to the 
 
 A trusted user can concurrently connect multiple channels of a given modality to a given conference while sharing the same conference state amongst these channels to scale better. A trusted user can have, for example, one hundred audio channels concurrently connected to the same audio conference, where each audio channel serves a dedicated purpose. One audio channel can be used to play music-on-hold back to the conference participants, and other channels can be used to establish a full-duplex private audio channel with a given participant, and another channel can be used to listen silently to all the participants of a conference or to make culture-specific announcements to a subset of the audio conference participants.
 
-
 > [!NOTE]
-> <P>The trusted conferencing user model can be extended to support media types other than the default types (audio and text) provided in UCMA 5.0. For more information, see <A href="extending-the-ucma-platform.md">Extending the UCMA platform</A>.</P>
-
-
+> The trusted conferencing user model can be extended to support media types other than the default types (audio and text) provided in UCMA 5.0. For more information, see [Extending the UCMA platform](extending-the-ucma-platform.md).
 
 ## Audio route management
 

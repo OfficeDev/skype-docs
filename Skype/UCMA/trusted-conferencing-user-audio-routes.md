@@ -12,10 +12,7 @@ dev_langs:
 
 # Trusted conferencing user audio routes
 
-
 **Applies to**: Skype for Business 2015
-
-
 
 This topic describes a number of operations that can be performed after a trusted conferencing user has joined a conference.
 
@@ -130,15 +127,10 @@ private void RemoveFromDefaultRoutingCompleted(IAsyncResult result)
 
 
 > [!NOTE]
-> <P>This solution does not account for the fact that the agent can no longer hear the customer, and the customer might not know that he is temporarily unable talk to the agent. For a better customer experience, the application design might require some additional routes to be modified.</P>
-
-
-
+> This solution does not account for the fact that the agent can no longer hear the customer, and the customer might not know that he is temporarily unable talk to the agent. For a better customer experience, the application design might require some additional routes to be modified.
 
 > [!NOTE]
-> <P>If agents are aware that they cannot respond to the supervisor because no route is set up, it might not be necessary to remove the agent from the default mix as illustrated in this example. The supervisor can add the agent back into the default routing by adding the agent back to the default mix.</P>
-
-
+> If agents are aware that they cannot respond to the supervisor because no route is set up, it might not be necessary to remove the agent from the default mix as illustrated in this example. The supervisor can add the agent back into the default routing by adding the agent back to the default mix.
 
 ## Supervisor barge-in
 
@@ -171,9 +163,7 @@ _callToMcu.AudioVideoMcuRouting.BeginUpdateAudioRoutes(
 
 
 > [!NOTE]
-> <P>There is a disadvantage in this technique because the customer would not see the supervisor in the roster of the Skype for Business 2015 application as was the case with the agent. For this technique to work as expected, the supervisor should join the conference again, not as a trusted conference user, but under his own identity, so that he appears in the roster.</P>
-
-
+> There is a disadvantage in this technique because the customer would not see the supervisor in the roster of the Skype for Business 2015 application as was the case with the agent. For this technique to work as expected, the supervisor should join the conference again, not as a trusted conference user, but under his own identity, so that he appears in the roster.
 
 ## Adding to and removing from the default mix
 

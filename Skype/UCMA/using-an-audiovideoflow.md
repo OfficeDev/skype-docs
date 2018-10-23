@@ -10,7 +10,6 @@ mtps_version: v=office.16
 
 # Using an AudioVideoFlow
 
-
 **Applies to**: Skype for Business 2015
 
 The [AudioVideoFlow](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiovideoflow?view=ucma-api), [AudioControl](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiocontrol?view=ucma-api), and [AudioChannel](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiochannel?view=ucma-api) classes can be thought of as having the logical relationship shown in the following illustration. 

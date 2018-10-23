@@ -10,19 +10,17 @@ mtps_version: v=office.16
 
 # Setting up the development environment
 
-
 **Applies to**: Skype for Business 2015
 
 The following software must be installed on your development computer.
 
-  - Microsoft Visual Studio 2010, *or*
+- Microsoft Visual Studio 2010, *or*
 
-  - Microsoft Visual Studio 2012
+- Microsoft Visual Studio 2012
 
-If you plan to develop a Skype for Business bot, must also be installed on the development computer.
-
+If you plan to develop a Skype for Business bot, UCMA 5.0 must also be installed on the development computer.
 
 > [!NOTE]
-> <P>UCMA 5.0 SDK is available only for 64-bit computers.</P>
+> UCMA 5.0 SDK is available only for 64-bit computers.
 
 

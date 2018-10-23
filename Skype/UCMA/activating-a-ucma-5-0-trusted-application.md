@@ -142,19 +142,13 @@ The following table summarizes the tasks that can be performed by the three diff
 </table>
 
 
-## In this section
+The remaining topics in this section discuss how activation, provisioning, and deployment are different in UCMA 5.0, and list the activation steps that are required for all trusted applications, as well as the activation steps required by either auto-provisioned or manually-provisioned applications:
 
-The remaining topics in this section discuss how activation, provisioning, and deployment are different in UCMA 5.0 and list the activation steps that are required for all trusted applications, as well as the activation steps required by either auto-provisioned or manually-provisioned applications:
+- [General application activation](general-application-activation.md). Activation steps needed by all trusted applications.
 
-- [General application activation](general-application-activation.md). Activation steps needed by all trusted applications
+- [Activating an auto-provisioned application](activating-an-auto-provisioned-application.md). Activation steps needed by auto-provisioned applications. Auto-provisioned applications require a local copy of the Central Management Store.
 
-- [Activating an auto-provisioned application](activating-an-auto-provisioned-application.md). Activation steps needed by auto-provisioned applications
-    
-  Auto-provisioned applications require a local copy of the Central Management Store.
-
-- [Activating a manually-provisioned application](activating-a-manually-provisioned-application.md). Activation steps needed for manually provisioned applications
-    
-  Manually-provisioned applications do not require a local copy of the Central Management Store.
+- [Activating a manually-provisioned application](activating-a-manually-provisioned-application.md). Activation steps needed for manually provisioned applications. Manually-provisioned applications do not require a local copy of the Central Management Store.
 
 - [Activating applications programmatically](activating-applications-programmatically.md). Steps required to run Skype for Business Server 2015 PowerShell cmdlets programmatically.
 

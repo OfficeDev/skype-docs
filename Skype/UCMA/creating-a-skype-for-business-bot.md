@@ -14,29 +14,25 @@ dev_langs:
 
 # Creating a Skype for Business bot
 
-
-
 To create a bot that runs in Skype for Business, complete the steps in the following procedure.
 
 ### To create a bot that runs in Skype for Business
 
-1.  Create a trusted application and a trusted application endpoint for the UC bot
+1.  Create a trusted application and a trusted application endpoint for the UC bot.
 
-2.  [Create message handlers](creating-a-generic-bot.md)
+2.  [Create message handlers](creating-a-generic-bot.md).
 
-3.  Instantiate the UCBotHost environment
+3.  Instantiate the UCBotHost environment.
 
-4.  (Optional) [Handle feedback events](creating-a-generic-bot.md)
+4.  (Optional) [Handle feedback events](creating-a-generic-bot.md).
 
-5.  [Test your bot](creating-a-generic-bot.md)
+5.  [Test your bot](creating-a-generic-bot.md).
 
-6.  Deploy the UC bot using a Windows Service
+6.  Deploy the UC bot using a Windows Service.
 
 
 > [!NOTE]
-> <P>Microsoft Unified Communications Managed API 5.0 must be installed on the computer that will host the bot.</P>
-
-
+> Microsoft Unified Communications Managed API 5.0 must be installed on the computer that will host the bot.
 
 Some steps of this procedure are described in [Creating a generic bot](creating-a-generic-bot.md). The other steps are described in this topic.
 
@@ -82,6 +78,8 @@ Write-Host "End point created: -"   $ApplicationEndPoint.DisplayName
 Write-Host
 ```
 
+<br/>
+
 In Skype for Business Management Shell, run the following script.
 
 ```powershell
@@ -102,19 +100,17 @@ When you develop a generic bot (see [Creating a generic bot](creating-a-generic-
 
 ### To instantiate the UCBotHost environment
 
-1.  Create a Console Application test project.
+1. Create a Console Application test project.
 
-2.  Add references to the following Build a Bot assemblies:
+2. Add references to the following Build a Bot assemblies:
     
-      - BuildABot.Core
-    
-      - BuildABot.UC
-    
-      - BuildABot.Util
+   - BuildABot.Core
+   - BuildABot.UC
+   - BuildABot.Util
 
-3.  Create a configuration (config) file as shown here and use it to get the application urn and application user agent. Notice that the config file has a *startup* element that enables your UCMA 5.0 application to consume the UCMA 5.0 SDK.
+3. Create a configuration (config) file as shown here and use it to get the application urn and application user agent. Notice that the config file has a *startup* element that enables your UCMA 5.0 application to consume the UCMA 5.0 SDK.
     
-    ```xml
+   ```xml
     <?xml version="1.0"?>
     <configuration>
       <startup useLegacyV2RuntimeActivationPolicy="true">
@@ -128,11 +124,11 @@ When you develop a generic bot (see [Creating a generic bot](creating-a-generic-
         <add key="applicationuseragent" value="samplebot/>
       </appSettings>
     </configuration>
-    ```
+   ```
 
-4.  Create a main method like the following one in your Main class to instantiate a *UCBotHost* object.
+4. Create a main method like the following one in your Main class to instantiate a *UCBotHost* object.
     
-    ```csharp
+   ```csharp
     static void Main(string[] args)
      {
        // Print all Debug.WriteLine calls to the console to make it
@@ -144,25 +140,25 @@ When you develop a generic bot (see [Creating a generic bot](creating-a-generic-
        UCBotHost ucBotHost = new UCBotHost(applicationUserAgent, applicationurn);
        ucBotHost.Run();
     }
-    ```
+   ```
     
-    Note the parameters of the *UCBotHost* constructor:
+   Note the parameters of the *UCBotHost* constructor:
     
-      - *applicationUserAgent*: The part of the user agent string that identifies the application urn of created trusted application.
+   - *applicationUserAgent*: The part of the user agent string that identifies the application urn of created trusted application.
     
-      - *applicationURN*: The unique identifier for the application in the deployment. It is assign when the application is provisioned.
+   - *applicationURN*: The unique identifier for the application in the deployment. It is assign when the application is provisioned.
     
-      - Help text (optional): The help text to be displayed when the bot does not understand the user message.
+   - Help text (optional): The help text to be displayed when the bot does not understand the user message.
     
-    The UC bot host automatically handles the bot's *Replied* and *FailedToUnderstand* events, sending reply messages to the user through the Skype for Business window. Optionally, you can handle some additional events, such as the following.
+   The UC bot host automatically handles the bot's *Replied* and *FailedToUnderstand* events, sending reply messages to the user through the Skype for Business window. Optionally, you can handle some additional events, such as the following.
     
-      - *MessageReceived*—This event is raised when a message is received by the UC bot host. This event can be useful for logging purposes.
+   - *MessageReceived*—This event is raised when a message is received by the UC bot host. This event can be useful for logging purposes.
     
-      - *ErrorOccurred*—This event is raised when the UC bot host throws an error. Exceptions thrown by the bot's message handlers will raise this event. This can also happen when the bot is initializing and before it shuts down.
+   - *ErrorOccurred*—This event is raised when the UC bot host throws an error. Exceptions thrown by the bot's message handlers will raise this event. This can also happen when the bot is initializing and before it shuts down.
     
-      - *FeedbackEngine.FeedbackCollected*— This event is raised when feedback is collected from the user. For more information, see [Handle feedback events](creating-a-generic-bot.md).
+   - *FeedbackEngine.FeedbackCollected*— This event is raised when feedback is collected from the user. For more information, see [Handle feedback events](creating-a-generic-bot.md).
 
-5.  Run your console application and verify that the bot user account appears as online in Skype for Business. Do not discard any code you have developed so far. You will use the contents of the Main method you developed above to deploy the UC bot using a Windows service.
+5. Run your console application and verify that the bot user account appears as online in Skype for Business. Do not discard any code you have developed so far. You will use the contents of the Main method you developed above to deploy the UC bot using a Windows service.
 
 ## Deploy the UC bot using a Windows Service
 
@@ -170,25 +166,21 @@ You will probably want to run your bot as a Windows service in the background, i
 
 ### To deploy your application as a Windows service
 
-1.  Add a new Windows Service project.
+1. Add a new Windows Service project.
 
-2.  Add references to the following assemblies:
+2. Add references to the following assemblies:
     
-      - BuildABot.Core
-    
-      - BuildABot.UC
-    
-      - BuildABot.Util
-    
-      - The assemblies that contain your message handlers
-    
-      - Any other assemblies that your message handlers depend on
+   - BuildABot.Core
+   - BuildABot.UC
+   - BuildABot.Util
+   - The assemblies that contain your message handlers
+   - Any other assemblies that your message handlers depend on
 
-3.  Add to your Windows Service project the same config file you added in the [Instantiate the UCBotHost environment](creating-a-skype-for-business-bot.md) section.
+3. Add to your Windows Service project the same config file you added in the [Instantiate the UCBotHost environment](creating-a-skype-for-business-bot.md) section.
 
-4.  In the "service launcher" class of the Windows Service project, create a method containing the *UCBotHost* initialization. This is very similar to the code that was shown in the "Instantiate the UCBotHost environment" section.
+4. In the "service launcher" class of the Windows Service project, create a method containing the *UCBotHost* initialization. This is very similar to the code that was shown in the "Instantiate the UCBotHost environment" section.
     
-    ```csharp
+   ```csharp
     private void StartBotListenerService(object state)
     {
        String applicationUserAgent = ConfigurationManager.AppSettings["applicationuseragent"];
@@ -197,23 +189,23 @@ You will probably want to run your bot as a Windows service in the background, i
        UCBotHost ucBotHost = new UCBotHost(applicationUserAgent, applicationUrn),
        ucBotHost.Run();
     }
-    ```
+   ```
 
-5.  In the "service launcher" class of the Windows Service project, add a *System.Threading.Timer* object that will launch the *StartBotListenerService* method and initialize the timer in the *OnStart* method, as shown in the following sample.
+5. In the "service launcher" class of the Windows Service project, add a *System.Threading.Timer* object that will launch the *StartBotListenerService* method and initialize the timer in the *OnStart* method, as shown in the following sample.
     
-    ```csharp
+   ```csharp
     private Timer botTimer;
     protected override void OnStart(string[] args)
     {
        botTimer = new Timer(StartBotListenerService, null, 0, Timeout.Infinite);
     }
-    ```
+   ```
 
-6.  Double-click the service launcher file in Visual Studio's **Solution Explorer**. Right-click the gray pane, and then select **Add Installer**.
+6. Double-click the service launcher file in Visual Studio's **Solution Explorer**. Right-click the gray pane, and then select **Add Installer**.
 
-7.  Double-click ProjectInstaller.cs in Visual Studio's **Solution Explorer**, and then select the service installer object. In the Visual Studio **Properties** window (press F4 to see it), set the properties that will determine how this service will appear in the Windows Services snap-in, such as the service name, description, and so on.
+7. Double-click ProjectInstaller.cs in Visual Studio's **Solution Explorer**, and then select the service installer object. In the Visual Studio **Properties** window (press F4 to see it), set the properties that will determine how this service will appear in the Windows Services snap-in, such as the service name, description, and so on.
 
-8.  In the server computer that will host the bot, run the InstallUtil.exe tool (typically located at c:\\Windows\\Microsoft.NET\\Framework\\v4.5.xxxxx\\) to install the Windows service, passing the compiled Windows service executable as a parameter. This should be done from an elevated command prompt. You might be requested for credentials (domain\\user and password) under which the bot Windows service should run.
+8. In the server computer that will host the bot, run the InstallUtil.exe tool (typically located at c:\\Windows\\Microsoft.NET\\Framework\\v4.5.xxxxx\\) to install the Windows service, passing the compiled Windows service executable as a parameter. This should be done from an elevated command prompt. You might be requested for credentials (domain\\user and password) under which the bot Windows service should run.
 
-9.  Open the Windows Services snap-in (run "services.msc"). The bot Windows Service should be there. Start the service and your bot should wake up.
+9. Open the Windows Services snap-in (run "services.msc"). The bot Windows Service should be there. Start the service and your bot should wake up.
 

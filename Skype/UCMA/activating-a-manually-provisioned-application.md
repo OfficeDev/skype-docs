@@ -10,7 +10,6 @@ mtps_version: v=office.16
 
 # Activating a manually-provisioned application
 
-
 **Applies to**: Skype for Business 2015
 
 Like auto-provisioned applications, manually-provisioned applications also require a Skype for Business Server 2015 topology and Active Directory contact object settings, but do not take advantage of UCMA auto-provisioning. Unlike auto-provisioned applications, manually-provisioned applications do not require a local Central Management Store replica, but instead provision the Microsoft Unified Communications Managed API (UCMA) platform and application endpoints using offline configuration. There is no need to install and enable Central Management Store replication on the computers running UCMA-based applications.
@@ -19,36 +18,37 @@ The following procedure shows the steps required to manually provision an applic
 
 ### To provision an application using manual provisioning
 
-1.  Launch Skype for Business Server Management Shell.
+1. Launch Skype for Business Server Management Shell.
     
-    On the **Start** menu, select **All Programs**, **Skype for Business Server 2015**, and then click **Skype for Business Server Management Shell**.
+2. On the **Start** menu, select **All Programs**, **Skype for Business Server 2015**, and then click **Skype for Business Server Management Shell**.
 
-2.  In Skype for Business Server Management Shell, run the following PowerShell cmdlet. It is assumed that you have already run the **New-CsTrustedApplication** cmdlet.
+3. In Skype for Business Server Management Shell, run the following PowerShell cmdlet. It is assumed that you have already run the **New-CsTrustedApplication** cmdlet.
+
+   ```powershell    
+      $a = Get-CsTrustedApplication -identity "client.contoso.com/urn:application:ucmasampleapplication"
+   ```   
+
+   > [!NOTE]
+   > Use the identity of your application.
+
+4. In Skype for Business Server Management Shell, run the following PowerShell cmdlet.
+
+   ```powershell
+      $a.ComputerGruus
+   ```
+
+   The output from the preceding cmdlet should be similar to the following.
+
+   ```powershell 
+        Fqdn                 Gruu 
+        ----                 -----
+        client.contoso.com   sip:client.contoso.com@contoso.com; gruu Opaque=srvr:ucmasampleapplication:yDUhQWqi81WfJXFUvMAwtwAA
+   ```
+
+5. Copy the GRUU string for the computer FQDN, taking care to remove any line breaks. You will need to provide this value and additional information when the [ServerPlatformSettings](https://msdn.microsoft.com/en-us/library/hh382156\(v=office.16\)) instance is constructed.
     
-    $a = Get-CsTrustedApplication -identity "client.contoso.com/urn:application:ucmasampleapplication"
-    
-
-    > [!NOTE]
-    > Use the identity of your application.
-
-
-
-
-3.  In Skype for Business Server Management Shell, run the following PowerShell cmdlet.
-    
-    $a.ComputerGruus
-    
-    The output from the preceding cmdlet should be similar to the following.
-    
-        Fqdn                                    Gruu
-        ----                                    ----
-        client.contoso.com                      sip:client.contoso.com@contoso.com; gruu; Opaque=srvr:ucmasampleapplication:yDUhQWqi81WfJXFUvMAwtwAA
-
-4.  Copy the GRUU string for the computer FQDN, taking care to remove any line breaks. You will need to provide this value and additional information when the [ServerPlatformSettings](https://msdn.microsoft.com/en-us/library/hh382156\(v=office.16\)) instance is constructed.
-    
-
-    > [!NOTE]
-    > A service GRUU can be used in a single-computer pool (a pool in which the computer FQDN is the same as the pool FQDN). However, if additional computers are added to that pool, the use of the service GRUU should be discontinued and the computer GRUU used instead.
+   > [!NOTE]
+   > A service GRUU can be used in a single-computer pool (a pool in which the computer FQDN is the same as the pool FQDN). However, if additional computers are added to that pool, the use of the service GRUU should be discontinued and the computer GRUU used instead.
 
 
 

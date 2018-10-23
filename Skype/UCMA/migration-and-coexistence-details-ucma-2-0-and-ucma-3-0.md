@@ -10,10 +10,7 @@ mtps_version: v=office.16
 
 # Migration and coexistence details (UCMA 2.0 and UCMA 3.0)
 
-
 **Applies to**: Skype for Business 2015
-
- 
 
 The sections in this topic provide detailed information about migrating applications from previous UCMA versions to current versions, in topologies that can consist of different Microsoft Communications Server/Lync Server 2010 versions.
 
@@ -21,11 +18,11 @@ The sections in this topic provide detailed information about migrating applicat
 
 WMI tools such as ApplicationProvisioner.exe, a tool that shipped with the SDK, can be used to create trusted service entries and contact objects so that UCMA 2.0 applications continue to work even after an application is migrated. Before using ApplicationProvisioner.exe, you must modify the source code for this tool, and then rebuild it. For more information, see [Modifying ApplicationProvisioner.exe sample code](modifying-applicationprovisioner-exe-sample-code.md). In general, trusted application PowerShell cmdlets do not work with UCMA 2.0 deployments. The only exceptions are the following cmdlets:
 
-  - **Get-***Xxx* cmdlets.
+- **Get-***Xxx* cmdlets.
 
-  - The **Set-CsTrustedApplicationPool** cmdlet, which can be used to retarget the Registrar for an application.
+- The **Set-CsTrustedApplicationPool** cmdlet, which can be used to retarget the Registrar for an application.
 
-  - The **Move-CsApplicationEndpoint** cmdlet, which can be used to retarget the contact object to a new application pool or populate the missing attributes of a UCMA 2.0 application contact object, when the contact object must be routed through the Lync Server 2010 Registrar.
+- The **Move-CsApplicationEndpoint** cmdlet, which can be used to retarget the contact object to a new application pool or populate the missing attributes of a UCMA 2.0 application contact object, when the contact object must be routed through the Lync Server 2010 Registrar.
 
 <table>
 <colgroup>
@@ -87,7 +84,7 @@ WMI tools such as ApplicationProvisioner.exe, a tool that shipped with the SDK, 
 
 ## Migrating trusted service entries using Microsoft Lync Server 2010 Topology Builder or PowerShell cmdlets
 
-**Using Topology Builder**
+### Using Topology Builder
 
 1.  Launch Microsoft Lync Server 2010, Topology Builder.
 
@@ -97,7 +94,7 @@ WMI tools such as ApplicationProvisioner.exe, a tool that shipped with the SDK, 
 
 4.  Select **Publish Topology** and complete the wizard, as in the previous step.
 
-**Using PowerShell**
+### Using PowerShell
 
 1.  From the **Start** menu, in the **Microsoft Lync Server 2010** program group, open **Lync Server Management Shell**.
 
@@ -107,7 +104,7 @@ WMI tools such as ApplicationProvisioner.exe, a tool that shipped with the SDK, 
 
 ## Verify that trusted service entries migrated successfully
 
-**Using Microsoft Lync Server 2010 Topology Builder**
+### Using Microsoft Lync Server 2010 Topology Builder
 
 1.  Launch Topology Builder
 
@@ -115,7 +112,7 @@ WMI tools such as ApplicationProvisioner.exe, a tool that shipped with the SDK, 
 
 3.  Under **BackCompatSite**, in the **Trusted application servers** node, you should see a pool entry for your application pool.
 
-**Using Microsoft Lync Server 2010 Control Panel**
+### Using Microsoft Lync Server 2010 Control Panel
 
 1.  Launch Microsoft Lync Server 2010 Control Panel.
 
@@ -123,29 +120,30 @@ WMI tools such as ApplicationProvisioner.exe, a tool that shipped with the SDK, 
 
 3.  Under the **Trusted Application** tab, verify that the UCMA 2.0 application has an entry with the correct pool and port numbers, as shown in the following illustration.
 
-**Using PowerShell cmdlets**
+### Using PowerShell cmdlets
 
-Although the **New-CsTrustedApplication***Xxx*, **Set-CsTrustedApplication***Xxx*, and **Remove-CsTrustedApplication***Xxx* versions of the Lync Server 2010 cmdlets cannot be used to manage legacy application pools, the **Get-CsTrustedApplication***Xxx* versions can be used to verify that the **Pool**, **Service**, **Application**, and **ApplicationEndpoint** entries have been created correctly. For more information about any of these cmdlets, run get-help \<cmdlet\>.
+Although the **New-CsTrustedApplication***Xxx*, **Set-CsTrustedApplication***Xxx*, and **Remove-CsTrustedApplication***Xxx* versions of the Lync Server 2010 cmdlets cannot be used to manage legacy application pools, the **Get-CsTrustedApplication***Xxx* versions can be used to verify that the **Pool**, **Service**, **Application**, and **ApplicationEndpoint** entries have been created correctly. For more information about any of these cmdlets, run `get-help <cmdlet>`.
 
-The following PowerShell cmdlet is an example. Get-CsTrustedApplicationPool –Identity TrustPool.contoso.com
+The following PowerShell cmdlet is an example: 
+
+```powershell
+  Get-CsTrustedApplicationPool –Identity TrustPool.contoso.com
+```
 
 In this example, the **Identity** parameter has been used to ensure that only one trusted application pool is retrieved, the pool whose FQDN is TrustPool.contoso.com. After running the cmdlet, you should verify the following settings in the returned value:
 
-  - **Registrar**—should still be the pool.
+- **Registrar**—should still be the pool.
 
-  - **Applications**—should contain a list of all UCMA 2.0 applications running in the pool.
+- **Applications**—should contain a list of all UCMA 2.0 applications running in the pool.
 
-  - **SiteId**—should be Site.BackCompatSite.
+- **SiteId**—should be Site.BackCompatSite.
 
 ## Associate the existing backward-compatible legacy pool with the Lync Server 2010 registrar
 
 You will need to run **Set-CsTrustedApplicationPool** with the needed values for your application pool and Lync Server 2010 registrar pool as follows: Set-CsTrustedApplicationPool –Identity TrustPool.contoso.com –Registrar CS14RegistrarPoolA.contoso.com
 
-
 > [!NOTE]
-> <P>When you run this cmdlet, your application stops functioning momentarily. The contact objects are orphaned until they are pointed to a new Registrar.</P>
-
-
+> When you run this cmdlet, your application stops functioning momentarily. The contact objects are orphaned until they are pointed to a new Registrar.
 
 ## Get OCSCore.MSI from the Office Communications Server 2007 R2 installer
 

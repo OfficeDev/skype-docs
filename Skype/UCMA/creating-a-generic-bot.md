@@ -13,17 +13,15 @@ dev_langs:
 
 # Creating a generic bot
 
-
-
 You can create a generic bot in four steps.
 
-1.  Create message handlers
+1.  Create message handlers.
 
-2.  Add the bot to your host environment
+2.  Add the bot to your host environment.
 
-3.  Handle feedback events (Optional)
+3.  Handle feedback events (Optional).
 
-4.  Test your bot
+4.  Test your bot.
 
 ## Create message handlers
 
@@ -47,9 +45,9 @@ The following steps should be performed before you implement a single-state mess
 
 4.  Add a new class to your class library project. This will be your message handler class. Give it a meaningful name and make it inherit from either
     
-      - *BuildABot.Core.MessageHandlers.MessageHandler*, if your message handler needs to support conversational state, or
+    - *BuildABot.Core.MessageHandlers.MessageHandler*, if your message handler needs to support conversational state, or
     
-      - *BuildABot.Core.MessageHandlers.SingleStateMessageHandler*, if your message handler doesn't need to support conversational state.
+    - *BuildABot.Core.MessageHandlers.SingleStateMessageHandler*, if your message handler doesn't need to support conversational state.
 
 5.  Add the following attribute to your message handler class: \[Export(typeof(MessageHandler))\]. The Export attribute is defined in the System.ComponentModel.Composition namespace, which belongs to .NET 4.0 MEF (Managed Extensibility Framework). Using such an attribute will enable your bot to automatically consume the message handler you're developing, as long as the message handler assembly (DLL) is visible to the assembly where the bot is defined. For more information, see [Add the bot to your host environment](creating-a-generic-bot.md)).
 
@@ -68,11 +66,8 @@ namespace BuildABot.Samples.MessageHandlers
 }
 ```
 
-
 > [!NOTE]
-> <P>Build a Bot also provides support for you to implement your message handler class in the same project/assembly in which your bot is defined. For more information, see <A href="creating-a-generic-bot.md">Add the bot to your host environment</A>). However, creating one or more class library projects for your message handlers is the recommended guideline.</P>
-
-
+> Build a Bot also provides support for you to implement your message handler class in the same project/assembly in which your bot is defined. For more information, see [Add the bot to your host environment](creating-a-generic-bot.md). However, creating one or more class library projects for your message handlers is the recommended guideline.
 
 ### Configuring your message handler
 
@@ -143,9 +138,15 @@ public override MessageHandlingResponse CanHandle(Message message)
 
 ### Dynamic initial handling text
 
-The base *MessageHandler* constructor enables you to specify static initial handling text. In some situations you might want to have dynamic text, which is created according to the user input or other non-static variable. An example follows in the following conversation.
+The base *MessageHandler* constructor enables you to specify static initial handling text. In some situations you might want to have dynamic text, which is created according to the user input or other non-static variable. 
 
-User: "Please show details of bug Windows SE:12345"Bot: "Sure, retrieving details of bug \#12345 in the Windows SE bug database. I'm handling 34 requests right now so I expect you will get this response at 12:34pm..."Bot: "Here you have it: \[...\]"
+An example follows in the following conversation:
+
+**User**: "Please show details of bug Windows SE:12345"
+
+**Bot**: "Sure, retrieving details of bug \#12345 in the Windows SE bug database. I'm handling 34 requests right now so I expect you will get this response at 12:34pm..."
+
+**Bot**: "Here you have it: \[...\]"
 
 As you might notice, the first reply message from the bot in this conversation is a string composed of dynamic elements (items in bold), such as the user input, the expected response time, and so on. To create dynamic initial handling text like this, you need to override the *GetInitialHandlingText* method, as shown in the next example.
 
@@ -208,16 +209,15 @@ reply.AddRtfMessage(text);
 
 Multi-state message handlers should inherit from *BuildABot.Core.MessageHandlers.MessageHandler*. Each state is implemented as a method that receives a message and returns a reply. Two things need to be done to specify the state flow:
 
-  - Override the *InitialStateHandler* property, which indicates what the starting state handler (method) is.
+- Override the *InitialStateHandler* property, which indicates what the starting state handler (method) is.
 
-  - In the state handler methods, update the *nextStateHandler* delegate to point to the next state handler (method) accordingly.
+- In the state handler methods, update the *nextStateHandler* delegate to point to the next state handler (method) accordingly.
 
 The flow chart in the following illustration shows a conversation state machine in a helpdesk scenario.
 
-Conversation state flow chart
-
-  
 ![Build a Bot flow chart](images/Dn454839.BuildABot_FlowChart(Office.16).png "Build a Bot flow chart")
+
+<br/>
 
 The next code sample implements the conversation state machine that is shown in the preceding flow chart.
 
@@ -335,40 +335,31 @@ namespace BuildABot.Samples.MessageHandlers
 }
 ```
 
+<br/>
+
 An interaction example follows. Notice that during the conversation, the state (ticket number, user problem description, and other information) is saved. This saved data creates additional context each time for the conversation.
 
-  -  
-    User: help
+- **User**: help
 
-  -  
-    Bot: Is this a new or an already opened ticket?
+- **Bot**: Is this a new or an already opened ticket?
 
-  -  
-    User: new
+- **User**: new
 
-  -  
-    Bot: This is your new ticket number: 7953cfce-bc60-4340-b86b-3399150c83e
+- **Bot**: This is your new ticket number: 7953cfce-bc60-4340-b86b-3399150c83e
 
-  -  
-    Bot: What’s your problem?
+- **Bot**: What’s your problem?
 
-  -  
-    User: no network connectivity
+- **User**: no network connectivity
 
-  -  
-    Bot: Will this work: https://www.letmebingthatforyou.com/?q=no network connectivity
+- **Bot**:  Will this work: https://www.letmebingthatforyou.com/?q=no network connectivity
 
-  -  
-    User: no
+- **User**: no
 
-  -  
-    Bot: Sorry to hear that. What about this, will this work: Ask your manager about no network connectivity
+- **Bot**: Sorry to hear that. What about this, will this work: Ask your manager about no network connectivity
 
-  -  
-    User: yes
+- **User**: yes
 
-  -  
-    Bot: Great, good to know
+- **Bot**: Great, good to know
 
 ### Retrieving parameters from user input messages
 
@@ -394,17 +385,13 @@ public override Reply Handle(Message message)
 
 Often, you need to add some simple question/answer logic to your bot, as in the following dialog.
 
-  -  
-    User: "Hi\!"
+- **User**: "Hi\!"
 
-  -  
-    Bot: "Hello there\!"
+- **Bot**: "Hello there\!"
 
-  -  
-    User: "How are you?"
+- **User**: "How are you?"
 
-  -  
-    Bot: "Fine, thanks\!"
+- **Bot**: "Fine, thanks\!"
 
 The *BuildABot.Core.MessageHandlers.QAs.QAMessageHandler* class can be used to add question/answer logic. This class inherits from the *SingleStateMessageHandler* class, and can be used to set a collection of question/answer pairs (*BuildABot.Core.MessageHandlers.QAs.QA* objects).
 
@@ -498,10 +485,11 @@ namespace BuildABot.Samples.MessageHandlers
 
 The following extension methods are useful for adding QA objects to a *QAMessageHandler* object's *QAs* collection.
 
-  - AddBatchRandomQAs  
-    Adds a batch of *RandomQA* instances to a *QAs* list, as in this example.
+- AddBatchRandomQAs  
+  
+  Adds a batch of *RandomQA* instances to a *QAs* list, as in this example.
     
-    ```vb
+  ```vb
     public QASampleMessageHandler()
     {
         // ...
@@ -509,22 +497,23 @@ The following extension methods are useful for adding QA objects to a *QAMessage
         string[] byeReplies = { "Bye bye!", "Take care, see ya!", "Have a good one!"};
         this.QAs.AddBatchRandomQAs(byeMessages, byeReplies);
     }
-    ```
+  ```
     
-    In the preceding sample, whenever the user sends a message that corresponds to any *byeMessages*, one reply from the *byeReplies* is randomly selected. This way, you do not need to manually add one *QA* object for each possible user message.
+  In the preceding sample, whenever the user sends a message that corresponds to any *byeMessages*, one reply from the *byeReplies* is randomly selected. This way, you do not need to manually add one *QA* object for each possible user message.
 
-  - AddBatchActionQAs  
-    Adds a batch of *ActionQA* instances to a *QAs* list.
+- AddBatchActionQAs  
+  
+  Adds a batch of *ActionQA* instances to a *QAs* list.
     
-    ```csharp
+  ```csharp
     public QASampleMessageHandler()
     {
       // ...
       this.QAs.AddBatchActionQAs(GetSalute, "good morning", "good night", "good evening", "good afternoon", "good day");
     }
-    ```
+  ```
     
-    In the preceding code sample, whenever the user sends a message that corresponds to any of the string parameters (second parameter and beyond), the *GetSalute* method is called to get the reply. This way, you do not need to manually add one *QA* object for each possible user message.
+  In the preceding code sample, whenever the user sends a message that corresponds to any of the string parameters (second parameter and beyond), the *GetSalute* method is called to get the reply. This way, you do not need to manually add one *QA* object for each possible user message.
 
 ## Add the bot to your host environment
 
@@ -532,13 +521,13 @@ After message handlers are implemented (see [Create message handlers](creating-a
 
 ### To add a bot to your host environment
 
-1.  Add a reference to the BuildABot.Core and BuildABot.Util assemblies to your project.
+1. Add a reference to the BuildABot.Core and BuildABot.Util assemblies to your project.
 
-2.  Make sure that all of the desired message handler assemblies (DLLs) are in the same folder as the assembly (typically the .exe) in which the bot is created. Adding a reference to the message handler class library projects is sufficient. You can also copy the message handler DLLs manually to the folder in which the bot's assembly is located.
+2. Make sure that all of the desired message handler assemblies (DLLs) are in the same folder as the assembly (typically the .exe) in which the bot is created. Adding a reference to the message handler class library projects is sufficient. You can also copy the message handler DLLs manually to the folder in which the bot's assembly is located.
 
-3.  Instantiate the *Bot* class and create an event handler for the bot's *Replied* event. This event is raised whenever the bot replies to a user message. In the following example, which is part of a command prompt application, the bot reply messages are printed to the console.
+3. Instantiate the *Bot* class and create an event handler for the bot's *Replied* event. This event is raised whenever the bot replies to a user message. In the following example, which is part of a command prompt application, the bot reply messages are printed to the console.
     
-    ```csharp
+   ```csharp
     static void Main(string[] args)
     {
         Bot bot = new Bot();
@@ -554,13 +543,13 @@ After message handlers are implemented (see [Create message handlers](creating-a
             Console.WriteLine("Bot says: " + replyMessage.Content);
         }
     }
-    ```
+   ```
     
-    Note that the *ReplyEventArgs* class provides additional information to help your host environment print the bot's replies, such as the original *Message* entered by the user as well as the *MessageHandler* that handled the reply. The *ReplyContext* property indicates whether the reply is actually a message handler's initial handling text (see [Create message handlers](creating-a-generic-bot.md)), a regular conversation reply message, a request for feedback, or a response after user feedback is provided. For more information about Bot feedback, see [Handle feedback events](creating-a-generic-bot.md).
+   Note that the *ReplyEventArgs* class provides additional information to help your host environment print the bot's replies, such as the original *Message* entered by the user as well as the *MessageHandler* that handled the reply. The *ReplyContext* property indicates whether the reply is actually a message handler's initial handling text (see [Create message handlers](creating-a-generic-bot.md)), a regular conversation reply message, a request for feedback, or a response after user feedback is provided. For more information about Bot feedback, see [Handle feedback events](creating-a-generic-bot.md).
 
-4.  Get user input and call the bot's *ProcessMessage* method to make the bot invoke its message handlers in order to handle user messages. In the following example, the Main method repeatedly receives user messages and asks the bot to process them, stopping when the user enters "exit".
+4. Get user input and call the bot's *ProcessMessage* method to make the bot invoke its message handlers in order to handle user messages. In the following example, the Main method repeatedly receives user messages and asks the bot to process them, stopping when the user enters "exit".
     
-    ```csharp
+   ```csharp
     static void Main(string[] args)
     {
         Bot bot = new Bot();
@@ -573,17 +562,17 @@ After message handlers are implemented (see [Create message handlers](creating-a
             userMessage = Console.ReadLine();
         }
     }
-    ```
+   ```
 
 The *Bot* class also exposes additional functionality that might be useful to you.
 
-  - You can handle the bot's *FailedToUnderstand* event, which the bot raises when none of its message handlers is able to handle a user message. You can handle this event to show the bot's help text (such as "Sorry I didn't understand you. Say help to see what I can understand by default"), or an error in a red color or message box.
+- You can handle the bot's *FailedToUnderstand* event, which the bot raises when none of its message handlers is able to handle a user message. You can handle this event to show the bot's help text (such as "Sorry I didn't understand you. Say help to see what I can understand by default"), or an error in a red color or message box.
 
-  - Set the static property *UseEmoticons* to enable or disable the use of emoticons in your bot's message handlers, as long as such emoticons were implemented using the *BuildABot.Util.Emoticons* class.
+- Set the static property *UseEmoticons* to enable or disable the use of emoticons in your bot's message handlers, as long as such emoticons were implemented using the *BuildABot.Util.Emoticons* class.
 
-  - The *ConversationReplyCount* property indicates the interaction number (that is, how many times the bot replied) for the conversation being handled by the current message handler. If another handler starts handling the user message, the conversation count restarts. This way, this property is more useful for multi-state message handlers.
+- The *ConversationReplyCount* property indicates the interaction number (that is, how many times the bot replied) for the conversation being handled by the current message handler. If another handler starts handling the user message, the conversation count restarts. This way, this property is more useful for multi-state message handlers.
 
-  - For more specialized behavior, you can implement your own bot by overriding the *Bot* class. Then, you can override the *PreProcessMessageContent* method if you always need to change or decorate user messages in any way (for example, by adding quotes to or trimming every user message).
+- For more specialized behavior, you can implement your own bot by overriding the *Bot* class. Then, you can override the *PreProcessMessageContent* method if you always need to change or decorate user messages in any way (for example, by adding quotes to or trimming every user message).
 
 ## Handle feedback events
 
@@ -591,26 +580,24 @@ To improve the intelligence of your bot, you might want it to collect feedback f
 
 ### To enable feedback collection in your bot
 
-1.  Feedback in the Build a Bot framework can be collected per message handler. Turn on feedback collection in the message handlers by setting the message handler's *RequiresFeedback* property. This can also be set through the constructors of the base *MessageHandler* and *SingleStateMessageHandler* classes.
+1. Feedback in the Build a Bot framework can be collected per message handler. Turn on feedback collection in the message handlers by setting the message handler's *RequiresFeedback* property. This can also be set through the constructors of the base *MessageHandler* and *SingleStateMessageHandler* classes.
     
-    ```csharp
+   ```csharp
     public HelloWorldMessageHandler()
              : base(@"hello|(how are you\?)")
     {
        this.RequiresFeedback = true;
     }
-    ```
+   ```
 
-2.  Use the *BuildABot.Core.Feedback* namespace in the class where the bot (or your UC bot host) is instantiated and set up.
+2. Use the *BuildABot.Core.Feedback* namespace in the class where the bot (or your UC bot host) is instantiated and set up.
     
+   > [!NOTE]
+   > **For Skype for Business bot developers**: This note defines feedback behavior for a single bot instance. For Skype for Business bots, the Build a Bot framework instantiates multiple bots (one per conversation). The *UCBotHost* class exposes a *FeedbackEngine* property, in the same way that the *Bot* class does. This way, whenever the code that follows refers to setting a *bot.FeedbackEngine* property, your code should have *ucBotHost.FeedbackEngine* if you are implementing a UC bot.
 
-    > [!NOTE]
-    > <P><STRONG>For Skype for Business bot developers</STRONG>: this note defines feedback behavior for a single bot instance. For Skype for Businessbots, the Build a Bot framework instantiates multiple bots (one per conversation). The <EM>UCBotHost</EM> class exposes a <EM>FeedbackEngine</EM> property, in the same way that the <EM>Bot</EM> class does. This way, whenever the code that follows refers to setting a <EM>bot.FeedbackEngine</EM> property, your code should have <EM>ucBotHost.FeedbackEngine</EM> if you are implementing a UC bot.</P>
-
+   By default, after a feedback-enabled message handler handles a request, your bot will ask "Did I understand you correctly?" and expect the following as possible answers: yes, yep, y, sure, no, nope, n, not at all. You can change these default settings after instantiating your bot (or UC bot host), as follows:
     
-    By default, after a feedback-enabled message handler handles a request, your bot will ask "Did I understand you correctly?" and expect the following as possible answers: yes, yep, y, sure, no, nope, n, not at all. You can change these default settings after instantiating your bot (or UC bot host), as follows:
-    
-    ```csharp
+   ```csharp
     static void Main(string[] args)
     {
         Bot bot = new Bot();
@@ -622,11 +609,11 @@ To improve the intelligence of your bot, you might want it to collect feedback f
         bot.FeedbackEngine.NegativeFeedbackPattern = "bad|terrible";
         // ...
     }
-    ```
+   ```
 
-3.  Handle the bot's (or the UC bot host's) *FeedbackEngine.FeedbackCollected* event. This event handler has a *FeedbackCollectedEventArgs* parameter, through which you can get the feedback type (positive, negative, or not provided), the user's feedback message and the user's original message for whose handling the bot is requesting feedback. Finally, this method returns a *Reply* object, which is what the bot will say to the user to acknowledge that feedback was received.
+3. Handle the bot's (or the UC bot host's) *FeedbackEngine.FeedbackCollected* event. This event handler has a *FeedbackCollectedEventArgs* parameter, through which you can get the feedback type (positive, negative, or not provided), the user's feedback message and the user's original message for whose handling the bot is requesting feedback. Finally, this method returns a *Reply* object, which is what the bot will say to the user to acknowledge that feedback was received.
     
-    ```csharp
+   ```csharp
     static void Main(string[] args)
     {
         Bot bot = new Bot(); 
@@ -653,14 +640,12 @@ To improve the intelligence of your bot, you might want it to collect feedback f
         } 
         return reply;
     }
-    ```
+   ```
     
+   > [!NOTE]
+   > If the user replied to the bot's feedback request with a message that does not match the positive or negative feedback patterns, the bot will still raise the *FeedbackCollected* event (with the *NotProvided* value as its feedback type). The bot will behave as if a new conversation has started; that is, the bot will understand the user message not as a feedback response but as a new message that must be handled.
 
-    > [!NOTE]
-    > If the user replied to the bot's feedback request with a message that does not match the positive or negative feedback patterns, the bot will still raise the *FeedbackCollected* event (with the *NotProvided* value as its feedback type). The bot will behave as if a new conversation has started; that is, the bot will understand the user message not as a feedback response but as a new message that must be handled.
-
-    
-    By default, when your bot receives negative feedback, it will try to handle the *original* user message again (the first message that started the current conversation), this time with another message handler. For that, the bot will invoke the message handler that reported the next highest confidence level (as long as the level is greater than zero) for the original user message. If no more message handlers remain, or if all remaining message handlers reported zero confidence, the bot will raise the *FailedToUnderstand* event. If you want to prevent the bot from trying other message handlers when it receives negative feedback, set its *GiveUpOnNegativeFeedback* property to true.
+   By default, when your bot receives negative feedback, it will try to handle the *original* user message again (the first message that started the current conversation), this time with another message handler. For that, the bot will invoke the message handler that reported the next highest confidence level (as long as the level is greater than zero) for the original user message. If no more message handlers remain, or if all remaining message handlers reported zero confidence, the bot will raise the *FailedToUnderstand* event. If you want to prevent the bot from trying other message handlers when it receives negative feedback, set its *GiveUpOnNegativeFeedback* property to true.
 
 ## Test your bot
 

@@ -10,18 +10,14 @@ mtps_version: v=office.16
 
 # Overview of VoiceXML support in UCMA 5.0
 
-
 **Applies to**: Skype for Business 2015
 
 VoiceXML support in the Microsoft Unified Communications Managed API 5.0 consists of a VoiceXML runtime and the .NET namespace [Microsoft.Rtc.Collaboration.AudioVideo.VoiceXml](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.voicexml?view=ucma-voice).
 
 The namespace consists of the [Browser](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.voicexml.browser?view=ucma-voice) class, which provides access to the VoiceXML runtime and to the telephony and audio functionality in UCMA 5.0. This functionality facilitates automated communication with callers.
 
-
 > [!NOTE]
-> <P><A href="https://msdn.microsoft.com/en-us/library/gg452712(v=office.16)">Browser</A> derives from the <STRONG>Browser</STRONG> class in the <STRONG>Microsoft.Speech.VoiceXml</STRONG> namespace.</P>
-
-
+> [Browser](https://msdn.microsoft.com/en-us/library/gg452712(v=office.16)) derives from the **Browser** class in the **Microsoft.Speech.VoiceXml** namespace.
 
 To run a VoiceXML application in UCMA 5.0, you must create a .NET application. Your .NET application answers calls, launches a **Browser** for the VoiceXML session, and responds to **Browser** events. See [Tasks of the host .NET application](tasks-of-the-host-net-application.md) for more information.
 

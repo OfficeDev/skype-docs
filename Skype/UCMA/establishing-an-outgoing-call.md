@@ -12,19 +12,14 @@ dev_langs:
 
 # Establishing an outgoing call
 
-
 **Applies to**: Skype for Business 2015
 
 When an application establishes an outgoing call, it can specify custom signaling headers to be sent out with the outgoing INVITE, and optionally, custom MIME parts to be included in any offer.
 
 The following sample demonstrates creating a new audio/video conversation, implementing and registering a call event handler, and establishing the call. The code for an instant message call is similar.
 
-
 > [!NOTE]
 > Applications must register for call events before the call is established.
-
-
-
 
 ```csharp
 // Set up the conversation and place the call.

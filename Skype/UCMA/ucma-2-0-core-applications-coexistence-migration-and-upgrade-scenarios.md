@@ -10,9 +10,7 @@ mtps_version: v=office.16
 
 # UCMA 2.0 Core applications: Coexistence, migration, and upgrade scenarios
 
-
 **Applies to**: Skype for Business 2015
-
 
 The following sections present the steps needed for UCMA 2.0 application coexistence, migration, and upgrade scenarios. Because external trusted applications are represented as trusted service entries, there are no additional steps needed if an administrator has followed the steps for migrating trusted service entries as described in Migration from Communications Server 2007 R2 to Lync Server 2010.
 
@@ -28,8 +26,7 @@ A UCMA 2.0 application is targeted at an pool in a mixed –Lync Server 2010 top
 
 The following illustration shows this topology.
 
-UCMA 2.0 application in mixed topology
-
+**UCMA 2.0 application in mixed topology**
   
 ![Migration Scenario 1](images/Dn466131.Migr_Scenario1(Office.16).png "Migration Scenario 1")
 
@@ -49,9 +46,7 @@ UCMA 2.0 application in mixed topology
 
 
 > [!NOTE]
-> <P>If a second UCMA 2.0 application is deployed in a mixed -Lync Server 2010 environment in which the trusted service entries for an existing UCMA 2.0 application have been migrated, you will need to redo steps 3 through 7 in the preceding procedure for the new application.</P>
-
-
+> If a second UCMA 2.0 application is deployed in a mixed -Lync Server 2010 environment in which the trusted service entries for an existing UCMA 2.0 application have been migrated, you will need to redo steps 3 through 7 in the preceding procedure for the new application.
 
 ## Scenario 2—Upgrading a UCMA 2.0 application to UCMA 3.0 after coexistence
 
@@ -59,9 +54,8 @@ To upgrade a UCMA 2.0 application to one that is written with UCMA 3.0, the cust
 
 The following illustration shows the topology during the upgrade.
 
-Before upgrade
+**Before upgrade**
 
-  
 ![Migration Scenario 2](images/Dn466131.Migr_Scenario2(Office.16).png "Migration Scenario 2")
 
 The following steps are the **recommended upgrade approach**.
@@ -76,7 +70,7 @@ The following steps are the **recommended upgrade approach**.
 
 5.  Run the **Enable-CsTopology** cmdlet to create the appropriate trusted service entries in Active Directory for interoperability with .
     
-    Enable-CsTopology
+    `Enable-CsTopology`
 
 6.  Stop Lync Server 2010 Front End service and then restart it.
 
@@ -84,7 +78,7 @@ The following steps are the **recommended upgrade approach**.
 
 8.  Run the **Move-CsApplicationEndpoint** cmdlet to move the contact object from the UCMA 2.0 application pool to the UCMA 3.0 application pool. Use the –**Force** parameter. Run this cmdlet with the needed values for each contact object that your application uses.
     
-    Run Move-CsApplicationEndpoint -Identity sip:endpoint1@contoso.com -TargetApplicationPool UCMA3.0ApplicationPool.contoso.com -Force
+    `Run Move-CsApplicationEndpoint -Identity sip:endpoint1@contoso.com -TargetApplicationPool UCMA3.0ApplicationPool.contoso.com -Force`
     
     The **Move-CsApplicationEndpoint** cmdlet moves an existing endpoint contact object in Active Directory from an registrar pool to a Lync Server 2010 registrar pool, or from one Lync Server 2010 registrar pool to another. The target pool must be a trusted application pool, and the application associated with the given endpoint must exist in the target pool.
 
@@ -102,22 +96,20 @@ The following steps are the **recommended upgrade approach**.
 
 The following illustration shows the topology after the upgrade has taken place. The computers used in the UCMA 2.0 trusted application pool can be reused for other purposes, if desired.
 
-After upgrade
+**After upgrade**
 
-  
 ![Migration Scenario 2 - after](images/Dn466131.Migr_Scenario2b(Office.16).jpg "Migration Scenario 2 - after")
 
 ## Scenario 3—In-place migration of a UCMA 2.0 application
 
-After all users have been migrated from an pool to a Lync Server 2010 pool, consider decommissioning the pool. Before you decommission , consider routing to your applications through a Lync Server 2010 Registrar pool.
+After all users have been migrated from an pool to a Lync Server 2010 pool, consider decommissioning the pool. Before you decommission, consider routing to your applications through a Lync Server 2010 Registrar pool.
 
 The **Move-CsApplicationEndpoint** cmdlet can be used to populate the necessary attributes of an existing application endpoint contact object in Active Directory so that routing occurs through the Lync Server 2010 Registrar.
 
 The following illustration shows this topology after the UCMA 2.0 application has been migrated to run against Lync Server 2010.
 
-Migrating a UCMA 2.0 application to Lync Server 2010
+**Migrating a UCMA 2.0 application to Lync Server 2010**
 
-  
 ![Migration Scenario 3](images/Dn466131.Migr_Scenario3(Office.16).jpg "Migration Scenario 3")
 
 1.  Verify that the steps in scenario 1 have completed successfully.
@@ -128,7 +120,7 @@ Migrating a UCMA 2.0 application to Lync Server 2010
     
     You will need to run this cmdlet with the needed values for each contact object that your application uses.
     
-    Move-CsApplicationEndpoint -Identity sip:endpoint1@contoso.com -TargetApplicationPool ApplicationPool.contoso.com –Force
+    `Move-CsApplicationEndpoint -Identity sip:endpoint1@contoso.com -TargetApplicationPool ApplicationPool.contoso.com –Force`
     
     In the preceding example, no move is occurring, so the pool represented by the **TargetApplicationPool** parameter is also the source application pool.
     
@@ -136,9 +128,9 @@ Migrating a UCMA 2.0 application to Lync Server 2010
 
 4.  Verify that the **Move-CsApplicationEndpoint** cmdlet was successful by running the following cmdlet, and verifying that the output of the Registrar property points to the Lync Server 2010 Registrar.
     
-    Get-CsApplicationEndpoint sip:endpoint1@contoso.com | Select-Object \*
+    `Get-CsApplicationEndpoint sip:endpoint1@contoso.com | Select-Object *`
     
-    Although the **New-CsTrustedApplicationEndpoint**, **Set-CsTrustedApplicationEndpoint**, and **Remove-CsTrustedApplicationEndpoint** cmdlets cannot be used to manage legacy application pools, the **Get-CsTrustedApplicationEndpoint** cmdlet can be used to verify that the contact object entries for the **ApplicationEndpoint** have been created correctly. For more information about any of these cmdlets, run get-help \<cmdlet\>.
+    Although the **New-CsTrustedApplicationEndpoint**, **Set-CsTrustedApplicationEndpoint**, and **Remove-CsTrustedApplicationEndpoint** cmdlets cannot be used to manage legacy application pools, the **Get-CsTrustedApplicationEndpoint** cmdlet can be used to verify that the contact object entries for the **ApplicationEndpoint** have been created correctly. For more information about any of these cmdlets, run `get-help <cmdlet>`.
 
 5.  Verify that the application still works on each Front End, even when the Front End service is stopped.
 
@@ -149,16 +141,13 @@ Migrating a UCMA 2.0 application to Lync Server 2010
     > [!NOTE]
     > This point is emphasized to remind you to perform the verifications in these steps when a new contact object is added using PowerShell. PowerShell might not be available locally on the computer from which you are running the WMI tool for activating new contact objects.
 
-
-
 ## Scenario 4—Direct deployment of UCMA 2.0 application against pure Lync Server 2010
 
 **This scenario is supported, but not recommended.** A UCMA 2.0 application is connected directly to Lync Server 2010. Check with the application vendor to see whether such a deployment is certified.
 
 The following illustration shows this topology.
 
-Deploying a UCMA 2.0 application against Lync Server 2010
-
+**Deploying a UCMA 2.0 application against Lync Server 2010**
   
 ![Migration Scenario 4](images/Dn466131.Migr_Scenario4(Office.16).jpg "Migration Scenario 4")
 
@@ -172,7 +161,7 @@ Deploying a UCMA 2.0 application against Lync Server 2010
 
 5.  Run the **Move-CsApplicationEndpoint** cmdlet to update the contact object so that routing occurs through the Lync Server 2010 Registrar. Use the –**Force** parameter. You will need to the following step with the needed values for each contact object that your application uses.
     
-    Move-CsApplicationEndpoint -Identity sip:endpoint1@contoso.com -TargetApplicationPool ApplicationPool.contoso.com –Force
+    `Move-CsApplicationEndpoint -Identity sip:endpoint1@contoso.com -TargetApplicationPool ApplicationPool.contoso.com –Force`
     
     In the preceding example, no move is occurring, so the pool represented by the **TargetApplicationPool** parameter is also the source application pool.
     
@@ -196,8 +185,7 @@ This scenario is similar to scenario 2 except that the UCMA 2.0 pool points to a
 
 The following illustration shows the topology during the upgrade.
 
-Before upgrade
-
+**Before upgrade**
   
 ![Migration Scenario 5](images/Dn466131.Migr_Scenario5(Office.16).jpg "Migration Scenario 5")
 
@@ -213,15 +201,15 @@ Before upgrade
 
 6.  Run the **Enable-CsTopology** cmdlet to create the appropriate trusted service entries in Active Directory for interoperability with .
     
-    Enable-CsTopology
+    `Enable-CsTopology`
 
 7.  Run the **Move-CsApplicationEndpoint** cmdlet to move the contact object from the UCMA 2.0 application pool to the UCMA 3.0 application pool. Run this cmdlet with the appropriate values for each contact object that your application uses.
     
-    Move-CsApplicationEndpoint -Identity sip:endpoint1@contoso.com -TargetApplicationPool UCMA3.0ApplicationPool.contoso.com
+    `Move-CsApplicationEndpoint -Identity sip:endpoint1@contoso.com -TargetApplicationPool UCMA3.0ApplicationPool.contoso.com`
 
 8.  Verify that the **Move-CsApplicationEndpoint** cmdlet was successful by running the following cmdlet, and verifying that the output of the Registrar property points to the Lync Server 2010 Registrar.
     
-    Get-CsApplicationEndpoint sip:endpoint1@contoso.com | Select-Object \*
+    `Get-CsApplicationEndpoint sip:endpoint1@contoso.com | Select-Object *`
 
 9.  Stop and then restart the Lync Server 2010 Front End service before launching the UCMA 3.0 application.
 
@@ -237,8 +225,7 @@ Before upgrade
 
 The following illustration shows the topology after the upgrade has taken place. The computers used in the UCMA 2.0 trusted application pool can be reused for other purposes, if desired.
 
-After upgrade
+**After upgrade**
 
-  
 ![Migration Scenario 5 - after](images/Dn466131.Migr_Scenario5b(Office.16).jpg "Migration Scenario 5 - after")
 

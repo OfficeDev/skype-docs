@@ -116,7 +116,9 @@ OCSCore.msi must be installed by using Bootstrapper Prerequisites Installer Pack
         
       This operating system version comes with PowerShell 3.0.
 
-2. Find OCSCore.msi by navigating to %Installation drive%\\ProgramData\\Microsoft\\Skype for Business Server\\Deployment\\cache\\\<Build Version\>\\Setup\\ .
+2. Find OCSCore.msi by navigating to: 
+
+   %Installation drive%\\ProgramData\\Microsoft\\Skype for Business Server\\Deployment\\cache\\\<Build Version\>\\Setup\\ .
 
 3. Launch OCSCore.msi and use the default settings in the wizard.
 
