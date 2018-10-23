@@ -93,19 +93,19 @@ All computers on which the application is to run must be added to the Skype for 
         New-CsTrustedApplicationPool -Identity trustedapps.contoso.com -Registrar atl-mcs-001.contoso.com -Site co1 –ComputerFqdn machine1.contoso.com
       ```
 
-    2. For a manually-provisioned application, create the trusted application pool by running the **New-CsTrustedApplicationPool** cmdlet. This is the same cmdlet that is used for auto-provisioned applications, but an additional cmdlet parameter is used. The **RequiresReplication** parameter with a value of $false indicates that Central Management Store replication is not required. In the following example, the FQDN of the pool of trusted application computers is *trustedapps.contoso.com*, the Registrar pool FQDN is *atl-mcs-001.contoso.com*, Central Management Store replication is set to false, and the site ID is *co1*.
+   2. For a manually-provisioned application, create the trusted application pool by running the **New-CsTrustedApplicationPool** cmdlet. This is the same cmdlet that is used for auto-provisioned applications, but an additional cmdlet parameter is used. The **RequiresReplication** parameter with a value of $false indicates that Central Management Store replication is not required. In the following example, the FQDN of the pool of trusted application computers is *trustedapps.contoso.com*, the Registrar pool FQDN is *atl-mcs-001.contoso.com*, Central Management Store replication is set to false, and the site ID is *co1*.
 
-       ```powershell    
+      ```powershell    
           New-CsTrustedApplicationPool -Identity trustedapps.contoso.com -Registrar atl-mcs-001.contoso.com –RequiresReplication $false -Site co1
-       ```    
+      ```    
       
-       The following PowerShell command is identical to the previous command, except that it adds another parameter. The **ComputerFqdn** parameter specifies the FQDN of the first computer in the trusted application pool. FQDN of this computer is machine1.contoso.com.
+      The following PowerShell command is identical to the previous command, except that it adds another parameter. The **ComputerFqdn** parameter specifies the FQDN of the first computer in the trusted application pool. FQDN of this computer is machine1.contoso.com.
 
-       ```powershell        
+      ```powershell        
         New-CsTrustedApplicationPool -Identity trustedapps.contoso.com -Registrar atl-mcs-001.contoso.com –RequiresReplication $false -Site co1 –ComputerFqdn machine1.contoso.com
-       ```
+      ```
 
-       The FQDN of the application server should appear in the list of replicas.
+      The FQDN of the application server should appear in the list of replicas.
 
 3. (Optional) To add additional computers to the trusted application, run the **New-CsTrustedApplicationComputer** cmdlet. In the following example, a new trusted application computer with an FQDN of machine2.contoso.com is added to the trusted application pool whose FQDN is trustedapps.contoso.com.
 
@@ -212,7 +212,7 @@ To perform these actions using Skype for Business Server Management Shell, you m
        Request-CsCertificate -New -Type default -FriendlyName "trustedapps.contoso.com Pool" -CA ca.contoso.com\\ContosoCA -ComputerFQDN machine1.contoso.com
       ```
 
-    2. For a trusted application pool consisting of multiple computers, or a trusted application pool consisting of a single computer where the pool FQDN does not match the computer, the **Request-CsCertificate** cmdlet can still be used to create a certificate. However, the –**DomainName** argument must be used. In the following example, the friendly name of the requested certificate will be set to trustedapps.contoso.com Pool, the certificate authority is on the computer ca.contoso.com with a name of ContosoCA, the FQDN of the trusted application computer the cmdlet is being run on is machine1.contoso.com, and the trusted application pool consists of two computers: machine1.contoso.com and machine2.contoso.com.
+   2. For a trusted application pool consisting of multiple computers, or a trusted application pool consisting of a single computer where the pool FQDN does not match the computer, the **Request-CsCertificate** cmdlet can still be used to create a certificate. However, the –**DomainName** argument must be used. In the following example, the friendly name of the requested certificate will be set to trustedapps.contoso.com Pool, the certificate authority is on the computer ca.contoso.com with a name of ContosoCA, the FQDN of the trusted application computer the cmdlet is being run on is machine1.contoso.com, and the trusted application pool consists of two computers: machine1.contoso.com and machine2.contoso.com.
         
       ```powershell
        Request-CsCertificate -New -Type default -FriendlyName "trustedapps.contoso.com Pool" -CA ca.contoso.com\\ContosoCA -ComputerFQDN machine1.contoso.com -DomainName "machine1.contoso.com,machine2.contoso.com"
