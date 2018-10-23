@@ -12,9 +12,9 @@ mtps_version: v=office.16
 
 **Applies to**: Skype for Business 2015
 
-Sample name: VoiceCompanion
+**Sample name**: VoiceCompanion
 
-Sample location: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\Reference\\VoiceCompanion
+**Sample location**: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\Reference\\VoiceCompanion
 
 ## Description
 

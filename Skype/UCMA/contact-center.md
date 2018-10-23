@@ -71,7 +71,7 @@ Skype for Business Server 2015 server and client extensibility (using UCMA 5.0, 
 
   - Fully customizable: .NET Framework platform exposes simple concepts and integrates easily with other Microsoft platforms such as SQL, CRM, Exchange, and Sharepoint.
 
-  - On-premise or off-premise.
+  - On-premises or off-premises.
 
   - Highly scalable and reliable solution.
 

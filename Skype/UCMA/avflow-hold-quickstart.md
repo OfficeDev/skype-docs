@@ -15,9 +15,9 @@ mtps_version: v=office.16
 
 
 
-Sample name: AVFlow-Hold
+**Sample name**: AVFlow-Hold
 
-Sample location: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\AudioVideoCall\\AVFlow-Hold
+**Sample location**: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\AudioVideoCall\\AVFlow-Hold
 
 Place a call, put the call on hold, and then retrieve the call from hold.
 

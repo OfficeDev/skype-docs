@@ -10,14 +10,11 @@ mtps_version: v=office.16
 
 # CallTransferSupervised (QuickStart)
 
-
 **Applies to**: Skype for Business 2015
 
+**Sample name**: CallTransferSupervised
 
-
-Sample name: CallTransferSupervised
-
-Sample location: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\CallTransferSupervised
+**Sample location**: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\CallTransferSupervised
 
 ## Description
 
@@ -34,8 +31,6 @@ The application represents three users, referred to in this description as trans
   - **AudioVideoFlow** handling and control
 
 ## Prerequisites
-
-  - .
 
   - Three users, enabled to use the Skype for Business Server 2015.
 

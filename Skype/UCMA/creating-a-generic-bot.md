@@ -489,7 +489,7 @@ The following extension methods are useful for adding QA objects to a *QAMessage
   
   Adds a batch of *RandomQA* instances to a *QAs* list, as in this example.
     
-  ```vb
+  ```csharp
     public QASampleMessageHandler()
     {
         // ...

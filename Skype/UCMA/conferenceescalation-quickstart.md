@@ -10,14 +10,11 @@ mtps_version: v=office.16
 
 # ConferenceEscalation (QuickStart)
 
-
 **Applies to**: Skype for Business 2015
 
+**Sample name**: ConferenceEscalation
 
-
-Sample name: ConferenceEscalation
-
-Sample location: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\ConferenceEscalation
+**Sample location**: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\ConferenceEscalation
 
 ## Description
 
@@ -32,8 +29,6 @@ The application initializes a platform and two endpoints, each on behalf of a di
   - **AudioVideoCall** conference use
 
 ## Prerequisites
-
-  - .
 
   - Two users enabled to use Skype for Business Server 2015.
 

@@ -12,10 +12,7 @@ dev_langs:
 
 # Player
 
-
 **Applies to**: Skype for Business 2015
-
-
 
 The [Player](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.player?view=ucma-api) class represents an entity that is capable of playing media to one or more media flows, and as such, provides a simple, scalable way to play an audio segment in a Windows Media Audio (WMA) file to multiple listeners. A **Player** instance renders the media that is represented by an instance of a subclass of the [MediaSource](https://msdn.microsoft.com/en-us/library/hh348635\(v=office.16\)) abstract base class. The output from a **Player** instance goes to one or more [AudioVideoFlow](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiovideoflow?view=ucma-api) instances.
 
@@ -25,15 +22,15 @@ A **Player** acts as a pointer to a **MediaSource** object, and determines the c
 
 The **Player** class has two modes of operation:
 
-  - **Automatic** (the default)
+- **Automatic** (the default)
     
-    In **Automatic** mode, the behavior of a **Player** instance depends on the state of the attached **AudioVideoFlow** instance. If an application calls the **Start** method on the **Player** instance, the **State** property on the **Player** instance changes to **Started**, but nothing is played until there is an active **AudioVideoFlow** instance attached to the **Player** instance (that is, until the **State** property on the **AudioVideoFlow** instance is **Active**).
+  In **Automatic** mode, the behavior of a **Player** instance depends on the state of the attached **AudioVideoFlow** instance. If an application calls the **Start** method on the **Player** instance, the **State** property on the **Player** instance changes to **Started**, but nothing is played until there is an active **AudioVideoFlow** instance attached to the **Player** instance (that is, until the **State** property on the **AudioVideoFlow** instance is **Active**).
     
-    If the last active **AudioVideoFlow** instance is detached or terminated while a **Player** instance in **Automatic** mode is playing, the **Player** instance stops automatically.
+  If the last active **AudioVideoFlow** instance is detached or terminated while a **Player** instance in **Automatic** mode is playing, the **Player** instance stops automatically.
 
-  - **Manual**
+- **Manual**
     
-    In **Manual** mode, a **Player** instance can operate with or without an attached **AudioVideoFlow** instance, although no one would be able to listen to the file being played if there were no attached **AudioVideoFlow** instance. If the last active **AudioVideoFlow** instance is detached or terminated while a **Player** instance in **Manual** mode is playing, the **Player** instance continues playing. In this regard, a **Player** instance in **Manual** mode behaves like a CD player whose speakers are disconnected.
+  In **Manual** mode, a **Player** instance can operate with or without an attached **AudioVideoFlow** instance, although no one would be able to listen to the file being played if there were no attached **AudioVideoFlow** instance. If the last active **AudioVideoFlow** instance is detached or terminated while a **Player** instance in **Manual** mode is playing, the **Player** instance continues playing. In this regard, a **Player** instance in **Manual** mode behaves like a CD player whose speakers are disconnected.
 
 ## Playback speed
 
@@ -45,22 +42,19 @@ The values in the **PlaybackSpeed** enumeration are **Half**, **ThreeQuarters**,
 
 The simplest arrangement is a single **Player** instance with a single attached **AudioVideoFlow** instance, as shown in the following illustration.
 
-Single player, single AudioVideoFlow instance
-
+**Single player, single AudioVideoFlow instance**
   
 ![Single Player, single AudioVideoFlow instance](images/Dn466037.OnePlayerOneFlow(Office.16).png "Single Player, single AudioVideoFlow instance")
 
 Another arrangement is to have a single **Player** instance that has multiple **AudioVideoFlow** instances, as shown in the following illustration. In this arrangement, the audio media to be played has a single play position and all attached **AudioVideoFlow** instances receive exactly the same audio simultaneously. This capability is useful for providing Music on Hold, or for broadcasting audio to multiple listeners.
 
-Single Player, multiple AudioVideoFlow instances
-
+**Single Player, multiple AudioVideoFlow instances**
   
 ![Single Player, multiple AudioVideoFlow instances](images/Dn466037.OnePlayerMultFlow(Office.16).png "Single Player, multiple AudioVideoFlow instances")
 
 A third arrangement is to have multiple **Player** instances with multiple attached **AudioVideoFlow** instances, as shown in the following illustration. Each **Player** instance determines a different playing point in the media source. The AudioVideoFlow instances attached to a given Player instance (for example, AudioVideoFlow 1 and AudioVideoFlow 2 that are attached to Player 1) receive the same audio at the same time, but AudioVideoFlow instances attached to different Player instances receive different audio segments at any given time (for example, AudioVideoFlow 1 and AudioVideoFlow 3 that are attached, respectively, to Player 1 and Player 2). This capablity is useful for providing Welcome messages to listeners when they arrive at a conference.
 
-Multiple Player instances, multiple AudioVideoFlow instances
-
+**Multiple Player instances, multiple AudioVideoFlow instances**
   
 ![Multiple Player and AudioVideoFlow instances](images/Dn466037.OnePlayerMultFlow(Office.16).png "Multiple Player and AudioVideoFlow instances")
 
@@ -70,11 +64,8 @@ The **Player** class is scalable. In buffered mode, the **MediaSource** caches e
 
 The following code example shows the steps involved in using a [Player](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.player?view=ucma-api).
 
-
 > [!WARNING]
-> <P>This code example is not a complete example. Several methods, properties, and events are used in this example, but are not defined within the example.</P>
-
-
+> This code example is not a complete example. Several methods, properties, and events are used in this example, but are not defined within the example.
 
 The essential points of creating and using a **Player** instance are shown in the following steps. Each step is associated with a line of code that is preceded by a comment with a number in it.
 

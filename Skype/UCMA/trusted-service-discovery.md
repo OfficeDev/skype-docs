@@ -12,28 +12,27 @@ dev_langs:
 
 # Trusted service discovery
 
-
 **Applies to**: Skype for Business 2015
 
 An important feature of Microsoft Unified Communications Managed API 5.0 is the ability to create distributed and trusted custom Communications-Enabled business applications that can discover and then exchange information with one another at runtime, regardless of the deployment specifics. As an example, this ability to discover a remote trusted service and subsequently establish an inter-system communication channel allows a developer to create a distributed system consisting of four distinct services:
 
-  - Service 1—A Web application that receives click-to-call or Web Chat requests from a Web user visiting an intranet or extranet site. These requests target the three following remote trusted services.
+- Service 1—A Web application that receives click-to-call or Web Chat requests from a Web user visiting an intranet or extranet site. These requests target the three following remote trusted services.
 
-  - Service 2—An Instant Messaging automaton whose unique identity is, for example, "urn:application:contosoimbot".
+- Service 2—An Instant Messaging automaton whose unique identity is, for example, "urn:application:contosoimbot".
 
-  - Service 3—An Interactive Voice Response system whose unique identity is, for example, "urn:application:contosoivr".
+- Service 3—An Interactive Voice Response system whose unique identity is, for example, "urn:application:contosoivr".
 
-  - Service 4—A Contact Center whose unique identity is, for example, "urn:application:contosocontactcenter".
+- Service 4—A Contact Center whose unique identity is, for example, "urn:application:contosocontactcenter".
 
 In this example, the developer designs Service 1 so that the respective identities of Service 2, Service 3, and Service 4 are known by Service 1 in advance. Each service identity (Unique Resource Name (URN)) is supplied to UCMA 5.0 at runtime at the initialization of Service 1. The API will then attempt to resolve the identity to a SIP URI that can be used to address the relevant service.
 
 In general, multiple instances of a given service are deployed in an application pool for load balancing and fail-over reasons. The SIP URI is a trusted GRUU returned by UCMA 5.0, that conceptually represents the service as an application pool rather than as a specific instance of the service. This implies the following points:
 
-  - Service 2, Service 3, and Service 4 must be ready to receive incoming messages from Service 1 on any of their respective instances.
+- Service 2, Service 3, and Service 4 must be ready to receive incoming messages from Service 1 on any of their respective instances.
 
-  - Service 2, Service 3, and Service 4 will need to use a UCMA 5.0 Default Routing Endpoint to consume the messages from Service 1.
+- Service 2, Service 3, and Service 4 will need to use a UCMA 5.0 Default Routing Endpoint to consume the messages from Service 1.
 
-  - Service 2, Service 3, and Service 4 will need to validate that the incoming request from Service 1 has a well-known content-type (chosen by the developer) and that its Contact header URI is a trusted GRUU (a trustworthy source).
+- Service 2, Service 3, and Service 4 will need to validate that the incoming request from Service 1 has a well-known content-type (chosen by the developer) and that its Contact header URI is a trusted GRUU (a trustworthy source).
 
 By following these recommendations, Service 1 can have a proprietary convention with Service 2, Service 3, and Service 4 for Service 1 to discover their deployment-specific provisioning information, and proxy the communication requests coming from Web users to the appropriate endpoint of the service.
 
@@ -85,6 +84,7 @@ On the remote application, send a suitable response, such as the list of applica
 
 In the **MessageReceived** event handler on the default routing endpoint check the contact URI and send a response.
 
+```csharp
     // Go through the list of headers in the request to get the contact header.
     listOfHeaders.ForEach(header=> 
     {
@@ -111,4 +111,4 @@ In the **MessageReceived** event handler on the default routing endpoint check t
         }
       }
     });
-
+```

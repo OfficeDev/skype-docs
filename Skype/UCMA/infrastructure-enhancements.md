@@ -10,18 +10,13 @@ mtps_version: v=office.16
 
 # Infrastructure enhancements
 
-
 **Applies to**: Skype for Business 2015
 
-This section provides high-level information about infrastructure features in Microsoft Unified Communications Managed API 5.0.
+This topics in this section provide high-level information about infrastructure features in Microsoft Unified Communications Managed API 5.0:
 
-  - [Auto-provisioning and PowerShell activation](auto-provisioning-and-powershell-activation.md)
-
-  - [Bandwidth management](bandwidth-management.md)
-
-  - [DNS load balancing](dns-load-balancing.md)
-
-  - [Endpoint draining](endpoint-draining.md)
-
-  - [Session dialog resiliency](session-dialog-resiliency.md)
+- [Auto-provisioning and PowerShell activation](auto-provisioning-and-powershell-activation.md)
+- [Bandwidth management](bandwidth-management.md)
+- [DNS load balancing](dns-load-balancing.md)
+- [Endpoint draining](endpoint-draining.md)
+- [Session dialog resiliency](session-dialog-resiliency.md)
 

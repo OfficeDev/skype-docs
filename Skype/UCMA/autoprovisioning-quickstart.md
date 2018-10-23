@@ -10,14 +10,11 @@ mtps_version: v=office.16
 
 # Autoprovisioning (QuickStart)
 
-
 **Applies to**: Skype for Business 2015
 
+**Sample name**: AutoProvisioning
 
-
-Sample name: AutoProvisioning
-
-Sample location: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\AutoProvisioning
+**Sample location**: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\AutoProvisioning
 
 ## Description
 
@@ -36,8 +33,6 @@ Throughout the lifetime of the process, the sample application listens for **Sta
   - **ProvisioningDataChanged** notification handling
 
 ## Prerequisites
-
-  - .
 
   - Provisioned trusted application endpoint
 

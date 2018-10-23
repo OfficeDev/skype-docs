@@ -10,14 +10,11 @@ mtps_version: v=office.16
 
 # CallModalityAddition (QuickStart)
 
-
 **Applies to**: Skype for Business 2015
 
- 
+**Sample name**: CallModalityAddition
 
-Sample name: CallModalityAddition
-
-Sample location: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\CallModalityAddition
+**Sample location**: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\CallModalityAddition
 
 ## Description
 
@@ -32,8 +29,6 @@ The application initializes the platform to log in a pair of users and initiates
   - Conversation reuse
 
 ## Prerequisites
-
-  - .
 
   - Two users capable of sending and receiving audio calls.
 

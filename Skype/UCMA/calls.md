@@ -10,7 +10,6 @@ mtps_version: v=office.16
 
 # Calls
 
-
 **Applies to**: Skype for Business 2015
 
 A call is a communication session between two endpoints: a local endpoint and a remote endpoint. UCMA 5.0 represents the call concept by the [Call](https://msdn.microsoft.com/en-us/library/hh384235\(v=office.16\)) abstract class, and provides non-abstract classes that implement three specific types of calls:
@@ -34,7 +33,6 @@ This section describes common operations that a UCMA-based application performs 
 
 - [Call state transitions](call-state-transitions.md)
 - [Registering for call events](registering-for-call-events.md)
-- [Impersonating a user](impersonating-a-user.md)
 - [Adding an instant messaging or audio/video call](adding-an-instant-messaging-or-audio-video-call.md)
 - [Establishing an outgoing call](establishing-an-outgoing-call.md)
 - [Accepting an incoming call](accepting-an-incoming-call.md)

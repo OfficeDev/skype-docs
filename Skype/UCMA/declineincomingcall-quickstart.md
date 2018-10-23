@@ -10,14 +10,11 @@ mtps_version: v=office.16
 
 # DeclineIncomingCall (QuickStart)
 
-
 **Applies to**: Skype for Business 2015
 
+**Sample name**: DeclineIncomingCall
 
-
-Sample name: DeclineIncomingCall
-
-Sample location: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\DeclineIncomingCall
+**Sample location**: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\DeclineIncomingCall
 
 ## Description
 
@@ -34,8 +31,6 @@ The sample expects a user logged on to a client (such as Skype for Business 2015
   - [InstantMessagingFlow](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.instantmessagingflow?view=ucma-api) handling and control
 
 ## Prerequisites
-
-  - .
 
   - Two users, enabled to use Skype for Business Server 2015.
 

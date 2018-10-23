@@ -10,12 +10,9 @@ mtps_version: v=office.16
 
 # ConversationContextChannel (QuickStart)
 
+**Sample name**: ConversationContextChannel
 
-
-
-Sample name: ConversationContextChannel
-
-Sample location: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\ConversationContextChannel
+**Sample location**: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\ConversationContextChannel
 
 ## Description
 
@@ -30,8 +27,6 @@ The application initializes the platform to start listening on behalf of a user,
   - Receiving context data from the remote user on the **ConversationContextChannel** instance
 
 ## Prerequisites
-
-  - .
 
   - A Skype for Business user who is logged on to Skype for Business Server 2015.
 

@@ -11,9 +11,9 @@ mtps_version: v=office.16
 # Build a Bot (sample)
 
 
-Sample name: BuildABot
+**Sample name**: BuildABot
 
-Sample location: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\Reference\\BuildABot
+**Sample location**: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\Reference\\BuildABot
 
 ## Description
 
@@ -21,13 +21,10 @@ The Build a Bot framework enables you to create your own conversational agent(s)
 
 The following topics provide a description of the development environment, and descriptions of three types of bot.
 
-  - [Setting up the development environment](setting-up-the-development-environment.md)
+- [Setting up the development environment](setting-up-the-development-environment.md)
+- [Creating a generic bot](creating-a-generic-bot.md)
+- [Creating a Skype for Business bot](creating-a-skype-for-business-bot.md)
+- [Creating an Excel bot](creating-an-excel-bot.md)
 
-  - [Creating a generic bot](creating-a-generic-bot.md)
-
-  - [Creating a Skype for Business bot](creating-a-skype-for-business-bot.md)
-
-  - [Creating an Excel bot](creating-an-excel-bot.md)
-
-For more information, see [Microsoft Lync Dev Center](https://go.microsoft.com/fwlink/?linkid=201840).
+For more information, see [Microsoft Lync Dev Center](https://docs.microsoft.com/lync/lync-2013).
 

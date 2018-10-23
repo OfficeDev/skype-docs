@@ -10,12 +10,13 @@ mtps_version: v=office.16
 
 # PSTN user authentication
 
-
 **Applies to**: Skype for Business 2015
 
 Microsoft Unified Communications Managed API 5.0 applications add the ability to authenticate a user to the Skype for Business Server 2015/ servers by means of a Skype for Business Server 2015 user personal identification number (PIN), or by authenticating a user separately, and then using server trust to take actions on behalf of that user.
 
 UCMA 5.0 includes the **ApplicationPinServices** class, which has a method that can be used to verify a PIN.
 
-With the ability to authenticate users by PINs, a mobile user can call aUCMA 5.0 application, present a single PIN, and then be authenticated to his or her mailbox to perform such tasks as reading mail using text-to-speech (TTS) or accessing his or her contact list. The Voice Companion sample that ships with Microsoft Unified Communications Managed API 5.0 SDK demonstrates how these actions can be carried out. For more information, see [Voice Companion (sample)](voice-companion-sample.md) and [Voice companion](voice-companion.md).
+With the ability to authenticate users by PINs, a mobile user can call aUCMA 5.0 application, present a single PIN, and then be authenticated to his or her mailbox to perform such tasks as reading mail using text-to-speech (TTS) or accessing his or her contact list. The Voice Companion sample that ships with Microsoft Unified Communications Managed API 5.0 SDK demonstrates how these actions can be carried out. 
+
+For more information, see [Voice Companion (sample)](voice-companion-sample.md) and [Voice companion](voice-companion.md).
 

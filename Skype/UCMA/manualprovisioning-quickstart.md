@@ -10,14 +10,11 @@ mtps_version: v=office.16
 
 # ManualProvisioning (QuickStart)
 
-
 **Applies to**: Skype for Business 2015
 
+**Sample name**: ManualProvisioning
 
-
-Sample name: ManualProvisioning
-
-Sample location: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\ManualProvisioning
+**Sample location**: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\ManualProvisioning
 
 ## Description
 

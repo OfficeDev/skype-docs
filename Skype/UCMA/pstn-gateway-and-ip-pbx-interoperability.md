@@ -10,36 +10,31 @@ mtps_version: v=office.16
 
 # PSTN gateway and IP-PBX interoperability
 
-
 **Applies to**: Skype for Business 2015
 
 For IP-based real-time applications that must communicate with a PSTN network on one side and a unified communications network on the other side, Microsoft Unified Communications Managed API 5.0 provides an application the ability to interoperate with SIP PSTN gateways and IP-PBXs with the unified communications network.
 
 The following SIP peers can connect to the UCMA application:
 
-1.  SIP gateways.
-
-2.  SIP-enabled IP-PBXs that support the following phones.
+- SIP gateways.
+- SIP-enabled IP-PBXs that support the following phones:
     
-    1.  SIP phones
-    
-    2.  Soft phones that support SIP
+  - SIP phones  
+  - Soft phones that support SIP
 
 SIP peers should support the following protocols:
 
-  - SIP—RFC 3261
-
-  - DTMF—RFC4733
-
-  - SDP—RFC 3264
+- SIP—RFC 3261
+- DTMF—RFC4733
+- SDP—RFC 3264
 
 In addition, SIP peers:
 
-  - Must provide media session parameter negotiation (endpoint, codec, and, if applicable, encryption parameters) through SDP, as defined in the SIP and related RFCs and used in SIP.
+- Must provide media session parameter negotiation (endpoint, codec, and, if applicable, encryption parameters) through SDP, as defined in the SIP and related RFCs and used in SIP.
 
-  - Must provide media/audio transport using RTP/RTCP over UDP.
+- Must provide media/audio transport using RTP/RTCP over UDP.
 
-  - Must meet the Supported IP Gateways requirements listed in [Telephony Advisor for Exchange 2010](https://technet.microsoft.com/en-us/library/ee364753.aspx).
+- Must meet the Supported IP Gateways requirements listed in [Telephony Advisor for Exchange 2010](https://docs.microsoft.com/exchange/voice-mail-unified-messaging/telephone-system-integration-with-um/telephony-advisor-for-exchange-2013).
 
 The following illustration shows a typical setup.
 

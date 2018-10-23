@@ -15,9 +15,9 @@ mtps_version: v=office.16
 
 
 
-Sample name: BasicAudioVideoCall
+**Sample name**: BasicAudioVideoCall
 
-Sample location: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\AudioVideoCall\\BasicAudioVideoCall
+**Sample location**: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\AudioVideoCall\\BasicAudioVideoCall
 
 Make a basic **AudioVideoCall** and perform basic flow handling.
 

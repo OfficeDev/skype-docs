@@ -10,14 +10,11 @@ mtps_version: v=office.16
 
 # PresenceContainerMemberShip (QuickStart)
 
-
 **Applies to**: Skype for Business 2015
 
- 
+**Sample name**: PresenceContainerMemberShip
 
-Sample name: PresenceContainerMemberShip
-
-Sample location: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\PresenceContainerMemberShip
+**Sample location**: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\PresenceContainerMemberShip
 
 ## Description
 
@@ -29,9 +26,7 @@ The application initializes the platform and publishes presence. It then adds a 
 
 ## Prerequisites
 
-  - .
-
-  - Two users, enabled to use .
+  - Two users, enabled to use Skype for Business Server 2015.
 
   - The credentials for those users, and a client capable of logging in to Skype for Business Server 2015.
 

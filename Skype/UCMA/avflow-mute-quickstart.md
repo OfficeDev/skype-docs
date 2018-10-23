@@ -15,9 +15,9 @@ mtps_version: v=office.16
 
  
 
-Sample name: AVFlow-Mute
+**Sample name**: AVFlow-Mute
 
-Sample location: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\AudioVideoCall\\AVFlow-Mute
+**Sample location**: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\AudioVideoCall\\AVFlow-Mute
 
 ## Description
 

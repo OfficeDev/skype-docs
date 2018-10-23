@@ -12,7 +12,7 @@ mtps_version: v=office.16
 
 **Applies to**: Skype for Business 2015
 
-This section discusses the steps needed to enable UCMA 2.0, UCMA 3.0, and UCMA 4.0 applications to coexist in an environment with , , or pools. It is expected that users homed on these different Communications Server/Lync Server pools will be able to communicate with these applications. This section also discusses the steps needed to migrate UCMA applications to newer versions of Lync Server, and to upgrade UCMA 2.0 or UCMA 3.0 applications to a UCMA 4.0 application.
+This section discusses the steps needed to enable UCMA 2.0, UCMA 3.0, and UCMA 4.0 applications to coexist in an environment with pools. It is expected that users homed on these different Communications Server/Lync Server pools will be able to communicate with these applications. This section also discusses the steps needed to migrate UCMA applications to newer versions of Lync Server, and to upgrade UCMA 2.0 or UCMA 3.0 applications to a UCMA 4.0 application.
 
 Before going further in the section, read [Activation, Provisioning, and Deployment Changes in UCMA 4.0](https://msdn.microsoft.com/en-us/library/gg253592\(v=office.16\)), which should be considered a prerequisite to the material in this section. As applicable to your specific Lync Server topology, it is strongly recommended that you read one or both of the following topics in the Migration section of the Microsoft Lync Server 2013 documentation:
 

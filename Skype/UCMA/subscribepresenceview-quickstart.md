@@ -10,14 +10,11 @@ mtps_version: v=office.16
 
 # SubscribePresenceView (QuickStart)
 
-
 **Applies to**: Skype for Business 2015
 
+**Sample name**: SubscribePresenceView
 
-
-Sample name: SubscribePresenceView
-
-Sample location: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\SubscribePresenceView
+**Sample location**: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\SubscribePresenceView
 
 ## Description
 
@@ -34,8 +31,6 @@ After the subscription is complete, the application listens for incoming notific
   - Monitoring of presence-related notifications
 
 ## Prerequisites
-
-  - .
 
   - Two users, enabled to user Skype for Business Server 2015.
 

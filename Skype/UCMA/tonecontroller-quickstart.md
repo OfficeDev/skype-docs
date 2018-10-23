@@ -15,9 +15,9 @@ mtps_version: v=office.16
 
 
 
-Sample name: ToneController
+**Sample name**: ToneController
 
-Sample location: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\AudioVideoCall\\ToneController
+**Sample location**: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\AudioVideoCall\\ToneController
 
 ## Description
 

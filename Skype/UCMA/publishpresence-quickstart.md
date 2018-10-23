@@ -10,14 +10,11 @@ mtps_version: v=office.16
 
 # PublishPresence (QuickStart)
 
-
 **Applies to**: Skype for Business 2015
 
- 
+**Sample name**: PublishPresence
 
-Sample name: PublishPresence
-
-Sample location: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\PublishPresence
+**Sample location**: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\PublishPresence
 
 ## Description
 
@@ -30,8 +27,6 @@ To see the categories being published, you can log on to a client (such as Skype
   - Presence publication using a grammar and strongly-typed categories.
 
 ## Prerequisites
-
-  - .
 
   - One user, enabled to use Skype for Business Server 2015.
 

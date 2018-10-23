@@ -10,14 +10,11 @@ mtps_version: v=office.16
 
 # InstantMessagingCall (QuickStart)
 
-
 **Applies to**: Skype for Business 2015
 
-  
+**Sample name**: InstantMessagingCall
 
-Sample name: InstantMessagingCall
-
-Sample location: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\InstantMessagingCall
+**Sample location**: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\InstantMessagingCall
 
 ## Description
 
@@ -34,8 +31,6 @@ The application initializes the platform, and logs in on behalf of a user. The s
   - [InstantMessagingFlow](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.instantmessagingflow?view=ucma-api) handling and control
 
 ## Prerequisites
-
-  - .
 
   - Two enabled to use Skype for Business Server 2015.
 

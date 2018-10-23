@@ -10,14 +10,11 @@ mtps_version: v=office.16
 
 # SubscribePresence (QuickStart)
 
-
 **Applies to**: Skype for Business 2015
 
+**Sample name**: SubscribePresence
 
-
-Sample name: SubscribePresence
-
-Sample location: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\SubscribePresence
+**Sample location**: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\SubscribePresence
 
 ## Description
 
@@ -30,8 +27,6 @@ The application initializes the platform and endpoint and subscribes to the pres
   - Monitoring of presence-related notifications
 
 ## Prerequisites
-
-  - .
 
   - Two users, enabled to use Skype for Business Server 2015.
 

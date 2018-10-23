@@ -10,14 +10,11 @@ mtps_version: v=office.16
 
 # ConferenceManagement (QuickStart)
 
-
 **Applies to**: Skype for Business 2015
 
+**Sample name**: ConferenceManagement
 
-
-Sample name: ConferenceManagement
-
-Sample location: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\ConferenceManagement
+**Sample location**: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\ConferenceManagement
 
 ## Description
 
@@ -74,8 +71,6 @@ For information about provisioning trusted applications and endpoints in Microso
   - Conversation impersonation.
 
 ## Prerequisites
-
-  - .
 
   - Two users enabled to use Skype for Business Server 2015.
 

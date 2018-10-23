@@ -15,9 +15,9 @@ mtps_version: v=office.16
 
 
 
-Sample name: Recorder
+**Sample name**: Recorder
 
-Sample location: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\AudioVideoCall\\Recorder
+**Sample location**: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\AudioVideoCall\\Recorder
 
 ## Description
 

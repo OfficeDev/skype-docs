@@ -15,9 +15,9 @@ mtps_version: v=office.16
 
 
 
-Sample name: SpeechRecognitionConnector
+**Sample name**: SpeechRecognitionConnector
 
-Sample location: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\AudioVideoCall\\SpeechRecognitionConnector
+**Sample location**: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\AudioVideoCall\\SpeechRecognitionConnector
 
 ## Description
 

@@ -12,9 +12,9 @@ mtps_version: v=office.16
 
 **Applies to**: Skype for Business 2015
 
-Sample name: VoiceXMLSample
+**Sample name**: VoiceXMLSample
 
-Sample location: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\VoiceXMLSample
+**Sample location**: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\VoiceXMLSample
 
 ## Description
 

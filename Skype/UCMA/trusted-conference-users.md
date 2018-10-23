@@ -47,57 +47,85 @@ A Trusted User can remove a participant from the default audio routing, and late
 
 To illustrate the concept of default audio routing and audio route management, consider the following use case inspired by a customer interaction with an agent, an expert, and a supervisor in a Contact Center.
 
-In this example use case, the customer is connected to an available agent. The agent is unable to answer a question from the customer, and escalates the call to an expert. The identities of both the agent and the expert are concealed from the customer through the use of a back-to-back user agent. At this point of the customer interaction, the customer, agent, and expert can all hear one another as their respective audio streams are being mixed in the default audio routing. Note that this is the default state of participants joining an audio conference; there is no Trusted Conferencing User intervention up to this point. The following illustration shows the routing of the audio and signaling channels.
+In this example use case, the customer is connected to an available agent. The agent is unable to answer a question from the customer, and escalates the call to an expert. The identities of both the agent and the expert are concealed from the customer through the use of a back-to-back user agent. At this point of the customer interaction, the customer, agent, and expert can all hear one another as their respective audio streams are being mixed in the default audio routing. Note that this is the default state of participants joining an audio conference; there is no Trusted Conferencing User intervention up to this point. 
+
+The following illustration shows the routing of the audio and signaling channels.
 
 ![Audio routing - 1](images/Dn465963.TCU_AudioRouting1(Office.16).png "Audio routing - 1")
+
+<br/>
 
 The following table represents the default audio routing of audio-video MCU that performs a forward mix of the customer, agent, and expert audio streams. This table is also known as the "who’s talking to whom" table and shows which audio sources are connected to which audio sinks.
 
 ![TCU routing table - 1](images/Dn465963.TCU_RoutingTbl1(Office.16).jpg "TCU routing table - 1")
 
+<br/>
+
 In the next illustration, the agent requests a side bar with the expert to discuss an important matter regarding the customer’s problem. The agent places the customer on hold. As the following illustration shows, the customer is removed from the default audio routing by a Trusted Conferencing User joined into the Conference.
 
 ![Audio routing - 2](images/Dn465963.TCU_AudioRouting2(Office.16).png "Audio routing - 2")
+
+<br/>
 
 The corresponding audio-video MCU routing table is shown next. Note the new row and column representing the Trusted Conferencing User (Music On Hold). The Trusted Conferencing User joins the audio conference outside the Default Audio Routing, and the music that is being played cannot be heard by any participant. Also note that the customer cannot hear or be heard by any other participant of the conference. The agent and expert remain in the Default Audio Routing and receive a visual indication in the roster displayed in Skype for Business 2015 that the customer is outside the Default Audio Routing.
 
 ![TCU routing table - 2](images/Dn465963.TCU_RoutingTbl2(Office.16).jpg "TCU routing table - 2")
 
+<br/>
+
 After removing the customer from the Default Audio Routing, the Trusted Conferencing User creates an outgoing audio route targeting the customer. The customer begins receiving music from the Music on Hold server while the agent talks with the expert on the same audio conference.
 
 ![Audio routing - 3](images/Dn465963.TCU_AudioRouting3(Office.16).png "Audio routing - 3")
+
+<br/>
 
 The audio-video MCU routing table for this situation is shown in the following table.
 
 ![TCU routing table - 3](images/Dn465963.TCU_RoutingTbl3(Office.16).jpg "TCU routing table - 3")
 
+<br/>
+
 In the following illustration, the agent resumes the call with the customer. The customer is brought back into the Default Audio Routing by the Trusted Conferencing User.
 
 ![Audio routing - 4](images/Dn465963.TCU_AudioRouting1(Office.16).png "Audio routing - 4")
+
+<br/>
 
 The corresponding audio-video MCU routing appears in the follow table.
 
 ![TCU routing table - 4](images/Dn465963.TCU_RoutingTbl4(Office.16).jpg "TCU routing table - 4")
 
+<br/>
+
 For quality purposes, the agent’s supervisor begins listening silently to the customer interaction. The supervisor can hear the customer, agent, and expert, but cannot be heard by any of them. He is not in the Default Audio Routing, but is instead connected to the audio conference as a Trusted Conferencing User by way of a Back-To-Back User Agent.
 
 ![Audio routing - 5](images/Dn465963.TCU_AudioRouting5(Office.16).png "Audio routing - 5")
+
+<br/>
 
 Note that the Trusted Conferencing User has joined outside the Default Audio Routing and has then set up three incoming audio routes, coming respectively from the customer, the agent, and the expert. The audio-video MCU table is shown here.
 
 ![TCU routing table - 5](images/Dn465963.TCU_RoutingTbl5(Office.16).jpg "TCU routing table - 5")
 
+<br/>
+
 In the following illustration, the supervisor needs to whisper coaching instructions to the agent. To do this, the supervisor (Trusted Conferencing User) sets up an outgoing audio route that targets the agent. The customer and the expert cannot hear what the supervisor says.
 
 ![Audio routing - 6](images/Dn465963.TCU_AudioRouting6(Office.16).png "Audio routing - 6")
+
+<br/>
 
 The following illustration shows the audio-video MCU routing table for this situation.
 
 ![TCU routing table - 6](images/Dn465963.TCU_RoutingTbl6(Office.16).jpg "TCU routing table - 6")
 
+<br/>
+
 Finally, the supervisor decides to intervene by barging into the customer interaction. The Trusted Conferencing User sets up two additional outgoing audio routes with the customer and the expert (the outgoing audio route to the agent was set up in a previous step). Every participant of the audio conference can hear every other participant.
 
 ![Audio routing - 7](images/Dn465963.TCU_AudioRouting7(Office.16).png "Audio routing - 7")
+
+<br/>
 
 The following illustration shows the audio-video MCU routing table in which each participant can hear all the others.
 

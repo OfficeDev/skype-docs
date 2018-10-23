@@ -10,14 +10,11 @@ mtps_version: v=office.16
 
 # ForwardIncomingCall (QuickStart)
 
-
 **Applies to**: Skype for Business 2015
 
+**Sample name**: ForwardIncomingCall
 
-
-Sample name: ForwardIncomingCall
-
-Sample location: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\ForwardIncomingCall
+**Sample location**: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\ForwardIncomingCall
 
 ## Description
 
@@ -32,8 +29,6 @@ The application initializes the platform and logs in on behalf of a user. The sa
   - [AudioVideoFlow](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiovideoflow?view=ucma-api) handling and control
 
 ## Prerequisites
-
-  - .
 
   - Three users, enabled to use Skype for Business Server 2015.
 

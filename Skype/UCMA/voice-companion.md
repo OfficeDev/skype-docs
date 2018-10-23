@@ -26,12 +26,9 @@ Other names for the Voice Companion scenario include Personal Virtual Assistant,
 
 - Personal identification number-based authentication and support for alternative authentication.
 
-- In-conference and conversation virtual assistance using DTMF or speech recognition.
+- In-conference and conversation virtual assistance using DTMF or speech recognition. The services offered for voice or DTMF include:
     
-  The services offered for voice or DTMF include:
-    
-  - Presence, contacts, and groups.
-    
+  - Presence, contacts, and groups.   
   - Outbound alerts and notifications, such as "Dial me when the meeting begins."
 
 ## Typical call flow usage
@@ -60,9 +57,7 @@ UCMA-based IVR applications include the full power of Microsoft.Speech-based spe
 
 - The Connector objects (the [SpeechRecognitionConnector](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.speechrecognitionconnector?view=ucma-api) and [SpeechSynthesisConnector](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.speechsynthesisconnector?view=ucma-api) classes) can be used to implement an application that involves TTS or speech recognition.
 
-- Recording and music on hold
-    
-   UCMA applications can play audio content to the caller on demand, record the audio portion of a call, and play music-on-hold to users while waiting for the IVR to perform background tasks.
+- Recording and Music on Hold: UCMA applications can play audio content to the caller on demand, record the audio portion of a call, and play music-on-hold to users while waiting for the IVR to perform background tasks.
 
 Additional features are as follows:
 

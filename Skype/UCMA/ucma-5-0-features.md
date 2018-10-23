@@ -10,7 +10,6 @@ mtps_version: v=office.16
 
 # UCMA 5.0 features
 
-
 **Applies to**: Skype for Business 2015
 
 This section discusses the most important features of Microsoft Unified Communications Managed API 5.0:
@@ -18,7 +17,7 @@ This section discusses the most important features of Microsoft Unified Communic
 - [Key features of UCMA 5.0](key-features-of-ucma-5-0.md)
 - [Audio devices (feature)](audio-devices-feature.md)
 - [Back-to-back user agent (feature)](back-to-back-user-agent-feature.md)
-- [Pre-meeting: conference scheduling](pre-meeting-conference-scheduling.md)
+- [Conference features](conference-features.md)
 - [Contacts and groups management](contacts-and-groups-management.md)
 - [Contextual communication](contextual-communication.md)
 - [Escalation to conferencing](escalation-to-conferencing.md)

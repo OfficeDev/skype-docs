@@ -14,9 +14,9 @@ mtps_version: v=office.16
 **Applies to**: Skype for Business 2015
  
 
-Sample name: BasicCallHandling
+**Sample name**: BasicCallHandling
 
-Sample location: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\AudioVideoCall\\
+**Sample location**: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\AudioVideoCall\\
 
 ## Description
 

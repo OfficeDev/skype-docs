@@ -58,10 +58,9 @@ This topology is shown in multiple diagrams, with an overview first followed by 
 
 - **DNS load balancing**   The Front End pool, Edge Server pool, and the Director pool have DNS load balancing for SIP traffic deployed. This eliminates the need for hardware load balancers for the internal interface of the Edge Servers, and significantly decreases the amount of time you have to spend on the setup and maintenance of the hardware load balancers for the other pools, as the hardware load balancers are needed only for HTTP traffic.
 
-- **Exchange UM Deployment**  Skype for Business Server 2015 works with both on-premise deployments of Exchange Unified Messaging (UM) and hosted Exchange UM. Central Site A includes an Exchange Unified Messaging (UM) Server, which runs Microsoft Exchange server, not Skype for Business Server 2015. The Exchange UM functionality for Skype for Business Server 2015 runs on the Front End pool.
+- **Exchange UM Deployment**  Skype for Business Server 2015 works with both on-premises deployments of Exchange Unified Messaging (UM) and hosted Exchange UM. Central Site A includes an Exchange Unified Messaging (UM) Server, which runs Microsoft Exchange server, not Skype for Business Server 2015. The Exchange UM functionality for Skype for Business Server 2015 runs on the Front End pool.
     
   Central Site B uses hosted Exchange, so the Exchange UM Server functionality is also hosted.
-
 
 > [!NOTE]
 > In Skype for Business Server 2015, UCMA applications should never be homed on the branch office appliance. Instead, they should be connected directly to the Skype for Business Server 2015 Front End computer or Front End pool.

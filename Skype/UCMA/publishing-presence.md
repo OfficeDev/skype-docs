@@ -10,7 +10,6 @@ mtps_version: v=office.16
 
 # Publishing presence
 
-
 **Applies to**: Skype for Business 2015
 
 Microsoft Unified Communications Managed API 5.0 permits automatic presence publications for UCMA 5.0 endpoints during endpoint establishment. This applies to the [ApplicationEndpoint](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.applicationendpoint?view=ucma-api) and [UserEndpoint](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.userendpoint?view=ucma-api) types.
@@ -25,5 +24,7 @@ For more information, see [Presence, contacts, and groups](presence-contacts-and
 
 ## Simplified category publication
 
-For applications whose publishing needs are more complex, UCMA 5.0 provides classes for common presence categories, including the [ContactCard](https://msdn.microsoft.com/en-us/library/hh382040\(v=office.16\)), [PresenceState](https://msdn.microsoft.com/en-us/library/hh350296\(v=office.16\)), [Note](https://msdn.microsoft.com/en-us/library/hh382265\(v=office.16\)), and [Services](https://msdn.microsoft.com/en-us/library/hh385140\(v=office.16\)) classes. The developer is not expected to know the XML schema for the common presence categories. However, XML can be used in advanced scenarios that involve publishing advanced categories (such as the routing category, which is used to specify routing rules for forwarding incoming calls), or publishing a custom category. For more information about registering a custom category name with Skype for Business Server 2015, see [Registering Custom Category Names](https://msdn.microsoft.com/en-us/library/hh380075\(v=office.15\)) in Unified Communications Enhanced Presence Schemas for Skype for Business Server 2015 Documentation.
+For applications whose publishing needs are more complex, UCMA 5.0 provides classes for common presence categories, including the [ContactCard](https://msdn.microsoft.com/en-us/library/hh382040\(v=office.16\)), [PresenceState](https://msdn.microsoft.com/en-us/library/hh350296\(v=office.16\)), [Note](https://msdn.microsoft.com/en-us/library/hh382265\(v=office.16\)), and [Services](https://msdn.microsoft.com/en-us/library/hh385140\(v=office.16\)) classes. The developer is not expected to know the XML schema for the common presence categories. However, XML can be used in advanced scenarios that involve publishing advanced categories (such as the routing category, which is used to specify routing rules for forwarding incoming calls), or publishing a custom category. 
+
+For more information about registering a custom category name with Skype for Business Server 2015, see [Registering custom category names](https://docs.microsoft.com/lync/schema/registering-custom-category-names).
 

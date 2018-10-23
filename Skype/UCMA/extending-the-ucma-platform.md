@@ -21,20 +21,15 @@ Third parties who intend to provide support for additional media types can do so
 
 The following illustration shows the relationships between the abstract classes provided in UCMA 5.0 SDK and the classes that must be implemented by developers who wish to extend the UCMA 5.0 SDK platform to support new media types. The subclasses for the **MediaBasedFactory**, **CallFactory**, and **MediaProviderFactory** abstract classes appear in the second illustration.
 
-Platform extension architecture
-
+**Platform extension architecture**
   
 ![Platform extension architecture](images/Dn466092.ExtensionArch(Office.16).png "Platform extension architecture")
 
 The topics in this section discuss minimum requirements for implementing subclasses of the abstract classes appearing in the previous illustration.
 
-  - [Extending the Call class](extending-the-call-class.md)
-
-  - [Extending the MediaProvider class](extending-the-mediaprovider-class.md)
-
-  - [MediaProvider and Call architecture](mediaprovider-and-call-architecture.md)
-
-  - [Extending the MediaFlow class](extending-the-mediaflow-class.md)
-
-  - [Extending the CallFactory and MediaProviderFactory classes](extending-the-callfactory-and-mediaproviderfactory-classes.md)
+- [Extending the Call class](extending-the-call-class.md)
+- [Extending the MediaProvider class](extending-the-mediaprovider-class.md)
+- [MediaProvider and Call architecture](mediaprovider-and-call-architecture.md)
+- [Extending the MediaFlow class](extending-the-mediaflow-class.md)
+- [Extending the CallFactory and MediaProviderFactory classes](extending-the-callfactory-and-mediaproviderfactory-classes.md)
 

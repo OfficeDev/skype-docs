@@ -12,7 +12,6 @@ dev_langs:
 
 # Recorder
 
-
 **Applies to**: Skype for Business 2015
 
 A [Recorder](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.recorder?view=ucma-api) is an entity that can receive audio media that comes from an [AudioVideoFlow](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiovideoflow?view=ucma-api) instance and record it to a file. Depending on the state of the attached **AudioVideoFlow** instance, a **Recorder** can automatically start or stop.
@@ -23,21 +22,15 @@ If a **Recorder** instance has started recording a file, an application can caus
 
 A **Recorder** will not record to a file with the hidden attribute.
 
-
 > [!WARNING]
-> <P>Files recorded by a <STRONG>Recorder</STRONG> device do not support Digital Rights Management (DRM). This means that conversations recorded by a <STRONG>Recorder</STRONG> device can be played by any player that supports the Windows Media Audio (WMA) media format, potentially exposing personal or confidential information.</P>
-
-
+> Files recorded by a **Recorder** device do not support Digital Rights Management (DRM). This means that conversations recorded by a **Recorder** device can be played by any player that supports the Windows Media Audio (WMA) media format, potentially exposing personal or confidential information.
 
 ## Example – Using a recorder
 
 The following code example shows the steps involved in using a [Recorder](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.recorder?view=ucma-api).
 
-
 > [!WARNING]
-> <P>This code example is not a complete example. Several methods, properties, and events are used in this example, but are not defined within the example.</P>
-
-
+> This code example is not a complete example. Several methods, properties, and events are used in this example, but are not defined within the example.
 
 The essential points of creating and using a **Recorder** instance appear in the following steps. Each step is associated with a line of code that is preceded by a comment with a number in it.
 

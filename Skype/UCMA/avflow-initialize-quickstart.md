@@ -15,9 +15,9 @@ mtps_version: v=office.16
 
  
 
-Sample name: AVFlow-Initialize
+**Sample name**: AVFlow-Initialize
 
-Sample location: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\AudioVideoCall\\AVFlow-Initialize
+**Sample location**: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\AudioVideoCall\\AVFlow-Initialize
 
 Change the settings of an active **AudioVideoFlow**.
 

@@ -15,9 +15,9 @@ mtps_version: v=office.16
 
  
 
-Sample name: PortRange
+**Sample name**: PortRange
 
-Sample location: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\AudioVideoCall\\PortRange
+**Sample location**: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\AudioVideoCall\\PortRange
 
 ## Description
 

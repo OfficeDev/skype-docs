@@ -19,4 +19,5 @@ This section provides the details of application management: Microsoft Unified C
 - [Activating a UCMA 5.0 trusted application](activating-a-ucma-5-0-trusted-application.md)
 - [Using Skype for Business Server 2015 Logging Tool](using-skype-for-business-server-2015-logging-tool.md)
 - [Migration, coexistence, and upgrade of UCMA applications](migration-coexistence-and-upgrade-of-ucma-applications.md)
+- [Deploying UCMA 4.0 and UCMA 5.0 applications in a Skype for Business Server 2015 environment](deploying-ucma-4-0-and-ucma-5-0-applications-in-a-skype-for-business-server-2015-environment.md)
 

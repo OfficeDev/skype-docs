@@ -17,10 +17,11 @@ Media stack performance counters are shipped with Skype for Business Server. The
 
 The Media stack performance counters are controlled by the following registry subkey:
 
-<pre IsFakePre="true" xmlns="https://www.w3.org/1999/xhtml">
-  
-    <strong>HKEY_LOCAL_MACHINE</strong>
-  \Software\Microsoft\RTC\Performance\EnablePerfCounters\</pre>
+<!--<pre IsFakePre="true" xmlns="https://www.w3.org/1999/xhtml">-->
+
+<strong>HKEY_LOCAL_MACHINE</strong>
+
+`\Software\Microsoft\RTC\Performance\EnablePerfCounters\`
 
 
 The values associated with this registry subkey appear in the following table.
@@ -53,9 +54,7 @@ By default, the value is 0 for clients, and is 1 for A/V MCU, UCMA 5.0, Applicat
 
 The following topics discuss each media stack performance counter:
 
-  - [Operations performance counters](operations-performance-counters.md)
-
-  - [Planning performance counters](planning-performance-counters.md)
-
-  - [Informational performance counters](informational-performance-counters.md)
+- [Operations performance counters](operations-performance-counters.md)
+- [Planning performance counters](planning-performance-counters.md)
+- [Informational performance counters](informational-performance-counters.md)
 

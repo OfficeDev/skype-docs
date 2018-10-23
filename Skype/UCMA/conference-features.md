@@ -16,9 +16,9 @@ The topics in this section summarize the most important new or changed conferenc
 
 - Conferencing infrastructure
 
-- Conference scheduling
+- [Conference scheduling](pre-meeting-conference-scheduling.md)
 
-- Joining the conference and the in-conference experience
+- [Joining the conference and the in-conference experience](in-meeting-during-the-conference.md)
 
 ## Conferencing infrastructure
 
@@ -30,12 +30,13 @@ The following illustration shows a typical conferencing topology.
 
 ![Typical conferencing topology](images/Dn465958.UCMA_ConfTopology(Office.16).png "Conference Topology")
 
+<br/>
+
 The following illustration shows a logical view of Skype for Business Server 2015, together with the protocols that are used.
 
 ![Conference logical topology and protocols](images/Dn465958.UCMA_ConfLogicalTopology(Office.16).png "Conference logical topology")
 
-This section includes the following topics:
+<br/>
 
-- [Pre-meeting: conference scheduling](pre-meeting-conference-scheduling.md)
-- [In-meeting: during the conference](in-meeting-during-the-conference.md)
+
 

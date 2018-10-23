@@ -13,9 +13,9 @@ mtps_version: v=office.16
 
 **Applies to**: Skype for Business 2015
 
-Sample name: ContactCenter
+**Sample name**: ContactCenter
 
-Sample location: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\Reference\\ContactCenter
+**Sample location**: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\Reference\\ContactCenter
 
-For more information, see [Microsoft Lync Dev Center](https://go.microsoft.com/fwlink/?linkid=201840).
+For more information, see [Microsoft Lync Dev Center](https://docs.microsoft.com/lync/lync-2013).
 

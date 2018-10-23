@@ -10,16 +10,12 @@ mtps_version: v=office.16
 
 # Reference applications
 
-
 **Applies to**: Skype for Business 2015
 
-is shipped with the following end-to-end samples:
+UCMA 5.0 is shipped with the following end-to-end samples:
 
-  - [Contact Center (sample)](contact-center-sample.md)
-
-  - [Voice Companion (sample)](voice-companion-sample.md)
-
-  - [Build a Bot (sample)](build-a-bot-sample.md)
-
-  - [Visual IVR (sample)](visual-ivr-sample.md)
+- [Contact Center (sample)](contact-center-sample.md)
+- [Voice Companion (sample)](voice-companion-sample.md)
+- [Build a Bot (sample)](build-a-bot-sample.md)
+- [Visual IVR (sample)](visual-ivr-sample.md)
 

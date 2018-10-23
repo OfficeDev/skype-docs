@@ -10,14 +10,11 @@ mtps_version: v=office.16
 
 # CallTransferBasic (QuickStart)
 
-
 **Applies to**: Skype for Business 2015
 
+**Sample name**: CallTransferBasic
 
-
-Sample name: CallTransferBasic
-
-Sample location: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\CallTransferBasic
+**Sample location**: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\CallTransferBasic
 
 ## Description
 
@@ -38,8 +35,6 @@ The difference between attended and unattended transfer is that unattended trans
   - **AudioVideoFlow** handling and control
 
 ## Prerequisites
-
-  - .
 
   - Three users capable of making and receiving audio calls.
 

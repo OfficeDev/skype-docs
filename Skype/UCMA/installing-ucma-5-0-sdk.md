@@ -17,9 +17,7 @@ This topic describes the steps needed for installing Microsoft Unified Communica
 
 For information on uninstalling this SDK, see [Uninstalling UCMA 5.0 SDK](uninstalling-ucma-5-0-sdk.md).
 
-## UCMA 5.0 SDK installation
-
-### To install UCMA 5.0 SDK
+## Install UCMA 5.0 SDK
 
 1.  Download [UcmaSdkSetup.exe](https://www.microsoft.com/en-us/download/details.aspx?id=47345).
 

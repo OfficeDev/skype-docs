@@ -10,14 +10,11 @@ mtps_version: v=office.16
 
 # PublishAlwaysOnline (QuickStart)
 
-
 **Applies to**: Skype for Business 2015
 
+**Sample name**: PublishAlwaysOnline
 
-
-Sample name: PublishAlwaysOnline
-
-Sample location: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\PublishAlwaysOnline
+**Sample location**: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\PublishAlwaysOnline
 
 ## Description
 
@@ -29,7 +26,6 @@ Throughout the lifetime of the process, the sample application listens for the *
 
 ## Features
 
-  - 
   - Custom presence publication
 
   - **ApplicationEndpoint** establishment

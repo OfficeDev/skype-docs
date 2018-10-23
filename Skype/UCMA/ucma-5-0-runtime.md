@@ -22,16 +22,11 @@ The following are the hardware and software requirements for installing UCMA 5.0
 
 - Supported operating systems:
     
-  - Windows 2012 Server R2
-    
-  - Windows 2012 Server
-    
-  - Windows Server 2008 R2 Service Pack 1
-    
-  - Windows 8.1
-    
-  - Windows 8
-    
+  - Windows 2012 Server R2   
+  - Windows 2012 Server   
+  - Windows Server 2008 R2 Service Pack 1   
+  - Windows 8.1   
+  - Windows 8   
   - Windows 7 Service Pack 1 (SP1) (64-bit): Home Premium, Professional, or Ultimate editions
     
   > [!NOTE]
@@ -39,10 +34,8 @@ The following are the hardware and software requirements for installing UCMA 5.0
 
 - Microsoft .NET Framework 4.5 (Full Profile)
     
-  - Windows 8 and later versions include .NET Framework 4.5.
-    
-  - Windows Server 2008 R2 Service Pack 1 includes .NET Framework 4.5.
-    
+  - Windows 8 and later versions include .NET Framework 4.5.    
+  - Windows Server 2008 R2 Service Pack 1 includes .NET Framework 4.5.    
   - Windows 7 includes .NET Framework 3.5, so you must update to .NET Framework 4.5.
 
 - Antivirus software
@@ -53,14 +46,12 @@ The following are the hardware and software requirements for installing UCMA 5.0
 
 This section describes how to install the Microsoft Unified Communications Managed API 5.0 Runtime and related components.
 
-### Installing UCMA 5.0 Runtime
-
 You must have elevated permissions to install UCMA 5.0 Runtime.
 
 > [!NOTE]
 > UCMA 5.0 Runtime is installed automatically when you install UCMA 5.0 SDK. For more information, see [Installing UCMA 5.0 SDK](installing-ucma-5-0-sdk.md).
 
-### To install UCMA 5.0 Runtime
+### Install UCMA 5.0 Runtime
 
 1.  Download UcmaRuntimeSetup.exe.
 
@@ -91,30 +82,26 @@ UcmaRuntimeSetup.exe installs the following components:
     
   Copies Skype for Business Server 2015 Core Components MSI (OCSCore.msi) and its prerequisites. OCSCore.msi enables running Lync Server-specific PowerShell cmdlets from the local computer. OCSCore.msi also enables the installation of the local Central Management Store replica, which is required by auto-provisioned UCMA applications.
 
-
 > [!NOTE]
 > Side-by-side installations of UCMA 3.0, UCMA 4.0, and UCMA 5.0 are not supported.
 
-
-### Installing Skype for Business Server components
-
 OCSCore.msi must be installed by using Bootstrapper Prerequisites Installer Package installed by UcmaRuntimeSetup.exe.
 
-### To install Skype for Business Server 2015 components
+### Install Skype for Business Server 2015 components
 
 1. Confirm that Microsoft PowerShell 3.0 RTM is installed on the deployment computer.
     
-    - Windows Server 2008 R2 Service Pack 1
+  - Windows Server 2008 R2 Service Pack 1
         
-      Download WINDOWS6.0-KB2506146-x64.MSU from [Windows Management Framework 3.0](https://www.microsoft.com/download/details.aspx?id=34595).
+    Download WINDOWS6.0-KB2506146-x64.MSU from [Windows Management Framework 3.0](https://www.microsoft.com/download/details.aspx?id=34595).
     
-    - Windows 7
+  - Windows 7
         
-      Download WINDOWS6.1-KB2506143-x64.MSU from [Windows Management Framework 3.0](https://www.microsoft.com/download/details.aspx?id=34595).
+    Download WINDOWS6.1-KB2506143-x64.MSU from [Windows Management Framework 3.0](https://www.microsoft.com/download/details.aspx?id=34595).
     
-    - Windows 8/Windows Server 2012
+  - Windows 8/Windows Server 2012
         
-      This operating system version comes with PowerShell 3.0.
+    This operating system version comes with PowerShell 3.0.
 
 2. Find OCSCore.msi by navigating to: 
 
@@ -138,11 +125,8 @@ When a customer application is uninstalled, the application uninstall procedure 
 
 4.  On the right-click menu for the Skype for Business Server 2015,  Bootstrapper Prerequisites Installer Package entry, select **Uninstall** to remove the installer package.
 
-
 > [!NOTE]
 > Uninstalling the Bootstrapper Prerequisites Installer Package does not automatically uninstall software components that are individually installed by the user, such as Skype for Business Server 2015 Core Components (OCSCore.msi) and others.
-
-
 
 ## UCMA 5.0 Runtime detection
 

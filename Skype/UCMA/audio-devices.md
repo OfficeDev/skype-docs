@@ -21,8 +21,10 @@ In UCMA 5.0, devices are users of media data, and have [AudioVideoFlow](https://
 
 The following code example shows the steps required to create a **Player** and attach an existing **AudioVideoFlow** instance to it.
 
+```csharp
     Player myPlayer = new Player();
     myPlayer.AttachFlow(avFlow);
+```
 
 Each of the devices has an **AttachFlow** method that it uses to attach an **AudioVideoFlow** instance. Similarly, each device has a **DetachFlow** method that it uses to detach the previously-attached **AudioVideoFlow** instance. The **AttachFlow** and **DetachFlow** operations can happen at any time, independent of the state of the **AudioVideoFlow** instance.
 

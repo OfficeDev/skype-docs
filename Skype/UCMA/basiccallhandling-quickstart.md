@@ -10,14 +10,11 @@ mtps_version: v=office.16
 
 # BasicCallHandling (QuickStart)
 
-
 **Applies to**: Skype for Business 2015
 
+**Sample name**: BasicCallHandling
 
-
-Sample name: BasicCallHandling
-
-Sample location: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\BasicCallHandling
+**Sample location**: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\BasicCallHandling
 
 ## Description
 
@@ -34,8 +31,6 @@ The application initializes the platform to start listening on behalf of a user,
   - Call termination on an established call
 
 ## Prerequisites
-
-  - .
 
   - Two users capable of sending and receiving audio calls.
 

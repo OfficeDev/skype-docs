@@ -15,9 +15,9 @@ mtps_version: v=office.16
 
 
 
-Sample name: TrustedConferenceParticipant
+**Sample name**: TrustedConferenceParticipant
 
-Sample location: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\TrustedConferenceParticipant
+**Sample location**: %ProgramFiles%\\Microsoft UCMA 5.0\\SDK\\Core\\Sample Applications\\QuickStarts\\TrustedConferenceParticipant
 
 ## Description
 
