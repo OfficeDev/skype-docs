@@ -23,10 +23,10 @@ This documentation contains the following:
 
 ## See also
 
-- [Quality of Experience (QoE) Database Schema](http://technet.microsoft.com/en-us/library/gg398687.aspx)
+- [Quality of Experience (QoE) Database Schema](https://technet.microsoft.com/en-us/library/gg398687.aspx)
 - [RTP Profile for Audio and Video Conferences with Minimal Control, \[RFC 3551\]](http://www.ietf.org/rfc/rfc3551.txt)
 - [RTP: A Transport Protocol for Real-Time Applications, \[RFC 3550\]](http://www.ietf.org/rfc/rfc3550.txt)
-- [\[MS-SDPEXT\]: Session Description Protocol (SDP) Version 2.0 Extensions](http://msdn.microsoft.com/en-us/library/cc431514\(v=office.12\).aspx)
+- [\[MS-SDPEXT\]: Session Description Protocol (SDP) Version 2.0 Extensions](https://msdn.microsoft.com/en-us/library/cc431514\(v=office.12\).aspx)
 - [International Telecommunication Union Recommendation P.562, \[ITUP.562\]](http://www.itu.int/rec/t-rec-p.562-200405-i/en\))
 - [International Telecommunication Union Recommendation P.800.1, \[ITUP.800.1\]](http://www.itu.int/rec/t-rec-p.800.1-200607-i/en)
 

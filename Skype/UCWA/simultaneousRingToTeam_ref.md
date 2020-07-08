@@ -20,7 +20,7 @@ For more on web links, see [Web links](WebLinks.md).
 ## Resource description
 <a name = "sectionSection1"> </a>
 
-The presence of this resource indicates that the user can have her calls simultaneously ring her team as well as herself.The calls ring for the user as well as her team.The user can specify a delay between the time the call rings for herself and for her team.A team is a set of contacts that receive redirected calls as a unit. (See http://technet.microsoft.com/en-us/library/dd425271(v=office.13).aspx.)This version of the API does not support team management.
+The presence of this resource indicates that the user can have her calls simultaneously ring her team as well as herself.The calls ring for the user as well as her team.The user can specify a delay between the time the call rings for herself and for her team.A team is a set of contacts that receive redirected calls as a unit. (See https://technet.microsoft.com/en-us/library/dd425271(v=office.13).aspx.)This version of the API does not support team management.
 
 ### Properties
 

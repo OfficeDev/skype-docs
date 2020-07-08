@@ -19,5 +19,5 @@ This section contains a partial list of UCWA resources, grouped by purpose and t
  
 - [Generic synchronous errors](GenericSynchronousErrors.md)
  
-- [UCWA updates by release](http://msdn.microsoft.com/library/43f73a78-32d4-49ba-8669-054eeed4a054.aspx)
+- [UCWA updates by release](https://msdn.microsoft.com/library/43f73a78-32d4-49ba-8669-054eeed4a054.aspx)
  

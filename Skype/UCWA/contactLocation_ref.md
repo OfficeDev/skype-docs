@@ -198,7 +198,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 294
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="contactLocation" href="/ucwa/v1/applications/192/people/282/contactLocation" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="contactLocation" href="/ucwa/v1/applications/192/people/282/contactLocation" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <property name="rel">contactLocation</property>
   <property name="location">By the beach...</property>
 </resource>

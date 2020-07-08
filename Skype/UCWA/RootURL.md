@@ -24,7 +24,7 @@ A UCWA 2.0 application must not make any assumptions about where UCWA 2.0 is loc
 
 UCWA 2.0 always runs in the home pool of the authenticated user. For joining a meeting anonymously, or meeting applications that are not designed to receive incoming communications (such as a ), UCWA 2.0 always runs on the home pool of the meeting organizer. The purpose of the Autodiscovery flow that is described here is to find the location of UCWA 2.0. 
 
-Autodiscovery is used by all Skype for Business client applications and is based on the protocol described in [ [MS-OCDISCWS]: Lync Autodiscover Web Service Protocol Specification](http://msdn.microsoft.com/en-us/library/hh623245%28v=office.12%29.aspx). The autodiscovery flow requires the deployment and configuration of the Skype for Business Server 2015 Autodiscover service. For more information, see [Autodiscover service requirements](http://technet.microsoft.com/en-us/library/hh690012%28v=ocs.15%29.aspx). 
+Autodiscovery is used by all Skype for Business client applications and is based on the protocol described in [ [MS-OCDISCWS]: Lync Autodiscover Web Service Protocol Specification](https://msdn.microsoft.com/en-us/library/hh623245%28v=office.12%29.aspx). The autodiscovery flow requires the deployment and configuration of the Skype for Business Server 2015 Autodiscover service. For more information, see [Autodiscover service requirements](https://technet.microsoft.com/en-us/library/hh690012%28v=ocs.15%29.aspx). 
 
 
 > [!NOTE] 

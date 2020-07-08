@@ -210,7 +210,7 @@ This sample is given only as an illustration of response syntax. The semantic co
 ```xml
 
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="contactPrivacyRelationship" href="/ucwa/v1/applications/192/people/282/contactPrivacyRelationship" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="contactPrivacyRelationship" href="/ucwa/v1/applications/192/people/282/contactPrivacyRelationship" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="resetContactPrivacyRelationship" href="/ucwa/v1/applications/192/people/282/contactPrivacyRelationship/resetContactPrivacyRelationship" />
   <property name="rel">contactPrivacyRelationship</property>
   <property name="relationshipLevel">FriendsAndFamily</property>
@@ -301,7 +301,7 @@ Content-Type: application/xml
 if-match: 6934f43c-4b5f-439e-8b39-a9ac5bfe7d58
 Content-Length: 224
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;resource xmlns=&quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&quot;&gt;
+&lt;resource xmlns=&quot;https://schemas.microsoft.com/rtc/2012/03/ucwa&quot;&gt;
   &lt;property name=&quot;rel&quot;&gt;contactPrivacyRelationship&lt;/property&gt;
   &lt;property name=&quot;relationshipLevel&quot;&gt;Unknown&lt;/property&gt;
 &lt;/resource&gt;

@@ -331,7 +331,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 2090
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="localParticipant" href="/ucwa/v1/applications/192/communication/conversations/137/onlineMeeting/295" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="localParticipant" href="/ucwa/v1/applications/192/communication/conversations/137/onlineMeeting/295" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="contact" href="/ucwa/v1/applications/192/people/282" />
   <link rel="contactPhoto" href="/ucwa/v1/applications/192/people/282/contactPhoto" />
   <link rel="contactPresence" href="/ucwa/v1/applications/192/people/282/contactPresence" />

@@ -167,7 +167,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 648
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="presenceSubscriptionMemberships" href="/ucwa/v1/applications/192/presenceSubscriptionMemberships" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="presenceSubscriptionMemberships" href="/ucwa/v1/applications/192/presenceSubscriptionMemberships" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <property name="rel">presenceSubscriptionMemberships</property>
   <resource rel="presenceSubscriptionMembership" href="/ucwa/v1/applications/192/presenceSubscriptionMemberships/ads-bes2asd,john@contoso.com">
     <link rel="contact" href="/ucwa/v1/applications/192/people/282" />
@@ -300,7 +300,7 @@ Content-Type: application/xml
 Accept: application/xml
 Content-Length: 231
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;input xmlns=&quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&quot;&gt;
+&lt;input xmlns=&quot;https://schemas.microsoft.com/rtc/2012/03/ucwa&quot;&gt;
   &lt;propertyList name=&quot;contactUris&quot;&gt;
     &lt;item&gt;&quot;sip:user2@microsoft.com&quot;&lt;/item&gt;
     &lt;item&gt;&quot;sip:user3@microsoft.com&quot;&lt;/item&gt;
@@ -319,7 +319,7 @@ HTTP/1.1 201 Created
 Content-Type: application/xml
 Content-Length: 648
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="presenceSubscriptionMemberships" href="/ucwa/v1/applications/192/presenceSubscriptionMemberships" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="presenceSubscriptionMemberships" href="/ucwa/v1/applications/192/presenceSubscriptionMemberships" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <property name="rel">presenceSubscriptionMemberships</property>
   <resource rel="presenceSubscriptionMembership" href="/ucwa/v1/applications/192/presenceSubscriptionMemberships/ads-bes2asd,john@contoso.com">
     <link rel="contact" href="/ucwa/v1/applications/192/people/282" />

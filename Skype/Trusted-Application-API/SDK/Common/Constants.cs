@@ -83,7 +83,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Common
         /// <summary>
         /// The tenant identifier claim
         /// </summary>
-        public const string TenantIdClaim = "http://schemas.microsoft.com/identity/claims/tenantid";
+        public const string TenantIdClaim = "https://schemas.microsoft.com/identity/claims/tenantid";
         /// <summary>
         /// The application identifier claim
         /// </summary>

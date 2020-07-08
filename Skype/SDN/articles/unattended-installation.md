@@ -72,7 +72,7 @@ Follow the guidelines for an unattended install:
 |**Parameter**|**Description**|
 |:-----|:-----|
 |SETUPDB |Setting this parameter to 1 causes the installer to create the SDN ManagerSDN Manager database. This parameter must be set (SETUPDB=1) for the first installation when a database for call state or settings should be created. |
-|REDIS_CONNECTSTRING |The connect string to access a REDIS cache server. For example, to connect to Azure the connect string might appear as follows:                     `myname.redis.cache.windows.net,ssl=true,password=VeryLongKeyCopiedFromPortal`For more information, see  [How to Use Azure Redis Cache](http://azure.microsoft.com/en-us/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/)|
+|REDIS_CONNECTSTRING |The connect string to access a REDIS cache server. For example, to connect to Azure the connect string might appear as follows:                     `myname.redis.cache.windows.net,ssl=true,password=VeryLongKeyCopiedFromPortal`For more information, see  [How to Use Azure Redis Cache](https://azure.microsoft.com/en-us/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/)|
 |REDIS_PASSWORD |Password to access the REDIS server. For Microsoft Azure Redis Cache, enter the key provided on the Azure Management panel. |
 |USE_DAPI |When set to true ("USE_DAPI=True"), the text specified for REDIS_PASSWORD will be persisted in the SDNManager.exe.config file as a DPAPI encrypted string, and the SDNManager.exe.config file will contain "<add key="usedapi" value="True"/>". Setting is ignored if TOPOLOGY is not '3' - REDIS only. |
    

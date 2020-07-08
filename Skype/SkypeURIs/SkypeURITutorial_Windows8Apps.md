@@ -12,7 +12,7 @@ You can use Skype URIs in your Windows 8 apps; for example, tapping a contact's 
 After you have constructed the appropriate Skype URI, simply set it as the value of  **document.location** to initiate 
 its actions.
 
-For an introduction to the Fixed Layout template, see [JavaScript project templates for Store apps](http://go.microsoft.com/fwlink/?LinkId=232508)
+For an introduction to the Fixed Layout template, see [JavaScript project templates for Store apps](https://go.microsoft.com/fwlink/?LinkId=232508)
 
  **default.js**
 

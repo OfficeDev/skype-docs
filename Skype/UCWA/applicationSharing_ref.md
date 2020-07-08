@@ -205,7 +205,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 678
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="applicationSharing" href="/ucwa/v1/applications/192/communication/conversations/137/applicationSharing" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="applicationSharing" href="/ucwa/v1/applications/192/communication/conversations/137/applicationSharing" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="applicationSharer" href="/ucwa/v1/applications/192/communication/conversations/137/applicationSharing/applicationSharer" />
   <link rel="conversation" href="/ucwa/v1/applications/192/communication/conversations/137" />
   <link rel="reportMediaDiagnostics" href="/ucwa/v1/applications/192/communication/conversations/137/audioVideo/reportMediaDiagnostics" />

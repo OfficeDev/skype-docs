@@ -149,7 +149,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 384
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="redirect" href="/autodiscover/autodiscoverservice.svc/root/user/redirect" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="redirect" href="/autodiscover/autodiscoverservice.svc/root/user/redirect" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="user" href="/autodiscover/autodiscoverservice.svc/root/user" />
   <link rel="xframe" href="/autodiscover/autodiscoverservice.svc/root/xframe" />
   <property name="rel">redirect</property>

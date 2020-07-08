@@ -160,7 +160,7 @@ Etag: f7d476b2-53a3-4e5b-8019-3c715f4cabdd
 Content-Type: application/xml
 Content-Length: 403
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="onlineMeetingExtension" href="/ucwa/v1/applications/192/onlineMeetings/myOnlineMeetings/943/onlineMeetingExtensions/onlineMeetingExtension" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="onlineMeetingExtension" href="/ucwa/v1/applications/192/onlineMeetings/myOnlineMeetings/943/onlineMeetingExtensions/onlineMeetingExtension" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <property name="rel">onlineMeetingExtension</property>
   <property name="id">917823</property>
   <property name="type">RoamedParticipantData</property>
@@ -349,7 +349,7 @@ Content-Type: application/xml
 Accept: application/xml
 Content-Length: 198
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;input xmlns=&quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&quot;&gt;
+&lt;input xmlns=&quot;https://schemas.microsoft.com/rtc/2012/03/ucwa&quot;&gt;
   &lt;property name=&quot;id&quot;&gt;917823&lt;/property&gt;
   &lt;property name=&quot;type&quot;&gt;RoamedParticipantData&lt;/property&gt;
 &lt;/input&gt;
@@ -367,7 +367,7 @@ Etag: cd33d95e-7a71-4003-b6c3-3344d687af8c
 Content-Type: application/xml
 Content-Length: 403
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="onlineMeetingExtension" href="/ucwa/v1/applications/192/onlineMeetings/myOnlineMeetings/943/onlineMeetingExtensions/onlineMeetingExtension" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="onlineMeetingExtension" href="/ucwa/v1/applications/192/onlineMeetings/myOnlineMeetings/943/onlineMeetingExtensions/onlineMeetingExtension" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <property name="rel">onlineMeetingExtension</property>
   <property name="id">917823</property>
   <property name="type">RoamedParticipantData</property>

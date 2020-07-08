@@ -144,7 +144,7 @@ MSI (s) (18!10) [14:02:27:364]: Product: Microsoft Skype for Business SDN Manage
 <a name="bk_addresources"> </a>
 
 
--  [Skype for Business SDN Interface schema reference](http://msdn.microsoft.com/library/b64912bd-27b1-40c6-99ab-8984f8706bd3.aspx)
+-  [Skype for Business SDN Interface schema reference](https://msdn.microsoft.com/library/b64912bd-27b1-40c6-99ab-8984f8706bd3.aspx)
     
   
 

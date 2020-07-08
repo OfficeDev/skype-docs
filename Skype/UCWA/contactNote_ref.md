@@ -200,7 +200,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 323
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="contactNote" href="/ucwa/v1/applications/192/people/282/contactNote" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="contactNote" href="/ucwa/v1/applications/192/people/282/contactNote" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <property name="rel">contactNote</property>
   <property name="message">Heads down today</property>
   <property name="type">Personal</property>

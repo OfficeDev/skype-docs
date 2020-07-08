@@ -174,7 +174,7 @@ Etag: 8635af96-0a1e-458d-a1e5-ee1d5ecde5cb
 Content-Type: application/xml
 Content-Length: 847
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="immediateForwardSettings" href="/ucwa/v1/applications/192/me/callForwardingSettings/immediateForwardSettings" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="immediateForwardSettings" href="/ucwa/v1/applications/192/me/callForwardingSettings/immediateForwardSettings" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="contact" href="/ucwa/v1/applications/192/people/282" />
   <link rel="immediateForwardToContact" href="/ucwa/v1/applications/192/me/callForwardingSettings/immediateForwardSettings/immediateForwardToContact" />
   <link rel="immediateForwardToDelegates" href="/ucwa/v1/applications/192/me/callForwardingSettings/immediateForwardSettings/immediateForwardToDelegates" />

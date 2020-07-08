@@ -163,7 +163,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 358
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="conversationLogs" href="/ucwa/v1/applications/192/communication/conversationLogs" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="conversationLogs" href="/ucwa/v1/applications/192/communication/conversationLogs" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="conversationLog" href="/ucwa/v1/applications/192/communication/conversationLogs/conversationLog" />
   <property name="rel">conversationLogs</property>
 </resource>

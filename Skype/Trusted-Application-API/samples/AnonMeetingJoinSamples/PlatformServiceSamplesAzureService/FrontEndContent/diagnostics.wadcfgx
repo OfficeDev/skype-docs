@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<DiagnosticsConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
-  <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
+<DiagnosticsConfiguration xmlns="https://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
+  <PublicConfig xmlns="https://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
     <WadCfg>
       <DiagnosticMonitorConfiguration overallQuotaInMB="4096" sinks="applicationInsights.errors">
         <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter="Information" />
@@ -30,7 +30,7 @@
     </WadCfg>
     <StorageAccount />
   </PublicConfig>
-  <PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
+  <PrivateConfig xmlns="https://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
     <StorageAccount name="" endpoint="" />
   </PrivateConfig>
   <IsEnabled>true</IsEnabled>

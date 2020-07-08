@@ -50,7 +50,7 @@ The WWW-Authenticate header contains the following information.
    - **urn:microsoft.rtc:passive**: This grant type is used when any type of passive authentication is used. This works for Active Directory Federation Services-based scenarios and is useful when you need to delegate authentication to other directories. The request is the same as the password grant, except that username and password parameters must not be present.
  
      > [!NOTE] 
-     > For more information about ADFS, see [Active Directory Federation Services (AD FS) 2.0](http://technet.microsoft.com/en-us/library/dd727958%28WS.10%29.aspx). For more information about configuring ADFS with Lync Server, see "Enabling Multi-Factor Authentication for Lync Web App" in [Deploying Lync Web App](http://technet.microsoft.com/en-us/library/jj205190.aspx).
+     > For more information about ADFS, see [Active Directory Federation Services (AD FS) 2.0](https://technet.microsoft.com/en-us/library/dd727958%28WS.10%29.aspx). For more information about configuring ADFS with Lync Server, see "Enabling Multi-Factor Authentication for Lync Web App" in [Deploying Lync Web App](https://technet.microsoft.com/en-us/library/jj205190.aspx).
 
    - **urn:microsoft.rtc:anonmeeting**: This grant type can be used to allow users join meetings anonymously.
  

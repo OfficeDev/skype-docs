@@ -297,7 +297,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 804
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="participantAudio" href="/ucwa/v1/applications/192/communication/conversations/137/participants/196/participantAudio" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="participantAudio" href="/ucwa/v1/applications/192/communication/conversations/137/participants/196/participantAudio" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="muteAudio" href="/ucwa/v1/applications/192/communication/conversations/137/participants/196/participantAudio/muteAudio" />
   <link rel="participant" href="/ucwa/v1/applications/192/communication/conversations/137/participants/196" />
   <link rel="unmuteAudio" href="/ucwa/v1/applications/192/communication/conversations/137/participants/196/participantAudio/unmuteAudio" />

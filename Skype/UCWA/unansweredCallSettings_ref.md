@@ -176,7 +176,7 @@ Etag: b28a6f77-d201-4edb-9774-af56de287c75
 Content-Type: application/xml
 Content-Length: 866
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="unansweredCallSettings" href="/ucwa/v1/applications/192/me/callForwardingSettings/unansweredCallSettings" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="unansweredCallSettings" href="/ucwa/v1/applications/192/me/callForwardingSettings/unansweredCallSettings" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="contact" href="/ucwa/v1/applications/192/people/282" />
   <link rel="resetUnansweredCallSettings" href="/ucwa/v1/applications/192/me/callForwardingSettings/unansweredCallSettings/resetUnansweredCallSettings" />
   <link rel="unansweredCallToContact" href="/ucwa/v1/applications/192/me/callForwardingSettings/unansweredCallSettings/unansweredCallToContact" />
@@ -273,7 +273,7 @@ Content-Type: application/xml
 if-match: 300d84af-b3e1-4caa-ba1a-f1f735318477
 Content-Length: 245
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;resource xmlns=&quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&quot;&gt;
+&lt;resource xmlns=&quot;https://schemas.microsoft.com/rtc/2012/03/ucwa&quot;&gt;
   &lt;property name=&quot;rel&quot;&gt;unansweredCallSettings&lt;/property&gt;
   &lt;property name=&quot;ringDelay&quot;&gt;5&lt;/property&gt;
   &lt;property name=&quot;target&quot;&gt;None&lt;/property&gt;

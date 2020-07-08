@@ -182,5 +182,5 @@ The steps here assume that you have already created an application and have rece
     ```
 
 
- In the **lastActive** property value above, **Date(1358827096000)** specifies a time period, in milliseconds, from January 1, 1970 UTC. The escaped string value (including the enclosing backslashes, "\/") characters can be used by **JavaScriptSerializer** in ASP.NET AJAX. For more information, see [ASP .NET AJAX: Inside JSON date and time string](http://msdn.microsoft.com/en-us/library/bb299886.aspx).
+ In the **lastActive** property value above, **Date(1358827096000)** specifies a time period, in milliseconds, from January 1, 1970 UTC. The escaped string value (including the enclosing backslashes, "\/") characters can be used by **JavaScriptSerializer** in ASP.NET AJAX. For more information, see [ASP .NET AJAX: Inside JSON date and time string](https://msdn.microsoft.com/en-us/library/bb299886.aspx).
  

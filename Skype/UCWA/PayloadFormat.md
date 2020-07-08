@@ -46,7 +46,7 @@ The body of a request or response often contains a resource, which can have prop
 
 ### Resource format
 
-A resource can have a property bag that contains a set of name-value pairs. Property names are strings; values can be strings, integers, dates, or arrays of strings, integers, or dates. Dates appear in ASP.NET AJAX format. For more information, see [ASP .NET AJAX: Inside JSON date and time string](http://msdn.microsoft.com/en-us/library/bb299886.aspx).
+A resource can have a property bag that contains a set of name-value pairs. Property names are strings; values can be strings, integers, dates, or arrays of strings, integers, or dates. Dates appear in ASP.NET AJAX format. For more information, see [ASP .NET AJAX: Inside JSON date and time string](https://msdn.microsoft.com/en-us/library/bb299886.aspx).
 
 In a JSON representation, a resource is a JSON object with properties.
 

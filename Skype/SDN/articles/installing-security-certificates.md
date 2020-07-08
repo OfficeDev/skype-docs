@@ -39,7 +39,7 @@ To ensure secure message transport and client authentication, the Skype for Busi
     
     
 
- Detailed instructions for the specific certificate installations are found in the following procedures. In each, assume that a Microsoft Certification Authority is being used. For detailed explanation and instructions on how to create a certificate request for Microsoft Certificate Services, see [Managing Certificate Services and SSL](http://technet.microsoft.com/en-us/library/bb727098.aspx). 
+ Detailed instructions for the specific certificate installations are found in the following procedures. In each, assume that a Microsoft Certification Authority is being used. For detailed explanation and instructions on how to create a certificate request for Microsoft Certificate Services, see [Managing Certificate Services and SSL](https://technet.microsoft.com/en-us/library/bb727098.aspx). 
 ## Requesting and installing a certificate
 <a name="requestCertificate"> </a>
 

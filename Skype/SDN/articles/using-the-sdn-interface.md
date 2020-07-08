@@ -108,7 +108,7 @@ The **From** and **To** sections contain information related to the endpoints wi
     
     
 
-For more information about SDN Manager-generated Skype for Business SDN Interface data, see  [Skype for Business SDN Interface reference](http://msdn.microsoft.com/library/553e325e-d48a-4e7b-b7ac-042f87253ed8.aspx). 
+For more information about SDN Manager-generated Skype for Business SDN Interface data, see  [Skype for Business SDN Interface reference](https://msdn.microsoft.com/library/553e325e-d48a-4e7b-b7ac-042f87253ed8.aspx). 
   
     
     

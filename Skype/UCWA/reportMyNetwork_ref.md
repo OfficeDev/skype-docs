@@ -152,7 +152,7 @@ Host: fe1.contoso.com
 Content-Type: application/xml
 Content-Length: 481
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;input xmlns=&quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&quot;&gt;
+&lt;input xmlns=&quot;https://schemas.microsoft.com/rtc/2012/03/ucwa&quot;&gt;
   &lt;property name=&quot;chassisID&quot;&gt;samplevalue&lt;/property&gt;
   &lt;property name=&quot;clientNetworkType&quot;&gt;External&lt;/property&gt;
   &lt;property name=&quot;ip&quot;&gt;samplevalue&lt;/property&gt;

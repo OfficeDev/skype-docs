@@ -7,7 +7,7 @@ Learn how to properly and effectively incorporate Skype branding elements into y
  _**Applies to:** Skype_
 
 Your use of the Skype logo, name, and other brand elements in your app's design, appearance, and marketing materials are 
-detailed in and governed by the [Skype Brand Guidelines](http://www.skype.com/go/brand-guidelines/). As a general rule, 
+detailed in and governed by the [Skype Brand Guidelines](https://www.skype.com/go/brand-guidelines/). As a general rule, 
 third parties  _may not_ use the Skype Brand Elements unless they have either received prior written permission, or the 
 proposed use falls within certain limited exceptions.
 
@@ -81,7 +81,7 @@ For webpages, the [Skype.ui JavaScript function](SkypeURItutorial_Webpages.md#sk
 URI-specific brand elements dynamically when the webpage is rendered. While the function ensures sufficient space 
 around the Skype Brand Element, it cannot ensure placement on an appropriate background.
 
-For Windows 8, Android, and iOS applications, you can [download](http://www.microsoft.com/download/details.aspx?id=43127) 
+For Windows 8, Android, and iOS applications, you can [download](https://www.microsoft.com/download/details.aspx?id=43127) 
 the Skype URI-specific brand elements from the Skype Developer website, and incorporate them as application resources.
 
 The brand elements are available as PNG files in the following pixel sizes: 10, 12, 14, 16, 24, 32, 48, 64, and 80. Color 

@@ -201,7 +201,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 1671
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="mediaPolicies" href="/ucwa/v1/applications/192/mediaPolicies" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="mediaPolicies" href="/ucwa/v1/applications/192/mediaPolicies" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <property name="rel">mediaPolicies</property>
   <property name="applicationSharingBitRate">samplevalue</property>
   <property name="applicationSharingEncryption">Supported</property>

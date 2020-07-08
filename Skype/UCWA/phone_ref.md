@@ -170,7 +170,7 @@ Etag: 84f1f208-a3c3-47c0-8682-c8d0ff0e9c20
 Content-Type: application/xml
 Content-Length: 550
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="phone" href="/ucwa/v1/applications/192/me/phones/phone" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="phone" href="/ucwa/v1/applications/192/me/phones/phone" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="changeNumber" href="/ucwa/v1/applications/192/me/phones/phone/changeNumber" />
   <link rel="changeVisibility" href="/ucwa/v1/applications/192/me/phones/phone/changeVisibility" />
   <property name="rel">phone</property>

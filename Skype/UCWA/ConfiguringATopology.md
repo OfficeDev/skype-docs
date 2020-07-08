@@ -22,9 +22,9 @@ Browser-based UCWA 2.0 applications require server-side configuration before the
 According to the definition, all three of the following are different:
 
 
-- http://contoso.com
+- https://contoso.com
  
-- http://contoso.com:8080
+- https://contoso.com:8080
  
 - https://contoso.com
  

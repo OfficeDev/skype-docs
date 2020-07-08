@@ -152,7 +152,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 362
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="messages" href="/ucwa/v1/applications/192/communication/conversations/137/messaging/messages" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="messages" href="/ucwa/v1/applications/192/communication/conversations/137/messaging/messages" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="message" href="/ucwa/v1/applications/192/communication/conversations/137/messaging/messages/200" />
   <property name="rel">messages</property>
 </resource>

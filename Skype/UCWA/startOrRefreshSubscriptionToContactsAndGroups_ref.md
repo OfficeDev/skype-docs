@@ -172,7 +172,7 @@ HTTP/1.1 201 Created
 Content-Type: application/xml
 Content-Length: 666
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="myContactsAndGroupsSubscription" href="/ucwa/v1/applications/192/people/myContactsAndGroupsSubscription" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="myContactsAndGroupsSubscription" href="/ucwa/v1/applications/192/people/myContactsAndGroupsSubscription" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="startOrRefreshSubscriptionToContactsAndGroups" href="/ucwa/v1/applications/192/people/myContactsAndGroupsSubscription/startOrRefreshSubscriptionToContactsAndGroups" />
   <link rel="stopSubscriptionToContactsAndGroups" href="/ucwa/v1/applications/192/people/myContactsAndGroupsSubscription/stopSubscriptionToContactsAndGroups" />
   <property name="rel">myContactsAndGroupsSubscription</property>

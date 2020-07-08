@@ -274,7 +274,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 353
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="attendees" href="/ucwa/v1/applications/192/communication/conversations/137/attendees" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="attendees" href="/ucwa/v1/applications/192/communication/conversations/137/attendees" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="participant" href="/ucwa/v1/applications/192/communication/conversations/137/participants/839" />
   <property name="rel">attendees</property>
 </resource>

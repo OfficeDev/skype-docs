@@ -179,7 +179,7 @@ associated with the **skype:** scheme, and alerts the user.
 
 For most major browsers running on most major platforms, Skype buttons and the  *Skype.ui* function detect that the 
 Skype client is not installed, and redirect the user to the platform-specific Skype client's 
-[download page](http://www.skype.com/go/download) on skype.com.
+[download page](https://www.skype.com/go/download) on skype.com.
 
 Other browser/platform combinations might prompt you to choose an application, and might even list Skype—but fail 
 silently even if you choose Skype. Still other browser/platform combinations might behave as if the Skype client 
@@ -205,13 +205,13 @@ navigate to the Skype client's entry.
 ![Windows 8 notification highlighting store link](images/skypeUri_Win8StoreHighlight.png)
 
 For most major browsers running on most major platforms, Skype buttons and the **Skype.ui** function automatically 
-redirect the user to the platform-specific Skype client's [download page](http://www.skype.com/go/download) on 
+redirect the user to the platform-specific Skype client's [download page](https://www.skype.com/go/download) on 
 skype.com whenever it detects that no Skype client is installed.
 
 For all other browser/platform combinations—specifically Windows Phone 8 and Android platforms—you might consider 
 including a note or FAQ entry alerting your users to the fact that they must have an installed Skype client on their 
 mobile device, laptop, or desktop. You might also consider including a link to the mobile device's marketplace or 
-the platform-specific Skype client's [download page](http://www.skype.com/go/download) download page on skype.com.
+the platform-specific Skype client's [download page](https://www.skype.com/go/download) download page on skype.com.
 
 
 ## See also

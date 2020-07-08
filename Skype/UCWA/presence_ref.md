@@ -274,7 +274,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 311
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="presence" href="/ucwa/v1/applications/192/me/presence" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="presence" href="/ucwa/v1/applications/192/me/presence" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <property name="rel">presence</property>
   <property name="activity">Off Work</property>
   <property name="availability">DoNotDisturb</property>
@@ -365,7 +365,7 @@ Host: fe1.contoso.com
 Content-Type: application/xml
 Content-Length: 154
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;input xmlns=&quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&quot;&gt;
+&lt;input xmlns=&quot;https://schemas.microsoft.com/rtc/2012/03/ucwa&quot;&gt;
   &lt;property name=&quot;availability&quot;&gt;Online&lt;/property&gt;
 &lt;/input&gt;
 ```

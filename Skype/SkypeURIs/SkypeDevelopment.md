@@ -27,5 +27,5 @@ The **Skype for Android SDK** lets you start a chat, audio, or video call with a
 
 ## See also
 
-* [Office development](http://msdn.microsoft.com/library/7f24db34-c1ad-4a83-a9bd-3c85a39c0bd8%28Office.15%29.aspx)
+* [Office development](https://msdn.microsoft.com/library/7f24db34-c1ad-4a83-a9bd-3c85a39c0bd8%28Office.15%29.aspx)
 

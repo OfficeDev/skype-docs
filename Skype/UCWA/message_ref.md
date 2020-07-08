@@ -225,7 +225,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 1049
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="message" href="/ucwa/v1/applications/192/communication/conversations/137/messaging/messages/165" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="message" href="/ucwa/v1/applications/192/communication/conversations/137/messaging/messages/165" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="htmlMessage" href="data:text/html;base64,base64-encoded-htmlmessage" />
   <link rel="plainMessage" href="data:text/plain;charset=utf8,URLEncodedMessageString" />
   <link rel="contact" href="/ucwa/v1/applications/192/people/282" />

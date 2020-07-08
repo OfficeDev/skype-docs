@@ -200,7 +200,7 @@ This sample is given only as an illustration of response syntax. The semantic co
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="contactPrivacyRelationship" href="/ucwa/v1/applications/192/people/282/contactPrivacyRelationship" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="contactPrivacyRelationship" href="/ucwa/v1/applications/192/people/282/contactPrivacyRelationship" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <property name="rel">contactPrivacyRelationship</property>
   <property name="relationshipLevel">Unknown</property>
 </resource>

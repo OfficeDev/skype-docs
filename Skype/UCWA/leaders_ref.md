@@ -274,7 +274,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 347
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="leaders" href="/ucwa/v1/applications/192/communication/conversations/137/leaders" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="leaders" href="/ucwa/v1/applications/192/communication/conversations/137/leaders" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="participant" href="/ucwa/v1/applications/192/communication/conversations/137/participants/759" />
   <property name="rel">leaders</property>
 </resource>

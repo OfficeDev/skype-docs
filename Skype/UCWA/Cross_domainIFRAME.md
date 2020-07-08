@@ -110,5 +110,5 @@ Web applications that take a dependency on the cross-domain **iframe** are requi
 ## Browser compatibility
 <a name="sectionSection3"> </a>
 
-Although Internet Explorer 8 has an implementation of the HTML 5 **postMessage** function, it is not compatible with the cross-domain frame that UCWA 2.0 uses. Internet Explorer 9 and Internet Explorer 10 are both supported, as are the latest versions of Chrome, Safari, and Firefox. For more details on browser compatibility, see [Supported Platforms for Lync Web App for Lync 2013](http://technet.microsoft.com/en-us/library/gg425820.aspx).
+Although Internet Explorer 8 has an implementation of the HTML 5 **postMessage** function, it is not compatible with the cross-domain frame that UCWA 2.0 uses. Internet Explorer 9 and Internet Explorer 10 are both supported, as are the latest versions of Chrome, Safari, and Firefox. For more details on browser compatibility, see [Supported Platforms for Lync Web App for Lync 2013](https://technet.microsoft.com/en-us/library/gg425820.aspx).
 

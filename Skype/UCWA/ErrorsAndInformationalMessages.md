@@ -99,7 +99,7 @@ The following shows the general form of a 409 Conflict error body in XML format.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<reason xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<reason xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
  <code>Conflict</code>
  <subcode>AlreadyExists</subcode>
  <message>The requested resource already exists. Please wait and try again.</message>

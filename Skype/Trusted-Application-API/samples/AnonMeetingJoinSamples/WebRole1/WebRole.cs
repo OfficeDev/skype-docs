@@ -17,7 +17,7 @@ namespace Microsoft.SfB.PlatformService.SDK.Samples.FrontEnd
         public override bool OnStart()
         {
             // For information on handling configuration changes
-            // see the MSDN topic at http://go.microsoft.com/fwlink/?LinkId=166357.
+            // see the MSDN topic at https://go.microsoft.com/fwlink/?LinkId=166357.
 
             var serverManager = new ServerManager();
 

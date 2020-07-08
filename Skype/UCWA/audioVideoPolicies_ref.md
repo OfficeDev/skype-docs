@@ -152,7 +152,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 360
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="audioVideoPolicies" href="/ucwa/v1/applications/192/communication/audioVideoPolicies" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="audioVideoPolicies" href="/ucwa/v1/applications/192/communication/audioVideoPolicies" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <property name="rel">audioVideoPolicies</property>
   <property name="joinScheduledOnlineMeeting">Muted</property>
   <property name="multiView">Disabled</property>

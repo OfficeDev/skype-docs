@@ -153,7 +153,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 436
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="user" href="/autodiscover/autodiscoverservice.svc/root/user" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="user" href="/autodiscover/autodiscoverservice.svc/root/user" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="applications" href="/ucwa/v1/applications" />
   <link rel="redirect" href="/autodiscover/autodiscoverservice.svc/root/user/redirect" />
   <link rel="xframe" href="/autodiscover/autodiscoverservice.svc/root/xframe" />

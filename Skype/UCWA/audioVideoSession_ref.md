@@ -179,7 +179,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 1100
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="session" href="/ucwa/v1/applications/192/communication/session" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="session" href="/ucwa/v1/applications/192/communication/session" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="applicationSharing" href="/ucwa/v1/applications/192/communication/conversations/137/applicationSharing" />
   <link rel="audioVideo" href="/ucwa/v1/applications/192/communication/conversations/137/audioVideo" />
   <link rel="conversation" href="/ucwa/v1/applications/192/communication/conversations/137" />

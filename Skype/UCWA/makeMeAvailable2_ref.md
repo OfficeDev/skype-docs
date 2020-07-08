@@ -160,7 +160,7 @@ Content-Type: application/xml
 Accept: application/xml
 Content-Length: 450
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;input xmlns=&quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&quot;&gt;
+&lt;input xmlns=&quot;https://schemas.microsoft.com/rtc/2012/03/ucwa&quot;&gt;
   &lt;property name=&quot;audioPreference&quot;&gt;PhoneAudio&lt;/property&gt;
   &lt;property name=&quot;phoneNumber&quot;&gt;4255552222&lt;/property&gt;
   &lt;property name=&quot;signInAs&quot;&gt;Online&lt;/property&gt;

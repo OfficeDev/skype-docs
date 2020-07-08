@@ -166,7 +166,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 394
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="myPrivacyRelationship" href="/ucwa/v1/applications/192/myPrivacyRelationships/myPrivacyRelationship" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="myPrivacyRelationship" href="/ucwa/v1/applications/192/myPrivacyRelationships/myPrivacyRelationship" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="contact" href="/ucwa/v1/applications/192/people/576" />
   <property name="rel">myPrivacyRelationship</property>
   <property name="relationshipLevel">Colleagues</property>

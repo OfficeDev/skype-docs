@@ -188,7 +188,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 978
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="people" href="/ucwa/v1/applications/192/people" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="people" href="/ucwa/v1/applications/192/people" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="myContactsAndGroupsSubscription" href="/ucwa/v1/applications/192/people/myContactsAndGroupsSubscription" />
   <link rel="myContacts" href="/ucwa/v1/applications/192/contacts" />
   <link rel="myGroupMemberships" href="/ucwa/v1/applications/192/myGroupMemberships" />

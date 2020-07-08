@@ -178,7 +178,7 @@ HTTP/1.1 201 Created
 Content-Type: application/xml
 Content-Length: 911
 <?xml version="1.0" encoding="utf-8"?>
-<resource xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="mediaAnswer" href="data:application/sdp;base64,base64-encoded-sdp" />
   <link rel="mediaOffer" href="data:application/sdp;base64,base64-encoded-sdp" />
   <link rel="answer" href="/ucwa/v1/applications/192/communication/conversations/137/audioVideo/audioVideoSession/renegotiations/audioVideoRenegotiation/answer" />

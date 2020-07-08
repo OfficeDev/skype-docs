@@ -197,7 +197,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 405
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="dataCollaboration" href="/ucwa/v1/applications/192/communication/conversations/137/dataCollaboration" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="dataCollaboration" href="/ucwa/v1/applications/192/communication/conversations/137/dataCollaboration" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="conversation" href="/ucwa/v1/applications/192/communication/conversations/137" />
   <property name="rel">dataCollaboration</property>
   <property name="state">Connecting</property>

@@ -179,7 +179,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 890
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="mediaRelayAccessToken" href="/ucwa/v1/applications/192/mediaRelayAccessToken" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="mediaRelayAccessToken" href="/ucwa/v1/applications/192/mediaRelayAccessToken" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <property name="rel">mediaRelayAccessToken</property>
   <property name="duration">31</property>
   <property name="Uri">samplevalue</property>

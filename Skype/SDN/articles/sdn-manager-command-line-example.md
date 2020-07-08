@@ -104,7 +104,7 @@ C:\\Program Files\\Microsoft Skype for Business Server\\Microsoft Skype for Busi
 
 Response code: SUCCESS Detail: TimeStamp: 2016-12-29T23:08:01.3041954Z
 <Configuration Version="2.0" culture="en-US" Kind="Listener" Identifier="POOL1.LNEPROD.CONTOSO.COM" LastModified="2016-12-29T23:08:01.3041954Z">
-  <parameter key="submituri">http://sdnpool.lneprod.contoso.com:9333/LDL</parameter>
+  <parameter key="submituri">https://sdnpool.lneprod.contoso.com:9333/LDL</parameter>
   <parameter key="alternativeuri" />
   <parameter key="clientcertificateid" />
   <parameter key="submitqueuelen">1000</parameter>

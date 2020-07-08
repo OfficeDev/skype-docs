@@ -400,7 +400,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 7690
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="distributionGroup" href="/ucwa/v1/applications/192/groups/distributionGroup" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="distributionGroup" href="/ucwa/v1/applications/192/groups/distributionGroup" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="addToContactList" href="/ucwa/v1/applications/192/groups/addToContactList" />
   <link rel="expandDistributionGroup" href="/ucwa/v1/applications/192/groups/distributionGroup/expandDistributionGroup" />
   <link rel="removeFromContactList" href="/ucwa/v1/applications/192/groups/removeFromContactList" />

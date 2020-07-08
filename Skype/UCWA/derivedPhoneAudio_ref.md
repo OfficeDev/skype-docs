@@ -167,7 +167,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 778
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="phoneAudio" href="/ucwa/v1/applications/192/communication/phoneAudio" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="phoneAudio" href="/ucwa/v1/applications/192/communication/phoneAudio" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="addPhoneAudio" href="/ucwa/v1/applications/192/communication/phoneAudio/addPhoneAudio" />
   <link rel="conversation" href="/ucwa/v1/applications/192/communication/conversations/137" />
   <link rel="holdPhoneAudio" href="/ucwa/v1/applications/192/communication/phoneAudio/holdPhoneAudio" />

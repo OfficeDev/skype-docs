@@ -344,7 +344,7 @@ Content-Type: application/xml
 Accept: application/xml
 Content-Length: 318
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;input xmlns=&quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&quot;&gt;
+&lt;input xmlns=&quot;https://schemas.microsoft.com/rtc/2012/03/ucwa&quot;&gt;
   &lt;property name=&quot;culture&quot;&gt;en-us&lt;/property&gt;
   &lt;property name=&quot;endpointId&quot;&gt;123456&lt;/property&gt;
   &lt;property name=&quot;instanceId&quot;&gt;samplevalue&lt;/property&gt;
@@ -364,7 +364,7 @@ Etag: 4402f751-9331-4a0d-8ef2-6ed8f11c051d
 Content-Type: application/xml
 Content-Length: 6401
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="application" href="/ucwa/v1/applications/192" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="application" href="/ucwa/v1/applications/192" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="batch" href="/ucwa/v1/applications/192/batch" />
   <link rel="events" href="http://sample/ucwa/v1/applications/appId/events" />
   <link rel="policies" href="/ucwa/v1/applications/192/policies" />

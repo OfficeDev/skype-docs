@@ -159,7 +159,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 483
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="mediaRelay" href="/ucwa/v1/applications/192/communication/mediaRelay" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="mediaRelay" href="/ucwa/v1/applications/192/communication/mediaRelay" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <property name="rel">mediaRelay</property>
   <property name="host">samplevalue</property>
   <property name="ipv4">samplevalue</property>

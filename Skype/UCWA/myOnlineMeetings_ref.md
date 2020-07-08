@@ -218,7 +218,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 4254
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="myOnlineMeetings" href="/ucwa/v1/applications/192/onlineMeetings/myOnlineMeetings" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="myOnlineMeetings" href="/ucwa/v1/applications/192/onlineMeetings/myOnlineMeetings" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <property name="rel">myOnlineMeetings</property>
   <resource rel="myAssignedOnlineMeeting" href="/ucwa/v1/applications/192/onlineMeetings/myOnlineMeetings/600">
     <link rel="onlineMeetingExtensions" href="/ucwa/v1/applications/192/onlineMeetings/myOnlineMeetings/943/onlineMeetingExtensions" />
@@ -427,7 +427,7 @@ Content-Type: application/xml
 Accept: application/xml
 Content-Length: 910
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;input xmlns=&quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&quot;&gt;
+&lt;input xmlns=&quot;https://schemas.microsoft.com/rtc/2012/03/ucwa&quot;&gt;
   &lt;property name=&quot;accessLevel&quot;&gt;Locked&lt;/property&gt;
   &lt;propertyList name=&quot;attendees&quot;&gt;
     &lt;item&gt;sip:johndoe@contoso.com&lt;/item&gt;
@@ -458,7 +458,7 @@ Etag: f332107c-0713-4336-b066-416bd06be3fd
 Content-Type: application/xml
 Content-Length: 2089
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="myOnlineMeeting" href="/ucwa/v1/applications/192/onlineMeetings/myOnlineMeetings/943" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="myOnlineMeeting" href="/ucwa/v1/applications/192/onlineMeetings/myOnlineMeetings/943" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="onlineMeetingExtensions" href="/ucwa/v1/applications/192/onlineMeetings/myOnlineMeetings/943/onlineMeetingExtensions" />
   <property name="rel">myOnlineMeeting</property>
   <property name="accessLevel">SameEnterprise</property>

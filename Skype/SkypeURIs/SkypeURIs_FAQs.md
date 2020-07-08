@@ -7,7 +7,7 @@ Find answers to frequently asked questions about using Skype URIs in your applic
 
 ## If I have more than one Skype Button on my webpage, why does only the first one work?
 
-Each Skype Button must have a unique ID. The easiest way to create the right code is to use the [Skype Buttons generator](http://www.skype.com/en/features/skype-buttons/create-skype-buttons/). 
+Each Skype Button must have a unique ID. The easiest way to create the right code is to use the [Skype Buttons generator](https://www.skype.com/en/features/skype-buttons/create-skype-buttons/). 
 However, if you want to use a Skype Button with the same function and Skype Name more than once on the same webpage, 
 you'll need to change the ID yourself to make it unique again. 
 
@@ -75,7 +75,7 @@ or [Google play store](http://market.android.com/details?id=com.skype.raider).
 
 ## Can I embed a Skype Button on a secure page?
 
-The [generated Skype Button](http://www.skype.com/en/features/skype-buttons/create-skype-buttons/) code is hard-linked 
+The [generated Skype Button](https://www.skype.com/en/features/skype-buttons/create-skype-buttons/) code is hard-linked 
 to the Skype CDN (Content Delivery Network) using the HTTP protocol, but will also work over HTTPS.
 
 **Existing code:**

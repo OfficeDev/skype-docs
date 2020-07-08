@@ -169,7 +169,7 @@ HTTP/1.1 201 Created
 Content-Type: application/xml
 Content-Length: 490
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="presenceSubscription" href="/ucwa/v1/applications/192/presenceSubscription" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="presenceSubscription" href="/ucwa/v1/applications/192/presenceSubscription" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="addToPresenceSubscription" href="/ucwa/v1/applications/192/presenceSubscription/addToPresenceSubscription" />
   <link rel="memberships" href="/ucwa/v1/applications/192/presenceSubscription/memberships" />
   <property name="rel">presenceSubscription</property>

@@ -267,7 +267,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 294
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="note" href="/ucwa/v1/applications/192/me/note" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="note" href="/ucwa/v1/applications/192/me/note" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <property name="rel">note</property>
   <property name="message">Heads down today</property>
   <property name="type">Personal</property>

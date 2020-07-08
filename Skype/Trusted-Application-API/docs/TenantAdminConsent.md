@@ -9,7 +9,7 @@ In order for a tenant to consent to the application, the following is required:
  
    For example: 
 ```https
-    https://login.windows.net/common/oauth2/authorize?response_type=id_token&client_id=727c43e2-08ea-4794-80f8-069bbbebb755&redirect_uri=http://trusteddemo.contoso.com&response_mode=form_post&nonce=a4014117-28aa-47ec-abfb-f377be1d3cf5&resource=https://noammeetings.resources.lync.com&prompt=admin_consent
+    https://login.windows.net/common/oauth2/authorize?response_type=id_token&client_id=727c43e2-08ea-4794-80f8-069bbbebb755&redirect_uri=https://trusteddemo.contoso.com&response_mode=form_post&nonce=a4014117-28aa-47ec-abfb-f377be1d3cf5&resource=https://noammeetings.resources.lync.com&prompt=admin_consent
 ``` 
 
 This opens up a page after the tenant admin logs in. It lists the permissions the Service Application has asked for the tenant admin to consent. Once accepted the Service Application can get oauth tokens from AAD, for that tenant.
@@ -33,7 +33,7 @@ PS C:\windows\system32> Get-MsolServicePrincipal
     AppPrincipalId        : 727c43e2-08ea-4794-80f8-069bbbebb755
     DisplayName           : demosaas
     ObjectId              : 6291d162-f57f-44f8-8022-d8e17cbca62a
-    ServicePrincipalNames : {http://demosaad.contoso.com, 727c43e2-08ea-4794-80f8-069bbbebb755}
+    ServicePrincipalNames : {https://demosaad.contoso.com, 727c43e2-08ea-4794-80f8-069bbbebb755}
     TrustedForDelegation  : False
 
  Remove-MsolServicePrincipal -ObjectId 6291d162-f57f-44f8-8022-d8e17cbca62a

@@ -15,7 +15,7 @@
     /// For more information about multipart, see the RFC.
     ///     https://www.ietf.org/rfc/rfc2046
     /// For more information about Message objects, see
-    ///     http://msdn.microsoft.com/en-us/library/ie/ms535874(v=vs.85).aspx
+    ///     https://msdn.microsoft.com/en-us/library/ie/ms535874(v=vs.85).aspx
     /// </remarks>
     microsoft.rtc.ucwa.samples.Mime = (function($) {
         var obj = function Mime(defaultBoundary) {

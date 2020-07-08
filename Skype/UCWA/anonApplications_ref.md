@@ -337,7 +337,7 @@ Content-Type: application/xml
 Accept: application/xml
 Content-Length: 223
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;input xmlns=&quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&quot;&gt;
+&lt;input xmlns=&quot;https://schemas.microsoft.com/rtc/2012/03/ucwa&quot;&gt;
   &lt;property name=&quot;culture&quot;&gt;en-us&lt;/property&gt;
   &lt;property name=&quot;userAgent&quot;&gt;ContosoApp/1.0 (Windows Phone OS 7.5)&lt;/property&gt;
 &lt;/input&gt;
@@ -355,7 +355,7 @@ Etag: 91753e29-87de-41d8-8f9b-ca9fee29270f
 Content-Type: application/xml
 Content-Length: 6401
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="application" href="/ucwa/v1/applications/192" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="application" href="/ucwa/v1/applications/192" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="batch" href="/ucwa/v1/applications/192/batch" />
   <link rel="events" href="http://sample/ucwa/v1/applications/appId/events" />
   <link rel="policies" href="/ucwa/v1/applications/192/policies" />

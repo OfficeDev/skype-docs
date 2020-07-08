@@ -19,8 +19,8 @@ The Skype App SDK documentation consists of the following sections:
 - [App SDK orientation](Orientation.md)
 - [Download the App SDK](Download.md)
 - [App SDK samples](Samples.md)
-- [App SDK library reference - Android](http://aka.ms/sfbAppSDKRef_Android)
-- [App SDK library reference - iOS](http://aka.ms/sfbAppSDKRef_iOS)
+- [App SDK library reference - Android](https://aka.ms/sfbAppSDKRef_Android)
+- [App SDK library reference - iOS](https://aka.ms/sfbAppSDKRef_iOS)
 - [Submit your questions, bugs, feature requests, and contributions](Feedback.md)
 
 ## Licensing

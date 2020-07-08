@@ -198,7 +198,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 564
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="missedItems" href="/ucwa/v1/applications/192/communication/missedItems" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="missedItems" href="/ucwa/v1/applications/192/communication/missedItems" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <property name="rel">missedItems</property>
   <property name="conversationLogsCount">97</property>
   <property name="conversationLogsNotifications">Disabled</property>

@@ -1,6 +1,6 @@
 # README
 
-This documentation is hosted at http://aka.ms/skypeappsdk.  Please read it there.
+This documentation is hosted at https://aka.ms/skypeappsdk.  Please read it there.
 
 If you're interested in contributing to this documentation, then please read on. 
 

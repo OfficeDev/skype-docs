@@ -13,7 +13,7 @@ This topic shows the schema definition for **SDNInterface.Schema.C.xsd**.
 
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="C">
-<!-- More documentation about the QoE metrics used: http://technet.microsoft.com/en-us/library/gg425961.aspx -->
+<!-- More documentation about the QoE metrics used: https://technet.microsoft.com/en-us/library/gg425961.aspx -->
   <xs:complexType name="CodecType">
     <xs:sequence>
       <xs:element minOccurs="0" name="Bandwidth" type="xs:string">

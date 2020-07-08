@@ -27,7 +27,7 @@ The table lists the supported SDKs and APIs for Skype for Business Server and Sk
 
 ## Related sites 
 
-- [Skype](http://www.skype.com/en/)
-- [Skype Developer Platform](http://dev.office.com/skype)
-- [Introducing Skype for Business](http://blogs.skype.com/2014/11/11/introducing-skype-for-business/)
+- [Skype](https://www.skype.com/en/)
+- [Skype Developer Platform](https://dev.office.com/skype)
+- [Introducing Skype for Business](https://blogs.skype.com/2014/11/11/introducing-skype-for-business/)
 - [Skype for Business Server 2015](https://technet.microsoft.com/en-us/library/gg398616.aspx)

@@ -215,7 +215,7 @@ Etag: 7415a925-bfda-4830-b4dc-acd3ca8da416
 Content-Type: application/xml
 Content-Length: 2097
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="myAssignedOnlineMeeting" href="/ucwa/v1/applications/192/onlineMeetings/myOnlineMeetings/600" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="myAssignedOnlineMeeting" href="/ucwa/v1/applications/192/onlineMeetings/myOnlineMeetings/600" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="onlineMeetingExtensions" href="/ucwa/v1/applications/192/onlineMeetings/myOnlineMeetings/943/onlineMeetingExtensions" />
   <property name="rel">myAssignedOnlineMeeting</property>
   <property name="accessLevel">Locked</property>
@@ -491,7 +491,7 @@ Content-Type: application/xml
 Accept: application/xml
 Content-Length: 908
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;input xmlns=&quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&quot;&gt;
+&lt;input xmlns=&quot;https://schemas.microsoft.com/rtc/2012/03/ucwa&quot;&gt;
   &lt;property name=&quot;accessLevel&quot;&gt;None&lt;/property&gt;
   &lt;propertyList name=&quot;attendees&quot;&gt;
     &lt;item&gt;sip:johndoe@contoso.com&lt;/item&gt;
@@ -523,7 +523,7 @@ Etag: 7142d486-3453-4ed0-8c44-046ecf8071bf
 Content-Type: application/xml
 Content-Length: 2087
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="myOnlineMeeting" href="/ucwa/v1/applications/192/onlineMeetings/myOnlineMeetings/943" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="myOnlineMeeting" href="/ucwa/v1/applications/192/onlineMeetings/myOnlineMeetings/943" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="onlineMeetingExtensions" href="/ucwa/v1/applications/192/onlineMeetings/myOnlineMeetings/943/onlineMeetingExtensions" />
   <property name="rel">myOnlineMeeting</property>
   <property name="accessLevel">Locked</property>

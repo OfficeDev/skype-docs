@@ -17,7 +17,7 @@
     /// For more information about postMessage, see:
     ///     http://ucwa.lync.com/documentation/GettingStarted-CrossDomain
     ///     http://www.whatwg.org/specs/web-apps/current-work/multipage/web-messaging.html#web-messaging
-    ///     http://msdn.microsoft.com/en-us/library/ie/cc197015(v=vs.85).aspx
+    ///     https://msdn.microsoft.com/en-us/library/ie/cc197015(v=vs.85).aspx
     /// </remarks>
     microsoft.rtc.ucwa.samples.Transport = (function($) {
         var obj = function Transport(targetOrigin) {

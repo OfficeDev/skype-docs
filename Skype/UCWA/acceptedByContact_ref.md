@@ -214,7 +214,7 @@ Etag: 39b3573a-5dae-4258-abd6-fcf24b4439dc
 Content-Type: application/xml
 Content-Length: 1622
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="contact" href="/ucwa/v1/applications/192/people/282" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="contact" href="/ucwa/v1/applications/192/people/282" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="contactLocation" href="/ucwa/v1/applications/192/people/282/contactLocation" />
   <link rel="contactNote" href="/ucwa/v1/applications/192/people/282/contactNote" />
   <link rel="contactPhoto" href="/ucwa/v1/applications/192/people/282/contactPhoto" />

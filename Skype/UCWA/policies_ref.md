@@ -263,7 +263,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 2030
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="policies" href="/ucwa/v1/applications/192/policies" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="policies" href="/ucwa/v1/applications/192/policies" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <property name="rel">policies</property>
   <property name="allowDeviceContactsSync">Disabled</property>
   <property name="audioOnlyOnWifi">Disabled</property>

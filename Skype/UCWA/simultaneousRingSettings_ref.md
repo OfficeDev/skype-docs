@@ -176,7 +176,7 @@ Etag: 1093f894-ccce-4158-aa45-e4ca3028746b
 Content-Type: application/xml
 Content-Length: 876
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="simultaneousRingSettings" href="/ucwa/v1/applications/192/me/callForwardingSettings/simultaneousRingSettings" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="simultaneousRingSettings" href="/ucwa/v1/applications/192/me/callForwardingSettings/simultaneousRingSettings" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="contact" href="/ucwa/v1/applications/192/people/282" />
   <link rel="simultaneousRingToContact" href="/ucwa/v1/applications/192/me/callForwardingSettings/simultaneousRingSettings/simultaneousRingToContact" />
   <link rel="simultaneousRingToDelegates" href="/ucwa/v1/applications/192/me/callForwardingSettings/simultaneousRingSettings/simultaneousRingToDelegates" />
@@ -273,7 +273,7 @@ Content-Type: application/xml
 if-match: 03e8de5e-ce46-473f-8192-e2908d1f6eb4
 Content-Length: 247
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;resource xmlns=&quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&quot;&gt;
+&lt;resource xmlns=&quot;https://schemas.microsoft.com/rtc/2012/03/ucwa&quot;&gt;
   &lt;property name=&quot;rel&quot;&gt;simultaneousRingSettings&lt;/property&gt;
   &lt;property name=&quot;ringDelay&quot;&gt;5&lt;/property&gt;
   &lt;property name=&quot;target&quot;&gt;None&lt;/property&gt;

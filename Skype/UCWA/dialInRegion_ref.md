@@ -159,7 +159,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 424
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="dialInRegion" href="/ucwa/v1/applications/192/onlineMeetings/phoneDialInInformation/687" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="dialInRegion" href="/ucwa/v1/applications/192/onlineMeetings/phoneDialInInformation/687" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <property name="rel">dialInRegion</property>
   <propertyList name="languages">
     <item>en-US</item>

@@ -288,7 +288,7 @@ Etag: 6c289c1e-65ed-4af6-9cfa-63672210473f
 Content-Type: application/xml
 Content-Length: 468
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="group" href="/ucwa/v1/applications/192/groups/group" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="group" href="/ucwa/v1/applications/192/groups/group" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="groupContacts" href="/ucwa/v1/applications/192/contacts" />
   <link rel="subscribeToGroupPresence" href="/ucwa/v1/applications/192/groups/group/subscribeToGroupPresence" />
   <property name="rel">group</property>
@@ -466,7 +466,7 @@ Content-Type: application/xml
 if-match: 78b69606-3200-44e0-9cad-cea7bcb3d17b
 Content-Length: 230
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;resource xmlns=&quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&quot;&gt;
+&lt;resource xmlns=&quot;https://schemas.microsoft.com/rtc/2012/03/ucwa&quot;&gt;
   &lt;property name=&quot;rel&quot;&gt;group&lt;/property&gt;
   &lt;property name=&quot;id&quot;&gt;7&lt;/property&gt;
   &lt;property name=&quot;name&quot;&gt;MyPersonalGroup&lt;/property&gt;

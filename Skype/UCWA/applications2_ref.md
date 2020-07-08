@@ -310,7 +310,7 @@ This sample is given only as an illustration of response syntax. The semantic co
  Content-Type: application/xml
  Content-Length: 4480
  <?xml version="1.0" encoding="utf-8"?>
-<resource rel="applications" href="//v1/applications" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="applications" href="//v1/applications" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
  <property name="rel">applications</property>
  <resource rel="application" href="//v1/applications/833">
  <link rel="batch" href="//v1/applications/833/batch" />
@@ -640,7 +640,7 @@ This sample is given only as an illustration of response syntax. The semantic co
  Accept: application/xml
  Content-Length: 318
  <?xml version="1.0" encoding="utf-8"?>
-<input xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<input xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
  <property name="culture">en-us</property>
  <property name="endpointId">123456</property>
  <property name="instanceId">samplevalue</property>
@@ -662,7 +662,7 @@ This sample is given only as an illustration of response syntax. The semantic co
  Content-Type: application/xml
  Content-Length: 4371
  <?xml version="1.0" encoding="utf-8"?>
-<resource rel="application" href="//v1/applications/833" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="application" href="//v1/applications/833" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
  <link rel="batch" href="//v1/applications/833/batch" />
  <link rel="events" href="http://sample/ucwa/v1/applications/appId/events" />
  <link rel="policies" href="//v1/applications/833/policies" />

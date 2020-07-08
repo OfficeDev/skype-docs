@@ -464,7 +464,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 7303
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="phoneAudioInvitation" href="/ucwa/v1/applications/192/communication/invitations/146" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="phoneAudioInvitation" href="/ucwa/v1/applications/192/communication/invitations/146" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="customContent" href="data:application/sdp;base64,base64-encoded-sdp" />
   <link rel="from" href="/ucwa/v1/applications/192/communication/conversations/137/participants/831" />
   <link rel="accept" href="/ucwa/v1/applications/192/communication/invitations/665/accept" />

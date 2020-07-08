@@ -378,7 +378,7 @@ Etag: 8519c89e-594c-4a37-97da-101cff8799a4
 Content-Type: application/xml
 Content-Length: 6401
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="application" href="/ucwa/v1/applications/192" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="application" href="/ucwa/v1/applications/192" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="batch" href="/ucwa/v1/applications/192/batch" />
   <link rel="events" href="http://sample/ucwa/v1/applications/appId/events" />
   <link rel="policies" href="/ucwa/v1/applications/192/policies" />

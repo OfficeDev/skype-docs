@@ -167,7 +167,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 642
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="onlineMeetingDefaultValues" href="/ucwa/v1/applications/192/onlineMeetings/onlineMeetingDefaultValues" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="onlineMeetingDefaultValues" href="/ucwa/v1/applications/192/onlineMeetings/onlineMeetingDefaultValues" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <property name="rel">onlineMeetingDefaultValues</property>
   <property name="accessLevel">Invited</property>
   <property name="automaticLeaderAssignment">SameEnterprise</property>

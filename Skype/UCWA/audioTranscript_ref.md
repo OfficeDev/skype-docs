@@ -151,7 +151,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 423
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="audioTranscript" href="/ucwa/v1/applications/192/communication/conversationLogs/conversationLog/conversationLogTranscripts/conversationLogTranscript/audioTranscript" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="audioTranscript" href="/ucwa/v1/applications/192/communication/conversationLogs/conversationLog/conversationLogTranscripts/conversationLogTranscript/audioTranscript" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <property name="rel">audioTranscript</property>
   <property name="duration">samplevalue</property>
   <property name="status">Connected</property>

@@ -134,7 +134,7 @@ Host: fe1.contoso.com
 Content-Type: application/xml
 Content-Length: 286
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;input xmlns=&quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&quot;&gt;
+&lt;input xmlns=&quot;https://schemas.microsoft.com/rtc/2012/03/ucwa&quot;&gt;
   &lt;property name=&quot;operationId&quot;&gt;74cb7404e0a247d5a2d4eb0376a47dbf&lt;/property&gt;
   &lt;property name=&quot;phoneNumber&quot;&gt;tel:+14255551234&lt;/property&gt;
   &lt;property name=&quot;to&quot;&gt;sip:john@contoso.com&lt;/property&gt;

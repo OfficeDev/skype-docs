@@ -249,7 +249,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 1499
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="me" href="/ucwa/v1/applications/192/me" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="me" href="/ucwa/v1/applications/192/me" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="callForwardingSettings" href="/ucwa/v1/applications/192/me/callForwardingSettings" />
   <link rel="location" href="/ucwa/v1/applications/192/me/location" />
   <link rel="makeMeAvailable" href="/ucwa/v1/applications/192/communication/makeMeAvailable" />

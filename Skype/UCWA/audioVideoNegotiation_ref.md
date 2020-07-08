@@ -209,7 +209,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 841
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="audioVideoNegotiation" href="/ucwa/v1/applications/192/communication/invitations/665/audioVideoNegotiation" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="audioVideoNegotiation" href="/ucwa/v1/applications/192/communication/invitations/665/audioVideoNegotiation" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="mediaAnswer" href="data:application/sdp;base64,base64-encoded-sdp" />
   <link rel="mediaProvisionalAnswer" href="data:application/sdp;base64,base64-encoded-sdp" />
   <link rel="audioVideoInvitation" href="/ucwa/v1/applications/192/communication/invitations/507" />

@@ -24,7 +24,7 @@ Skype for Business Online uses Azure Active Directory (Azure AD) to provide auth
 
 1.  **Register your application in Azure AD**. To allow your application access to the Skype Web SDK APIs, you need to register your application in Azure AD. This will allow you to establish an identity for your application and specify the permission levels it needs in order to access the APIs. For details, see **Registering your application in Azure AD**.
     
-2.  **Add a sign in feature to your app**. When a user visits your website and initiates sign-in, your application makes a request to the Microsoft common OAuth2 login endpoint. Azure AD validates the request and responds with a sign-in page, where the user signs in. A user must explicitly grant consent to allow your application to access user data by means of the Skype Web SDK APIs. The user reads the descriptions of the access permissions that your application is requesting, and then grants or denies the request. After consent is granted, the UI redirects the user back to your application. If authentication and authorization are successful, Azure AD returns a token and grants access to Skype for Business Online and identifies the current signed-in user. For details on authentication, see [Authentication Using Azure AD](http://technet.microsoft.com/library/f66482d2-ac35-4b25-9c8b-0f5f7ab89b01.aspx). For details of authorization, see [Skype for Business Online Scope Permissions](http://technet.microsoft.com/library/e292d8ef-3b05-4442-9983-378f6f958f8b.aspx).
+2.  **Add a sign in feature to your app**. When a user visits your website and initiates sign-in, your application makes a request to the Microsoft common OAuth2 login endpoint. Azure AD validates the request and responds with a sign-in page, where the user signs in. A user must explicitly grant consent to allow your application to access user data by means of the Skype Web SDK APIs. The user reads the descriptions of the access permissions that your application is requesting, and then grants or denies the request. After consent is granted, the UI redirects the user back to your application. If authentication and authorization are successful, Azure AD returns a token and grants access to Skype for Business Online and identifies the current signed-in user. For details on authentication, see [Authentication Using Azure AD](https://technet.microsoft.com/library/f66482d2-ac35-4b25-9c8b-0f5f7ab89b01.aspx). For details of authorization, see [Skype for Business Online Scope Permissions](https://technet.microsoft.com/library/e292d8ef-3b05-4442-9983-378f6f958f8b.aspx).
     
 3.  **Call the Skype Web SDK APIs**. The token that Azure AD provided when redirecting back to your app need not be saved, as the SDK can get its own tokens from AAD (on subsequent requests the browser passes along the requisite cookies to obtain tokens). Pass the `client_id` and `redirect_uri` registered in AAD to the SDK and it will be able to sign in.
     
@@ -223,9 +223,9 @@ Access the URL and authenticate using a tenant administrator credentials and acc
     
 - [Managing Applications with Azure Active Directory (AD)](https://azure.microsoft.com/documentation/articles/active-directory-enable-sso-scenario/)
     
-- [Registering Your Application in Azure AD](http://technet.microsoft.com/library/9e4d9905-a17c-458d-8cf5-d384f5bd65fd.aspx)
+- [Registering Your Application in Azure AD](https://technet.microsoft.com/library/9e4d9905-a17c-458d-8cf5-d384f5bd65fd.aspx)
 
-- [Integrating Applications with Azure Active Directory](http://azure.microsoft.com/en-us/documentation/articles/active-directory-integrating-applications/)
+- [Integrating Applications with Azure Active Directory](https://azure.microsoft.com/en-us/documentation/articles/active-directory-integrating-applications/)
 
-- [Active Directory Authentication Scenarios](http://azure.microsoft.com/en-us/documentation/articles/active-directory-authentication-scenarios/)
+- [Active Directory Authentication Scenarios](https://azure.microsoft.com/en-us/documentation/articles/active-directory-authentication-scenarios/)
     

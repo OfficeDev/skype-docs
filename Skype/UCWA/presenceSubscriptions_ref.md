@@ -177,7 +177,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 647
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="presenceSubscriptions" href="/ucwa/v1/applications/192/presenceSubscriptions" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="presenceSubscriptions" href="/ucwa/v1/applications/192/presenceSubscriptions" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <property name="rel">presenceSubscriptions</property>
   <resource rel="presenceSubscription" href="/ucwa/v1/applications/192/presenceSubscription">
     <link rel="addToPresenceSubscription" href="/ucwa/v1/applications/192/presenceSubscription/addToPresenceSubscription" />
@@ -302,7 +302,7 @@ Content-Type: application/xml
 Accept: application/xml
 Content-Length: 264
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;input xmlns=&quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&quot;&gt;
+&lt;input xmlns=&quot;https://schemas.microsoft.com/rtc/2012/03/ucwa&quot;&gt;
   &lt;property name=&quot;duration&quot;&gt;15&lt;/property&gt;
   &lt;propertyList name=&quot;uris&quot;&gt;
     &lt;item&gt;&quot;sip:johndoe@contoso.com&quot;&lt;/item&gt;
@@ -322,7 +322,7 @@ HTTP/1.1 201 Created
 Content-Type: application/xml
 Content-Length: 490
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="presenceSubscription" href="/ucwa/v1/applications/192/presenceSubscription" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="presenceSubscription" href="/ucwa/v1/applications/192/presenceSubscription" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="addToPresenceSubscription" href="/ucwa/v1/applications/192/presenceSubscription/addToPresenceSubscription" />
   <link rel="memberships" href="/ucwa/v1/applications/192/presenceSubscription/memberships" />
   <property name="rel">presenceSubscription</property>

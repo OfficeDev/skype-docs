@@ -182,7 +182,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 1015
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="onlineMeetings" href="/ucwa/v1/applications/192/onlineMeetings" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="onlineMeetings" href="/ucwa/v1/applications/192/onlineMeetings" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="myAssignedOnlineMeeting" href="/ucwa/v1/applications/192/onlineMeetings/myOnlineMeetings/600" />
   <link rel="myOnlineMeetings" href="/ucwa/v1/applications/192/onlineMeetings/myOnlineMeetings" />
   <link rel="onlineMeetingDefaultValues" href="/ucwa/v1/applications/192/onlineMeetings/onlineMeetingDefaultValues" />

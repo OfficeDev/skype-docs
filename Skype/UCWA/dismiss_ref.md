@@ -126,7 +126,7 @@ Host: fe1.contoso.com
 Content-Type: application/xml
 Content-Length: 149
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;input xmlns=&quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&quot;&gt;
+&lt;input xmlns=&quot;https://schemas.microsoft.com/rtc/2012/03/ucwa&quot;&gt;
   &lt;property name=&quot;reason&quot;&gt;Unknown&lt;/property&gt;
 &lt;/input&gt;
 ```

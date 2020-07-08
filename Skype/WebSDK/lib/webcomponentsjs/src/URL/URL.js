@@ -603,7 +603,7 @@
   if (OriginalURL) {
     jURL.createObjectURL = function(blob) {
       // IE extension allows a second optional options argument.
-      // http://msdn.microsoft.com/en-us/library/ie/hh772302(v=vs.85).aspx
+      // https://msdn.microsoft.com/en-us/library/ie/hh772302(v=vs.85).aspx
       return OriginalURL.createObjectURL.apply(OriginalURL, arguments);
     };
     jURL.revokeObjectURL = function(url) {

@@ -303,7 +303,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 1810
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="myContacts" href="/ucwa/v1/applications/192/contacts" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="myContacts" href="/ucwa/v1/applications/192/contacts" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="contact" href="/ucwa/v1/applications/192/people/608" />
   <property name="rel">myContacts</property>
   <resource rel="contact" href="/ucwa/v1/applications/192/people/282">

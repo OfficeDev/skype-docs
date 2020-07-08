@@ -288,7 +288,7 @@ Etag: 27b368e0-c047-40d8-b543-48080527b31e
 Content-Type: application/xml
 Content-Length: 2516
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="communication" href="/ucwa/v1/applications/192/communication" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="communication" href="/ucwa/v1/applications/192/communication" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="conversationLogs" href="/ucwa/v1/applications/192/communication/conversationLogs" />
   <link rel="conversations" href="/ucwa/v1/applications/192/communication/conversations" />
   <link rel="joinOnlineMeeting" href="/ucwa/v1/applications/192/communication/joinOnlineMeeting" />
@@ -432,7 +432,7 @@ Content-Type: application/xml
 if-match: be7d5ece-e3b9-41e0-b157-d488c977c7d5
 Content-Length: 804
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;resource xmlns=&quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&quot;&gt;
+&lt;resource xmlns=&quot;https://schemas.microsoft.com/rtc/2012/03/ucwa&quot;&gt;
   &lt;property name=&quot;simultaneousRingNumberMatch&quot;&gt;Disabled&lt;/property&gt;
   &lt;property name=&quot;videoBasedScreenSharing&quot;&gt;Disabled&lt;/property&gt;
   &lt;property name=&quot;rel&quot;&gt;communication&lt;/property&gt;

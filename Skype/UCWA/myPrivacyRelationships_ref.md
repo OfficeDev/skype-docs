@@ -170,7 +170,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 552
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="myPrivacyRelationships" href="/ucwa/v1/applications/192/myPrivacyRelationships" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="myPrivacyRelationships" href="/ucwa/v1/applications/192/myPrivacyRelationships" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <property name="rel">myPrivacyRelationships</property>
   <resource rel="myPrivacyRelationship" href="/ucwa/v1/applications/192/myPrivacyRelationships/myPrivacyRelationship">
     <link rel="contact" href="/ucwa/v1/applications/192/people/464" />

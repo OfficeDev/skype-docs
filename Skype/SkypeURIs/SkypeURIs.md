@@ -50,12 +50,12 @@ Clicking the link:
 1. Places the call.
 
 
-[Skype buttons](http://www.skype.com/en/features/skype-buttons/create-skype-buttons/) provide you with a generated 
+[Skype buttons](https://www.skype.com/en/features/skype-buttons/create-skype-buttons/) provide you with a generated 
 block of HTML that has a Skype URI at its core. Simply use the form to specify the type of button you want, then 
 paste the code snippet into a webpage so people can easily call or chat with you over Skype.
 
 The [Skype.ui JavaScript function](SkypeURItutorial_Webpages.md) enables you to dynamically embed Skype URIs 
-that have a predefined appearance and user interface similar to [Skype buttons](http://www.skype.com/en/features/skype-buttons/create-skype-buttons/), 
+that have a predefined appearance and user interface similar to [Skype buttons](https://www.skype.com/en/features/skype-buttons/create-skype-buttons/), 
 but provides additional functionality, such as video, conference calls, and multi-chats.
 
 Apps can construct and access an appropriate Skype URI in response to user actions. For example, tapping a contact's 
@@ -77,7 +77,7 @@ your apps, emails, and webpages, see the following:
 
 > [!NOTE] 
 > Your use of Skype URIs implies access to and use of Skype software, as governed by Skype's 
-[Terms of Use](http://www.skype.com/go/tou/).
+[Terms of Use](https://www.skype.com/go/tou/).
 
 
 ## Interacting with the Skype client
@@ -127,7 +127,7 @@ for Android client.
 Determining whether a Skype client is available on a mobile or desktop device—and what to do if it is not—depends on the 
 platform and the accessing browser, webpage, or application. Ideally, you want to detect whether the Skype client is 
 present, and direct the user to download and install the Skype client if it is not. In fact, your app should navigate 
-directly to the mobile device's marketplace or the platform-specific Skype client's [download page](http://www.skype.com/go/download) 
+directly to the mobile device's marketplace or the platform-specific Skype client's [download page](https://www.skype.com/go/download) 
 on skype.com whenever it detects that a Skype client is not present. For information about and sample code for detecting 
 and installing a missing Skype client, see the associated tutorial page; for example, [What to do if a Skype client is not installed](SkypeURITutorial_AndroidApps.md), 
 if you are developing an Android app.
@@ -152,7 +152,7 @@ web-based application or page.
 ## Branding your app
 
 Your use of the Skype logo, name, and other brand elements in the design, appearance, and marketing materials for your app 
-are detailed in and governed by the [Skype Trade Mark Guidelines](http://www.skype.com/en/legal/brand-guidelines/). As a 
+are detailed in and governed by the [Skype Trade Mark Guidelines](https://www.skype.com/en/legal/brand-guidelines/). As a 
 general rule, third parties  _may not_ use the Skype Brand Elements unless they have either received prior written 
 permission, or the proposed use falls within certain limited exceptions.
 
@@ -180,5 +180,5 @@ Please contact [Skype Developer Support](mailto:SkypeDev@Microsoft.com?subject=S
 
 ## See also
 
-* [Office development](http://msdn.microsoft.com/library/7f24db34-c1ad-4a83-a9bd-3c85a39c0bd8%28Office.15%29.aspx)
+* [Office development](https://msdn.microsoft.com/library/7f24db34-c1ad-4a83-a9bd-3c85a39c0bd8%28Office.15%29.aspx)
 

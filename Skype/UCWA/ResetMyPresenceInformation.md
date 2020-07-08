@@ -55,7 +55,7 @@ The steps here assume that you have already created an application and have rece
     GET https://lyncweb.contoso.com/ucwa/oauth/v1/applications/101 HTTP/1.1
     Authorization: Bearer cwt=AAEB...buHc
     Accept: application/json
-    X-Ms-Origin: http://app.contoso.com
+    X-Ms-Origin: https://app.contoso.com
     X-Requested-With: XMLHttpRequest
     Referer: https://lyncweb.contoso.com/Autodiscover/XFrame/XFrame.html
     Accept-Language: en-us
@@ -123,7 +123,7 @@ The steps here assume that you have already created an application and have rece
     Accept: application/json
     Content-Type: application/json
     Authorization: Bearer cwt=AAEB...uHc
-    X-Ms-Origin: http://app.contoso.com
+    X-Ms-Origin: https://app.contoso.com
     X-Requested-With: XMLHttpRequest
     Referer: https://contoso.com/Autodiscover/XFrame/XFrame.html
     Accept-Language: en-US
@@ -136,7 +136,7 @@ The steps here assume that you have already created an application and have rece
     Cache-Control: no-cacheGET https://lyncweb.contoso.com/ucwa/oauth/v1/applications/103/me/presence HTTP/1.1
     Authorization: Bearer cwt=AAEB...TT0buHc
     Accept: application/json
-    X-Ms-Origin: http://app.contoso.com
+    X-Ms-Origin: https://app.contoso.com
     X-Requested-With: XMLHttpRequest
     Referer: https://lyncweb.contoso.com/Autodiscover/XFrame/XFrame.html
     Accept-Language: en-US

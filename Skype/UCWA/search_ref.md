@@ -403,7 +403,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 7145
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="search" href="/ucwa/v1/applications/192/search" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="search" href="/ucwa/v1/applications/192/search" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <property name="rel">search</property>
   <property name="moreResultsAvailable">False</property>
   <resource rel="contact" href="/ucwa/v1/applications/192/people/282">

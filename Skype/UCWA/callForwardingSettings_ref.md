@@ -236,7 +236,7 @@ Etag: d2b186e8-89ce-4e36-827d-51ae06eef732
 Content-Type: application/xml
 Content-Length: 2851
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="callForwardingSettings" href="/ucwa/v1/applications/192/me/callForwardingSettings" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="callForwardingSettings" href="/ucwa/v1/applications/192/me/callForwardingSettings" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="turnOffCallForwarding" href="/ucwa/v1/applications/192/me/callForwardingSettings/turnOffCallForwarding" />
   <property name="rel">callForwardingSettings</property>
   <property name="activePeriod">Workhours</property>
@@ -359,7 +359,7 @@ Content-Type: application/xml
 if-match: 4e115d71-24b1-4d67-939e-dd2da85cb232
 Content-Length: 333
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;resource xmlns=&quot;http://schemas.microsoft.com/rtc/2012/03/ucwa&quot;&gt;
+&lt;resource xmlns=&quot;https://schemas.microsoft.com/rtc/2012/03/ucwa&quot;&gt;
   &lt;property name=&quot;rel&quot;&gt;callForwardingSettings&lt;/property&gt;
   &lt;property name=&quot;activePeriod&quot;&gt;Workhours&lt;/property&gt;
   &lt;property name=&quot;activeSetting&quot;&gt;ImmediateForward&lt;/property&gt;

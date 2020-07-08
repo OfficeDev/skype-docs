@@ -245,7 +245,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 306
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="subscribedContacts" href="/ucwa/v1/applications/192/subscribedContacts" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="subscribedContacts" href="/ucwa/v1/applications/192/subscribedContacts" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="contact" href="/ucwa/v1/applications/192/people/586" />
   <property name="rel">subscribedContacts</property>
 </resource>

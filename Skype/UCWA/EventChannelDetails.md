@@ -156,7 +156,7 @@ The following is a sample event response in XML format.
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?> 
-<events href="/ucwa/oauth/v1/applications/102/events?ack=1" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa"> 
+<events href="/ucwa/oauth/v1/applications/102/events?ack=1" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa"> 
  <link rel="next" href="/ucwa/oauth/v1/applications/102/events?ack=2" /> 
  <sender rel="communication" href="/ucwa/oauth/v1/applications/102/communication"> 
  <updated rel="communication" href="/ucwa/oauth/v1/applications/102/communication"> 

@@ -122,11 +122,11 @@ Content-Type: application/json
 Content-Length: 488
 {
   "rel" : "onlineMeetingInvitationCustomization",
-  "enterpriseHelpUrl" : "http://meet.contoso.com/firstimehelp.html",
+  "enterpriseHelpUrl" : "https://meet.contoso.com/firstimehelp.html",
   "invitationFooterText" : "The information contained in this meeting invitation is confidential.",
-  "invitationHelpUrl" : "http://meet.contoso.com/help",
-  "invitationLegalUrl" : "http://meet.contoso.com/disclaimer.html",
-  "invitationLogoUrl" : "http://meet.contoso.com/companylogo.png",
+  "invitationHelpUrl" : "https://meet.contoso.com/help",
+  "invitationLegalUrl" : "https://meet.contoso.com/disclaimer.html",
+  "invitationLogoUrl" : "https://meet.contoso.com/companylogo.png",
   "_links" : {
     "self" : {
       "href" : "/ucwa/v1/applications/192/onlineMeetings/onlineMeetingInvitationCustomization"
@@ -160,13 +160,13 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 759
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="onlineMeetingInvitationCustomization" href="/ucwa/v1/applications/192/onlineMeetings/onlineMeetingInvitationCustomization" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="onlineMeetingInvitationCustomization" href="/ucwa/v1/applications/192/onlineMeetings/onlineMeetingInvitationCustomization" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <property name="rel">onlineMeetingInvitationCustomization</property>
-  <property name="enterpriseHelpUrl">http://meet.contoso.com/firstimehelp.html</property>
+  <property name="enterpriseHelpUrl">https://meet.contoso.com/firstimehelp.html</property>
   <property name="invitationFooterText">The information contained in this meeting invitation is confidential.</property>
-  <property name="invitationHelpUrl">http://meet.contoso.com/help</property>
-  <property name="invitationLegalUrl">http://meet.contoso.com/disclaimer.html</property>
-  <property name="invitationLogoUrl">http://meet.contoso.com/companylogo.png</property>
+  <property name="invitationHelpUrl">https://meet.contoso.com/help</property>
+  <property name="invitationLegalUrl">https://meet.contoso.com/disclaimer.html</property>
+  <property name="invitationLogoUrl">https://meet.contoso.com/companylogo.png</property>
 </resource>
 ```
 

@@ -152,7 +152,7 @@ Calls other people on Skype, and automatically turns on the call originator's vi
  **Caveats**
 
 
-* Specifying multiple participants results in a [group video call](http://www.skype.com/go/groupvideocalling/).
+* Specifying multiple participants results in a [group video call](https://www.skype.com/go/groupvideocalling/).
 
   * The number of participants is limited to ten, with a recommended maximum of five for the best call quality.
   * Mobile Skype clients (iOS and Android) do not support initiating/hosting group video calls.

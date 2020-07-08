@@ -7,7 +7,7 @@ Learn about the Fiddler debugging proxy, the built-in debugging capabilities of 
 
 This topic describes tracing and debugging tools that are available to developers of web applications.
 
-For information about Fiddler, see [Fiddler Power Toy - Part 1: HTTP Debugging](http://msdn.microsoft.com/en-us/library/bb250446%28v=VS.85%29.aspx) and [Fiddler Power Toy - Part 2: HTTP Performance](http://msdn.microsoft.com/en-us/library/bb250442%28v=vs.85%29).
+For information about Fiddler, see [Fiddler Power Toy - Part 1: HTTP Debugging](https://msdn.microsoft.com/en-us/library/bb250446%28v=VS.85%29.aspx) and [Fiddler Power Toy - Part 2: HTTP Performance](https://msdn.microsoft.com/en-us/library/bb250442%28v=vs.85%29).
 
 ## Fiddler
 
@@ -22,7 +22,7 @@ In a manner similar to Fiddler, all supported browsers are capable of capturing 
 
 Additionally, they also contain JavaScript debuggers that can be used to set breakpoints, single step through scripts to inspect the values of variables, and perform other related tasks.
 
-For information about the debugging capabilities in Internet Explorer, see [F12 Developer Tools](http://msdn.microsoft.com/en-us/library/hh772704%28v=vs.85%29).
+For information about the debugging capabilities in Internet Explorer, see [F12 Developer Tools](https://msdn.microsoft.com/en-us/library/hh772704%28v=vs.85%29).
 
 For information of interest to Google Chrome users, see [Chrome Developer Tools](https://developers.google.com/chrome-developer-tools/).
 

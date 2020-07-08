@@ -92,7 +92,7 @@ The following code sample is an example of the Dialog Listener configuration fil
     </specialSources>
   </loggingConfiguration>
   <appSettings>
-    <add key="configurationserviceuri" value="http://sdnpool.LNEPROD.contoso.com:9333/Settings"/>
+    <add key="configurationserviceuri" value="https://sdnpool.LNEPROD.contoso.com:9333/Settings"/>
     <add key="configurationcertificate" value=""/> <!-- thumbprint of a client certificate to use to authenticate the DL with the SM -->
     <add key="configurationrefresh" value="00:01:00"/> <!-- Period for refreshing the settings from the configuration service -->
     <add key="checkdns" value="True"/>   <!-- use a URI provided by the DNS SRV record for locating the configuration service -->

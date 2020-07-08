@@ -44,7 +44,7 @@ To add your bot to Skype for Business, you must be the tenant administrator of a
 
 ### To add a bot
 
-1. [Download and install the Skype for Business Online Connector module](http://go.microsoft.com/fwlink/?LinkId=294688).
+1. [Download and install the Skype for Business Online Connector module](https://go.microsoft.com/fwlink/?LinkId=294688).
 
 2. Open Windows PowerShell as Administrator and run the following:
 
@@ -183,7 +183,7 @@ To delete a bot completely from a Skype for Business tenant, you must be the ten
 
 ### To delete a bot
 
-1. [Download and install the Skype for Business Online Connector module](http://go.microsoft.com/fwlink/?LinkId=294688).
+1. [Download and install the Skype for Business Online Connector module](https://go.microsoft.com/fwlink/?LinkId=294688).
 
 2. Open Windows PowerShell as Administrator and run the following:
 

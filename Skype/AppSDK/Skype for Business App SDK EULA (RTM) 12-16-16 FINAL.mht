@@ -1,7 +1,7 @@
 MIME-Version: 1.0
 Content-Type: multipart/related; boundary="----=_NextPart_01D2579E.BBDB5AD0"
 
-This document is a Single File Web Page, also known as a Web Archive file.  If you are seeing this message, your browser or editor doesn't support Web Archive files.  Please download a browser that supports Web Archive, such as Windows® Internet Explorer®.
+This document is a Single File Web Page, also known as a Web Archive file.  If you are seeing this message, your browser or editor doesn't support Web Archive files.  Please download a browser that supports Web Archive, such as Windowsï¿½ Internet Explorerï¿½.
 
 ------=_NextPart_01D2579E.BBDB5AD0
 Content-Location: file:///C:/CE85C06C/SkypeforBusinessAppSDKEULA(RTM)12-16-16FINAL.htm
@@ -12,7 +12,7 @@ Content-Type: text/html; charset="us-ascii"
 xmlns:o=3D"urn:schemas-microsoft-com:office:office"
 xmlns:w=3D"urn:schemas-microsoft-com:office:word"
 xmlns:dt=3D"uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
-xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml"
+xmlns:m=3D"https://schemas.microsoft.com/office/2004/12/omml"
 xmlns=3D"http://www.w3.org/TR/REC-html40">
 
 <head>
@@ -4852,9 +4852,9 @@ mso-fareast-font-family:"Times New Roman";mso-ansi-language:EN;font-weight:
 normal'>Privacy Statement</span><span lang=3DEN style=3D'font-size:10.0pt;
 font-weight:normal'> </span><span style=3D'font-size:10.0pt;font-weight:nor=
 mal'>at
-</span><a href=3D"http://go.microsoft.com/fwlink/?LinkID=3D517480"><span
+</span><a href=3D"https://go.microsoft.com/fwlink/?LinkID=3D517480"><span
 style=3D'font-size:10.0pt;mso-bidi-font-family:Tahoma;font-weight:normal;
-mso-bidi-font-weight:bold'>http://go.microsoft.com/fwlink/?LinkID=3D517480<=
+mso-bidi-font-weight:bold'>https://go.microsoft.com/fwlink/?LinkID=3D517480<=
 /span></a><span
 style=3D'font-size:10.0pt;font-weight:normal;mso-bidi-font-weight:bold'>
 (&#8220;Privacy Statement&#8221;)</span><span lang=3DEN style=3D'font-size:=
@@ -4883,7 +4883,7 @@ he
 software that only allow you to use it in certain ways. </span><span
 style=3D'font-size:10.0pt;mso-fareast-font-family:SimSun'>For more informat=
 ion,
-see </span><a href=3D"http://www.microsoft.com/licensing/userights"><span
+see </span><a href=3D"https://www.microsoft.com/licensing/userights"><span
 style=3D'font-size:10.0pt;mso-fareast-font-family:SimSun;mso-bidi-font-fami=
 ly:
 Tahoma'>www.microsoft.com/licensing/userights</span></a><span style=3D'font=
@@ -5380,7 +5380,7 @@ Content-Location: file:///C:/CE85C06C/SkypeforBusinessAppSDKEULA(RTM)12-16-16FIN
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/xml
 
-<?mso-contentType?><FormTemplates xmlns=3D"http://schemas.microsoft.com/sha=
+<?mso-contentType?><FormTemplates xmlns=3D"https://schemas.microsoft.com/sha=
 repoint/v3/contenttype/forms"><Display>DocumentLibraryForm</Display><Edit>D=
 ocumentLibraryForm</Edit><New>DocumentLibraryForm</New></FormTemplates>
 ------=_NextPart_01D2579E.BBDB5AD0
@@ -5391,7 +5391,7 @@ Content-Type: text/xml
 <?xml version=3D"1.0" encoding=3D"UTF-8" standalone=3D"no"?>
 <ds:datastoreItem ds:itemID=3D"{46499668-4A2B-4348-A9AE-F484B36F4307}" xmln=
 s:ds=3D"http://schemas.openxmlformats.org/officeDocument/2006/customXml"><d=
-s:schemaRefs><ds:schemaRef ds:uri=3D"http://schemas.microsoft.com/sharepoin=
+s:schemaRefs><ds:schemaRef ds:uri=3D"https://schemas.microsoft.com/sharepoin=
 t/v3/contenttype/forms"/></ds:schemaRefs></ds:datastoreItem>
 ------=_NextPart_01D2579E.BBDB5AD0
 Content-Location: file:///C:/CE85C06C/SkypeforBusinessAppSDKEULA(RTM)12-16-16FINAL_files/item0007.xml
@@ -5402,10 +5402,10 @@ Content-Type: text/xml
 a:_=3D"" ma:contentTypeName=3D"Document" ma:contentTypeID=3D"0x0101003A04F4=
 D07D4A104B8DFEAB7C6A73FB7B" ma:contentTypeVersion=3D"2" ma:contentTypeDescr=
 iption=3D"Create a new document." ma:contentTypeScope=3D"" ma:versionID=3D"=
-ab861a04109fd2019c940b41d730f00d" xmlns:ct=3D"http://schemas.microsoft.com/=
-office/2006/metadata/contentType" xmlns:ma=3D"http://schemas.microsoft.com/=
+ab861a04109fd2019c940b41d730f00d" xmlns:ct=3D"https://schemas.microsoft.com/=
+office/2006/metadata/contentType" xmlns:ma=3D"https://schemas.microsoft.com/=
 office/2006/metadata/properties/metaAttributes">
-<xsd:schema targetNamespace=3D"http://schemas.microsoft.com/office/2006/met=
+<xsd:schema targetNamespace=3D"https://schemas.microsoft.com/office/2006/met=
 adata/properties" ma:root=3D"true" ma:fieldsID=3D"6a579c736c3008410551dd946=
 621551a" ns2:_=3D"" xmlns:xsd=3D"http://www.w3.org/2001/XMLSchema" xmlns:xs=
 =3D"http://www.w3.org/2001/XMLSchema" xmlns:p=3D"http://schemas.microsoft.c=
@@ -5432,9 +5432,9 @@ tFormDefault=3D"qualified" xmlns:xsd=3D"http://www.w3.org/2001/XMLSchema" x=
 mlns:xs=3D"http://www.w3.org/2001/XMLSchema" xmlns:dms=3D"http://schemas.mi=
 crosoft.com/office/2006/documentManagement/types" xmlns:pc=3D"http://schema=
 s.microsoft.com/office/infopath/2007/PartnerControls">
-<xsd:import namespace=3D"http://schemas.microsoft.com/office/2006/documentM=
+<xsd:import namespace=3D"https://schemas.microsoft.com/office/2006/documentM=
 anagement/types"/>
-<xsd:import namespace=3D"http://schemas.microsoft.com/office/infopath/2007/=
+<xsd:import namespace=3D"https://schemas.microsoft.com/office/infopath/2007/=
 PartnerControls"/>
 <xsd:element name=3D"SharedWithUsers" ma:index=3D"8" nillable=3D"true" ma:d=
 isplayName=3D"Shared With" ma:description=3D"" ma:internalName=3D"SharedWit=
@@ -5474,7 +5474,7 @@ Default=3D"unqualified" blockDefault=3D"#all" xmlns=3D"http://schemas.openx=
 mlformats.org/package/2006/metadata/core-properties" xmlns:xsd=3D"http://ww=
 w.w3.org/2001/XMLSchema" xmlns:xsi=3D"http://www.w3.org/2001/XMLSchema-inst=
 ance" xmlns:dc=3D"http://purl.org/dc/elements/1.1/" xmlns:dcterms=3D"http:/=
-/purl.org/dc/terms/" xmlns:odoc=3D"http://schemas.microsoft.com/internal/ob=
+/purl.org/dc/terms/" xmlns:odoc=3D"https://schemas.microsoft.com/internal/ob=
 d">
 <xsd:import namespace=3D"http://purl.org/dc/elements/1.1/" schemaLocation=
 =3D"http://dublincore.org/schemas/xmls/qdc/2003/04/02/dc.xsd"/>
@@ -5517,9 +5517,9 @@ ion.
 </xsd:all>
 </xsd:complexType>
 </xsd:schema>
-<xs:schema targetNamespace=3D"http://schemas.microsoft.com/office/infopath/=
+<xs:schema targetNamespace=3D"https://schemas.microsoft.com/office/infopath/=
 2007/PartnerControls" elementFormDefault=3D"qualified" attributeFormDefault=
-=3D"unqualified" xmlns:pc=3D"http://schemas.microsoft.com/office/infopath/2=
+=3D"unqualified" xmlns:pc=3D"https://schemas.microsoft.com/office/infopath/2=
 007/PartnerControls" xmlns:xs=3D"http://www.w3.org/2001/XMLSchema">
 <xs:element name=3D"Person">
 <xs:complexType>
@@ -5598,18 +5598,18 @@ Content-Type: text/xml
 <?xml version=3D"1.0" encoding=3D"UTF-8" standalone=3D"no"?>
 <ds:datastoreItem ds:itemID=3D"{58D484D4-F69D-45DC-9C2B-F08A9013D260}" xmln=
 s:ds=3D"http://schemas.openxmlformats.org/officeDocument/2006/customXml"><d=
-s:schemaRefs><ds:schemaRef ds:uri=3D"http://schemas.microsoft.com/office/20=
+s:schemaRefs><ds:schemaRef ds:uri=3D"https://schemas.microsoft.com/office/20=
 06/metadata/contentType"/><ds:schemaRef ds:uri=3D"http://schemas.microsoft.=
 com/office/2006/metadata/properties/metaAttributes"/><ds:schemaRef ds:uri=
 =3D"http://www.w3.org/2001/XMLSchema"/><ds:schemaRef ds:uri=3D"http://schem=
 as.microsoft.com/office/2006/metadata/properties"/><ds:schemaRef ds:uri=3D"=
 d5a465a5-ef2e-4a66-b735-6133f3eb4577"/><ds:schemaRef ds:uri=3D"http://schem=
 as.microsoft.com/office/2006/documentManagement/types"/><ds:schemaRef ds:ur=
-i=3D"http://schemas.microsoft.com/office/infopath/2007/PartnerControls"/><d=
+i=3D"https://schemas.microsoft.com/office/infopath/2007/PartnerControls"/><d=
 s:schemaRef ds:uri=3D"http://schemas.openxmlformats.org/package/2006/metada=
 ta/core-properties"/><ds:schemaRef ds:uri=3D"http://purl.org/dc/elements/1.=
 1/"/><ds:schemaRef ds:uri=3D"http://purl.org/dc/terms/"/><ds:schemaRef ds:u=
-ri=3D"http://schemas.microsoft.com/internal/obd"/></ds:schemaRefs></ds:data=
+ri=3D"https://schemas.microsoft.com/internal/obd"/></ds:schemaRefs></ds:data=
 storeItem>
 ------=_NextPart_01D2579E.BBDB5AD0
 Content-Location: file:///C:/CE85C06C/SkypeforBusinessAppSDKEULA(RTM)12-16-16FINAL_files/item0009.xml
@@ -5627,7 +5627,7 @@ Content-Type: text/xml
 <?xml version=3D"1.0" encoding=3D"UTF-8" standalone=3D"no"?>
 <ds:datastoreItem ds:itemID=3D"{0A373E60-B4EB-4AF5-8A91-6CC0076B1EA7}" xmln=
 s:ds=3D"http://schemas.openxmlformats.org/officeDocument/2006/customXml"><d=
-s:schemaRefs><ds:schemaRef ds:uri=3D"http://schemas.microsoft.com/office/20=
+s:schemaRefs><ds:schemaRef ds:uri=3D"https://schemas.microsoft.com/office/20=
 06/metadata/properties"/></ds:schemaRefs></ds:datastoreItem>
 ------=_NextPart_01D2579E.BBDB5AD0
 Content-Location: file:///C:/CE85C06C/SkypeforBusinessAppSDKEULA(RTM)12-16-16FINAL_files/item0011.xml
@@ -5727,7 +5727,7 @@ Content-Type: text/html; charset="us-ascii"
 <html xmlns:v=3D"urn:schemas-microsoft-com:vml"
 xmlns:o=3D"urn:schemas-microsoft-com:office:office"
 xmlns:w=3D"urn:schemas-microsoft-com:office:word"
-xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml"
+xmlns:m=3D"https://schemas.microsoft.com/office/2004/12/omml"
 xmlns=3D"http://www.w3.org/TR/REC-html40">
 
 <head>

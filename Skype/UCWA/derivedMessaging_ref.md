@@ -174,7 +174,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 1067
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="messaging" href="/ucwa/v1/applications/192/communication/conversations/137/messaging" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="messaging" href="/ucwa/v1/applications/192/communication/conversations/137/messaging" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="addMessaging" href="/ucwa/v1/applications/192/communication/conversations/137/messaging/addMessaging" />
   <link rel="conversation" href="/ucwa/v1/applications/192/communication/conversations/137" />
   <link rel="sendMessage" href="/ucwa/v1/applications/192/communication/conversations/137/messaging/sendMessage" />

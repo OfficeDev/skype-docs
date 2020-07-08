@@ -104,7 +104,7 @@ establishOptions.Toast = ″Good morning! ″;
 // A link to where the application can be installed (used only when the application is not installed). 
 establishOptions.ApplicationInstallerPath = ″www.Contoso.com/Download″; 
 // Shows a simple URL in the conversation history. 
-establishOptions.SimpleLink = ″http://www.microsoft.com/en/us/default.aspx″; 
+establishOptions.SimpleLink = ″https://www.microsoft.com/en/us/default.aspx″; 
 // Override the conversation ID which will be used to launch the application in the correct conversation window. 
 establishOptions.RemoteConversationId = conversation.Id; 
 // Pass any data that the application needs for initialization. 

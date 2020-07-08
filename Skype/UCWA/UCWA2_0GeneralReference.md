@@ -23,7 +23,7 @@ Although UCWA 2.0 is language-independent, you can develop using any programming
 
 ### Anonymous web chat
 
-An increasing number of online shoppers believe the #1 feature of an e-commerce site is the ability to chat with a rep in real-time. Mobile users also expect support from within apps. The combination of UCWA 2.0 and [UCMA 5.0](http://go.microsoft.com/fwlink/?LinkId=534806) gives you the tools to delight your website visitors and mobile app users with a seamless customer care experience.
+An increasing number of online shoppers believe the #1 feature of an e-commerce site is the ability to chat with a rep in real-time. Mobile users also expect support from within apps. The combination of UCWA 2.0 and [UCMA 5.0](https://go.microsoft.com/fwlink/?LinkId=534806) gives you the tools to delight your website visitors and mobile app users with a seamless customer care experience.
 
 
 ### Line-of-Business applications

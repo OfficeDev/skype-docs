@@ -538,7 +538,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 6519
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="myGroups" href="/ucwa/v1/applications/192/groups" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="myGroups" href="/ucwa/v1/applications/192/groups" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="distributionGroup" href="/ucwa/v1/applications/192/groups/distributionGroup" />
   <link rel="group" href="/ucwa/v1/applications/192/groups/group" />
   <link rel="defaultGroup" href="/ucwa/v1/applications/192/groups/defaultGroup" />

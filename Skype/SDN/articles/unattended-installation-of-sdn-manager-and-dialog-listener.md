@@ -168,7 +168,7 @@ Follow the guidelines for an unattended install:
 <td><p>The connect string to access a REDIS cache server. For example, to connect to Azure the connect string might appear as follows:<br />
 <br />
 myname.redis.cache.windows.net,ssl=true,password=VeryLongKeyCopiedFromPortal</p>
-<p>For more information, see <a href="http://azure.microsoft.com/en-us/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/">How to Use Azure Redis Cache</a></p></td>
+<p>For more information, see <a href="https://azure.microsoft.com/en-us/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/">How to Use Azure Redis Cache</a></p></td>
 </tr>
 <tr class="odd">
 <td><p>REDIS_PASSWORD</p></td>

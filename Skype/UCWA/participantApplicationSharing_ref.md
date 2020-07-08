@@ -287,7 +287,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 555
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="participantApplicationSharing" href="/ucwa/v1/applications/192/communication/conversations/137/participants/196/participantApplicationSharing" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="participantApplicationSharing" href="/ucwa/v1/applications/192/communication/conversations/137/participants/196/participantApplicationSharing" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="participant" href="/ucwa/v1/applications/192/communication/conversations/137/participants/196" />
   <property name="rel">participantApplicationSharing</property>
   <property name="applicationSharingDirection">Unknown</property>

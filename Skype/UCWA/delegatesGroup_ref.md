@@ -248,7 +248,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 495
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="delegatesGroup" href="/ucwa/v1/applications/192/groups/delegatesGroup" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="delegatesGroup" href="/ucwa/v1/applications/192/groups/delegatesGroup" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="groupContacts" href="/ucwa/v1/applications/192/contacts" />
   <link rel="subscribeToGroupPresence" href="/ucwa/v1/applications/192/groups/group/subscribeToGroupPresence" />
   <property name="rel">delegatesGroup</property>

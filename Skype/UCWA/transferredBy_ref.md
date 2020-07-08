@@ -212,7 +212,7 @@ Etag: 61fd9409-6fad-495b-89bc-4e8716e7990a
 Content-Type: application/xml
 Content-Length: 1634
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="transferredBy" href="/ucwa/v1/applications/192/people/766" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="transferredBy" href="/ucwa/v1/applications/192/people/766" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="contactLocation" href="/ucwa/v1/applications/192/people/282/contactLocation" />
   <link rel="contactNote" href="/ucwa/v1/applications/192/people/282/contactNote" />
   <link rel="contactPhoto" href="/ucwa/v1/applications/192/people/282/contactPhoto" />

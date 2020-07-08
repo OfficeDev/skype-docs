@@ -195,7 +195,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 1563
 <?xml version="1.0" encoding="utf-8"?>
-<resource rel="conversationLogTranscript" href="/ucwa/v1/applications/192/communication/conversationLogs/conversationLog/conversationLogTranscripts/conversationLogTranscript" xmlns="http://schemas.microsoft.com/rtc/2012/03/ucwa">
+<resource rel="conversationLogTranscript" href="/ucwa/v1/applications/192/communication/conversationLogs/conversationLog/conversationLogTranscripts/conversationLogTranscript" xmlns="https://schemas.microsoft.com/rtc/2012/03/ucwa">
   <link rel="contact" href="/ucwa/v1/applications/192/people/282" />
   <link rel="me" href="/ucwa/v1/applications/192/me" />
   <property name="rel">conversationLogTranscript</property>
