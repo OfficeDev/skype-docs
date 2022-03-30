@@ -1,9 +1,9 @@
 ---
-title: Appendix to Skype for Business SDN Interface
- 
+title: Skype for Business SDN Interface Appendix 
+description: The Appendix contains examples of the SDN Manager and Dialog Listener configuration files, example input and output for the Dialog Listener console application, and instructions for using the SIP Obfuscator with the Skype for Business SDN Interface.
+ms.date: 03/30/2022
 ms.assetid: 96830fcf-2a72-4a2a-8b3b-b523e0e8f4cd
 ---
-
 
 # Skype for Business SDN Interface Appendix
 

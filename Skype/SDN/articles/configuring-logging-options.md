@@ -1,11 +1,12 @@
 ---
-title: Configuring SDN Interface logging options
- 
+title: Configure SDN Interface logging options
+description: This article explains how to configure the logging options in the DialogListener.exe.config and SDNManager.exe.config files directly.
+ms.date: 03/29/2022
 ms.assetid: 0f604c7d-87a3-4526-b67c-25648c8427e7
 ---
 
 
-# Configuring SDN Interface logging options
+# Configure SDN Interface logging options
 
  **Applies to**: Lync Server 2013 | Skype for Business 2015 | Skype for Business 2019
 
@@ -13,10 +14,8 @@ Skype for Business SDN Interface version 2.2 and later uses the logging infrastr
   
 The Enterprise Libraries also includes a configuration tool that provides an intuitive graphical user interface for adding and changing settings for the logging configuration. You can use this tool to configure the Dialog Listener logging options. This article explains how to configure the logging options in the DialogListener.exe.config and SDNManager.exe.config files directly.
 
-## Configure logging options
+## To manually set the most common logging configurations
 
-To manually set the most common logging configurations, do the following:
-  
 1. Open the DialogListener.exe.config or SDNManager.exe.config file, as appropriate, using a text editor of choice.
 
 2. Search for the `<loggingConfiguration>` section and make appropriate changes to entries under the `<listeners>`, `<formatters>` and `<categorySource>` elements.
@@ -63,7 +62,7 @@ The examples illustrated updates to the logging configuration files. The first e
 
 ```
 
-## Logging configuration options for the Dialog Listener
+## Log configuration options for the Dialog Listener
 
 The Dialog Listener default configuration supports the following types of logging:
   
@@ -74,7 +73,7 @@ The Dialog Listener default configuration supports the following types of loggin
 |QoEInputDataLog |Logs the quality of experience raw data from the Skype for Business Server. |
 |DialogDataLog |Logs the dialog data, including SIP messages and SDP headers. |
 
-## Logging configuration options for the SDN Manager
+## Log configuration options for the SDN Manager
 
 The SDN Manager default configuration supports the following types of logging:
   

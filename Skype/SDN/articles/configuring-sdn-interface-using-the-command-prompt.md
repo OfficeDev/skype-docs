@@ -1,11 +1,11 @@
 ---
-title: Configuring SDN Interface using the command prompt
- 
+title: Configure SDN Interface using the command prompt
+description: Learn how to access and modify settings uysed by the Dialog Listener and SDN manager using the command prompt.
+ms.date: 03/30/2022
 ms.assetid: b411b6d6-4597-416f-8a68-292527d3f226
 ---
 
-
-# Configuring SDN Interface using the command prompt
+# Configure SDN Interface using the command prompt
 
  **Applies to**: Lync Server 2013 | Skype for Business 2015 | Skype for Business 2019
 

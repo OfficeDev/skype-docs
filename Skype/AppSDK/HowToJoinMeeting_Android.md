@@ -1,7 +1,7 @@
 ---
 title: Use the SDK to join a meeting with an Android device
-description: Learn how to enable the core Skype for Business anonymous meeting join scenario in your Android app. 
-ms.date: 03/302022
+description: Learn how to enable the core Skype for Business anonymous meeting join scenario in your Android app.
+ms.date: 3/30/2022
 ---
 
 # Use the SDK to join a meeting with an Android device

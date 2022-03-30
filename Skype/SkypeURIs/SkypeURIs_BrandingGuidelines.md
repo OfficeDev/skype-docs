@@ -1,3 +1,8 @@
+---
+title: Skype URIs branding guidelines
+description: Learn how to properly and effectively incorporate Skype branding elements into your applications.
+ms.date: 03/29/2022
+---
 
 # Skype URIs: Branding guidelines
 
@@ -5,15 +10,11 @@ Learn how to properly and effectively incorporate Skype branding elements into y
 
 **Applies to:** Skype_
 
-Your use of the Skype logo, name, and other brand elements in your app's design, appearance, and marketing materials are
-detailed in and governed by the [Skype Brand Guidelines](https://www.skype.com/go/brand-guidelines/). As a general rule,
-third parties _may not_ use the Skype Brand Elements unless they have either received prior written permission, or the
-proposed use falls within certain limited exceptions.
+Your use of the Skype logo, name, and other brand elements in your app's design, appearance, and marketing materials are detailed in and governed by the [Skype Brand Guidelines](https://www.skype.com/go/brand-guidelines/). As a general rule, third parties _may not_ use the Skype Brand Elements unless they have either received prior written permission, or the proposed use falls within certain limited exceptions.
 
 In particular, your app or webpage:
 
-* Must not incorporate any of the Skype Brand Elements, or variations thereof, into your own product names, service names,
-trademarks, logos, company names, domain names, meta tags, adwords, keywords, search terms, and so forth.
+* Must not incorporate any of the Skype Brand Elements, or variations thereof, into your own product names, service names, trademarks, logos, company names, domain names, meta tags, adwords, keywords, search terms, and so forth.
 * Must ensure sufficient space around the Skype Brand Elements so they appear clean and uncluttered.
 * Must ensure placement of the Skype Brand Elements on an appropriate background.
 

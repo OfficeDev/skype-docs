@@ -1,3 +1,8 @@
+---
+title: Developing Web SDK applications for Skype for Business Online
+description: Learn how to develop a Skype Web SDK client application for Skype for Business Online.
+ms.date: 03/29/2022
+---
 
 # Developing Web SDK applications for Skype for Business Online
 
@@ -215,5 +220,5 @@ Access the URL and authenticate using a tenant administrator credentials and acc
 - [How to get an Azure Active Directory tenant](https://azure.microsoft.com/documentation/articles/active-directory-howto-tenant/)
 - [Managing Applications with Azure Active Directory (AD)](https://azure.microsoft.com/documentation/articles/active-directory-enable-sso-scenario/)
 - [Registering Your Application in Azure AD](https://technet.microsoft.com/library/9e4d9905-a17c-458d-8cf5-d384f5bd65fd.aspx)
-- [Integrating Applications with Azure Active Directory](https://azure.microsoft.com/en-us/documentation/articles/active-directory-integrating-applications/)
-- [Active Directory Authentication Scenarios](https://azure.microsoft.com/en-us/documentation/articles/active-directory-authentication-scenarios/)
+- [Integrating Applications with Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/)
+- [Active Directory Authentication Scenarios](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/)

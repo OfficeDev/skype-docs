@@ -1,3 +1,8 @@
+---
+title: Skype URIs
+description: Learn about Skype development options, and using the Skype URIs to start calls and chats in the Skype clients.
+ms.date: 03/29/2022
+---
 
 # Skype URIs
 
@@ -87,11 +92,11 @@ Skype client options, and user actions, as follows:
 
     **Figure 1. Internet Explorer dialog box**
 
-    ![Dialog box prompting user to allow Skype to open](images/skypeUri_AllowProgramOpen_IE.png)
+    ![IE dialog box prompting user to allow Skype to open](images/skypeUri_AllowProgramOpen_IE.png)
 
     **Figure 2. Firefox dialog box**
 
-    ![Dialog box prompting user to allow Skype to open](images/skypeUri_AllowProgramOpen_Android.png)
+    ![Firefox dialog box prompting user to allow Skype to open](images/skypeUri_AllowProgramOpen_Android.png)
 
 * The user will have to log on if the Skype client is currently:
 

@@ -1,10 +1,11 @@
 ---
-title: Configuring InCallQoE Messages
+title: Configure InCallQoE Messages
+description: Learn how to configure in-call quality reporting for Skype for Business Server.
+ms.date: 03/30/2022
 ms.assetid: b96a25eb-c900-4942-9384-2fbca6f84b05
 ---
 
-
-# Configuring InCallQoE Messages
+# Configure InCallQoE Messages
 
 Learn how to configure in-call quality reporting for Skype for Business Server.
 

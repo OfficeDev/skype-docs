@@ -1,3 +1,8 @@
+---
+title: Skype URI API reference
+description: Learn how to use Skype URIs to add Skype functionality to your client applications.
+ms.date: 03/29/2022
+---
 
 # Skype URI API reference
 
