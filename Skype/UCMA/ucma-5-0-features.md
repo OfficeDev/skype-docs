@@ -1,4 +1,5 @@
 ---
+description: Learn about the features of UCMA 5.0 for Skype for Business 2015. 
 title: UCMA 5.0 features (Unified Communications Managed API 5.0)
 TOCTitle: UCMA 5.0 features
 ms:assetid: 4dfe8247-1b67-4d66-9ca1-0b7f5d919385
@@ -34,5 +35,5 @@ This section discusses the most important features of Microsoft Unified Communic
 
 ## See also
 
-- [Microsoft.Rtc.Collaboration Namespace](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration?view=ucma-api-5.0)
-- [Microsoft.Rtc.Collaboration.AudioVideo.VoiceXml Namespace](https://docs.microsoft.com/dotnet/api/Microsoft.Rtc.Collaboration.AudioVideo.VoiceXml?view=ucma-voice)
+- [Microsoft.Rtc.Collaboration Namespace](/dotnet/api/microsoft.rtc.collaboration)
+- [Microsoft.Rtc.Collaboration.AudioVideo.VoiceXml Namespace](/dotnet/api/Microsoft.Rtc.Collaboration.AudioVideo.VoiceXml)

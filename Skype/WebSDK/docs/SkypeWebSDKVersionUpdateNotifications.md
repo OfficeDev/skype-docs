@@ -1,3 +1,8 @@
+---
+title: Skype Web SDK version update notifications
+description: Version update notifications for Skype Web SDK.
+---
+
 # Skype Web SDK version update notifications
 
 ## Skype Web SDK Version Update 07/27/18
@@ -75,7 +80,7 @@
 **Bugs fixed in the new public preview build:**
 * Fix bug in hold/resume video in group converstations
 
-## Skype Web SDK Version Update 5/29/17
+## Skype Web SDK Version Update 6/8/17
 
 | Product        | New version           | Last updated  |Previous version
 | ------------- |:-------------:| :-----:|:----------:|

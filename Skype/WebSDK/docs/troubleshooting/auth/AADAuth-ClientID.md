@@ -64,4 +64,4 @@ Use this **client_id** in both the places mentioned in the above section, and yo
 <a name="related-topics"></a>
 ## Related Topics
 - [Troubleshooting AAD Auth Failures for Skype Web SDK](./AADAuthFailures.md)
-- [Integrating Applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-integrating-applications)
+- [Integrating Applications with Azure Active Directory](/azure/active-directory/active-directory-integrating-applications)

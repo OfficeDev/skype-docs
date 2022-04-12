@@ -19,10 +19,7 @@ Codec and estimates for the bandwidth that the codecs will use. This list contai
 ## Element information
 
 <table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
+
 <tbody>
 <tr class="odd">
 <td><p><strong>Element type</strong></p></td>
@@ -55,11 +52,7 @@ Codec and estimates for the bandwidth that the codecs will use. This list contai
 ### Parent elements
 
 <table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
+
 <thead>
 <tr class="header">
 <th><p>Element</p></th>
@@ -80,11 +73,7 @@ Codec and estimates for the bandwidth that the codecs will use. This list contai
 ### Child elements
 
 <table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
+
 <thead>
 <tr class="header">
 <th><p>Element</p></th>
@@ -110,13 +99,7 @@ Codec and estimates for the bandwidth that the codecs will use. This list contai
 ### Attributes
 
 <table>
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-</colgroup>
+
 <thead>
 <tr class="header">
 <th><p>Attribute</p></th>

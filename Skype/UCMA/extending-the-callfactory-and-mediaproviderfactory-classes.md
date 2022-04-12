@@ -1,6 +1,7 @@
 ﻿---
 title: Extending the CallFactory and MediaProviderFactory classes
 TOCTitle: Extending the CallFactory and MediaProviderFactory classes
+description: The skills required for creating the factory classes are more extensive than those required for registering these classes with the platform.
 ms:assetid: 5e604df7-b1ed-4dfe-af25-6577f449af5f
 ms:mtpsurl: https://msdn.microsoft.com/library/Dn466109(v=office.16)
 ms:contentKeyID: 65240026
@@ -17,7 +18,7 @@ dev_langs:
 
 
 
-After creating subclasses of the [Call](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.call?view=ucma-api), [MediaProvider](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.componentmodel.mediaprovider?view=ucma-api), and [MediaFlow](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.componentmodel.mediaflow?view=ucma-api) classes, you must create factory classes for the **Call** and **MediaProvider** subclasses. These factory classes are subclasses of the [CallFactory](https://msdn.microsoft.com/library/hh384820\(v=office.16\)) and [MediaProviderFactory](https://msdn.microsoft.com/library/hh382428\(v=office.16\)) abstract classes. These factory classes create instances of the **Call** and **MediaProvider** subclasses that you created previously. After the factory classes are created, they must be registered with the platform. If the custom media type is replacing an existing media type, the existing extension must be unregistered first. If the custom media type is not replacing an existing media type, applications should be designed to attempt to remove the media type before adding it.
+After creating subclasses of the [Call](/dotnet/api/microsoft.rtc.collaboration.call?view=ucma-api), [MediaProvider](/dotnet/api/microsoft.rtc.collaboration.componentmodel.mediaprovider?view=ucma-api), and [MediaFlow](/dotnet/api/microsoft.rtc.collaboration.componentmodel.mediaflow?view=ucma-api) classes, you must create factory classes for the **Call** and **MediaProvider** subclasses. These factory classes are subclasses of the [CallFactory](https://msdn.microsoft.com/library/hh384820\(v=office.16\)) and [MediaProviderFactory](https://msdn.microsoft.com/library/hh382428\(v=office.16\)) abstract classes. These factory classes create instances of the **Call** and **MediaProvider** subclasses that you created previously. After the factory classes are created, they must be registered with the platform. If the custom media type is replacing an existing media type, the existing extension must be unregistered first. If the custom media type is not replacing an existing media type, applications should be designed to attempt to remove the media type before adding it.
 
 The skills required for creating the factory classes are more extensive than those required for registering these classes with the platform. The two sections that follow describe how to register and unregister platform extensions, and provide tips on managing media types. These tasks can be allocated to less experienced developers. The last section in this topic describes how to create the factory classes, a task that should be assigned to more experienced developers.
 
@@ -29,8 +30,8 @@ The following methods are available for installing and uninstalling custom exten
 
 <table>
 <colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
+<col />
+<col />
 </colgroup>
 <thead>
 <tr class="header">
@@ -104,7 +105,7 @@ The **Create** method is called when a request is matched with the extension, an
 
 After the factories and the **Call** and **MediaProvider** subclasses are created, they can be packaged in a DLL and installed on a system for use by other application writers. Application writers can then use the process described in the previous section (Registering and Unregistering Platform Extensions) to install the platform extensions when the application starts up.
 
-## Managing media types
+## Managing media types for custom call and MediaProvider subclasses
 
 When you configure platform extensions, ensure that there is no overlap between the supported media types. For example, the default audio extension also supports video. If you remove it to add an alternate audio/only extension, you will lose the video support of the default extension in the process. You will need to install a video-only extension if you want to use your custom audio extensions with video.
 

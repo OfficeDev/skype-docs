@@ -73,10 +73,7 @@ The examples illustrated updates to the logging configuration files. The first e
 The Dialog Listener default configuration supports the following types of logging:
 
 <table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
+
 <thead>
 <tr class="header">
 <th><p>Logging type</p></th>
@@ -109,10 +106,7 @@ The Dialog Listener default configuration supports the following types of loggin
 The SDN Manager default configuration supports the following types of logging:
 
 <table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
+
 <thead>
 <tr class="header">
 <th><p>Logging type</p></th>

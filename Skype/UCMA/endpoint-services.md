@@ -1,4 +1,5 @@
 ﻿---
+description: Learn about ApplicationEndpoint and UserEndpoint instances in UCMA 5.0. 
 title: Endpoint services (Unified Communications Managed API 5.0)
 TOCTitle: Endpoint services
 ms:assetid: ede76548-3ff1-4c12-a4ca-08f62399be7c
@@ -13,9 +14,9 @@ mtps_version: v=office.16
 
 **Applies to**: Skype for Business 2015
 
-The endpoint (an [ApplicationEndpoint](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.applicationendpoint?view=ucma-api) or [UserEndpoint](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.userendpoint?view=ucma-api) instance) plays a central role in Microsoft Unified Communications Managed API 5.0 because of the access it provides to the communication and collaboration infrastructure.
+The endpoint (an [ApplicationEndpoint](/dotnet/api/microsoft.rtc.collaboration.applicationendpoint) or [UserEndpoint](/dotnet/api/microsoft.rtc.collaboration.userendpoint) instance) plays a central role in Microsoft Unified Communications Managed API 5.0 because of the access it provides to the communication and collaboration infrastructure.
 
-After a [CollaborationPlatform](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.collaborationplatform?view=ucma-api) instance is created, it can be used to create one or more endpoints. An endpoint can then be used to create a conversation, schedule an upcoming conference, publish presence information to others, subscribe to the presence of other parties, manage your contacts, or collect related contacts into groups.
+After a [CollaborationPlatform](/dotnet/api/microsoft.rtc.collaboration.collaborationplatform) instance is created, it can be used to create one or more endpoints. An endpoint can then be used to create a conversation, schedule an upcoming conference, publish presence information to others, subscribe to the presence of other parties, manage your contacts, or collect related contacts into groups.
 
 ## Communication framework
 
@@ -35,7 +36,7 @@ The collaboration framework represents the functionality that can be used to con
 
 ### Presence publishing
 
-An endpoint provides access to a [LocalEndpointPresenceServices](https://msdn.microsoft.com/library/hh350157\(v=office.16\)) instance and a [LocalOwnerPresence](https://msdn.microsoft.com/library/hh382370\(v=office.16\)) instance, which enable an endpoint’s local owner to publish presence information, acknowledge subscriptions requests from remote participants, and carry out related operation. For more information, see [Presence - self and remote](presence-self-and-remote.md), Publishing Presence, and [LocalOwnerPresence](https://msdn.microsoft.com/library/dd279776\(v=office.16\)).
+An endpoint provides access to a [LocalEndpointPresenceServices](https://msdn.microsoft.com/library/hh350157\(v=office.16\)) instance and a [LocalOwnerPresence](/library/hh382370\(v=office.16\)) instance, which enable an endpoint’s local owner to publish presence information, acknowledge subscriptions requests from remote participants, and carry out related operation. For more information, see [Presence - self and remote](presence-self-and-remote.md), Publishing Presence, and [LocalOwnerPresence](https://msdn.microsoft.com/library/dd279776\(v=office.16\)).
 
 ### Presence subscription
 

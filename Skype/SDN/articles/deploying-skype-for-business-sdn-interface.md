@@ -1,6 +1,7 @@
 ﻿---
-title: Deploying Skype for Business SDN Interface
+title: Deploying Skype for Business Software Define Networking (SDN) Interface 
 TOCTitle: Deploying Skype for Business SDN Interface
+description: Microsoft Skype for Business SDN Interface supports different deployment scenarios with noteworthy differences and trade-offs.
 ms:assetid: 28293ebc-d1f4-4715-b7cd-276055e48015
 ms:mtpsurl: https://msdn.microsoft.com/library/Dn785194(v=office.16)
 ms:contentKeyID: 65258658
@@ -8,7 +9,7 @@ ms.date: 02/27/2017
 mtps_version: v=office.16
 ---
 
-# Deploying Skype for Business SDN Interface
+# Deploying Skype for Business Software Define Networking (SDN) Interface
 
 
 _**Applies to:** Lync Server 2013 | Skype for Business 2015_

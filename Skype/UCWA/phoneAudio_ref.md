@@ -1,3 +1,7 @@
+---
+title: PhoneAudio reference for Skype for Business 2015
+description: "PhoneAudio represents the phone audio modality in a conversation. It refers to communication that is delivered via a public switched telephone network or PSTN." 
+---
 # phoneAudio
 
  _**Applies to:** Skype for Business 2015_
@@ -50,6 +54,7 @@ This resource can have the following relationships.
 
 
 The user must have at least one of these scopes for operations on the resource to be allowed.
+
 |**Scope**|**Permission**|**Description**|
 |:-----|:-----|:-----|
 |Conversations.Initiate|Initiate conversations and join meetings|Allows the app to initiate instant messages, audio, video, and desktop sharing conversations; and join meetings on-behalf of the signed-in user|
@@ -60,11 +65,10 @@ The user must have at least one of these scopes for operations on the resource t
 
 ### Updated
 
-
-
 |**Resource**|**Priority**|**Sender**|**Reason**|
 |:-----|:-----|:-----|:-----|
 |phoneAudio|High|conversation|The phoneAudio resource has changed.</p><p></p>|
+
 Sample of returned event data.
 This sample is given only as an illustration of event syntax. The semantic content is not guaranteed to correspond to a valid scenario.
 {

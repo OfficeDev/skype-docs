@@ -1,4 +1,5 @@
 ---
+description: Learn about the key features of UCMA 5.0. 
 title: Key features of UCMA 5.0
 TOCTitle: Key features of UCMA 5.0
 ms:assetid: 7d496be2-794a-4989-82a6-51cb840b964d
@@ -34,9 +35,9 @@ Developers can use the key features listed in this topic to create multimodal an
     
   Developers who implement a custom audio provider can provide support for escalation-to-conferencing for the custom media type.
 
-- Platform extensibility by means of the factory-based [Call](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.call?view=ucma-api) and [MediaProvider](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.componentmodel.mediaprovider?view=ucma-api) classes.
+- Platform extensibility by means of the factory-based [Call](/dotnet/api/microsoft.rtc.collaboration.call?) and [MediaProvider](/dotnet/api/microsoft.rtc.collaboration.componentmodel.mediaprovider?) classes.
     
-  Developers can extend the platform to handle a new media type by creating custom **Call**, **MediaProvider**, and [MediaFlow](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.componentmodel.mediaflow?view=ucma-api) subclasses that work with the new media type.
+  Developers can extend the platform to handle a new media type by creating custom **Call**, **MediaProvider**, and [MediaFlow](/dotnet/api/microsoft.rtc.collaboration.componentmodel.mediaflow?) subclasses that work with the new media type.
 
 ## Offline conference scheduling and management
 
@@ -50,7 +51,7 @@ Developers can use the key features listed in this topic to create multimodal an
 
 ## Contacts and groups
 
-The following features apply only to [UserEndpoint](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.userendpoint?view=ucma-api) type, not the [ApplicationEndpoint](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.applicationendpoint?view=ucma-api) type:
+The following features apply only to [UserEndpoint](/dotnet/api/microsoft.rtc.collaboration.userendpoint?) type, not the [ApplicationEndpoint](/dotnet/api/microsoft.rtc.collaboration.applicationendpoint?) type:
 
 - Contact object registration
 

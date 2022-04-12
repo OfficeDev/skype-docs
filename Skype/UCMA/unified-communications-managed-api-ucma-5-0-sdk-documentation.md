@@ -1,4 +1,5 @@
 ﻿---
+description: Learn how to build applications that leverage the full power of the platform with UCMA 5.0.
 title: Unified Communications Managed API (UCMA) 5.0 SDK documentation
 TOCTitle: Unified Communications Managed API (UCMA) 5.0 SDK documentation
 ms:assetid: 2c531489-0d65-4715-819e-22045a1090a2
@@ -55,19 +56,19 @@ The following are the most important attributes of UCMA 5.0:
 ## In this SDK
 
 - [UCMA 5.0 general reference](ucma-5-0-general-reference.md)
-- [UCMA 5.0 class libraries reference (UCMA 5.0 SDK) - Microsoft.Rtc.Collaboration Namespace](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration?view=ucma-api-5.0)
+- [UCMA 5.0 class libraries reference (UCMA 5.0 SDK) - Microsoft.Rtc.Collaboration Namespace](/dotnet/api/microsoft.rtc.collaboration?)
 
 
 ## See also
 
-- [Microsoft.Rtc.Collaboration.AudioVideo Namespace](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo?view=ucma-api)
-- [Microsoft.Rtc.Collaboration.AudioVideo.VoiceXml Namespace](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.voicexml?view=ucma-voice)
-- [Microsoft.Rtc.Collaboration.ComponentModel Namespace](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.componentmodel?view=ucma-api)
-- [Microsoft.Rtc.Collaboration.ConferenceManagement Namespace](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.conferencemanagement?view=ucma-api)
-- [Microsoft.Rtc.Collaboration.ContactsGroups Namespace](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.contactsgroups?view=ucma-api)
-- [Microsoft.Rtc.Collaboration.PinManagement Namespace](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.pinmanagement?view=ucma-api)
-- [Microsoft.Rtc.Collaboration.Presence Namespace Classes](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.presence?view=ucma-api)
-- [Microsoft.Rtc.Signaling Namespace](https://docs.microsoft.com/dotnet/api/microsoft.rtc.signaling?view=ucma-api)
-- [Copyright notice (UCMA 5.0 SDK)](https://docs.microsoft.com/previous-versions/office/dn454986(v=office.16))
-- [Accessibility in Microsoft Products](https://www.microsoft.com/accessibility/)
+- [Microsoft.Rtc.Collaboration.AudioVideo Namespace](/dotnet/api/microsoft.rtc.collaboration.audiovideo?)
+- [Microsoft.Rtc.Collaboration.AudioVideo.VoiceXml Namespace](/dotnet/api/microsoft.rtc.collaboration.audiovideo.voicexml?)
+- [Microsoft.Rtc.Collaboration.ComponentModel Namespace](/dotnet/api/microsoft.rtc.collaboration.componentmodel?)
+- [Microsoft.Rtc.Collaboration.ConferenceManagement Namespace](/dotnet/api/microsoft.rtc.collaboration.conferencemanagement?)
+- [Microsoft.Rtc.Collaboration.ContactsGroups Namespace](/dotnet/api/microsoft.rtc.collaboration.contactsgroups?)
+- [Microsoft.Rtc.Collaboration.PinManagement Namespace](/dotnet/api/microsoft.rtc.collaboration.pinmanagement?)
+- [Microsoft.Rtc.Collaboration.Presence Namespace Classes](/dotnet/api/microsoft.rtc.collaboration.presence?)
+- [Microsoft.Rtc.Signaling Namespace](/dotnet/api/microsoft.rtc.signaling?)
+- [Copyright notice (UCMA 5.0 SDK)](/previous-versions/office/dn454986(v=office.16))
+- [Accessibility in Microsoft Products](/accessibility/)
 

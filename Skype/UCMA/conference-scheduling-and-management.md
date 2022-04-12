@@ -17,7 +17,7 @@ dev_langs:
 
 
 
-An application can use the members of the [ConferenceServices](https://msdn.microsoft.com/library/hh348907\(v=office.16\)) class to schedule, modify, or cancel a conference. The **ConferenceServices** property on an endpoint (either [UserEndpoint](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.userendpoint?view=ucma-api) or [ApplicationEndpoint](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.applicationendpoint?view=ucma-api)) is a reference to a **ConferenceServices** object.
+An application can use the members of the [ConferenceServices](https://msdn.microsoft.com/library/hh348907\(v=office.16\)) class to schedule, modify, or cancel a conference. The **ConferenceServices** property on an endpoint (either [UserEndpoint](/dotnet/api/microsoft.rtc.collaboration.userendpoint) or [ApplicationEndpoint](/dotnet/api/microsoft.rtc.collaboration.applicationendpoint)) is a reference to a **ConferenceServices** object.
 
 ## Scheduling a conference
 

@@ -1,4 +1,7 @@
-
+---
+title: Multi-Tab Support
+description: UCWA has special support for multiple client instances in different web browser tabs.
+---
 # Multi-Tab Support
 
 
@@ -59,7 +62,7 @@ HTTP/1.1 201 (or 200) OK
 ```
 
 
-## 
+## Deleting an application resource
 <a name="bk_addresources"> </a>
 
 When deleting an application resource the application may have other event channels assigned to it. If there are other event channels for other instanceIds, only the event channel for the given instanceId is deleted.

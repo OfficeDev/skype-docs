@@ -1,6 +1,7 @@
 ---
 title: 'UCMA applications: Coexistence, migration, and upgrade scenarios'
 TOCTitle: 'UCMA applications: Coexistence, migration, and upgrade scenarios'
+description: 'The coexistence environments described in this topic refer to topologies that consist of two Communications Server or Lync Server versions.'
 ms:assetid: 132c6c9c-f8e1-4d3f-aa8a-da35891b05d8
 ms:mtpsurl: https://msdn.microsoft.com/library/Dn466143(v=office.16)
 ms:contentKeyID: 65240057
@@ -20,11 +21,11 @@ For information about the third possibility, in which is in coexistence with Lyn
 
 <table>
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
+<col>
+<col>
+<col>
+<col>
+<col>
 </colgroup>
 <thead>
 <tr class="header">

@@ -25,7 +25,7 @@ If this is not your issue, you can return to [Troubleshooting Azure AD Authentic
 You did not set permissions for the application to access the SfB Online APIs in Azure AD or set permissions incorrectly.
 
 When registering your Skype Web SDK app in Azure AD, you need to indicate that your web application requires the user (or administrator, in this case) to consent to the app accessing the SfB Online APIs within the context of the authenticated user.
-You can find more information about the Azure AD consent framework in [Integrating Applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-integrating-applications).
+You can find more information about the Azure AD consent framework in [Integrating Applications with Azure Active Directory](/azure/active-directory/active-directory-integrating-applications).
 
 <a name="solution"></a>
 ## The Solution
@@ -55,7 +55,7 @@ Configure your application to access the SfB Online API by adding the API as one
 ![Admin consent prompt upon sign in](../../../images/troubleshooting/auth/ProvidingAdminConsentCensored.PNG)
 
 > [!NOTE]
-> For more information on the difference between these types of permissions, see the section **Configuring a client application to access web APIs** in this article: [Integrating Applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-integrating-applications).
+> For more information on the difference between these types of permissions, see the section **Configuring a client application to access web APIs** in this article: [Integrating Applications with Azure Active Directory](/azure/active-directory/active-directory-integrating-applications).
 
 Once you accept this prompt, all users in the tenant should be able to sign in and should not have to individually consent to these permissions, since the tenant admin has already consented on their behalf.
 
@@ -67,5 +67,5 @@ If you accidentally click **Cancel** rather than **Accept** and find yourself no
 ## Related Topics
 - [Troubleshooting AAD Auth Failures for Skype Web SDK](./AADAuthFailures.md)
 - [AAD Auth Failures - Administrator has not provided consent to use SfB Web APIs](./AADAuth-AdminConsent.md)
-- [Integrating Applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-integrating-applications)
-- [Giving a Web App Access to a Web API](https://docs.microsoft.com/azure/active-directory/active-directory-authentication-scenarios#web-application-to-web-api)
+- [Integrating Applications with Azure Active Directory](/azure/active-directory/active-directory-integrating-applications)
+- [Giving a Web App Access to a Web API](/azure/active-directory/active-directory-authentication-scenarios#web-application-to-web-api)

@@ -1,3 +1,7 @@
+---
+title: Send and receive text in a conversation
+description: Receiving messages in a conversation involves getting a conversation object and conversation instant message modality. When the conversation is connected, listen for new messages.
+---
 
 # Send and receive text in a conversation
 
@@ -47,20 +51,12 @@ Receiving messages in a conversation involves getting a conversation object and 
   ```
 
 5. Get the message text.
-
-
-  ```js
-  item.text();
-  ```
-
-
-    The message can also be sent as an HTML-formatted message.
-    
-
-
-  ```js
-  item.html();
-  ```
+<br><br>
+`js item.text();`
+<br><br>
+The message can also be sent as an HTML-formatted message.
+<br><br>
+`js item.html();`
 
 
 
@@ -70,32 +66,20 @@ Receiving messages in a conversation involves getting a conversation object and 
 Sending a message involves getting a connected conversation and the conversation chat service. When the user has provided text for a message, send the message on the chatService of the conversation.
 
 1. Get the conversation chat service.
-
-
-  ```js
-  var chatService = conversation.chatService;
-  ```
+<br><br>
+`js var chatService = conversation.chatService;`
 
 2. Listen for the conversation.SelfParticipant.Chat.state to change to "Connected."
-
-
-  ```js
-  conversation.selfParticipant.chat.state.when('Connected', function () {…});
-  ```
+<br><br>
+`js conversation.selfParticipant.chat.state.when('Connected', function () {…});`
 
 3. Send message text.
-
-
-  ```js
-  chatService.sendMessage(text)
-  ```
+<br><br>
+`js chatService.sendMessage(text)`
 
 #### Examples
 
 The following example puts the previous procedure steps together to show how to receive text messages.
-
-
-
 
 ```js
 // add the IM modality
@@ -115,8 +99,6 @@ historyService.activityItems.added(function (item) {
 The following example puts the previous procedure steps to together to show how to send a message.
 
 
-
-
 ```js
 // get the chat service
 var chatService = conversation.chatService;
@@ -125,6 +107,4 @@ conversation.selfParticipant.chat.state.when('Connected', function () {
     chatService.sendMessage(text);
 });
 
-
 ```
-

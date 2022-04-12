@@ -1,3 +1,7 @@
+---
+title: SendProvisionalAnswer resource for Skype for Business 2015
+description: "SendProvisionalAnswer indicates a link in an audioVideoInvitation resource that lets the application send an answer for early media negotiation."
+---
 # sendProvisionalAnswer
 
  _**Applies to:** Skype for Business 2015_
@@ -34,6 +38,7 @@ None
 
 
 The user must have at least one of these scopes for operations on the resource to be allowed.
+
 |**Scope**|**Permission**|**Description**|
 |:-----|:-----|:-----|
 |Conversations.Initiate|Initiate conversations and join meetings|Allows the app to initiate instant messages, audio, video, and desktop sharing conversations; and join meetings on-behalf of the signed-in user|

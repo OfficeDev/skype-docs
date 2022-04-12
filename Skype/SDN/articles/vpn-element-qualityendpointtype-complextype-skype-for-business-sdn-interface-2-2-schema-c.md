@@ -1,6 +1,7 @@
 ﻿---
-title: VPN element (QualityEndPointType complexType) 
+title: VPN element, QualityEndPointType complexType, schema C
 TOCTitle: VPN element
+description: The VPN element indicates if the user is on VPN (true) or not (false).
 ms:assetid: 66d80682-5784-bd55-6e4c-ee2b54d13212
 ms:mtpsurl: https://msdn.microsoft.com/library/Mt429342(v=office.16)
 ms:contentKeyID: 68250784
@@ -10,9 +11,9 @@ dev_langs:
 - xml
 ---
 
-# VPN element 
+# VPN element, QualityEndPointType complexType, schema C
 
-(QualityEndPointType complexType) (Skype for Business SDN Interface 2.2, Schema "C")
+(Skype for Business SDN Interface 2.2, Schema "C")
 
 Indicates if the user is on VPN (True) or not (False).
 
@@ -25,8 +26,8 @@ Elements and attributes
 
 <table>
 <colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
+<col>
+<col>
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -61,9 +62,9 @@ Elements and attributes
 
 <table>
 <colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
+<col>
+<col>
+<col>
 </colgroup>
 <thead>
 <tr class="header">

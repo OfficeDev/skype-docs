@@ -2,7 +2,7 @@
 
 >NOTE: We have built a quick registration tool for registering Skype for Busines Trusted Applications in Azure and Skype for Business Online, that eliminates the need to register an Application manually in Azure portal.  You can find the portal at https://aka.ms/skypeappregistration
 
-This article shows you how to register your service application in the Azure Portal at http://portal.azure.com. Before running your service application, you need to register it with Azure Active Directory, even if you are hosting your app outside of Azure. Application registration lets you set the permissions that 
+This article shows you how to register your service application in the Azure Portal at https://portal.azure.com. Before running your service application, you need to register it with Azure Active Directory, even if you are hosting your app outside of Azure. Application registration lets you set the permissions that 
 your service applications needs and the sign on and application id URLs used for application authentication.
 
 ## Register your application with Azure AD

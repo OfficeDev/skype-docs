@@ -26,5 +26,5 @@ The following topics provide a description of the development environment, and d
 - [Creating a Skype for Business bot](creating-a-skype-for-business-bot.md)
 - [Creating an Excel bot](creating-an-excel-bot.md)
 
-For more information, see [Microsoft Lync Dev Center](https://docs.microsoft.com/lync/lync-2013).
+For more information, see [Microsoft Lync Dev Center](/lync/lync-2013).
 

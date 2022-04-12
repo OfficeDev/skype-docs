@@ -1,6 +1,7 @@
 ﻿---
-title: MSDiagnosticsPublic element (MessageProperties complexType) 
+title: MSDiagnosticsPublic element, MessageProperties complexType, schema C 
 TOCTitle: MSDiagnosticsPublic element (MessageProperties complexType)
+description: Skype for Business-specific public diagnostics message.
 ms:assetid: 1145b01a-d26b-e731-8acd-df3e6155f96e
 ms:mtpsurl: https://msdn.microsoft.com/library/Mt404803(v=office.16)
 ms:contentKeyID: 68250715
@@ -10,9 +11,9 @@ dev_langs:
 - xml
 ---
 
-# MSDiagnosticsPublic element 
+# MSDiagnosticsPublic element, MessageProperties complexType, schema C 
 
-(MessageProperties complexType) (Skype for Business SDN Interface 2.2, Schema "C")
+(Skype for Business SDN Interface 2.2, Schema "C")
 
 Skype for Business-specific public diagnostics message.
 
@@ -25,8 +26,8 @@ Elements and attributes
 
 <table>
 <colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
+<col>
+<col>
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -61,9 +62,9 @@ Elements and attributes
 
 <table>
 <colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
+<col>
+<col>
+<col>
 </colgroup>
 <thead>
 <tr class="header">

@@ -1,4 +1,5 @@
 ﻿---
+description: Learn how to establish an application endpoint and impersonate a user who creates and joins an ad hoc conference. 
 title: TrustedConferenceParticipant (QuickStart)
 TOCTitle: TrustedConferenceParticipant (QuickStart)
 ms:assetid: 66642dc8-9204-4bc6-a69a-95e4380704f3
@@ -35,7 +36,7 @@ The application establishes an application endpoint and impersonates a user who 
 
 ## Prerequisites
 
-  - Provisioned trusted [ApplicationEndpoint](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.applicationendpoint?view=ucma-api) object
+  - Provisioned trusted [ApplicationEndpoint](/dotnet/api/microsoft.rtc.collaboration.applicationendpoint) object
 
   - A currently logged-on client on Skype for Business Server 2015.
 

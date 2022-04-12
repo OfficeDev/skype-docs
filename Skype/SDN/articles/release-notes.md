@@ -1,12 +1,12 @@
 ---
-title: Skype for Business SDN Interface Release Notes
-description: The Microsoft Skype for Business SDN Interface provides an interface for network controllers or network management systems to receive call and quality data to monitor and analyze network traffic in order to optimize the Skype for Business media stream quality.
+title: Release Notes for Skype for Business SDN Interface
+description: Release notes for the Skype for Business SDN - applies to Lync Server 2013 \ Skype for Business 2015.
 ms.assetid: 726f613b-4639-4433-85db-50a572778ab8
 ---
 
-# Skype for Business SDN Interface Release Notes
+# Release Notes for Skype for Business SDN Interface
 
- **Applies to**: Lync Server 2013 | Skype for Business 2015
+ **Applies to**: Lync Server 2013 \| Skype for Business 2015
 
 The Microsoft Skype for Business SDN Interface provides an interface for network controllers or network management systems to receive call and quality data to monitor and analyze network traffic in order to optimize the Skype for Business media stream quality.
   
@@ -70,20 +70,20 @@ The following bugs have been fixed in SDN 3.0:
 
 ```powershell
 msiexec /i SkypeForBusinessSDNManager.msi /quiet /lv* install.log LOGPATH=c:\\Temp TOPOLOGY=2 DATABASE_SERVER=dblneprod
-  ```
+```
 
   Result:
 
-  ```powershell
+```powershell
   MSI (s) (18:80) [14:02:27:052]: Invoking remote custom action. DLL: C:\\Windows\\Installer\\MSI1D29.tmp, Entrypoint: ExecuteSqlStrings
 ExecuteSqlStrings:  Error 0x80040e14: failed to execute SQL string, error: An object or column name is missing or empty. For SELECT INTO statements, verify each column has a name. For other statements, look for empty alias names. Aliases defined as "" or are not allowed. Change the alias to a valid name., SQL key: CreateUserScript25 SQL string: BEGIN TRY CREATE USER  FROM LOGIN$ END TRY BEGIN CATCH END CATCH
 MSI (s) (18!10) [14:02:27:364]: Product: Microsoft Skype for Business SDN Manager -- Error 26204. Error -2147217900: failed to execute SQL string, error detail: An object or column name is missing or empty. For SELECT INTO statements, verify each column has a name. For other statements, look for empty alias names. Aliases defined as "" or [] are not allowed. Change the alias to a valid name., SQL key: CreateUserScript25 SQL string: BEGIN TRY CREATE USER [] FROM LOGIN[\\$] END TRY BEGIN CATCH END CATCH
 
-  ```
+```
 
   Expected:
 
-    An actionable error, like: "Error: Aborting because COMPUTERNAME was not specified". 
+`An actionable error, like: "Error: Aborting because COMPUTERNAME was not specified".` 
 
 - Connection attempts using SSL from Dialog Listener to an SDN Manager installed on WS2008R2 fails. WS2008R2 machines do not support TLS1.2 by default. When hosting SDN Manager, the host must enable TLS1.2 support in its registry. See [TLS/SSL Settings](https://technet.microsoft.com/library/dn786418%28v=ws.11%29.aspx)
 

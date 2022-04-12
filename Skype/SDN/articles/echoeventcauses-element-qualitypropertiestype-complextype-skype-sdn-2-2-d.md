@@ -1,6 +1,7 @@
 ﻿---
-title: EchoEventCauses element (QualityPropertiesType complexType) 
+title: EchoEventCauses element, QualityPropertiesType complexType
 TOCTitle: EchoEventCauses element
+description: Information about the EchoEventCauses element.
 ms:assetid: d4ef7e39-31c8-333a-ed96-7d441f12d1aa
 ms:mtpsurl: https://msdn.microsoft.com/library/Mt170845(v=office.16)
 ms:contentKeyID: 65855422
@@ -10,9 +11,9 @@ dev_langs:
 - xml
 ---
 
-# EchoEventCauses element 
+# EchoEventCauses element, QualityPropertiesType complexType
 
-(QualityPropertiesType complexType) (Skype for Business SDN Interface 2.2, Schema "D")
+(Skype for Business SDN Interface 2.2, Schema "D")
 
 Reasons of device echo detection and reported for audio streams when available. The causes are coded with the following bit flags: "0x01" - Sample timestamps from capture or render device were poor quality. "0x04" - High level of echo remained after echo cancellation. "0x10" - Signal from capture device had significant instances of maximum signal level.
 
@@ -26,8 +27,8 @@ Elements and attributes
 
 <table>
 <colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
+<col>
+<col>
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -62,9 +63,9 @@ Elements and attributes
 
 <table>
 <colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
+<col>
+<col>
+<col>
 </colgroup>
 <thead>
 <tr class="header">

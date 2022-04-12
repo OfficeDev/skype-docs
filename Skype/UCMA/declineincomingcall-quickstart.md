@@ -1,4 +1,5 @@
 ﻿---
+description: Learn how to run a sample of DeclineIncomingCall on Skype for Business.
 title: DeclineIncomingCall (QuickStart)
 TOCTitle: DeclineIncomingCall (QuickStart)
 ms:assetid: 72db6c20-e348-489d-bf98-160d72329a4d
@@ -28,7 +29,7 @@ The sample expects a user logged on to a client (such as Skype for Business 2015
 
   - Handling of incoming instant messages
 
-  - [InstantMessagingFlow](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.instantmessagingflow?view=ucma-api) handling and control
+  - [InstantMessagingFlow](/dotnet/api/microsoft.rtc.collaboration.instantmessagingflow?) handling and control
 
 ## Prerequisites
 

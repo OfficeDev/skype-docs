@@ -1,7 +1,10 @@
-# Skype for Business Bot - common errors
+---
+title: Skype for Business Bot - common errors
+description: This article lists the most common errors encountered during the Skype for Business bot setup and what you can do to solve them.
+ms.date: 04/11/2022
+---
 
-> [!NOTE] 
-> The Skype for Business Bot Framework channel is in Developer Preview.
+# Skype for Business Bot - common errors
 
 This article lists the most common errors encountered during the Skype for Business bot setup and what you can do to solve them.
 

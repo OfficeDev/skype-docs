@@ -1,3 +1,7 @@
+---
+title: webcomponents.js README
+description: README file for webcomponents.js, a suite of polyfills supporting the Web Components specs
+---
 webcomponents.js
 ================
 
@@ -54,10 +58,12 @@ If you wish to build the polyfills yourself, you'll need `node` and `gulp` on yo
 
 Now you are ready to build the polyfills with:
 
-    # install dependencies
-    npm install
-    # build
-    gulp build
+```
+# install dependencies
+npm install
+# build
+gulp build
+```
 
 The builds will be placed into the `dist/` directory.
 

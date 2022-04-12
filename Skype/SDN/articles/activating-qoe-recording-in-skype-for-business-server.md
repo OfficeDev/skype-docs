@@ -1,6 +1,7 @@
 ---
 title: 'Activating QoE recording in Skype for Business Server'
 TOCTitle: 'Activating QoE recording in Skype for Business Server'
+description: If Quality of Experience recording has not been activated in the Skype for Business monitoring server, you must activate it before installing the Skype for Business SDN Interface.
 ms:assetid: 32254d29-c4be-4d1d-80c1-3ec766f2b6f4
 ms:mtpsurl: https://msdn.microsoft.com/library/Dn806347(v=office.16)
 ms:contentKeyID: 65258663
@@ -21,11 +22,11 @@ If Quality of Experience (QoE) recording has not been activated in the Skype for
 
 To verify the QoE recording using Skype for Business Server Management Shell commands, open a Management Shell command prompt on a Skype for Business Server computer and issue the following Windows PowerShell command.
 
-    Get-CsQoEConfiguration -Identity site:W15Topology
+`Get-CsQoEConfiguration -Identity site:W15Topology`
 
 In our example, "W15Toplogy" is the site name assigned to the Skype for Business Server deployment. If the EnableQoE attribute is set to True in the returned result, the QoE recording has been activated. If the EnableQoE attribute is False, issue the following Windows PowerShell command to activate the QoE recording.
 
-    Set-CsQoEConfiguration -Identity site:W15Topology -EnableQoE $True
+`Set-CsQoEConfiguration -Identity site:W15Topology -EnableQoE $True`
 
 For detailed information about the Windows PowerShell commands, see [Skype for Business Server 2015 Management Shell](https://technet.microsoft.com/library/gg398474.aspx).
 

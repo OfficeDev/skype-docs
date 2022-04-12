@@ -12,13 +12,13 @@ mtps_version: v=office.16
 
 **Applies to**: Skype for Business 2015
 
-A call is a communication session between two endpoints: a local endpoint and a remote endpoint. UCMA 5.0 represents the call concept by the [Call](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.call?view=ucma-api) abstract class, and provides non-abstract classes that implement three specific types of calls:
+A call is a communication session between two endpoints: a local endpoint and a remote endpoint. UCMA 5.0 represents the call concept by the [Call](/dotnet/api/microsoft.rtc.collaboration.call) abstract class, and provides non-abstract classes that implement three specific types of calls:
 
 - [InstantMessagingCall](https://msdn.microsoft.com/library/hh161841\(v=office.16\)) class.
     
   An **InstantMessagingCall** instance is used in a communication session for which the media type is Message, or text.
 
-- [AudioVideoCall](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiovideocall?view=ucma-api) class.
+- [AudioVideoCall](/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiovideocall) class.
     
   An **AudioVideoCall** instance is used in a communication session for which the media type is Audio.
     

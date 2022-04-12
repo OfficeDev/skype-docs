@@ -1,7 +1,6 @@
 ---
 title: Implementing a Anonymous Client with the Skype App SDK - iOS
-description: This article will walk you through the sample code to enable the core Skype for Business Online anonymous meeting join scenario in your iOS app involving the client-side functionality
-of the Skype App SDK.
+description: This article will walk you through the sample code to enable the core Skype for Business Online anonymous meeting join scenario in your iOS app involving the client-side functionality of the Skype App SDK.
 ms.date: 03/30/2022
 ---
 

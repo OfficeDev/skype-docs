@@ -61,9 +61,9 @@ If none of the above works, you may have configured the permissions for your app
 <a name="related-topics"></a>
 ## Related Topics
 
-- [Assigning Administrator roles in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles)
+- [Assigning Administrator roles in Azure Active Directory](/azure/active-directory/active-directory-assign-admin-roles)
 - [AAD Auth Failures - Client requesting resource not in requiredResourceAccess list](./AADAuth-DelegatePermissions.md)
 - [Troubleshooting AAD Auth Failures for Skype Web SDK](./AADAuthFailures.md)
-- [Integrating Applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-integrating-applications)
+- [Integrating Applications with Azure Active Directory](/azure/active-directory/active-directory-integrating-applications)
 
 

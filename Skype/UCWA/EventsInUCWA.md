@@ -1,4 +1,7 @@
-
+---
+title: Events in UCWA for skype for business 2015
+description: "UCWA 2.0 implements a server-to- client communication channel within HTTP with a long poll model called pending GET or P-GET."
+---
 # Events in UCWA
 Learn how the server notifies clients by sending events in the event channel.
 

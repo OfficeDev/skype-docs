@@ -1,3 +1,7 @@
+---
+title: Contact resource for Skype for Business
+description: "Contact represents a person or service that the user can communicate and collaborate with. A contact can be referenced by a participant or in the context of communication."
+---
 # contact
 
  _**Applies to:** Skype for Business 2015_
@@ -64,6 +68,7 @@ This resource can have the following relationships.
 
 
 The user must have at least one of these scopes for operations on the resource to be allowed.
+
 |**Scope**|**Permission**|**Description**|
 |:-----|:-----|:-----|
 |Contacts.ReadWrite|Read/write Skype user contacts and groups|Allows the app to read and write Skype user contacts and groups|

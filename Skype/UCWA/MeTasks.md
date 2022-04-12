@@ -1,4 +1,7 @@
-
+---
+title: Me tasks for skype for business 2015
+description: "Me tasks refers to topics showing code samples of tasks that are related to the me user, the currently logged-on user." 
+---
 # Me tasks
 Look in this section for examples of tasks that are related to the **me** user.
 

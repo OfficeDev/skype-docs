@@ -1,6 +1,7 @@
 ﻿---
-title: LyncDiagnostics element 
+title: LyncDiagnostics element, schema D
 TOCTitle: LyncDiagnostics element
+description: The root element for output from the Skype for Business SDN Manager.
 ms:assetid: 623e651b-82ed-6832-2f1e-232f1adfe1d2
 ms:mtpsurl: https://msdn.microsoft.com/library/Mt170913(v=office.16)
 ms:contentKeyID: 65855488
@@ -10,7 +11,7 @@ dev_langs:
 - xml
 ---
 
-# LyncDiagnostics element 
+# LyncDiagnostics element, schema D 
 
 (Skype for Business SDN Interface 2.2, Schema "D")
 
@@ -26,8 +27,8 @@ Elements and attributes
 
 <table>
 <colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
+<col>
+<col>
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -66,9 +67,9 @@ None.
 
 <table>
 <colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
+<col>
+<col>
+<col>
 </colgroup>
 <thead>
 <tr class="header">
@@ -146,11 +147,11 @@ None.
 
 <table>
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
+<col>
+<col>
+<col>
+<col>
+<col>
 </colgroup>
 <thead>
 <tr class="header">

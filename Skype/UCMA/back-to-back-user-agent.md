@@ -12,7 +12,7 @@ mtps_version: v=office.16
 
 **Applies to**: Skype for Business 2015
 
-Microsoft Unified Communications Managed API 5.0 provides several classes to support the back-to-back user agent concept. The principal class of interest to application developers is the [BackToBackCall](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.backtobackcall?view=ucma-api) class. 
+Microsoft Unified Communications Managed API 5.0 provides several classes to support the back-to-back user agent concept. The principal class of interest to application developers is the [BackToBackCall](/dotnet/api/microsoft.rtc.collaboration.backtobackcall) class. 
 
 Using back-to-back user agent functionality, an application can perform the following operations:
 

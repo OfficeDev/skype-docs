@@ -1,4 +1,7 @@
-
+---
+title: LargeMeetingMode for Skype for Business 2015
+description: "It shows the large meeting status of an onlineMeeting. The mode types are disabled, enabled, and unknown." 
+---
 # LargeMeetingMode
 
 

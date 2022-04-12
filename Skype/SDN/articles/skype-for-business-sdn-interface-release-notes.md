@@ -1,5 +1,6 @@
 ﻿---
 title: Skype for Business SDN Interface Release Notes
+description: The Microsoft Skype for Business SDN Interface provides an interface for network controllers or network management systems to receive call and quality data to monitor and analyze network traffic in order to optimize the Skype for Business media stream quality.
 TOCTitle: Skype for Business SDN Interface Release Notes
 ms:assetid: 726f613b-4639-4433-85db-50a572778ab8
 ms:mtpsurl: https://msdn.microsoft.com/library/Mt269085(v=office.16)
@@ -8,7 +9,7 @@ ms.date: 02/27/2017
 mtps_version: v=office.16
 ---
 
-# Skype for Business SDN Interface Release Notes
+# Skype for Business SDN Interface - Release Notes
 
 
 _**Applies to:** Lync Server 2013 | Skype for Business 2015_
@@ -73,13 +74,17 @@ The following bugs have been fixed in SDN 3.0:
     
     For example, a new SQL database install, but with 'ComputerName' is missing:
     
-        msiexec /i SkypeForBusinessSDNManager.msi /quiet /lv* install.log LOGPATH=c:\Temp TOPOLOGY=2 DATABASE_SERVER=dblneprod
+    ```
+    msiexec /i SkypeForBusinessSDNManager.msi /quiet /lv* install.log LOGPATH=c:\Temp TOPOLOGY=2 DATABASE_SERVER=dblneprod
+    ```
     
     Result:
     
-        MSI (s) (18:80) [14:02:27:052]: Invoking remote custom action. DLL: C:\Windows\Installer\MSI1D29.tmp, Entrypoint: ExecuteSqlStrings
-        ExecuteSqlStrings:  Error 0x80040e14: failed to execute SQL string, error: An object or column name is missing or empty. For SELECT INTO statements, verify each column has a name. For other statements, look for empty alias names. Aliases defined as "" or are not allowed. Change the alias to a valid name., SQL key: CreateUserScript25 SQL string: BEGIN TRY CREATE USER  FROM LOGIN$ END TRY BEGIN CATCH END CATCH
-        MSI (s) (18!10) [14:02:27:364]: Product: Microsoft Skype for Business SDN Manager -- Error 26204. Error -2147217900: failed to execute SQL string, error detail: An object or column name is missing or empty. For SELECT INTO statements, verify each column has a name. For other statements, look for empty alias names. Aliases defined as "" or [] are not allowed. Change the alias to a valid name., SQL key: CreateUserScript25 SQL string: BEGIN TRY CREATE USER [] FROM LOGIN[\$] END TRY BEGIN CATCH END CATCH
+    ```
+    MSI (s) (18:80) [14:02:27:052]: Invoking remote custom action. DLL: C:\Windows\Installer\MSI1D29.tmp, Entrypoint: ExecuteSqlStrings
+    ExecuteSqlStrings:  Error 0x80040e14: failed to execute SQL string, error: An object or column name is missing or empty. For SELECT INTO statements, verify each column has a name. For other statements, look for empty alias names. Aliases defined as "" or are not allowed. Change the alias to a valid name., SQL key: CreateUserScript25 SQL string: BEGIN TRY CREATE USER  FROM LOGIN$ END TRY BEGIN CATCH END CATCH
+    MSI (s) (18!10) [14:02:27:364]: Product: Microsoft Skype for Business SDN Manager -- Error 26204. Error -2147217900: failed to execute SQL string, error detail: An object or column name is missing or empty. For SELECT INTO statements, verify each column has a name. For other statements, look for empty alias names. Aliases defined as "" or [] are not allowed. Change the alias to a valid name., SQL key: CreateUserScript25 SQL string: BEGIN TRY CREATE USER [] FROM LOGIN[\$] END TRY BEGIN CATCH END CATCH
+    ```
     
     Expected:
     

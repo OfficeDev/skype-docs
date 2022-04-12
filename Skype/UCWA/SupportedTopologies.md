@@ -1,4 +1,7 @@
-
+---
+title: Supported topologies for Skype for Business 2015
+description: " Supported topologies presents Microsoft Unified Communications Web API 2.0 features that are available in different Skype for Business Server topologies."
+---
 # Supported topologies
 Learn about the Microsoft Unified Communications Web API 2.0 features that are available in different Skype for Business Server topologies.
 

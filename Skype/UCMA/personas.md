@@ -2,6 +2,7 @@
 title: Personas (Unified Communications Managed API 5.0)
 TOCTitle: Personas
 ms:assetid: c033d25f-e55a-449d-b697-f93f64cee0a6
+description: Many of the more important architectural components of Microsoft Unified Communications Managed API 5.0 are associated with one or more personas, terms that describe ownership, participation, and other attributes of human participants or applications that take part in a UCMA 5.0 application.
 ms:mtpsurl: https://msdn.microsoft.com/library/Dn465949(v=office.16)
 ms:contentKeyID: 65239862
 ms.date: 07/27/2015
@@ -17,8 +18,8 @@ Many of the more important architectural components of Microsoft Unified Communi
 
 <table>
 <colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
+<col />
+<col />
 </colgroup>
 <thead>
 <tr class="header">

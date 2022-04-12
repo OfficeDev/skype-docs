@@ -1,4 +1,5 @@
 ﻿---
+description: Learn about the coexistence and deployment scenarios for UCMA 3.0 applications. 
 title: 'UCMA 3.0 Core applications: Coexistence and deployment scenarios'
 TOCTitle: 'UCMA 3.0 Core applications: Coexistence and deployment scenarios'
 ms:assetid: 90b3c204-a67e-4604-aea2-b2c0c8be51d2
@@ -37,7 +38,7 @@ For more information about activating a UCMA 3.0 application, see [Activating a 
 
 ## Direct deployment of a UCMA 3.0 Core application in a pure Office Communications Server 2007 R2 topology
 
-There is only limited support for UCMA 3.0 applications deployed in a pure topology. Specifically, only endpoints of type [UserEndpoint](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.userendpoint?view=ucma-api) are supported; applications that use endpoints of type [ApplicationEndpoint](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.applicationendpoint?view=ucma-api) are not supported. Only person-to-person IM and IM conferencing are supported; audio is not supported. IM Conference Scheduling is supported, escalating a two-party IM call to an IM conference is supported, and IM conference joining are supported.
+There is only limited support for UCMA 3.0 applications deployed in a pure topology. Specifically, only endpoints of type [UserEndpoint](/dotnet/api/microsoft.rtc.collaboration.userendpoint) are supported; applications that use endpoints of type [ApplicationEndpoint](/dotnet/api/microsoft.rtc.collaboration.applicationendpoint) are not supported. Only person-to-person IM and IM conferencing are supported; audio is not supported. IM Conference Scheduling is supported, escalating a two-party IM call to an IM conference is supported, and IM conference joining are supported.
 
 In general, a user object or contact object for a UCMA 3.0 application that is not homed on Lync Server 2010 or later, is not supported.
 

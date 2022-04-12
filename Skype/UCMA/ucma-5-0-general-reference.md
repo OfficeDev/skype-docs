@@ -1,4 +1,5 @@
 ﻿---
+description: Access the main sections of the general reference for Unified Communications Managed API 5.0. 
 title: UCMA 5.0 general reference
 TOCTitle: UCMA 5.0 general reference
 ms:assetid: c78acf92-105c-4e08-8ec1-578f3f21b823
@@ -27,6 +28,6 @@ The Microsoft Unified Communications Managed API (UCMA) 5.0 general reference co
 
 ## See also
 
-- [Microsoft.Rtc.Collaboration.AudioVideo.VoiceXml Namespace](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.voicexml?view=ucma-voice)
-- [Microsoft.Rtc.Collaboration Namespace](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration?view=ucma-api-5.0)
+- [Microsoft.Rtc.Collaboration.AudioVideo.VoiceXml Namespace](/dotnet/api/microsoft.rtc.collaboration.audiovideo.voicexml?)
+- [Microsoft.Rtc.Collaboration Namespace](/dotnet/api/microsoft.rtc.collaboration?)
 

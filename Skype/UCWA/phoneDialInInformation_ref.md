@@ -1,3 +1,7 @@
+---
+title: PhoneDialInInformation for Skype for Business 2015
+description: "PhoneDialInInformation represents phone access information for an onlineMeeting. Web links include rel and href."
+---
 # phoneDialInInformation
 
  _**Applies to:** Skype for Business 2015_
@@ -48,6 +52,7 @@ This resource can have the following relationships.
 
 
 The user must have at least one of these scopes for operations on the resource to be allowed.
+
 |**Scope**|**Permission**|**Description**|
 |:-----|:-----|:-----|
 |User.ReadWrite|Read/write Skype user information|Allows the app to read and update presence, photo, location, note, call forwarding settings of the signed-in user|

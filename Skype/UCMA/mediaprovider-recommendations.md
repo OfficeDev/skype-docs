@@ -13,7 +13,7 @@ mtps_version: v=office.16
 
 **Applies to**: Skype for Business 2015
 
-To implement bandwidth management in a class derived from the [MediaProvider](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.componentmodel.mediaprovider?view=ucma-api) class, the derived provider class must carry out the following tasks:
+To implement bandwidth management in a class derived from the [MediaProvider](/dotnet/api/microsoft.rtc.collaboration.componentmodel.mediaprovider) class, the derived provider class must carry out the following tasks:
 
 - Honor the bandwidth policy-check flag provided by the base media provider to determine whether a bandwidth check should be performed.
 

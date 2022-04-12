@@ -1,4 +1,7 @@
-
+---
+title: UCWA resources for Skype for Business 2015
+description: "The Microsoft Unified Communications Web API provides access to a variety of entities that can be used in Web development."
+---
 # UCWA resources
 Reference pages for UCWA resources.
 

@@ -1,4 +1,8 @@
+---
+title: Immediate forward settings target for skype for business 2015
+description: "ImmediateForwardSettingsTarget describes the target that receives forwarded calls. Contacts, delegates, and voicemail are the properties names."
 
+---
 # ImmediateForwardSettingsTarget
 
 

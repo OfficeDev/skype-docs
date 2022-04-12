@@ -1,10 +1,12 @@
+---
+title: Persons
+description: A Person object in Skype Web SDK represents a single person, and contains all the information the user publishes.
+---
 
 # Persons
 
 
  _**Applies to:** Skype for Business 2015_
-
-## 
 
 A [Person]( http://officedev.github.io/skype-docs/Skype/WebSDK/model/api/interfaces/jcafe.person.html) object in Skype Web SDK represents a single person, and contains all the information the user publishes from presence information and a photo, to phone numbers, job title and current location. Persons can also be related in groups and lists.
 

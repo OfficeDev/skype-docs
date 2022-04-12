@@ -1,6 +1,7 @@
 ---
 title: 'UCMA 2.0 Core applications: Coexistence, migration, and upgrade scenarios'
 TOCTitle: 'UCMA 2.0 Core applications: Coexistence, migration, and upgrade scenarios'
+description: 'The sections in this document present the steps needed for UCMA 2.0 application coexistence, migration, and upgrade scenarios.'
 ms:assetid: 2049823f-eb02-4c15-88f5-722ff95d14de
 ms:mtpsurl: https://msdn.microsoft.com/library/Dn466131(v=office.16)
 ms:contentKeyID: 65240064

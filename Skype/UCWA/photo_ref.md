@@ -62,7 +62,7 @@ Returns a representation of the user's photo.
 
 |**Name**|**Description**|**Required?**|
 |:-----|:-----|:-----|
-|size|The desired size of the photo.The string should be in a format similar to "HR{length}X{width}" e.g. "HR64X64".If no size is provided, the default is HR48X48.For more information about photo sizes, see http://msdn.microsoft.com/library/exchange/jj190905(v=exchg.150).aspx.|No|
+|size|The desired size of the photo.The string should be in a format similar to "HR{length}X{width}" e.g. "HR64X64".If no size is provided, the default is HR48X48.For more information about photo sizes, see https://msdn.microsoft.com/library/exchange/jj190905(v=exchg.150).aspx.|No|
 
 
 #### Request body

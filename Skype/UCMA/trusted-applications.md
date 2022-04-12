@@ -1,4 +1,5 @@
 ﻿---
+description: Learn about the types of UCMA 5.0 trusted applications in Skype for Business 2015.
 title: Trusted applications
 TOCTitle: Trusted applications
 ms:assetid: 12b41b03-6149-4e97-bc70-adaeb2aa28e3
@@ -17,9 +18,9 @@ A typical Microsoft Unified Communications Managed API 5.0 application is truste
 
 There are two types of trusted applications. The two types differ by the type of endpoint used:
 
-  - Communication-enabled and collaboration-enabled applications use [ApplicationEndpoint](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.applicationendpoint?view=ucma-api).
+  - Communication-enabled and collaboration-enabled applications use [ApplicationEndpoint](/dotnet/api/microsoft.rtc.collaboration.applicationendpoint).
 
-  - Middle-tier client applications that emulate Skype for Business 2015 use [UserEndpoint](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.userendpoint?view=ucma-api).
+  - Middle-tier client applications that emulate Skype for Business 2015 use [UserEndpoint](/dotnet/api/microsoft.rtc.collaboration.userendpoint).
 
 ## Communication-enabled and collaboration-enabled applications
 

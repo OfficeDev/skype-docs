@@ -1,6 +1,7 @@
 ﻿---
-title: MessageType complexType 
+title: MessageType complexType, schema D
 TOCTitle: MessageType complexType
+description: Type information for the MessageType complexType, schema D
 ms:assetid: 7b0fdb3a-8f1f-9197-e3d6-d6490f10f410
 ms:mtpsurl: https://msdn.microsoft.com/library/Mt171068(v=office.16)
 ms:contentKeyID: 65855641
@@ -10,7 +11,7 @@ dev_langs:
 - xml
 ---
 
-# MessageType complexType 
+# MessageType complexType, schema D 
 
 (Skype for Business SDN Interface 2.2, Schema "D")
 
@@ -24,8 +25,8 @@ Elements and attributes
 
 <table>
 <colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
+<col>
+<col>
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -60,9 +61,9 @@ Elements and attributes
 
 <table>
 <colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
+<col>
+<col>
+<col>
 </colgroup>
 <thead>
 <tr class="header">
@@ -140,11 +141,11 @@ Elements and attributes
 
 <table>
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
+<col>
+<col>
+<col>
+<col>
+<col>
 </colgroup>
 <thead>
 <tr class="header">

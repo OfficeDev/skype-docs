@@ -1,3 +1,7 @@
+---
+title: UnmuteAudio reference for Skype for Business 2015
+description: "This resource indicates that the user has permissions to unmute the audio of the associated participant."
+---
 # unmuteAudio
 
  _**Applies to:** Skype for Business 2015_
@@ -39,6 +43,7 @@ None
 
 
 The user must have at least one of these scopes for operations on the resource to be allowed.
+
 |**Scope**|**Permission**|**Description**|
 |:-----|:-----|:-----|
 |Conversations.Initiate|Initiate conversations and join meetings|Allows the app to initiate instant messages, audio, video, and desktop sharing conversations; and join meetings on-behalf of the signed-in user|

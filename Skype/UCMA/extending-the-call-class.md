@@ -2,6 +2,7 @@
 title: Extending the Call class
 TOCTitle: Extending the Call class
 ms:assetid: bdbca8eb-0809-42a2-8cb1-c4d58fe796af
+description: By default, UCMA 5.0 provides call controls for the audio and message media types. These call controls are, respectively, the AudioVideoCall and InstantMessagingCall classes.
 ms:mtpsurl: https://msdn.microsoft.com/library/Dn466098(v=office.16)
 ms:contentKeyID: 65240018
 ms.date: 07/27/2015
@@ -15,7 +16,7 @@ mtps_version: v=office.16
 
 
 
-By default, UCMA 5.0 provides call controls for the audio and message media types. These call controls are, respectively, the [AudioVideoCall](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiovideocall?view=ucma-api) and [InstantMessagingCall](https://msdn.microsoft.com/library/hh161841\(v=office.16\)) classes. A developer can extend the UCMA 5.0 platform by creating a custom call control for an additional media type. Adding a custom call control entails creating new classes that inherit from the [Call](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.call?view=ucma-api), [MediaProvider](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.componentmodel.mediaprovider?view=ucma-api), and [MediaFlow](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.componentmodel.mediaflow?view=ucma-api) abstract classes, as well as creating implementations of the factory classes that are used to generate instances of the new **Call** and **MediaProvider** subclasses. Much of the functionality of the abstract base classes is inherited by the new derived classes and can be reused and exposed publicly without further modifications. This topic describes the abstract properties and methods that must be defined in a **Call** subclass.
+By default, UCMA 5.0 provides call controls for the audio and message media types. These call controls are, respectively, the [AudioVideoCall](/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiovideocall?view=ucma-api&preserve-view=true) and [InstantMessagingCall](/library/hh161841\(v=office.16\)) classes. A developer can extend the UCMA 5.0 platform by creating a custom call control for an additional media type. Adding a custom call control entails creating new classes that inherit from the [Call](/dotnet/api/microsoft.rtc.collaboration.call?view=ucma-api&preserve-view=true), [MediaProvider](/dotnet/api/microsoft.rtc.collaboration.componentmodel.mediaprovider?view=ucma-api&preserve-view=true), and [MediaFlow](/dotnet/api/microsoft.rtc.collaboration.componentmodel.mediaflow?view=ucma-api&preserve-view=true) abstract classes, as well as creating implementations of the factory classes that are used to generate instances of the new **Call** and **MediaProvider** subclasses. Much of the functionality of the abstract base classes is inherited by the new derived classes and can be reused and exposed publicly without further modifications. This topic describes the abstract properties and methods that must be defined in a **Call** subclass.
 
 ## Call base class
 
@@ -29,8 +30,8 @@ A class derived from the **Call** class must provide definitions for the two abs
 
 <table>
 <colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
+<col />
+<col />
 </colgroup>
 <thead>
 <tr class="header">
@@ -58,8 +59,8 @@ A class derived from the **Call** class must also provide definitions for three 
 
 <table>
 <colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
+<col />
+<col />
 </colgroup>
 <thead>
 <tr class="header">
@@ -74,12 +75,12 @@ A class derived from the **Call** class must also provide definitions for three 
 <p>protected abstract bool HandleFlowConfigurationRequested(MediaFlow mediaFlow)</p></td>
 </tr>
 <tr class="even">
-<td><p><a href="https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.call.handletransfernotificationreceived?view=ucma-api">HandleTransferNotificationReceived(TransferStateChangedEventArgs)</a></p></td>
+<td><p><a href="/dotnet/api/microsoft.rtc.collaboration.call.handletransfernotificationreceived?view=ucma-api&preserve-view=true">HandleTransferNotificationReceived(TransferStateChangedEventArgs)</a></p></td>
 <td><p>Handles a transfer notification event in a class derived from the <strong>Call</strong> class.</p>
 <p>protected abstract void HandleTransferNotificationReceived(TransferStateChangedEventArgs e)</p></td>
 </tr>
 <tr class="odd">
-<td><p><a href="https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.call.handletransferreceived?view=ucma-api">HandleTransferReceived(CallTransferReceivedEventArgs)</a></p></td>
+<td><p><a href="/dotnet/api/microsoft.rtc.collaboration.call.handletransferreceived?view=ucma-api&preserve-view=true">HandleTransferReceived(CallTransferReceivedEventArgs)</a></p></td>
 <td><p>Handles a transfer event in a class derived from the <strong>Call</strong> class.</p>
 <p>protected abstract void HandleTransferReceived(CallTransferReceivedEventArgs e)</p></td>
 </tr>

@@ -1,6 +1,7 @@
 ﻿---
-title: DegradationPacketLossAvg element (QualityPropertiesType complexType) 
+title: DegradationPacketLossAvg element (QualityPropertiesType complexType) Schema C
 TOCTitle: DegradationPacketLossAvg element
+description: DegradationPacketLossAvg element (Schema C), QualityPropertiesType complexType, and Skype for Business SDN Interface 2.2.
 ms:assetid: 7e09fff5-9209-4022-e050-8f181b257d96
 ms:mtpsurl: https://msdn.microsoft.com/library/Mt404740(v=office.16)
 ms:contentKeyID: 68250653
@@ -10,7 +11,7 @@ dev_langs:
 - xml
 ---
 
-# DegradationPacketLossAvg element 
+# DegradationPacketLossAvg element (Schema C)
 
 (QualityPropertiesType complexType) (Skype for Business SDN Interface 2.2, Schema "C")
 
@@ -20,8 +21,6 @@ Average fraction of the DegradationAvg that was caused by packet loss. This metr
 
 <table>
 <colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -56,9 +55,6 @@ Average fraction of the DegradationAvg that was caused by packet loss. This metr
 
 <table>
 <colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
 </colgroup>
 <thead>
 <tr class="header">

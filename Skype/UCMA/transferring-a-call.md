@@ -1,4 +1,5 @@
 ﻿---
+description: Learn how call transfers for a two-party audio/video conversation are handled. 
 title: Transferring a call
 TOCTitle: Transferring a call
 ms:assetid: 0ad597a8-d002-4708-9879-f7335a5f02f5
@@ -17,7 +18,7 @@ dev_langs:
 This topic discusses attended, supervised, and unattended call transfers for a two-party audio/video conversation.
 
 > [!NOTE]
-> Only the [AudioVideoCall](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiovideocall?view=ucma-api) class provides call transfer functionality.
+> Only the [AudioVideoCall](/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiovideocall?) class provides call transfer functionality.
 
 The process of a call transfer involves three participants:
 
@@ -45,7 +46,7 @@ call.BeginTransfer(target, basicTransferOptions, userCallback, state);
 A supervised transfer is a type of attended transfer in which the transferor establishes a call to the number being transferred to, and then provides that call as an argument to **BeginTransfer**. For a supervised transfer, the REFER message contains a **Replaces** header that specifies the call to be replaced. The following code demonstrates a supervised call transfer.
 
 > [!NOTE]
-> Because the default [CallTransferType](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.calltransfertype?view=ucma-api) is Attended, call transfers of this type can pass null as the second parameter of the [BeginTransfer(Call, CallTransferOptions, AsyncCallback, Object)](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.call.begintransfer?view=ucma-api) call.
+> Because the default [CallTransferType](/dotnet/api/microsoft.rtc.collaboration.calltransfertype?) is Attended, call transfers of this type can pass null as the second parameter of the [BeginTransfer(Call, CallTransferOptions, AsyncCallback, Object)](/dotnet/api/microsoft.rtc.collaboration.call.begintransfer?) call.
 
 
 ```csharp
@@ -64,12 +65,11 @@ call.BeginTransfer(target, unattendedTransferOptions, userCallback, state);
 
 ## Customizing call transfer behaviors
 
-The [Call](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.call?view=ucma-api) base class exposes protected methods to handle the incoming transfer and monitor the progress of the transfer. Derived classes can support transfer functionality by overriding the methods and exposing the event handler to the application.
+The [Call](/dotnet/api/microsoft.rtc.collaboration.call?) base class exposes protected methods to handle the incoming transfer and monitor the progress of the transfer. Derived classes can support transfer functionality by overriding the methods and exposing the event handler to the application.
 
 <table>
 <colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
+
 </colgroup>
 <thead>
 <tr class="header">
@@ -79,27 +79,27 @@ The [Call](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.cal
 </thead>
 <tbody>
 <tr class="odd">
-<td><p><a href="https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.call.handletransferreceived?view=ucma-api">HandleTransferReceived(CallTransferReceivedEventArgs)</a></p></td>
+<td><p><a href="/dotnet/api/microsoft.rtc.collaboration.call.handletransferreceived?">HandleTransferReceived(CallTransferReceivedEventArgs)</a></p></td>
 <td><p>Handles a transfer received event in a class derived from the <strong>Call</strong> class.</p>
 <p>protected abstract void HandleTransferReceived(CallTransferReceivedData e)</p></td>
 </tr>
 <tr class="even">
-<td><p><a href="https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.call.handletransfernotificationreceived?view=ucma-api">HandleTransferNotificationReceived(TransferStateChangedEventArgs)</a></p></td>
+<td><p><a href="/dotnet/api/microsoft.rtc.collaboration.call.handletransfernotificationreceived?">HandleTransferNotificationReceived(TransferStateChangedEventArgs)</a></p></td>
 <td><p>Handles a transfer notification received event in a class derived from the <strong>Call</strong> class.</p>
 <p>protected abstract void HandleTransferNotification(ReferStateChangedEventArgs e)</p></td>
 </tr>
 <tr class="odd">
-<td><p><a href="https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.call.begintransfer?view=ucma-api">BeginTransfer(Call, CallTransferOptions, AsyncCallback, Object)</a></p></td>
+<td><p><a href="/dotnet/api/microsoft.rtc.collaboration.call.begintransfer?">BeginTransfer(Call, CallTransferOptions, AsyncCallback, Object)</a></p></td>
 <td><p>Initiates a transfer request to the remote participant of the current call to replace an existing call in Attended mode.</p>
 <p>protected IAsyncResult BeginTransfer(Call callToReplace, CallTransferOptions callTransferOptions, AsyncCallback userCallback, object state)</p></td>
 </tr>
 <tr class="even">
-<td><p><a href="https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.call.begintransfer?view=ucma-api">BeginTransfer(String, CallTransferOptions, AsyncCallback, Object)</a></p></td>
+<td><p><a href="/dotnet/api/microsoft.rtc.collaboration.call.begintransfer?">BeginTransfer(String, CallTransferOptions, AsyncCallback, Object)</a></p></td>
 <td><p>Initiates a transfer request to the remote participant to transfer the given transfer target in Attended or Unattended mode.</p>
 <p>protected IAsyncResult BeginTransfer(string targetUri, CallTransferOptions callTransferOptions, AsyncCallback userCallback, object state)</p></td>
 </tr>
 <tr class="odd">
-<td><p><a href="https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.call.endtransfer?view=ucma-api">EndTransfer(IAsyncResult)</a></p></td>
+<td><p><a href="/dotnet/api/microsoft.rtc.collaboration.call.endtransfer?">EndTransfer(IAsyncResult)</a></p></td>
 <td><p>Determines whether the corresponding transfer operation completed successfully.</p>
 <p>This method waits if the operation has not yet completed.</p>
 <p>CallMessageData EndTransfer(IAsyncResult)</p></td>

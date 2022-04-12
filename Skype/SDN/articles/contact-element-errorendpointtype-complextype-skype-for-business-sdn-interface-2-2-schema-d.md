@@ -20,8 +20,8 @@ SIP URI of the user as extracted from the Contact header of the underlying SIP m
 
 <table>
 <colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
+<col />
+<col />
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -56,9 +56,9 @@ SIP URI of the user as extracted from the Contact header of the underlying SIP m
 
 <table>
 <colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
+<col />
+<col />
+<col />
 </colgroup>
 <thead>
 <tr class="header">

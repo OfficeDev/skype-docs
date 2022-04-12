@@ -1,4 +1,5 @@
 ﻿---
+description: This article contains the glossary for UCMA 5.0 SDK. 
 title: Glossary (UCMA 5.0 SDK)
 TOCTitle: Glossary
 ms:assetid: b863b5e6-f008-474b-9e1a-f38173cca48e
@@ -15,8 +16,7 @@ mtps_version: v=office.16
 
 <table>
 <colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
+
 </colgroup>
 <thead>
 <tr class="header">
@@ -49,7 +49,7 @@ mtps_version: v=office.16
 </tr>
 <tr class="even">
 <td><p>Call</p></td>
-<td><p>A communication session between the local endpoint and a remote endpoint. The <a href="https://msdn.microsoft.com/library/hh384235(v=office.16)">Call</a> abstract class provides the base class implementation needed to handle a Session Description Protocol (SDP)-based communication session. The SDP is used to negotiate media characteristics between the two endpoints. The base <strong>Call</strong> class implements the common functionality that is independent of the media types involved, and this functionality can be leveraged by derived classes. <a href="https://msdn.microsoft.com/library/hh161841(v=office.16)">InstantMessagingCall</a> and <a href="https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiovideocall?view=ucma-api">AudioVideoCall</a> are two subclasses that are provided by the Microsoft Unified Communications Managed API 5.0 for instant messaging and audio-video sessions. A call always belongs to a conversation.</p>
+<td><p>A communication session between the local endpoint and a remote endpoint. The <a href="https://msdn.microsoft.com/library/hh384235(v=office.16)">Call</a> abstract class provides the base class implementation needed to handle a Session Description Protocol (SDP)-based communication session. The SDP is used to negotiate media characteristics between the two endpoints. The base <strong>Call</strong> class implements the common functionality that is independent of the media types involved, and this functionality can be leveraged by derived classes. <a href="https://msdn.microsoft.com/library/hh161841(v=office.16)">InstantMessagingCall</a> and <a href="/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiovideocall?">AudioVideoCall</a> are two subclasses that are provided by the Microsoft Unified Communications Managed API 5.0 for instant messaging and audio-video sessions. A call always belongs to a conversation.</p>
 <p>The <strong>Call</strong>, <a href="https://msdn.microsoft.com/library/hh383767(v=office.16)">MediaProvider</a>, and <a href="https://msdn.microsoft.com/library/hh366262(v=office.16)">MediaFlow</a> abstract classes are the building blocks of the communication framework. A developer can create classes that are derived from these abstract classes to extend the platform, to establish a media channel between two endpoints for arbitrary media types.</p></td>
 </tr>
 <tr class="odd">

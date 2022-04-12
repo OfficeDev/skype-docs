@@ -1,4 +1,5 @@
 ﻿---
+description: Learn the conceptual details about handling media in audio/video calls. 
 title: Media handling - AudioVideo
 TOCTitle: Media handling - AudioVideo
 ms:assetid: 4e4784d8-908d-4371-9bbd-355b6279ac16
@@ -12,7 +13,7 @@ mtps_version: v=office.16
 
 **Applies to**: Skype for Business 2015
 
-This section provides conceptual details about handling media in audio/video calls in relation to the [AudioVideoCall](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiovideocall?view=ucma-api), [AudioVideoMcuSession](https://msdn.microsoft.com/library/hh385298\(v=office.16\)), and [AudioVideoFlow](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiovideoflow?view=ucma-api) classes.
+This section provides conceptual details about handling media in audio/video calls in relation to the [AudioVideoCall](/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiovideocall?), [AudioVideoMcuSession](https://msdn.microsoft.com/library/hh385298\(v=office.16\)), and [AudioVideoFlow](/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiovideoflow?) classes.
 
 - [AudioVideoCall](audiovideocall.md)
 - [AudioVideoMcuSession](audiovideomcusession.md)

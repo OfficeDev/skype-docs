@@ -1,3 +1,7 @@
+---
+title: StopSubscriptionToContactsAndGroup for Skype for Business 2015
+description: "StopSubscriptionToContactsAndGroups stops the subscription to a user's contacts and groups. Properties values are rel and href."
+---
 # stopSubscriptionToContactsAndGroups
 
  _**Applies to:** Skype for Business 2015_
@@ -39,6 +43,7 @@ None
 
 
 The user must have at least one of these scopes for operations on the resource to be allowed.
+
 |**Scope**|**Permission**|**Description**|
 |:-----|:-----|:-----|
 |Contacts.ReadWrite|Read/write Skype user contacts and groups|Allows the app to read and write Skype user contacts and groups|

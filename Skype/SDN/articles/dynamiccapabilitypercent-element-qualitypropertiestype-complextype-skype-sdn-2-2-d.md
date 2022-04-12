@@ -1,6 +1,7 @@
 ﻿---
-title: DynamicCapabilityPercent element (QualityPropertiesType complexType) 
+title: DynamicCapabilityPercent element, QualityPropertiesType complexType, schema D
 TOCTitle: DynamicCapabilityPercent element
+description: Percentage of time that the client is running under capability of less than 70% of expected capability for this type of CPU.
 ms:assetid: 70886cb7-42f8-c94c-b1a3-48498304b176
 ms:mtpsurl: https://msdn.microsoft.com/library/Mt170848(v=office.16)
 ms:contentKeyID: 65855423
@@ -10,9 +11,9 @@ dev_langs:
 - xml
 ---
 
-# DynamicCapabilityPercent element 
+# DynamicCapabilityPercent element, QualityPropertiesType complexType, schema D
 
-(QualityPropertiesType complexType) (Skype for Business SDN Interface 2.2, Schema "D")
+(Skype for Business SDN Interface 2.2, Schema "D")
 
 Percentage of time that the client is running under capability of less than 70% of expected capability for this type of CPU. Inbound and Outbound are identical because it measures the capability of the client instead of the channel. This metric is reported for video streams when available. (percent)
 
@@ -26,8 +27,8 @@ Elements and attributes
 
 <table>
 <colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
+<col>
+<col>
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -62,9 +63,9 @@ Elements and attributes
 
 <table>
 <colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
+<col>
+<col>
+<col>
 </colgroup>
 <thead>
 <tr class="header">

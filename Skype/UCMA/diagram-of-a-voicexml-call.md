@@ -25,7 +25,7 @@ The following diagram shows a simplified representation of a VoiceXML call in Mi
 
 4.  The hosting .NET application listens for calls at the UCMA 5.0 endpoint, and takes calls as they arrive.
 
-5.  When the .NET application takes a call, it launches an instance of the [Browser](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.voicexml.browser?view=ucma-voice). The application launches a separate **Browser** instance for each call that it answers.
+5.  When the .NET application takes a call, it launches an instance of the [Browser](/dotnet/api/microsoft.rtc.collaboration.audiovideo.voicexml.browser). The application launches a separate **Browser** instance for each call that it answers.
 
 6.  The **Browser** connects to audio devices in the UCMA 5.0 endpoint that allow the **Browser** to present audio to the caller or collect audio from the caller as instructed by the VoiceXML application.
 

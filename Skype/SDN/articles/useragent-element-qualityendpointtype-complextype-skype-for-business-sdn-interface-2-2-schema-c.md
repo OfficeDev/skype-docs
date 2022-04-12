@@ -1,6 +1,7 @@
 ﻿---
-title: UserAgent element (QualityEndPointType complexType) 
+title: UserAgent element, QualityEndPointType complexType, schema C 
 TOCTitle: UserAgent element (QualityEndPointType complexType)
+description: Skype for Business client and version for schema C.
 ms:assetid: e65f8a8c-10b2-00b4-221b-bd723c697e80
 ms:mtpsurl: https://msdn.microsoft.com/library/Mt429334(v=office.16)
 ms:contentKeyID: 68250776
@@ -10,9 +11,9 @@ dev_langs:
 - xml
 ---
 
-# UserAgent element 
+# UserAgent element, QualityEndPointType complexType, schema C
 
-(QualityEndPointType complexType) (Skype for Business SDN Interface 2.2, Schema "C")
+(Skype for Business SDN Interface 2.2, Schema "C")
 
 Skype for Business client and version.
 
@@ -25,8 +26,8 @@ Elements and attributes
 
 <table>
 <colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
+<col>
+<col>
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -61,9 +62,9 @@ Elements and attributes
 
 <table>
 <colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
+<col>
+<col>
+<col>
 </colgroup>
 <thead>
 <tr class="header">

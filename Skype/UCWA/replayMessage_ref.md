@@ -1,9 +1,12 @@
+---
+title: ReplayMessage reference for Skype for Business 2015
+description: "Client would use replayMessage as a resource to trigger a notification from an application endpoint to current UCWA application instance."
+---
 # replayMessage
 
  _**Applies to:** Skype for Business 2015_
 
-Replay message. Client would use this resource to trigger a notification 
-from an application endpoint to current ucwa application instance
+Replay message. Client would use this resource to trigger a notification from an application endpoint to current ucwa application instance
             
 
 ## Web Link
@@ -34,6 +37,7 @@ None
 
 
 The user must have at least one of these scopes for operations on the resource to be allowed.
+
 |**Scope**|**Permission**|**Description**|
 |:-----|:-----|:-----|
 |Conversations.Initiate|Initiate conversations and join meetings|Allows the app to initiate instant messages, audio, video, and desktop sharing conversations; and join meetings on-behalf of the signed-in user|

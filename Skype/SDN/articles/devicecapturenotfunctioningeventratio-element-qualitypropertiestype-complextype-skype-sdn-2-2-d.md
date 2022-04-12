@@ -1,6 +1,7 @@
 ﻿---
-title: DeviceCaptureNotFunctioningEventRatio element (QualityPropertiesType complexType) 
+title: DeviceCaptureNotFunctioningEventRatio element (QualityPropertiesType complexType) Schema D
 TOCTitle: DeviceCaptureNotFunctioningEventRatio element
+description: DeviceCaptureNotFunctioningEventRatio element (Schema D), QualityPropertiesType complexType, and Skype for Business SDN Interface 2.2.
 ms:assetid: 754049e9-36da-5278-7bdf-ab73350a73f6
 ms:mtpsurl: https://msdn.microsoft.com/library/Mt149467(v=office.16)
 ms:contentKeyID: 65855414
@@ -10,7 +11,7 @@ dev_langs:
 - xml
 ---
 
-# DeviceCaptureNotFunctioningEventRatio element 
+# DeviceCaptureNotFunctioningEventRatio element (Schema D)
 
 (QualityPropertiesType complexType) (Skype for Business SDN Interface 2.2, Schema "D")
 
@@ -20,8 +21,6 @@ Percentage of sessions the DeviceCaptureNotFunctioning event was fired when the 
 
 <table>
 <colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -56,9 +55,6 @@ Percentage of sessions the DeviceCaptureNotFunctioning event was fired when the 
 
 <table>
 <colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
 </colgroup>
 <thead>
 <tr class="header">

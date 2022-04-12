@@ -1,4 +1,5 @@
 ﻿---
+description: Learn how to use the InstantMessagingCall sample on Skype for Business 2015.
 title: InstantMessagingCall (QuickStart)
 TOCTitle: InstantMessagingCall (QuickStart)
 ms:assetid: 76574248-8d00-4c66-aad5-a5df2f9f7607
@@ -28,7 +29,7 @@ The application initializes the platform, and logs in on behalf of a user. The s
 
   - Instant messaging message usage, including replying to incoming messages
 
-  - [InstantMessagingFlow](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.instantmessagingflow?view=ucma-api) handling and control
+  - [InstantMessagingFlow](/dotnet/api/microsoft.rtc.collaboration.instantmessagingflow?) handling and control
 
 ## Prerequisites
 

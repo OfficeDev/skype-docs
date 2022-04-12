@@ -1,6 +1,11 @@
-v0.2.0
+---
+title: README file for zero-md v0.2.0
+description: README file for zero-md v0.2.0.
+---
 
-# `<zero-md>`
+# v0.2.0
+
+## `<zero-md>`
 
 Ridiculously simple markdown displayer - a Polymer 1.1+ web component to load
 and display an external MD file.
@@ -303,7 +308,9 @@ comprehensive example demonstrating the various markdown input methods,
 
 **Install through Bower**
 
-    bower install --save zerodevx/zero-md#^0.2.0
+```
+bower install --save zerodevx/zero-md#^0.2.0
+```
 
 Alternatively, download the project as a ZIP file and unpack into your
 components directory. Note that `<zero-md>` depends on:

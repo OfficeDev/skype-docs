@@ -73,4 +73,4 @@ You may need to contact your IT administrator as well and ask them to remove any
 
 - [Troubleshooting AAD Auth Failures for Skype Web SDK](./AADAuthFailures.md)
 - [AAD Auth Failures - Incorrectly configured reply URLs for application](./AADAuth-ReplyURLs.md)
-- [Integrating Applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-integrating-applications)
+- [Integrating Applications with Azure Active Directory](/azure/active-directory/active-directory-integrating-applications)

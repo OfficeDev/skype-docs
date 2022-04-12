@@ -106,7 +106,7 @@ Read [AAD Auth Failures - Invalid CORS redirect URI in Internet Explorer and Mic
 ## Related Topics
 
 - [Authentication using Azure Active Directory (AAD)](../../PTAuthAzureAD.md)
-- [Integrating Applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-integrating-applications)
+- [Integrating Applications with Azure Active Directory](/azure/active-directory/active-directory-integrating-applications)
 - [Gathering Web Traffic Logs using the Skype Web SDK](../gatheringLogs/Logs-WebTraffic.md)
 
 <a name="external-resources"></a>

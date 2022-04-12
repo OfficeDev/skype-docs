@@ -1,11 +1,11 @@
 ---
-title: Deploying Skype for Business SDN Interface
- 
+title: Deploying Skype for SDN Interface
+description: Microsoft Skype for Business SDN Interface supports different deployment scenarios.
 ms.assetid: 28293ebc-d1f4-4715-b7cd-276055e48015
 ---
 
 
-# Deploying Skype for Business SDN Interface
+# Deploying Skype for SDN Interface
 
 
   

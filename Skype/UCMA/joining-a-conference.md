@@ -1,4 +1,5 @@
 ﻿---
+description: Learn how to create and join a conference in Skype for Business 2015.
 title: Joining a conference
 TOCTitle: Joining a conference
 ms:assetid: ff8f9269-c9b8-4030-9ef3-081f7ae79ba5
@@ -40,7 +41,7 @@ Classes and methods in UCMA 5.0 enable an application to join a conference as a 
 
 ### Trusted join
 
-To join a conference as a trusted user, an application should set the [JoinMode](https://msdn.microsoft.com/library/hh384536\(v=office.16\)) property on a [ConferenceJoinOptions](https://msdn.microsoft.com/library/hh385064\(v=office.16\)) instance to **TrustedParticipant**, a value of the [JoinMode](https://msdn.microsoft.com/library/hh381559\(v=office.16\)) enumeration. The conversation must belong to an [ApplicationEndpoint](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.applicationendpoint?view=ucma-api) instance that is provisioned with a trusted service GRUU.
+To join a conference as a trusted user, an application should set the [JoinMode](https://msdn.microsoft.com/library/hh384536\(v=office.16\)) property on a [ConferenceJoinOptions](https://msdn.microsoft.com/library/hh385064\(v=office.16\)) instance to **TrustedParticipant**, a value of the [JoinMode](https://msdn.microsoft.com/library/hh381559\(v=office.16\)) enumeration. The conversation must belong to an [ApplicationEndpoint](/dotnet/api/microsoft.rtc.collaboration.applicationendpoint?) instance that is provisioned with a trusted service GRUU.
 
 ### Default join
 

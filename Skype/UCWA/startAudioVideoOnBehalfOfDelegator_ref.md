@@ -1,10 +1,13 @@
+---
+title: startAudioVideoOnBehalfOfDelegator for Skype for Business 2015
+description: "Represents an operation to start AudioVideo call on behalf of the delegator. This token indicates the user has ability to start audio video call on behalf of the delegator." 
+---
 # startAudioVideoOnBehalfOfDelegator
 
  _**Applies to:** Skype for Business 2015_
 
 
-Represents an operation to start AudioVideo call on behalf of the delegator. This token indicates 
-the user has ability to start audiovideo call on behalf of the delegator.
+Represents an operation to start AudioVideo call on behalf of the delegator. This token indicates the user has ability to start audiovideo call on behalf of the delegator.
             
 
 ## Web Link
@@ -35,6 +38,7 @@ None
 
 
 The user must have at least one of these scopes for operations on the resource to be allowed.
+
 |**Scope**|**Permission**|**Description**|
 |:-----|:-----|:-----|
 |Conversations.Initiate|Initiate conversations and join meetings|Allows the app to initiate instant messages, audio, video, and desktop sharing conversations; and join meetings on-behalf of the signed-in user|

@@ -1,5 +1,6 @@
 ﻿---
-title: Per Subscriber Obfuscation
+title: Per Subscriber Obfuscation for Lync Server 2013 or Skype for Business 2015
+description: Learn how to set an individual obfuscation seed for a subscriber.
 TOCTitle: Per Subscriber Obfuscation
 ms:assetid: d7fee767-9dbb-4ec0-9d20-3de741e79079
 ms:mtpsurl: https://msdn.microsoft.com/library/Mt683864(v=office.16)
@@ -8,7 +9,7 @@ ms.date: 02/27/2017
 mtps_version: v=office.16
 ---
 
-# Per Subscriber Obfuscation
+# Per Subscriber Obfuscationfor Lync Server 2013 or Skype for Business 2015
 
 Learn how to set an individual obfuscation seed for a subscriber.
 
@@ -25,7 +26,7 @@ All SIP URI user names and name and tel in the PAI field will be obfuscated in b
 
 SipObfuscator tool has been updated to accept a parameter to supply the subscriber obfuscation seed to calculate the hash code. For example:
 
-    SDNManager.exe p s mysubscriber obfuscationseed=mypersonalseed 
+`SDNManager.exe p s mysubscriber obfuscationseed=mypersonalseed`
 
 
 > [!NOTE]

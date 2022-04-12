@@ -1,4 +1,5 @@
 ﻿---
+description: Learn about the ForwardIncomingCall sample in Skype for Business 2015.
 title: ForwardIncomingCall (QuickStart)
 TOCTitle: ForwardIncomingCall (QuickStart)
 ms:assetid: 33f4303f-c3dc-47e5-b44e-3edfeb666a5e
@@ -26,7 +27,7 @@ The application initializes the platform and logs in on behalf of a user. The sa
 
   - Call forwarding
 
-  - [AudioVideoFlow](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiovideoflow?view=ucma-api) handling and control
+  - [AudioVideoFlow](/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiovideoflow) handling and control
 
 ## Prerequisites
 

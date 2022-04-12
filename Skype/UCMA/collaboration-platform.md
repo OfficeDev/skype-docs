@@ -15,7 +15,7 @@ mtps_version: v=office.16
 
  
 
-The collaboration platform, an instance of the [CollaborationPlatform](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.collaborationplatform?view=ucma-api) class, provides capabilities for managing connections to and from the platform, guarantees a trust relationship with Skype for Business Server 2015 for server-mode **CollaborationPlatform** instances, and provides a mechanism whereby developers can extend the capabilities of the platform beyond the built-in media types that are supported in Microsoft Unified Communications Managed API 5.0.
+The collaboration platform, an instance of the [CollaborationPlatform](/dotnet/api/microsoft.rtc.collaboration.collaborationplatform) class, provides capabilities for managing connections to and from the platform, guarantees a trust relationship with Skype for Business Server 2015 for server-mode **CollaborationPlatform** instances, and provides a mechanism whereby developers can extend the capabilities of the platform beyond the built-in media types that are supported in Microsoft Unified Communications Managed API 5.0.
 
 Depending on the constructor used, a **CollaborationPlatform** instance is created either as a client platform or as a server platform. A typical use for a client platform is to permit the creation of a number of clients that can be used to simulate users connected to an application.
 
@@ -37,7 +37,7 @@ When the **CollaborationPlatform** instance is created, a trusted GRUU is assign
 
 ## Extensible communication framework
 
-The **CollaborationPlatform** contains all of the factories that are required for the media types supported in UCMA 5.0. In other words, factories for the [InstantMessagingCall](https://msdn.microsoft.com/library/hh161841\(v=office.16\)), **InstantMessagingProvider**, [AudioVideoCall](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiovideocall?view=ucma-api), and **AudioVideoProvider** classes are already registered with **CollaborationPlatform**. Developers who wish to implement custom media types can do so by creating custom call and media provider classes that inherit from, respectively, the [Call](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.call?view=ucma-api) and [MediaProvider](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.componentmodel.mediaprovider?view=ucma-api) abstract base classes. For more information, see the topics in [Extending the UCMA platform](extending-the-ucma-platform.md).
+The **CollaborationPlatform** contains all of the factories that are required for the media types supported in UCMA 5.0. In other words, factories for the [InstantMessagingCall](https://msdn.microsoft.com/library/hh161841\(v=office.16\)), **InstantMessagingProvider**, [AudioVideoCall](/dotnet/api/microsoft.rtc.collaboration.audiovideo.audiovideocall), and **AudioVideoProvider** classes are already registered with **CollaborationPlatform**. Developers who wish to implement custom media types can do so by creating custom call and media provider classes that inherit from, respectively, the [Call](/dotnet/api/microsoft.rtc.collaboration.call) and [MediaProvider](/dotnet/api/microsoft.rtc.collaboration.componentmodel.mediaprovider) abstract base classes. For more information, see the topics in [Extending the UCMA platform](extending-the-ucma-platform.md).
 
 ## Auto-provisioning
 

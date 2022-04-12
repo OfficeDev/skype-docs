@@ -1,5 +1,6 @@
 ﻿---
 title: Error handling (Unified Communications Managed API 5.0)
+description: A developer who implements a subclass of the MediaProvider class must be aware of the exceptions that Microsoft Unified Communications Managed API expects.
 TOCTitle: Error handling
 ms:assetid: 039427ca-d9f6-4b31-986c-23db1850446c
 ms:mtpsurl: https://msdn.microsoft.com/library/Dn466107(v=office.16)
@@ -13,21 +14,19 @@ mtps_version: v=office.16
 
 **Applies to**: Skype for Business 2015
 
-A developer who implements a subclass of the [MediaProvider](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.componentmodel.mediaprovider?view=ucma-api) class must be aware of the exceptions that Microsoft Unified Communications Managed API (UCMA) expects.
+A developer who implements a subclass of the [MediaProvider](/dotnet/api/microsoft.rtc.collaboration.componentmodel.mediaprovider?view=ucma-api) class must be aware of the exceptions that Microsoft Unified Communications Managed API (UCMA) expects.
 
 ## OfferAnswerException
 
-A [MediaProvider](https://docs.microsoft.com/dotnet/api/microsoft.rtc.collaboration.componentmodel.mediaprovider?view=ucma-api) subclass implementation can throw [OfferAnswerException](https://msdn.microsoft.com/library/hh382722\(v=office.16\)) in [EndGetOffer](https://msdn.microsoft.com/library/hh382852\(v=office.16\)) and [EndGetAnswer(IAsyncResult)](https://msdn.microsoft.com/library/hh383856\(v=office.16\)). The [FailureReason](https://msdn.microsoft.com/library/hh384728\(v=office.16\)) property on this exception contains information about why the exception was thrown.
+A [MediaProvider](/dotnet/api/microsoft.rtc.collaboration.componentmodel.mediaprovider?view=ucma-api) subclass implementation can throw [OfferAnswerException](https://msdn.microsoft.com/library/hh382722\(v=office.16\)) in [EndGetOffer](https://msdn.microsoft.com/library/hh382852\(v=office.16\)) and [EndGetAnswer(IAsyncResult)](https://msdn.microsoft.com/library/hh383856\(v=office.16\)). The [FailureReason](https://msdn.microsoft.com/library/hh384728\(v=office.16\)) property on this exception contains information about why the exception was thrown.
 
 ## Other exceptions
 
 In addition to **OfferAnswerException**, the developer should also be aware of the following exceptions:
 
 1.  A **Begin***Xxx* method should throw only [ArgumentException](https://msdn.microsoft.com/library/3w1b3114) or [InvalidOperationException](https://msdn.microsoft.com/library/2asft85a).
-    
-   **Begin***Xxx* can throw **InvalidOperationException** if an operation is not valid in the current state of the **MediaProvider** subclass implementation. The associated **Call** subclass should catch the exception and take appropriate action, depending on the operation state. Appropriate actions include terminating the call or retrying the operation.
-    
-    A custom implementation of a **Call** subclass should not receive [ArgumentException](https://msdn.microsoft.com/library/3w1b3114) in general, because **Call** never passes a null value of **OfferAnswerContext** or **CallContext**. The **MediaProvider** can very well assert the value on any API where **OfferAnswerContext** is passed. The **Call** class has special logic for handling an **OfferAnswerException** exception, which is shown in the previous section of this topic.
+<br><br>**Begin***Xxx* can throw **InvalidOperationException** if an operation is not valid in the current state of the **MediaProvider** subclass implementation. The associated **Call** subclass should catch the exception and take appropriate action, depending on the operation state. Appropriate actions include terminating the call or retrying the operation.
+<br><br>A custom implementation of a **Call** subclass should not receive [ArgumentException](https://msdn.microsoft.com/library/3w1b3114) in general, because **Call** never passes a null value of **OfferAnswerContext** or **CallContext**. The **MediaProvider** can very well assert the value on any API where **OfferAnswerContext** is passed. The **Call** class has special logic for handling an **OfferAnswerException** exception, which is shown in the previous section of this topic.
 
 2.  An **End***Xxx* method can throw only the exceptions that are derived from the [RealTimeException](https://msdn.microsoft.com/library/hh385103\(v=office.16\)) class:
     
