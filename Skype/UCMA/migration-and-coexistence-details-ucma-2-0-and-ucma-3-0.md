@@ -25,11 +25,6 @@ WMI tools such as ApplicationProvisioner.exe, a tool that shipped with the SDK, 
 - The **Move-CsApplicationEndpoint** cmdlet, which can be used to retarget the contact object to a new application pool or populate the missing attributes of a UCMA 2.0 application contact object, when the contact object must be routed through the Lync Server 2010 Registrar.
 
 <table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th><p>Scenario</p></th>

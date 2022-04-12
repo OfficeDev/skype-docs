@@ -24,10 +24,6 @@ An application can create one or more **RemotePresenceView** instances, each wit
 The **SubscriptionMode** property on a **RemotePresenceViewSettings** instance can have one of the following values.
 
 <table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th><p>Value</p></th>

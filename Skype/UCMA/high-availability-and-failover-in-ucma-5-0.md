@@ -27,10 +27,6 @@ When the registration is subsequently healed by means of a registration refresh,
 The values of the [ServiceState](https://msdn.microsoft.com/library/hh350118\(v=office.16\)) enumeration represent the state of a service. The enumeration values and their descriptions are shown in the following table.
 
 <table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th><p>Value</p></th>
@@ -59,10 +55,6 @@ The values of the [ServiceState](https://msdn.microsoft.com/library/hh350118\(v=
 Three properties of the [RegistrationStateChangedEventArgs](https://msdn.microsoft.com/library/hh349790\(v=office.16\)) class are related to high availability and failover. These properties and their descriptions are shown in the following table.
 
 <table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th><p>Property</p></th>
@@ -91,10 +83,6 @@ Three properties of the [RegistrationStateChangedEventArgs](https://msdn.microso
 Two properties on the [LocalEndpointStateChangedEventArgs](https://msdn.microsoft.com/library/hh348674\(v=office.16\)) class are shown in the following table. Most of the **Reason** values are self-explanatory, but when a SIP NOTIFY message is received, the **Reason** value is **RegistrarNotificationReceived** and the **Notification** value indicates the type of notification.
 
 <table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th><p>Property</p></th>
@@ -124,10 +112,6 @@ The **MessageData** property on the **LocalEndpointStateChangedEventArgs** class
 The **Reason** property on the **LocalEndpointStateChangedEventArgs** class can be set to a value in the [LocalEndpointStateTransitionReason](https://msdn.microsoft.com/library/hh349697\(v=office.16\)) enumeration. These values are shown in the following table.
 
 <table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th><p>Value</p></th>

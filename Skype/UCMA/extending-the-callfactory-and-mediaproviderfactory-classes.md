@@ -28,10 +28,6 @@ The **RegisterPlatformExtension** method can be used to register custom extensio
 The following methods are available for installing and uninstalling custom extensions.
 
 <table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th><p>Method</p></th>

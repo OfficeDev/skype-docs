@@ -16,11 +16,6 @@ mtps_version: v=office.16
 DefaultScale for all Outgoing Messages performance counters is 0, which means that the scaling factor is 1. The Windows Performance tool refers to this object as LC:SipEps - 04 - SipEps Outgoing Messages.
 
 <table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th><p>Name</p></th>

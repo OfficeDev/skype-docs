@@ -47,10 +47,6 @@ The configurable scheduling options include the following:
 In UCMA 5.0, the conference access level specifies the people who have access to a conference based on their authentication method and source network. The following table summarizes the values of the [ConferenceAccessLevel](https://msdn.microsoft.com/library/hh385275\(v=office.16\)) enumeration.
 
 <table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th><p>Conference Access Level</p></th>

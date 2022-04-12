@@ -31,10 +31,6 @@ A developer who creates a **MediaProvider** subclass must provide a definition f
 In addition to the previously mentioned property, the developer must provide definitions for the following seven **MediaProvider** methods.
 
 <table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th><p>Method</p></th>
