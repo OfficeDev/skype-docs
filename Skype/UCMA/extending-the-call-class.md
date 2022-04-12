@@ -58,8 +58,8 @@ A class derived from the **Call** class must also provide definitions for three 
 
 <table>
 <colgroup>
-<col width=50%>
-<col width=50%>
+<col style="width: 50%" />
+<col />
 </colgroup>
 <thead>
 <tr class="header">
