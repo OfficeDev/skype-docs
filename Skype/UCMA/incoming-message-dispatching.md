@@ -27,10 +27,6 @@ Every endpoint also has a property that contains the URI of the endpoint itself-
 An application endpoint is usually associated with two possible GRUU values: application pool GRUU and application instance GRUU. The following table describes these GRUU types.
 
 <table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th><p>GRUU type</p></th>
