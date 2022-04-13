@@ -36,12 +36,6 @@ If an application is placed in the conference lobby, the callback passed in the 
 The following table shows the behaviors that are expressed when an application is placed in the lobby.
 
 <table>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th><p>Scenario</p></th>
@@ -98,10 +92,6 @@ Conferences can be scheduled and updated while they are active to allow calls co
 The methods and property on the [LobbyManager](https://msdn.microsoft.com/library/hh383596\(v=office.16\)) class can be used to manage incoming participants in a conference.
 
 <table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th><p>LobbyManager member</p></th>
