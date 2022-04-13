@@ -1,6 +1,7 @@
 ﻿---
 title: DeviceClippingEventRatio element (QualityPropertiesType complexType) Schema D
 TOCTitle: DeviceClippingEventRatio element
+description: DeviceClippingEventRatio element (Schema D), QualityPropertiesType complexType, and Skype for Business SDN Interface 2.2.
 ms:assetid: 5c19d36b-dbbd-442c-4dd3-a7d00e9c8109
 ms:mtpsurl: https://msdn.microsoft.com/library/Mt149468(v=office.16)
 ms:contentKeyID: 65855415
