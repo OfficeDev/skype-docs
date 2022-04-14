@@ -1,5 +1,5 @@
 
-# Groups
+# Groups in Skype for Business
 
 
  _**Applies to:** Skype for Business 2015_

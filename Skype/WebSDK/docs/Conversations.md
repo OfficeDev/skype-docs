@@ -1,5 +1,5 @@
 
-# Conversations
+# Conversations in the Skype Web SDK
 
 
  _**Applies to:** Skype for Business 2015_
