@@ -1,5 +1,6 @@
 ---
-Title: Groups in Skype for Business
+title: Groups in Skype for Business
+
 ---
 
 # Groups in Skype for Business
