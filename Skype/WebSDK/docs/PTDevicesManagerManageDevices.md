@@ -1,5 +1,5 @@
 
-# Manage devices in devicesManager
+# Manage devices in the devicesManager
 
 
  _**Applies to:** Skype for Business | Skype for Business 2015_
