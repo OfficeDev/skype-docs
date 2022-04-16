@@ -1,7 +1,7 @@
+---
+title: Status properties in Skype for Business 2015
 
-# Status
-
-
+---
  _**Applies to:** Skype for Business 2015_
 
 ## Local user - Set Status

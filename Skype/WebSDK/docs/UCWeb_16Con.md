@@ -1,7 +1,8 @@
-
+---
 <!--This is the start of the TOC-->
-# Table of contents
+title: Table of contents for Skype Web SDK
 
+---
 - [Skype Web SDK general reference](GeneralReference.md)
   - [Core capabilities](CoreCapabilities.md)
     - [Presence](Presence.md)
