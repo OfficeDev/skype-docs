@@ -1,16 +1,17 @@
 ﻿---
-title: EPType element (QualityEndPointType complexType) 
+title: EPType element (QualityEndPointType complexType) (Schema C)
 TOCTitle: EPType element (QualityEndPointType complexType)
 ms:assetid: 3b5280f2-4f06-c3ab-734c-268f471a8029
 ms:mtpsurl: https://msdn.microsoft.com/library/Mt404761(v=office.16)
 ms:contentKeyID: 68250677
+description: Provides indication that this endpoint is of the Skype for Business Room System type or not.
 ms.date: 08/24/2015
 mtps_version: v=office.16
 dev_langs:
 - xml
 ---
 
-# EPType element 
+# EPType element Schema C
 
 (QualityEndPointType complexType) (Skype for Business SDN Interface 2.2, Schema "C")
 

@@ -1,16 +1,17 @@
 ﻿---
-title: EPType element (EndPointType complexType) 
+title: EPType element (EndPointType complexType) Schema D
 TOCTitle: EPType element (EndPointType complexType)
 ms:assetid: 7a649954-48bc-c813-7e12-782f721b0ae8
 ms:mtpsurl: https://msdn.microsoft.com/library/Mt170866(v=office.16)
 ms:contentKeyID: 65855442
+description: Indicates if this endpoint is of the Skype for Business Room System type or not.
 ms.date: 08/24/2015
 mtps_version: v=office.16
 dev_langs:
 - xml
 ---
 
-# EPType element 
+# EPType element (EndPointType complexType) (Schema D)
 
 (EndPointType complexType) (Skype for Business SDN Interface 2.2, Schema "D")
 

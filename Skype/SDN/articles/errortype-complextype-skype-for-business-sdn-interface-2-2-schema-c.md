@@ -1,16 +1,17 @@
 ﻿---
-title: ErrorType complexType 
+title: ErrorType complexType (Schema C)
 TOCTitle: ErrorType complexType
 ms:assetid: bce95c26-6495-9562-4b1f-985f8d0d77bd
 ms:mtpsurl: https://msdn.microsoft.com/library/Mt429354(v=office.16)
 ms:contentKeyID: 68250796
+description: Provides type information, definitions, and elements.
 ms.date: 08/24/2015
 mtps_version: v=office.16
 dev_langs:
 - xml
 ---
 
-# ErrorType complexType 
+# ErrorType complexType Schema C
 
 (Skype for Business SDN Interface 2.2, Schema "C")
 

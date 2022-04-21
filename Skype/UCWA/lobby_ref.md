@@ -49,6 +49,7 @@ This resource can have the following relationships.
 
 
 The user must have at least one of these scopes for operations on the resource to be allowed.
+
 |**Scope**|**Permission**|**Description**|
 |:-----|:-----|:-----|
 |Conversations.Receive|Receive conversation invites|Allows the app to receive instant messages, audio, video, and desktop sharing invitations on-behalf of the signed-in user|
@@ -63,8 +64,10 @@ The user must have at least one of these scopes for operations on the resource t
 |**Resource**|**Priority**|**Sender**|**Reason**|
 |:-----|:-----|:-----|:-----|
 |participant|High|conversation|Indicates that a [participant](participant_ref.md) was added to the lobby.</p><p></p>|
+
 Sample of returned event data.
 This sample is given only as an illustration of event syntax. The semantic content is not guaranteed to correspond to a valid scenario.
+```
 {
   "_links" : {
     "self" : {
@@ -94,17 +97,18 @@ This sample is given only as an illustration of event syntax. The semantic conte
     }
   ]
 }
-
+```
 
 ### Updated
-
 
 
 |**Resource**|**Priority**|**Sender**|**Reason**|
 |:-----|:-----|:-----|:-----|
 |participant|High|conversation|Delivered when the participant resource in lobby is updated.</p><p></p>|
+
 Sample of returned event data.
 This sample is given only as an illustration of event syntax. The semantic content is not guaranteed to correspond to a valid scenario.
+```
 {
   "_links" : {
     "self" : {
@@ -123,10 +127,10 @@ This sample is given only as an illustration of event syntax. The semantic conte
           "link" : {
             "rel" : "participant",
             "href" : "https://fe1.contoso.com:443/ucwa/v1/applications/192/communication/conversations/137/participants/196"
-          },
-          "in" : {
-            "rel" : "lobby",
-            "href" : "https://fe1.contoso.com:443/ucwa/v1/applications/192/communication/conversations/137/lobby"
+        },
+           "in" : {
+             "rel" : "lobby",
+              "href" : "https://fe1.contoso.com:443/ucwa/v1/applications/192/communication/conversations/137/lobby"
           },
           "type" : "updated"
         }
@@ -134,46 +138,47 @@ This sample is given only as an illustration of event syntax. The semantic conte
     }
   ]
 }
-
+```
 
 ### Deleted
 
 
 
 |**Resource**|**Priority**|**Sender**|**Reason**|
-|:-----|:-----|:-----|:-----|
+|:----- |:----- |:----- |:----- |
 |participant|High|conversation|Indicates that a [participant](participant_ref.md) was removed from the lobby.</p><p>For example, the [participant](participant_ref.md) was admitted to or left the [onlineMeeting](onlineMeeting_ref.md). Note that if the [participant](participant_ref.md) leaves the [onlineMeeting](onlineMeeting_ref.md), a deleted event will be fired by this [participant](participant_ref.md) to indicate the application can release any cached information regarding this [participant](participant_ref.md).</p>|
+
 Sample of returned event data.
 This sample is given only as an illustration of event syntax. The semantic content is not guaranteed to correspond to a valid scenario.
-{
-  "_links" : {
-    "self" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
-    },
-    "next" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
-    }
-  },
-  "sender" : [
     {
-      "rel" : "conversation",
-      "href" : "https://fe1.contoso.com:443/ucwa/v1/applications/192/communication/conversations/137",
-      "events" : [
+      "_links" : {
+        "self" : {
+          "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
+        },
+        "next" : {
+          "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+        }
+      },
+      "sender" : [
         {
-          "link" : {
-            "rel" : "participant",
-            "href" : "https://fe1.contoso.com:443/ucwa/v1/applications/192/communication/conversations/137/participants/196"
-          },
-          "in" : {
-            "rel" : "lobby",
-            "href" : "https://fe1.contoso.com:443/ucwa/v1/applications/192/communication/conversations/137/lobby"
-          },
-          "type" : "deleted"
+          "rel" : "conversation",
+          "href" : "https://fe1.contoso.com:443/ucwa/v1/applications/192/communication/conversations/137",
+          "events" : [
+            {
+              "link" : {
+                "rel" : "participant",
+                "href" : "https://fe1.contoso.com:443/ucwa/v1/applications/192/communication/conversations/137/participants/196"
+              },
+              "in" : {
+                "rel" : "lobby",
+                "href" : "https://fe1.contoso.com:443/ucwa/v1/applications/192/communication/conversations/137/lobby"
+              },
+              "type" : "deleted"
+            }
+          ]
         }
       ]
     }
-  ]
-}
 
 
 ## Operations

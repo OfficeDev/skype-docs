@@ -76,6 +76,7 @@ This resource can have the following relationships.
 
 
 The user must have at least one of these scopes for operations on the resource to be allowed.
+
 |**Scope**|**Permission**|**Description**|
 |:-----|:-----|:-----|
 |Conversations.Initiate|Initiate conversations and join meetings|Allows the app to initiate instant messages, audio, video, and desktop sharing conversations; and join meetings on-behalf of the signed-in user|
@@ -91,15 +92,17 @@ The user must have at least one of these scopes for operations on the resource t
 |**Resource**|**Priority**|**Sender**|**Reason**|
 |:-----|:-----|:-----|:-----|
 |participant|High|conversation|Indicates that the [participant](participant_ref.md) has joined the [conversation](conversation_ref.md). The application can choose to retrieve the updated information.</p><p>If an application caches conversation data, the application should rely on this event to decide whether to update the conversation cache.The application will receive this event when the participant is first added to the conversation.Other added events for the same participant indicate that the participant has been admitted to the conference, promoted, demoted, or is typing a message.</p>|
+
 Sample of returned event data.
 This sample is given only as an illustration of event syntax. The semantic content is not guaranteed to correspond to a valid scenario.
+```
 {
   "_links" : {
     "self" : {
       "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=1"
     },
     "next" : {
-      "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
+     "href" : "http://sample:80/ucwa/v1/applications/appId/events?ack=2"
     }
   },
   "sender" : [
@@ -118,7 +121,7 @@ This sample is given only as an illustration of event syntax. The semantic conte
     }
   ]
 }
-
+```
 
 ### Updated
 
@@ -127,8 +130,10 @@ This sample is given only as an illustration of event syntax. The semantic conte
 |**Resource**|**Priority**|**Sender**|**Reason**|
 |:-----|:-----|:-----|:-----|
 |participant|High|conversation|Indicates that the [participant](participant_ref.md) has been updated. The application can choose to retrieve the updated information.</p><p>The application will receive this event when the user's capabilities to admit, promote, or demote a participant have changed. Note that this is the only updated event for a participant.For example, when the user is a leader, the user will lose the capability to admit the participant after the participant is movedfrom being in the lobby to being an attendee.</p>|
+
 Sample of returned event data.
 This sample is given only as an illustration of event syntax. The semantic content is not guaranteed to correspond to a valid scenario.
+```
 {
   "_links" : {
     "self" : {
@@ -154,7 +159,7 @@ This sample is given only as an illustration of event syntax. The semantic conte
     }
   ]
 }
-
+```
 
 ### Deleted
 
@@ -163,8 +168,10 @@ This sample is given only as an illustration of event syntax. The semantic conte
 |**Resource**|**Priority**|**Sender**|**Reason**|
 |:-----|:-----|:-----|:-----|
 |participant|High|conversation|Indicates that the [participant](participant_ref.md) has left a [conversation](conversation_ref.md).</p><p>If an application caches conversation data, the application should remove this participant from its conversation cache.</p>|
+
 Sample of returned event data.
 This sample is given only as an illustration of event syntax. The semantic content is not guaranteed to correspond to a valid scenario.
+```
 {
   "_links" : {
     "self" : {
@@ -190,7 +197,7 @@ This sample is given only as an illustration of event syntax. The semantic conte
     }
   ]
 }
-
+```
 
 ## Operations
 

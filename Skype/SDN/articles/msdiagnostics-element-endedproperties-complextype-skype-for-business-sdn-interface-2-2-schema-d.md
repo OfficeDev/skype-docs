@@ -26,10 +26,6 @@ Elements and attributes
 ## Element information
 
 <table>
-<colgroup>
-<col>
-<col>
-</colgroup>
 <tbody>
 <tr class="odd">
 <td><p><strong>Element type</strong></p></td>
@@ -62,11 +58,6 @@ Elements and attributes
 ### Parent elements
 
 <table>
-<colgroup>
-<col>
-<col>
-<col>
-</colgroup>
 <thead>
 <tr class="header">
 <th><p>Element</p></th>

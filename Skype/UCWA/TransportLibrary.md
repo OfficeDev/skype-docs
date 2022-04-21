@@ -31,15 +31,11 @@ The variables declared in the preceding example are used in subsequent examples 
 
 Uses the HTML 5 **postMessage** function to send a Request object to a remote location.
 
-
-
 |**Parameter**|**Description**|
 |:-----|:-----|
 |request|Object containing request data.|
+
  **Syntax**
-
-
-
 
 ```
 clientRequest(request )
@@ -144,15 +140,15 @@ The **injectFrame** function injects an iframe that is located on the domain int
 
 
 
+
+
 |**Parameter**|**Description**|
 |:-----|:-----|
 |xframe|Absolute URL to the iframe's target.|
 |container|DOM element that will contain the iframe.|
 |callback|Callback to execute when the iframe is loaded into the DOM.|
- **Syntax**
 
-
-
+**Syntax**
 
 ```
 injectFrame(xframe , container , callback )
@@ -198,7 +194,9 @@ After the iframe is created, an event handler is set up to run after the functio
 ## setAuthorization(accessToken, tokenType)
 <a name="sectionSection4"> </a>
 
+
 The **setAuthorization** function sets the authorization credentials to be used in requests.
+
 
 
 
@@ -206,10 +204,8 @@ The **setAuthorization** function sets the authorization credentials to be used 
 |:-----|:-----|
 |accessToken|Unique identifier.|
 |tokenType|Type of access token.|
- **Syntax**
 
-
-
+**Syntax**
 
 ```
 setAuthorization(accessToken , tokenType )
@@ -231,12 +227,12 @@ Transport.setAuthorization("cwt=AAEBHAEFAAAAAAAFFQAAACZfw6hMpZ-w7RAMgdAEAACBEPDt
 The **setElement** function sets the DOM element and domain to be used for requests.
 
 
-
 |**Parameter**|**Description**|
 |:-----|:-----|
 |element|Element that will receive requests.|
 |xframe|Absolute URL of the iframe's target.|
- **Syntax**
+
+**Syntax**
 
 
 
@@ -270,13 +266,11 @@ After the element and **xframe** are set, the Transport library can attempt to m
 The **setRequestCallbacks** function sets the request callbacks that are to be executed when requests are started and stopped.
 
 
-
 |**Parameter**|**Description**|
 |:-----|:-----|
 |callbacks|Object containing callbacks.|
+
 The callbacks parameter should be an object in the form of:
-
-
 
 
 ```

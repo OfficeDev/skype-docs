@@ -1,16 +1,17 @@
 ﻿---
-title: FrameRate element (QualityPropertiesType complexType) 
+title: FrameRate element (QualityPropertiesType complexType) (Schema D)
 TOCTitle: FrameRate element
 ms:assetid: fe6e2a77-2f44-2eab-25f1-f256bbafc84e
 ms:mtpsurl: https://msdn.microsoft.com/library/Mt404764(v=office.16)
 ms:contentKeyID: 68250710
+description: Average frame rate (in frames per second). When available, this metric is only reported for application sharing streams and only for Skype for Business 2013.
 ms.date: 08/24/2015
 mtps_version: v=office.16
 dev_langs:
 - xml
 ---
 
-# FrameRate element 
+# FrameRate element Schema D
 
 (QualityPropertiesType complexType) (Skype for Business SDN Interface 2.2, Schema "C")
 

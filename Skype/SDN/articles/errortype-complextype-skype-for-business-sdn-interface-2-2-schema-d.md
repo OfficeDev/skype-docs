@@ -1,16 +1,17 @@
 ﻿---
-title: ErrorType complexType 
+title: ErrorType complexType Schema D
 TOCTitle: ErrorType complexType
 ms:assetid: 889a7dba-4d3f-b2bd-9e78-62557a7bb35f
 ms:mtpsurl: https://msdn.microsoft.com/library/Mt171064(v=office.16)
 ms:contentKeyID: 65855637
+description: Will provide type information, definition, and elements.
 ms.date: 08/24/2015
 mtps_version: v=office.16
 dev_langs:
 - xml
 ---
 
-# ErrorType complexType 
+# ErrorType complexType (Schema D)
 
 (Skype for Business SDN Interface 2.2, Schema "D")
 

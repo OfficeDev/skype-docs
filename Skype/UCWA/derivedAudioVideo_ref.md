@@ -38,11 +38,13 @@ This resource can have the following relationships.
 |:-----|:-----|
 |self|The link to the current resource.|
 
+
 ### Azure Active Directory scopes for online applications
 
 
 
 The user must have at least one of these scopes for operations on the resource to be allowed.
+
 |**Scope**|**Permission**|**Description**|
 |:-----|:-----|:-----|
 |Conversations.Initiate|Initiate conversations and join meetings|Allows the app to initiate instant messages, audio, video, and desktop sharing conversations; and join meetings on-behalf of the signed-in user|

@@ -1,16 +1,17 @@
 ﻿---
-title: From element (QualityType complexType) 
+title: From element (QualityType complexType) (Schema C)
 TOCTitle: From element (QualityType complexType)
 ms:assetid: 426c035c-46a1-3793-ccc3-801556ed0a84
 ms:mtpsurl: https://msdn.microsoft.com/library/Mt404766(v=office.16)
 ms:contentKeyID: 68250674
+description: The source of the reported media stream.
 ms.date: 08/24/2015
 mtps_version: v=office.16
 dev_langs:
 - xml
 ---
 
-# From element 
+# From element (Schema C)
 
 (QualityType complexType) (Skype for Business SDN Interface 2.2, Schema "C")
 
