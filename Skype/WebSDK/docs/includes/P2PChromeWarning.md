@@ -7,3 +7,5 @@ description: P2P calls are not supported in Google Chrome.
 
 > [!IMPORTANT]
 > P2P calls are not supported in **Google Chrome**.
+
+## P2P calls are not supported in **Google Chrome**
