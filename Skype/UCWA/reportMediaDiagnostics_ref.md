@@ -4,6 +4,8 @@ title: funky called medina.  booya
 
 more changes
 
+something
+
 # reportMediaDiagnostics
 
  _**Applies to:** Skype for Business 2015_
