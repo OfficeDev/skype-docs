@@ -1,5 +1,5 @@
 ---
-title: funky called medina
+title: funky called medina.  booya
 ---
 
 # reportMediaDiagnostics
