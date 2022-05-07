@@ -4,8 +4,6 @@ title: The Skype for Business team responds to the developer communitity across 
 
 |Table 1|Table 2|
 |---|---|
-| `:heavy_check_mark:` | :heavy_check_mark: |
-| `:white_check_mark:` | :white_check_mark: |
 
 # Submit your questions, bugs, feature requests, and contributions
 
