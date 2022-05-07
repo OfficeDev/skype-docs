@@ -1,16 +1,17 @@
 ﻿---
-title: InCallQuality element (MessageType complexType) 
+title: InCallQuality element (MessageType complexType) Schema D
 TOCTitle: InCallQuality element
 ms:assetid: 67b9eaa8-b205-23da-f40f-3e555071e2d0
 ms:mtpsurl: https://msdn.microsoft.com/library/Mt170898(v=office.16)
 ms:contentKeyID: 65855473
+description: Indicates that a significant quality related event occurred in the client. Either the quality dropped into another level or improved. There are 3 levels (Good, Poor, Bad)
 ms.date: 08/24/2015
 mtps_version: v=office.16
 dev_langs:
 - xml
 ---
 
-# InCallQuality element 
+# InCallQuality element (MessageType complexType) (Schema D)
 
 (MessageType complexType) (Skype for Business SDN Interface 2.2, Schema "D")
 

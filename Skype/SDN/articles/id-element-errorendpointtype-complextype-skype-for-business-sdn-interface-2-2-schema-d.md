@@ -1,16 +1,17 @@
 ﻿---
-title: Id element (ErrorEndPointType complexType) 
+title: Id element (ErrorEndPointType complexType) Schema D
 TOCTitle: Id element (ErrorEndPointType complexType)
 ms:assetid: b1f5c7ee-c222-a1e4-93e5-9ad43713ab2d
 ms:mtpsurl: https://msdn.microsoft.com/library/Mt170894(v=office.16)
 ms:contentKeyID: 65855468
+description: Identifier of endpoint.
 ms.date: 08/24/2015
 mtps_version: v=office.16
 dev_langs:
 - xml
 ---
 
-# Id element 
+# Id element (ErrorEndPointType complexType) (Schema D)
 
 (ErrorEndPointType complexType) (Skype for Business SDN Interface 2.2, Schema "D")
 

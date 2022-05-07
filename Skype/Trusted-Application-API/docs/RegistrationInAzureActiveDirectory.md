@@ -1,5 +1,5 @@
 ---
-title: Registering your application in Azure AD
+title: Registering your application in Azure Active Directory (AD)
 description: This article shows you how to register your service application in the Azure Portal.
 ---
 

@@ -139,8 +139,8 @@ The following illustration shows this topology after the UCMA 2.0 application ha
     
    **Each time you add a new contact object, perform steps 3 and 4.**
     
-    > [!NOTE]
-    > This point is emphasized to remind you to perform the verifications in these steps when a new contact object is added using PowerShell. PowerShell might not be available locally on the computer from which you are running the WMI tool for activating new contact objects.
+   > [!NOTE]
+   > This point is emphasized to remind you to perform the verifications in these steps when a new contact object is added using PowerShell. PowerShell might not be available locally on the computer from which you are running the WMI tool for activating new contact objects.
 
 ## Scenario 4—Direct deployment of UCMA 2.0 application against pure Lync Server 2010
 

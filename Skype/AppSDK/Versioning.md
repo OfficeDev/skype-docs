@@ -1,3 +1,8 @@
+---
+title: Versioning and staying up to date
+description: The SDK will be updated frequently with new capabilities. Once the SDK is generally available, we’ll make every effort to ensure API back-compatibility with previous versions.
+---
+
 # Versioning and staying up to date
 
 We anticipate that the SDK will be updated frequently with new capabilities.
