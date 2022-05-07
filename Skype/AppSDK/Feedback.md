@@ -1,5 +1,5 @@
 ---
-title: Submit your questions, bugs, feature requests, and contributions
+title: Submit your questions, bugs, feature requests, and contributions forever
 ---
 
 # Submit your questions, bugs, feature requests, and contributions
