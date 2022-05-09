@@ -1,7 +1,10 @@
 ---
-title: Installing Skype for Business SDN Interface
+title: Installing Skype for Business SDN Interface packages
  
 ms.assetid: 69aa312c-0abb-438c-8588-0d756ba09a6d
+
+
+description: You install Microsoft Skype for Business SDN Interface by running two installation packages. One is for the SDN Manager and the other is for the Dialog Listener.
 ---
 
 

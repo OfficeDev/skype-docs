@@ -4,7 +4,7 @@
       [
         {
           "files": ["**/*.md", "**/*.yml"],
-          "exclude": ["**/obj/**", "**/_themes.pdf/**", "WebSDK/LICENSE.md", "WebSDK/README.md","AppSDK/readme.md"]
+          "exclude": ["**/obj/**", "**/_themes.pdf/**", "WebSDK/LICENSE.md", "WebSDK/README.md","AppSDK/readme.md", "**/includes/**"]
         }
       ],
     "resource": [

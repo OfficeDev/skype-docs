@@ -1,3 +1,6 @@
+---
+title: Submit your questions, bugs, feature requests, and contributions
+---
 # Submit your questions, bugs, feature requests, and contributions
 
 The **Skype for Business** team responds to the developer communitity across several channels. Please tell us about your:

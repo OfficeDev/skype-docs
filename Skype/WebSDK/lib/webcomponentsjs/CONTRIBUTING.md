@@ -50,21 +50,21 @@ We iterate fast! To avoid potential merge conflicts, it's a good idea to pull fr
 
 `git remote add upstream git://github.com/polymer/webcomponentsjs.git`
 
-Then before making a change, do a pull from the upstream `master` branch:
+Then before making a change, do a pull from the upstream `main` branch:
 
-`git pull upstream master`
+`git pull upstream main`
 
 To make life easier, add a "pull upstream" alias in your `.gitconfig`:
 
 ```
     [alias]
-      pu = !"git fetch origin -v; git fetch upstream -v; git merge upstream/master"
+      pu = !"git fetch origin -v; git fetch upstream -v; git merge upstream/main"
 ```
 
 That will pull in changes from your forked repo, the main (upstream) repo, and merge the two. Then it's just a matter of running `git pu` before a change and pushing to your repo:
 
 ```
-    git checkout master
+    git checkout main
     git pu
     # make change
     git commit -a -m 'Awesome things.'

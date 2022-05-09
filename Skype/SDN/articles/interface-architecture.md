@@ -1,6 +1,6 @@
 ---
-title: Skype for Business SDN Interface architecture
-description: At a high level, the Skype for Business SDN Interface infrastructure consists of the SDN Manager, the Dialog Listener/Skype for Business Server front end and a network controller. It also includes Skype for Business clients and one or more networks in an infrastructure cloud.
+title: Skype for Business SDN Interface architecture (description)
+description: At a high level, the Skype for Business SDN Interface infrastructure consists of the SDN Manager, the Dialog Listener/Skype for Business Server front end and a network controller.
 ms.date: 03/30/2022 
 ms.assetid: c84231e4-5d96-4f1c-8747-a9a56d4794d9
 ---

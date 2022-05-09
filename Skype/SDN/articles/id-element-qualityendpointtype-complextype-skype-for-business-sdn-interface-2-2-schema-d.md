@@ -1,16 +1,17 @@
 ﻿---
-title: Id element (QualityEndPointType complexType) 
+title: Id element (QualityEndPointType complexType) (Schema D)
 TOCTitle: Id element (QualityEndPointType complexType)
 ms:assetid: ac00e7bb-45a8-b450-1088-13b9ecaba80e
 ms:mtpsurl: https://msdn.microsoft.com/library/Mt170890(v=office.16)
 ms:contentKeyID: 65855465
+description:  Identifier of the endpoint. (QualityEndPointType complexType) Schema D
 ms.date: 08/24/2015
 mtps_version: v=office.16
 dev_langs:
 - xml
 ---
 
-# Id element 
+# Id element (QualityEndPointType complexType) Schema D
 
 (QualityEndPointType complexType) (Skype for Business SDN Interface 2.2, Schema "D")
 

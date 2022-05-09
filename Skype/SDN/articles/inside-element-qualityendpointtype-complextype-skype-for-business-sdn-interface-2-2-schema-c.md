@@ -1,16 +1,17 @@
 ﻿---
-title: Inside element (QualityEndPointType complexType) 
+title: Inside element (QualityEndPointType complexType) Schema C
 TOCTitle: Inside element
 ms:assetid: 26c25414-5008-0a08-4e29-59a2b709bf3b
 ms:mtpsurl: https://msdn.microsoft.com/library/Mt404778(v=office.16)
 ms:contentKeyID: 68250688
+description: (Deprecated - since Skype for Business 2013, this field is not reliable anymore.) Indicates if the source is registered within the enterprise (True) or not (False).
 ms.date: 08/24/2015
 mtps_version: v=office.16
 dev_langs:
 - xml
 ---
 
-# Inside element 
+# Inside element (QualityEndPointType complexType) (Schema C)
 
 (QualityEndPointType complexType) (Skype for Business SDN Interface 2.2, Schema "C")
 

@@ -1,11 +1,6 @@
 ---
-title: funky called medina.  booya
+title: reportMediaDiagnostics
 ---
-
-more changes
-
-something
-
 # reportMediaDiagnostics
 
  _**Applies to:** Skype for Business 2015_

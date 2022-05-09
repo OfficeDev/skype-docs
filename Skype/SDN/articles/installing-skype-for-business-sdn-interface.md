@@ -4,11 +4,12 @@ TOCTitle: Installing Skype for Business SDN Interface
 ms:assetid: 69aa312c-0abb-438c-8588-0d756ba09a6d
 ms:mtpsurl: https://msdn.microsoft.com/library/Dn785197(v=office.16)
 ms:contentKeyID: 65258657
+description: You install Microsoft Skype for Business SDN Interface by running two installation packages. One is for the SDN Manager and the other is for Dialog Listener.
 ms.date: 02/27/2017
 mtps_version: v=office.16
 ---
 
-# Installing Skype for Business SDN Interface
+# Installing Skype for Business SDN Interface packages
 
 
 _**Applies to:** Lync Server 2013 | Skype for Business 2015_
