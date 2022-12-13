@@ -11,7 +11,7 @@
       "open_to_public_contributors": true,
       "type_mapping": {
         "Conceptual": "Content",
-        "ManagedReference": "Content",
+        "ManagedReference": "Content", 
         "RestApi": "Content"
       },
       "build_entry_point": "docs",
