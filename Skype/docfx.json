@@ -14,13 +14,13 @@
         }
     ],
     "globalMetadata": {
+      "ms.service": "skype",
         "ROBOTS": "INDEX, FOLLOW",
       "breadcrumb_path": "/skype-sdk/breadcrumb/toc.json",
       "extendBreadcrumb": true,
       "ms.topic": "conceptual",
 	  "uhfHeaderId": "MSDocsHeader-M365-IT",
 	   "ms.suite": "office",
-	   "ms.prod" : "skype",
 	   "ms.author": "o365devx",
 	   "author": "o365devx",
 	   "ms.date": "04/27/2018"
