@@ -5,15 +5,11 @@ description: Anonymous meeting join is a powerful feature of the Skype Developer
 
 # Anonymous Meeting Join
 
-Anonymous meeting join is a powerful feature of the Skype Developer Platform that enables you to join guest users into Skype Meetings to deliver "remote advisor" and other Business-to-Consumer solutions.  For Skype for Business Online, anonymous meeting join is supported through the **Trusted Application API**.  The guest join meeting flow for anonymous meetings can use the **Trusted Application API** plus the client-side features of either the Skype Web SDK, App SDK, or UCWA.
+Anonymous meeting join is a powerful feature of the Skype Developer Platform that enables you to join guest users into Skype Meetings to deliver "remote advisor" and other Business-to-Consumer solutions.  For Skype for Business Online, anonymous meeting join is supported through the **Trusted Application API**.  The guest join meeting flow for anonymous meetings can use the **Trusted Application API** plus the client-side features of UCWA.
 The anonymous user can join into Skype meetings by using a meeting's URI.
 An online meeting can be scheduled using the Skype for Business Client or Outlook, or even programmatically using UCWA or the **Trusted Application API**.  The meeting's URL is passed to the service application, which calls the Trusted Application endpoint and enables anonymous users to join the online meeting.
 
-You'll need to use a **Trusted Application API**-enabled service application to get the Discover Url and anonymous meeting token. Your mobile app will call the service application to get these resources before joining a meeting. To learn more about this, see:
-
-- [Use the App SDK and the Trusted Application API to join an Online meeting - Android](../../AppSDK/HowToJoinOnlineMeeting_Android.md)
-- [Use the App SDK and the Trusted Application API to join an Online meeting - iOS](../../AppSDK/HowToJoinOnlineMeeting_iOS.md)
-- [Implementing a Anonymous Client with the Skype Web SDK](ImplementingAnonymousClientWithSkypeWebSDK.md)
+You'll need to use a **Trusted Application API**-enabled service application to get the Discover Url and anonymous meeting token. Your mobile app will call the service application to get these resources before joining a meeting.
 
 ## Prerequisites
 
