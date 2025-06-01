@@ -19,7 +19,7 @@ The table below maps SfB Web SDK sub-systems to Graph and ACS capabilities.
 | Presence | Use presence information to help users decide whether and how they should person other users. | [Graph Presence APIs](/graph/api/resources/presence)  |
 | Local user | Use the **mePerson** object to represent the currently signed-in user. | [Graph User APIs](/graph/api/user-get)  |
 | Conversations | Use conversation services to determine the ways for communication between persons. | [ACS Calling SDK for voice/video](/azure/communication-services/concepts/sdk-options) and [Graph for chat](/graph/api/resources/chat) |
-| Listening for and generating presence events | Use events to get a person's current presence. | [Graph Presence APIs](/graph/api/resources/presence.md)  |
+| Listening for and generating presence events | Use events to get a person's current presence. | [Graph Presence APIs](/graph/api/resources/presence)  |
 | Persons | Use person objects to represent individual users. | [Graph User APIs](/graph/api/user-get)  |
 | Devices | Select Cameras, Microphones, and Speakers to use for audio and video conversations. | [ACS Calling SDK](/azure/communication-services/how-tos/calling-sdk/manage-video#device-management.md)  |
 
@@ -35,10 +35,10 @@ To use Graph and ACS SDKs as an SfB Web SDK replacement, you will leverage these
 
 | Product   | **Feature**                                                                             | **Available**     |
 |:----------|:----------------------------------------------------------------------------------------|:----------------|
-| **Graph** | [Log-in a user to M365](/graph/auth.md)                                                 | ✔ |
-| **Graph** | [Set presence](/graph/api/presence-setpresence.md)                                      | ✔ |
-| **Graph** | [Get Presence](/graph/api/presence-get.md)                                              | ✔ |
-| **Graph** | [Send and receive chat messages](/graph/api/chatmessage-post.md)                        | ✔ |
+| **Graph** | [Log-in a user to M365](/graph/auth)                                                 | ✔ |
+| **Graph** | [Set presence](/graph/api/presence-setpresence)                                      | ✔ |
+| **Graph** | [Get Presence](/graph/api/presence-get)                                              | ✔ |
+| **Graph** | [Send and receive chat messages](/graph/api/chatmessage-post)                        | ✔ |
 | **Azure** | [Create an ACS token for an M365 user](/azure/communication-services/quickstarts/manage-teams-identity)                                                    | ✔  |
 | **Azure** | [M365 user can call a user in Teams](/azure/communication-services/quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client)                                                      | ✔  |
 | **Azure** | [M365 user can join a Teams meeting, interface with the video, audio, and chat channels](/azure/communication-services/quickstarts/voice-video-calling/get-started-teams-interop)  | ✔  |
